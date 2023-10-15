@@ -5,7 +5,8 @@ import Toggle from './toggle'
 export default function Header() {
     return (
         <header className="bg-black px-4 py-6 flex justify-between">
-            <h2 className="font-bold text-white text-2xl">ManyScan</h2>                
+            <div>&nbsp;</div>
+            <h2 className="font-bold text-white text-2xl opacity-75">ManyScan</h2>                
             <Toggle 
                 value={false} 
                 onChangeHandler= { (value: boolean) =>
