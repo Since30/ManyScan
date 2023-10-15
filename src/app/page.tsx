@@ -10,13 +10,13 @@ export default function Home() {
     <div className="bg-white">
       <Header/>
       <Navigation/>
-      <div className="md:flex">
-        <div className="md:w-3/4">
-          <div className="md:flex">
-            <div className="w-full md:w-3/4">
+      <div className="lg:flex">
+        <div className="lg:w-3/4">
+          <div className="lg:flex">
+            <div className="w-full lg:w-3/4">
               <TopAnimeCard/>
             </div>
-            <div className="w-full md:w-1/4">
+            <div className="w-full lg:w-1/4">
               <DiscoverAnimeCard/>
             </div>
           </div>
@@ -24,7 +24,7 @@ export default function Home() {
               <NewAnimeCard/>
           </div>
         </div>
-        <div className="md:w-1/4">
+        <div className="lg:w-1/4">
           <TopVerticalAnimeCard/>
         </div>
       </div>
