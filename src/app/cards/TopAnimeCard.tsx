@@ -14,28 +14,28 @@ export default function TopAnimeCard(props: Props) {
             <div className="overflow-x-scroll overflow-y-hidden w-full min-h-full max-h-full  h-full border shadow rounded-sm bg-white p-5 flex space-x-4 items-center">
                 <img src={ `${props.anime.img}` } className="rounded-sm"/>
                 <div>
-                    <span className="font-bold font-2xl text-black">{ props.anime.title }</span>
-                    <p className="text-black">
+                    <span className="font-bold font-2xl text-black opacity-90">{ props.anime.title }</span>
+                    <p className="text-black opacity-70">
                     {
                         // L'emploi de "??" permet de se prémunir d'erreur si la valeur que 
                         // l'on veut afficher est nulle (telle que définie dans AnimeObject.ts)
                     }
                     { props.anime.synopsis ?? "" }
                     </p>
-                    <div className="flex justify-between">
-                        <span className="font-bold text-black">
+                    <div className="flex-row lg:flex lg:justify-between uppercase opacity-75 text-sm py-4">
+                        <span className="block font-semibold text-black">
                             { props.anime.type ?? "Manga" }
                         </span>
 
-                        <span className="font-bold text-black">
+                        <span className="block font-semibold text-black">
                             { props.anime.chapters ?? 0 } chapitres
                         </span>
 
-                        <span className="font-bold text-black">
+                        <span className="block font-semibold text-black">
                             { props.anime.status ?? "" } 
                         </span>
 
-                        <span className="font-bold text-black">
+                        <span className="block font-semibold text-black">
                             { props.anime.language ?? "" } 
                         </span>
                     </div>

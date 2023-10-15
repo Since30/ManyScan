@@ -18,8 +18,8 @@ export default function TopVerticalAnimeCard(props: Props) {
                             <div className="text-center flex items-center space-x-2 bg-white p-2">
                             <img src={`${anime.img}`} className="rounded-sm"/>
                                 <div className="w-full flex-row">
-                                    <p className="font-bold font-xl text-black align-middle">{ anime.title }</p>
-                                    <p className="font-bold font-xl text-black align-middle">{ anime.author }</p>
+                                    <p className="font-semibold font-xl text-black opacity-90 align-middle">{ anime.title }</p>
+                                    <p className="font-regular font-xl text-black opacity-75 align-middle">{ anime.author }</p>
                                 </div>
                             </div>
                         )
