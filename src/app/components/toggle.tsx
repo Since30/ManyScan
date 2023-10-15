@@ -26,7 +26,7 @@ export default function App(props: Props) {
     }
 
   return (
-      <div>
+      <div className="flex-row text-center align-middle justify-center">
         {
             (props.value == true)
             ? <input
@@ -44,7 +44,7 @@ export default function App(props: Props) {
             id="flexSwitchCheckDefault" />
         }
           <label
-              className="inline-block pl-[0.15rem] hover:cursor-pointer"
+              className="block text-xs uppercase pl-[0.15rem] hover:cursor-pointer"
               htmlFor="flexSwitchCheckDefault"
           >{props.label}</label>
       </div>
