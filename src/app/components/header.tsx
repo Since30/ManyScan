@@ -1,7 +1,8 @@
 'use client' // Nécéssaire pour pouvoir utiliser onChangeHandler
 
 import { useTheme } from 'next-themes';
-import Toggle from './toggle'
+import Toggle from './toggle';
+import AppLogo from './AppLogo';
 
 export default function Header() {
     const { systemTheme, theme, setTheme } = useTheme();
@@ -10,7 +11,7 @@ export default function Header() {
     return (
         <header className="bg-white dark:bg-black px-4 py-6 flex justify-between">
             <div>&nbsp;</div>
-            <h2 className="font-bold text-black dark:text-white text-2xl opacity-75">ManyScan</h2>                
+            <AppLogo/>                
             <Toggle 
                 value={false} 
                 onChangeHandler= { (value: boolean) => {
