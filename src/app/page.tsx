@@ -6,6 +6,42 @@ import NewAnimeCard from './cards/NewAnimeCard'
 import TopVerticalAnimeCard from './cards/TopVerticalAnimeCard'
 
 export default function Home() {
+  var _exTopAnimeCardObject = {
+    img: 'https://placehold.co/160x250/EEE/31343C',
+    title: 'Naruto',
+    author: 'Masashi Kishimoto',
+    synopsis: `It is a long established fact that a reader will be distracted by 
+            the readable content of a page when looking at its layout. 
+            The point of using Lorem Ipsum is that it has a more-or-less normal 
+            distribution of letters, as opposed to using 'Content here, content here', 
+            making it look like readable English.`,
+    chapters: 12,
+    status: '?',
+    language: 'Français'
+  }
+
+  var _exDiscoverAnimeCardObject = {
+    img: 'https://placehold.co/160x250/EEE/31343C',
+    title: 'Naruto',
+    author: 'Masashi Kishimoto'
+  }
+  
+  var _exTopVerticalAnimeCardObjectsArray = [
+    _exDiscoverAnimeCardObject,
+    _exDiscoverAnimeCardObject,
+    _exDiscoverAnimeCardObject,
+    _exDiscoverAnimeCardObject,
+    _exDiscoverAnimeCardObject,
+  ]
+
+  var _exNewAnimeCardObjectsArray = [
+    _exDiscoverAnimeCardObject,
+    _exDiscoverAnimeCardObject,
+    _exDiscoverAnimeCardObject,
+    _exDiscoverAnimeCardObject,
+    _exDiscoverAnimeCardObject,
+  ]
+
   return (
     <div className="bg-white">
       <Header/>
@@ -14,18 +50,18 @@ export default function Home() {
         <div className="lg:w-3/4">
           <div className="lg:flex">
             <div className="w-full lg:w-3/4">
-              <TopAnimeCard/>
+              <TopAnimeCard anime={ _exTopAnimeCardObject }/>
             </div>
             <div className="w-full lg:w-1/4">
-              <DiscoverAnimeCard/>
+              <DiscoverAnimeCard anime={ _exDiscoverAnimeCardObject }/>
             </div>
           </div>
           <div className="w-full">
-              <NewAnimeCard/>
+              <NewAnimeCard animes={ _exNewAnimeCardObjectsArray} />
           </div>
         </div>
         <div className="lg:w-1/4">
-          <TopVerticalAnimeCard/>
+          <TopVerticalAnimeCard animes={_exTopVerticalAnimeCardObjectsArray}/>
         </div>
       </div>
     </div>
