@@ -44,7 +44,7 @@ export default function App(props: Props) {
             id="flexSwitchCheckDefault" />
         }
           <label
-              className="block text-xs uppercase pl-[0.15rem] hover:cursor-pointer"
+              className="block text-xs text-black dark:text-white opacity-75 uppercase pl-[0.15rem] hover:cursor-pointer"
               htmlFor="flexSwitchCheckDefault"
           >{props.label}</label>
       </div>

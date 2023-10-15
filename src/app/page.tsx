@@ -43,7 +43,7 @@ export default function Home() {
   ]
 
   return (
-    <div className="bg-white">
+    <div className="dark:bg-black bg-white">
       <Header/>
       <Navigation/>
       <div className="lg:flex">
