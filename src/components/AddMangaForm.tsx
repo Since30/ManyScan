@@ -47,7 +47,7 @@ const AddMangaForm: React.FC = () => {
         placeholder="Genre" 
         required 
       />
-      <button type="submit">Ajouter Manga</button>
+      <button type="submit">Ajoute un Manga</button>
     </form>
   );
 };

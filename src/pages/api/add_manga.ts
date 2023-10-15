@@ -21,7 +21,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             if (err) {
                 return console.error(err.message);
             }
-            console.log(`Ligne insérée avec l'ID : ${this.lastID}`);
+            console.log(`ligne insérée avec l'ID : ${this.lastID}`);
         }
     );
     db.close();
