@@ -10,6 +10,9 @@ const sequelize = new Sequelize("database", "username", "password", {
   storage: "path/to/database.sqlite",
 });
 
+const mangaRoutes = require("./routes/manga"); // Assure-toi que le chemin est correct
+app.use("/api/mangas", mangaRoutes);
+
 const Manga = require("./models/manga")(sequelize, Sequelize.DataTypes);
 
 // Synchroniser les modèles avec la base de données
