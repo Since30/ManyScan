@@ -1,3 +1,7 @@
+
+import AddMangaForm from '@/components/AddMangaForm'
+import Image from 'next/image'
+
 import Header from './components/header'
 import Navigation from './components/navigation'
 import TopAnimeCard from './cards/TopAnimeCard'
@@ -5,7 +9,15 @@ import DiscoverAnimeCard from './cards/DiscoverAnimeCard'
 import NewAnimeCard from './cards/NewAnimeCard'
 import TopVerticalAnimeCard from './cards/TopVerticalAnimeCard'
 
+
+
 export default function Home() {
+
+  return (
+    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <AddMangaForm />
+    </main>
+
   var _exTopAnimeCardObject = {
     img: 'https://placehold.co/160x250/EEE/31343C',
     title: 'Naruto',
@@ -65,5 +77,6 @@ export default function Home() {
         </div>
       </div>
     </div>
+
   )
 }

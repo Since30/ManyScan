@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  # Service de la base de données (SQLite)
+  db:
+    build: .
+    command: sh -c "node_modules/.bin/sequelize db:migrate && node_modules/.bin/sequelize db:seed:all && node index.js"
+    volumes:
+      - ./data:/usr/src/app/data
+    environment:
+      - NODE_ENV=development
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_HOST=db
+      - PMA_PORT=3306
+      - PMA_PASSWORD=root
+    ports:
+      - "8080:80"
+    links:
+      - db
+
+  # Application Express.js
+  app:
+    build: .
+    ports:
+      - "4000:4000"
+    depends_on:
+      - db
