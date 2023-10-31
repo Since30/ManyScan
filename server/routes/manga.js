@@ -1,3 +1,5 @@
+const db = require("")
+
 app.get("/api/animes", (req, res) => {
   const query = "SELECT * FROM animes";
   db.all(query, (err, rows) => {
