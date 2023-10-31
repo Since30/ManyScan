@@ -30,7 +30,6 @@ module.exports.signup = async (req, res) => {
         return res.status(500).json({ message: 'Registration failed' });
     }
 }
-
 module.exports.signin = async (req, res) => {
      try {
         const { email, password } = req.body;
@@ -59,7 +58,6 @@ module.exports.signin = async (req, res) => {
         return res.status(500).json({ message: 'Authentication failed' });
     }
 };
-
 module.exports.logout = async (req, res) => {
     try {
         const token = req.headers.authorization; 

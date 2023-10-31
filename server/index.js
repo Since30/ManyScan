@@ -9,12 +9,10 @@ require('dotenv').config({ path: './config/.env' });
 require('./database');
 
 app.use(bodyParser.json());
+app.use(morgan("dev"));
 
 //----- Headers & autorizations -----//
 app.use(cors());
-
-const authRoutes = require("./routes/authRoute");
-const Manga = require("./models/Manga");
 
 // Synchroniser les modèles avec la base de données
 sequelize
@@ -28,13 +26,13 @@ sequelize
     err
     );
   });
-
-// const mangaRoutes = require("./routes/manga"); // Assure-toi que le chemin est correct
   
-  // ... autres configurations et routes
+const authRoutes = require("./routes/authRoute");
+const mangaRoutes = require("./routes/mangaRoute");
+  
+// ... autres configurations et routes
 app.use('/api/auth', authRoutes)
-
-  // app.use("/api/mangas", mangaRoutes);
+app.use("/api/mangas", mangaRoutes);
 
 
 module.exports = app;
