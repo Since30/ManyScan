@@ -1,35 +1,40 @@
 const express = require("express");
-const { Sequelize } = require("sequelize");
-
+const cors = require('cors');
+const morgan = require("morgan");
+const sequelize = require("./database")
+const bodyParser = require("body-parser");
 const app = express();
 
-const PORT = process.env.PORT || 5000;
+require('dotenv').config({ path: './config/.env' });
+require('./database');
 
-const sequelize = new Sequelize("database", "username", "password", {
-  dialect: "sqlite",
-  storage: "path/to/database.sqlite",
-});
+app.use(bodyParser.json());
 
-const mangaRoutes = require("./routes/manga"); // Assure-toi que le chemin est correct
-app.use("/api/mangas", mangaRoutes);
+//----- Headers & autorizations -----//
+app.use(cors());
 
-const Manga = require("./models/manga")(sequelize, Sequelize.DataTypes);
+const authRoutes = require("./routes/authRoute");
+const Manga = require("./models/Manga");
 
 // Synchroniser les modèles avec la base de données
 sequelize
-  .sync({ force: true })
-  .then(() => {
-    console.log("Base de données synchronisée.");
-  })
-  .catch((err) => {
-    console.error(
-      "Erreur lors de la synchronisation de la base de données :",
-      err
+.sync({ force: true })
+.then(() => {
+  console.log("Base de données synchronisée.");
+})
+.catch((err) => {
+  console.error(
+    "Erreur lors de la synchronisation de la base de données :",
+    err
     );
   });
 
-// ... autres configurations et routes
+// const mangaRoutes = require("./routes/manga"); // Assure-toi que le chemin est correct
+  
+  // ... autres configurations et routes
+app.use('/api/auth', authRoutes)
 
-app.listen(PORT, () => {
-  console.log(`Serveur démarré sur le port ${PORT}`);
-});
+  // app.use("/api/mangas", mangaRoutes);
+
+
+module.exports = app;
