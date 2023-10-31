@@ -23,11 +23,15 @@ User.init({
         type: DataTypes.STRING,
         allowNull: false
     },
+    role:{
+        type: DataTypes.ENUM("Administrateur", "Admin", "Moderateur", "User"),
+        defaultValue: "User"
+    },
     status: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-            isIn: [['0', '1', '2']]
+            isIn: [['0', '1']]
         },
         defaultValue: '0'
     }
