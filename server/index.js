@@ -24,7 +24,7 @@ app.use('/api/mangas', mangasRoutes);
 app.use('/api/users', usersRoutes);
 
 // Server
-let port = process.env.PORT || 5000;
+let port = process.env.PORT || 8080;
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`)

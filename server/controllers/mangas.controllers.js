@@ -1,28 +1,22 @@
-const db = require('../config/db');
+const mangaAPI  = require('../mangas-api')
 
-module.exports.createMangas = (req, res) => {};
+//module.exports.createMangas = (req, res) => {};
 
-module.exports.allMangas = (req, res) => {
-    const query = 'SELECT * FROM animes';
-    db.all(query, (err, rows) => {
-        if (err) {
-            return res.status(500).json({ error: err.message });
-        }
-        res.json({ animes: rows });
-    });
+module.exports.allMangas = async (req, res) => {
+    const page = req.query.page;
+    const results = await mangaAPI.getAllMangas(page);
+
+    return res.json(results)
 };
 
-module.exports.oneMangas = (req, res) => {
-    const query = 'SELECT * FROM animes WHERE id = ?';
-    db.get(query, [req.params.id], (err, row) => {
-        if (err) {
-            return res.status(500).json({ error: err.message });
-        }
-        res.json({ anime: row });
-    });
+module.exports.oneMangaByTitle = async (req, res) => {
+   const searchManga = req.query.title;
+   const results = await mangaAPI.searchByTitle(searchManga);
+
+   return res.json(results)
 };
 
-module.exports.updateMangas = (req, res) => {
+/*module.exports.updateMangas = (req, res) => {
     const updateQuery = `
       UPDATE animes
       SET img = ?, title = ?, author = ?, type = ?, chapters = ?, status = ?, language = ?, synopsis = ?
@@ -58,6 +52,6 @@ module.exports.deleteMangas = (req, res) => {
         res.json({ message: 'Anime supprimé', changes: this.changes });
     });
 };
-
+*/
 module.exports.likeMangas = (req, res) => {};
 module.exports.unlikeMangas = (req, res) => {};
