@@ -11,4 +11,8 @@ router.post('/signin', authCtrl.signin);
 //----- Route déconnection -----//
 router.post('/logout', jwtMiddleware, authCtrl.logout);
 
+//----- Réinit le mot de passe -----//
+router.post('/edit-password/:id', jwtMiddleware, authCtrl.editPassword); // Possibilité d'ajouter une notif et token aux headers de l'email
+
+
 module.exports = router;
