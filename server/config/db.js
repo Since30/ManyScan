@@ -1,18 +1,13 @@
 const { Sequelize } = require("sequelize");
+const path = require('path');
 
-const sequelize = new Sequelize("database", "username", "password", {
-    dialect: "sqlite",
-    storage: './config/database.sqlite',
-  });
+// Spécifiez le chemin complet du fichier SQLite
+const databasePath = path.join(__dirname, './database.sqlite');
 
-  sequelize
-  .sync({ force: true })
-  .then(() => {
-    console.log("Base de données synchronisée.");
-  })
-  .catch((err) => {
-    console.error(
-      "Erreur lors de la synchronisation de la base de données :",
-      err
-    );
-  });
+const sequelize = new Sequelize({
+    dialect: 'sqlite',
+    host: databasePath,
+});
+
+module.exports = sequelize;
+

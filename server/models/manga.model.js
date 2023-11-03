@@ -1,17 +1,23 @@
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/db");
 
-module.exports = (sequelize, DataTypes) => {
-    const Manga = sequelize.define("Manga", {
-      title: {
+class Manga extends Model{}
+User.init({
+    title: {
         type: DataTypes.STRING,
         allowNull: false,
-      },
-      author: {
+    },
+    author: {
         type: DataTypes.STRING,
         allowNull: false,
-      },
-      genre: DataTypes.STRING,
-    });
-  
-    return Manga;
-  };
+    },
+    genre: {
+        type: DataTypes.STRING,
+    }
+  }, {
+      sequelize,
+      modelName: "Manga"
+});
+
+module.exports = Manga;
   
