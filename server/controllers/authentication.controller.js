@@ -79,5 +79,41 @@ module.exports.logout = async (req, res) => {
         });
     }
 };
+module.exports.editPassword = async (req, res) => {
+    try {
+        const { password, newPassword } = req.body;
+
+        const user = await User.findOne({ where: { id: req.params.id } });
+
+        if (!user) {
+            return res.status(404).json({
+                message: "User not found."
+            });
+        }
+
+        // Vérifie si l'ancien mot de passe est correct
+        const isPasswordMatch = await bcrypt.compare(password, user.password);
+
+        if (!isPasswordMatch) {
+            return res.status(400).json({
+                message: "Old incorrect password."
+            });
+        }
+
+        // Hachez et met à jour le nouveau mot de passe
+        const hashedNewPassword = bcrypt.hashSync(newPassword, 12);
+        user.password = hashedNewPassword;
+        await user.save();
+
+        res.status(200).json({
+            message: "Password changed successfully."
+        });
+    } catch (error) {
+        res.status(500).json({
+            message: "Erreur serveur",
+            error: error 
+        });
+    }
+};
 
 
