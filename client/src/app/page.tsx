@@ -5,7 +5,13 @@ import DiscoverAnimeCard from './cards/DiscoverAnimeCard'
 import NewAnimeCard from './cards/NewAnimeCard'
 import TopVerticalAnimeCard from './cards/TopVerticalAnimeCard'
 
+
+
+
 export default function Home() {
+
+
+
   var _exTopAnimeCardObject = {
     img: 'https://placehold.co/160x250/EEE/31343C',
     title: 'Naruto',
@@ -42,8 +48,13 @@ export default function Home() {
     _exDiscoverAnimeCardObject,
   ]
 
+
+  
+
   return (
+    
     <div className="dark:bg-black bg-white">
+   
       <Header/>
       <Navigation/>
       <div className="lg:flex">

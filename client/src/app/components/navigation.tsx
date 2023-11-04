@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect, useRef } from 'react';
+import Register from '../pages/form/_registerForm';
 
 export default function Navigation() {
 
@@ -27,7 +28,7 @@ export default function Navigation() {
                             <a href="#" className="p-2 m-2 dark:text-white text-black opacity-75 transition hover:opacity-100">Tout les mangas</a>
                             <a href="#" className="p-2 m-2 dark:text-white text-black opacity-75 transition hover:opacity-100">Ma collection</a>
                             <a href="#" className="p-2 m-2 dark:text-white text-black opacity-75 transition hover:opacity-100">Se connecter</a>
-                            <a href="#" className="p-2 m-2 dark:text-white text-black opacity-75 transition hover:opacity-100">S'inscrire</a>
+                            <a href='#' className="p-2 m-2 dark:text-white text-black opacity-75 transition hover:opacity-100">S'inscrire</a>
                         </>
                     )
                     :
