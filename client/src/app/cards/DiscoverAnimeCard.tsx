@@ -1,21 +1,37 @@
-'use client'
+'use client';
 
-import CardTitle from "./CardTitle"
-import AnimeOject from "../interfaces/animeObject"
+import React from 'react';
+import AnimeObject from "../interfaces/animeObject";
+import CardTitle from "./CardTitle";
 
 interface Props {
-    anime: AnimeOject
+    anime: AnimeObject;
+    title: string; 
 }
 
-export default function TopAnimeCard(props: Props) {
+const DiscoverAnimeCard: React.FC<Props> = ({ anime, title }) => {  
+    const {
+        img = 'Url par défault', 
+        title: animeTitle = 'Découvrir', 
+        author = 'Auteur inconnu',
+        synopsis = 'Pas de synopsis disponible',
+    } = anime;
+
     return (
         <div className="w-full h-full p-5">
-            <CardTitle title="Découvrir"/>
-            <div className="w-full min-h-full max-h-full  h-full border text-center shadow rounded-sm flex-row space-y-2 dark:bg-black bg-white p-5 dark:border-black">
-                <img src={ `${props.anime.img}` } className="mx-auto rounded-sm"/>
-                <p className="font-semibold font-xl opacity-90 dark:text-white text-black">{ props.anime.title }</p>
-                <p className="font-regular font-xl opacity-75 dark:text-white text-black">{ props.anime.author }</p>
+            <CardTitle title= "Découvrir" /> 
+            <div className="w-full min-h-full max-h-full h-full border text-center shadow rounded-sm flex-row space-y-2 dark:bg-black bg-white p-5 dark:border-black">
+                <img src={img} alt={`Couverture de ${animeTitle}`} className="mx-auto rounded-sm"/>
+                <div>
+                    <h2 className="font-bold font-2xl dark:text-white text-black opacity-90">{animeTitle}</h2>
+                    <p className="dark:text-white text-black opacity-70">{synopsis}</p>
+                    <p className="dark:text-white text-black opacity-70">{author}</p>
+                   
+                </div>
             </div>
         </div>
-    )
+    );
 }
+
+export default DiscoverAnimeCard;
+
