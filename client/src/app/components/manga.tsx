@@ -1,13 +1,13 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import Header from './components/header';
-import Navigation from './components/navigation';
-import TopAnimeCard from './cards/TopAnimeCard';
-import DiscoverAnimeCard from './cards/DiscoverAnimeCard';
-import NewAnimeCard from './cards/NewAnimeCard';
-import TopVerticalAnimeCard from './cards/TopVerticalAnimeCard';
-import { fetchMangaCovers } from './services/MangaTheqApi';
-import AnimeObject from './interfaces/animeObject';
+import Header from '../components/header';
+import Navigation from '../components/navigation';
+import TopAnimeCard from '../cards/TopAnimeCard';
+import DiscoverAnimeCard from '../cards/DiscoverAnimeCard';
+import NewAnimeCard from '../cards/NewAnimeCard';
+import TopVerticalAnimeCard from '../cards/TopVerticalAnimeCard';
+import { fetchMangaCovers } from '../services/MangaTheqApi';
+import AnimeObject from '../interfaces/animeObject';
 
 export default function Home() {
   const [animes, setAnimes] = useState<AnimeObject[]>([]);
@@ -30,14 +30,12 @@ export default function Home() {
           <div className="lg:flex">
             {animes.length > 0 && (
               <div className="w-full lg:w-3/4">
-              
-                <TopAnimeCard anime={animes[0]} />
+                <TopAnimeCard key={animes[0].id} anime={animes[0]} />
               </div>
             )}
             {animes.length > 1 && (
               <div className="w-full lg:w-1/4">
-                
-                <DiscoverAnimeCard anime={animes[1]} title="Découvrir" />
+                <DiscoverAnimeCard anime={animes[1]} title={''} />
               </div>
             )}
           </div>
@@ -46,8 +44,7 @@ export default function Home() {
           </div>
         </div>
         <div className="lg:w-1/4">
-      
-          <TopVerticalAnimeCard animes={animes} title="Top Vertical" />
+          <TopVerticalAnimeCard title='Top ' animes={animes} />
         </div>
       </div>
     </div>
