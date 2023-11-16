@@ -1,80 +1,77 @@
-import Header from './components/header'
-import Navigation from './components/navigation'
-import TopAnimeCard from './cards/TopAnimeCard'
-import DiscoverAnimeCard from './cards/DiscoverAnimeCard'
-import NewAnimeCard from './cards/NewAnimeCard'
-import TopVerticalAnimeCard from './cards/TopVerticalAnimeCard'
-
-
-
+import Header from './components/Header';
+import Navigation from './components/Navigation';
+import TopAnimeCard from './cards/TopAnimeCard';
+import DiscoverAnimeCard from './cards/DiscoverAnimeCard';
+import NewAnimeCard from './cards/NewAnimeCard';
+import TopVerticalAnimeCard from './cards/TopVerticalAnimeCard';
 
 export default function Home() {
-
-
-
-  var _exTopAnimeCardObject = {
-    img: 'https://placehold.co/160x250/EEE/31343C',
-    title: 'Naruto',
-    author: 'Masashi Kishimoto',
-    synopsis: `It is a long established fact that a reader will be distracted by 
+    const _fakeDataTopAnimeCardObject = {
+        img: 'https://placehold.co/160x250/EEE/31343C',
+        title: 'Naruto',
+        author: 'Masashi Kishimoto',
+        synopsis: `It is a long established fact that a reader will be distracted by 
             the readable content of a page when looking at its layout. 
             The point of using Lorem Ipsum is that it has a more-or-less normal 
             distribution of letters, as opposed to using 'Content here, content here', 
             making it look like readable English.`,
-    chapters: 12,
-    status: '?',
-    language: 'Français'
-  }
+        chapters: 12,
+        status: '?',
+        language: 'Français',
+        type: 'Shonen',
+    };
 
-  var _exDiscoverAnimeCardObject = {
-    img: 'https://placehold.co/160x250/EEE/31343C',
-    title: 'Naruto',
-    author: 'Masashi Kishimoto'
-  }
-  
-  var _exTopVerticalAnimeCardObjectsArray = [
-    _exDiscoverAnimeCardObject,
-    _exDiscoverAnimeCardObject,
-    _exDiscoverAnimeCardObject,
-    _exDiscoverAnimeCardObject,
-    _exDiscoverAnimeCardObject,
-  ]
+    const _fakeDataDiscoverAnimeCardObject = {
+        img: 'https://placehold.co/160x250/EEE/31343C',
+        title: 'Naruto',
+        author: 'Masashi Kishimoto',
+        type: 'Shonen',
+    };
 
-  var _exNewAnimeCardObjectsArray = [
-    _exDiscoverAnimeCardObject,
-    _exDiscoverAnimeCardObject,
-    _exDiscoverAnimeCardObject,
-    _exDiscoverAnimeCardObject,
-    _exDiscoverAnimeCardObject,
-  ]
+    const _fakeDataTopVerticalAnimeCardObjectsArray = [
+        _fakeDataDiscoverAnimeCardObject,
+        _fakeDataDiscoverAnimeCardObject,
+        _fakeDataDiscoverAnimeCardObject,
+        _fakeDataDiscoverAnimeCardObject,
+        _fakeDataDiscoverAnimeCardObject,
+    ];
 
+    const _fakeDataNewAnimeCardObjectsArray = [
+        _fakeDataDiscoverAnimeCardObject,
+        _fakeDataDiscoverAnimeCardObject,
+        _fakeDataDiscoverAnimeCardObject,
+        _fakeDataDiscoverAnimeCardObject,
+        _fakeDataDiscoverAnimeCardObject,
+    ];
 
-  
-
-  return (
-    
-    <div className="dark:bg-black bg-white">
-   
-      <Header/>
-      <Navigation/>
-      <div className="lg:flex">
-        <div className="lg:w-3/4">
-          <div className="lg:flex">
-            <div className="w-full lg:w-3/4">
-              <TopAnimeCard anime={ _exTopAnimeCardObject }/>
+    return (
+        <div className='bg-light dark:bg-dark py-6'>
+            <Header />
+            <Navigation />
+            <div className='lg:flex'>
+                <div className='lg:w-3/4'>
+                    <div className='lg:flex'>
+                        <div className='w-full lg:w-3/4'>
+                            <TopAnimeCard anime={_fakeDataTopAnimeCardObject} />
+                        </div>
+                        <div className='w-full lg:w-1/4'>
+                            <DiscoverAnimeCard
+                                anime={_fakeDataDiscoverAnimeCardObject}
+                            />
+                        </div>
+                    </div>
+                    <div className='w-full'>
+                        <NewAnimeCard
+                            animes={_fakeDataNewAnimeCardObjectsArray}
+                        />
+                    </div>
+                </div>
+                <div className='lg:w-1/4'>
+                    <TopVerticalAnimeCard
+                        animes={_fakeDataTopVerticalAnimeCardObjectsArray}
+                    />
+                </div>
             </div>
-            <div className="w-full lg:w-1/4">
-              <DiscoverAnimeCard anime={ _exDiscoverAnimeCardObject }/>
-            </div>
-          </div>
-          <div className="w-full">
-              <NewAnimeCard animes={ _exNewAnimeCardObjectsArray} />
-          </div>
         </div>
-        <div className="lg:w-1/4">
-          <TopVerticalAnimeCard animes={_exTopVerticalAnimeCardObjectsArray}/>
-        </div>
-      </div>
-    </div>
-  )
+    );
 }
