@@ -4,6 +4,15 @@ const JWT = require('jsonwebtoken');
 
 module.exports.register = async (req, res) => {
     try{
+        const { username, email, password, confirmPassword } = req.body;
+
+        // Check if passwords match
+        if (password !== confirmPassword) {
+            return res.status(400).json({
+                message: "Passwords do not match"
+            });
+        }
+        // Check if user exist
         const existingUser = await User.findOne({
             where: {
                 email: req.body.email
@@ -15,6 +24,7 @@ module.exports.register = async (req, res) => {
                 message: "Email already in use"
             });
         }
+        // Create and save User
             const newUser = await User.create({
                username: req.body.username, 
                email: req.body.email, 
@@ -76,42 +86,6 @@ module.exports.logout = async (req, res) => {
         return res.status(500).json({ 
             message: 'Logout failed',
             error: error
-        });
-    }
-};
-module.exports.editPassword = async (req, res) => {
-    try {
-        const { password, newPassword } = req.body;
-
-        const user = await User.findOne({ where: { id: req.params.id } });
-
-        if (!user) {
-            return res.status(404).json({
-                message: "User not found."
-            });
-        }
-
-        // Vérifie si l'ancien mot de passe est correct
-        const isPasswordMatch = await bcrypt.compare(password, user.password);
-
-        if (!isPasswordMatch) {
-            return res.status(400).json({
-                message: "Old incorrect password."
-            });
-        }
-
-        // Hachez et met à jour le nouveau mot de passe
-        const hashedNewPassword = bcrypt.hashSync(newPassword, 12);
-        user.password = hashedNewPassword;
-        await user.save();
-
-        res.status(200).json({
-            message: "Password changed successfully."
-        });
-    } catch (error) {
-        res.status(500).json({
-            message: "Erreur serveur",
-            error: error 
         });
     }
 };

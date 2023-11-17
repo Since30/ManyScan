@@ -7,22 +7,30 @@ interface Props {
     anime: AnimeOject;
 }
 
-export default function TopAnimeCard(props: Props) {
+const DiscoverAnimeCard: React.FC<Props> = ({ anime, title }) => {  
+    const {
+        img = 'Url par défault', 
+        title: animeTitle = 'Découvrir', 
+        author = 'Auteur inconnu',
+        synopsis = 'Pas de synopsis disponible',
+    } = anime;
+
     return (
+
         <div className='w-full h-full p-5'>
             <CardTitle title='Découvrir' />
             <div className='w-full text-center rounded-md flex-row space-y-2 dark:bg-dark-card bg-light-card p-5 '>
-                <img
-                    src={`${props.anime.img}`}
-                    className='mx-auto rounded-md h-[190px]'
-                />
+                <img src={img} alt={`Couverture de ${animeTitle}`} className="mx-auto rounded-sm h-[190px]"/>
                 <p className='font-semibold text-xl text-light'>
-                    {props.anime.title}
+                    {animeTitle}
                 </p>
                 <p className='font-regular text-sm  text-light'>
-                    {props.anime.author}
+                    {author}
                 </p>
             </div>
         </div>
     );
 }
+
+export default DiscoverAnimeCard;
+

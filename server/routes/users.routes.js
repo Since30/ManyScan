@@ -8,6 +8,8 @@ router.get('/get-users', jwtMiddleware, usersControllers.getAllUsers);
 router.get('/:id', jwtMiddleware, usersControllers.getUser);
 //----- Edit User ID -----//
 router.put('/edit/:id', jwtMiddleware, usersControllers.updateUser);
+//----- Edit PASSWORD User ID -----//
+router.put('/edit/password/:id', jwtMiddleware, usersControllers.editPassword);
 //----- Delete User ID -----//
 router.delete('/delete/:id', jwtMiddleware, usersControllers.delelteUser);
 

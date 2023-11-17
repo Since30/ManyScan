@@ -1,10 +1,12 @@
 'use client';
 
+
 import CardTitle from './CardTitle';
 import AnimeOject from '../interfaces/animeObject';
 
 interface Props {
-    animes: Array<AnimeOject>;
+    animes: AnimeObject[];
+  title: string;
 }
 
 export default function TopVerticalAnimeCard(props: Props) {
@@ -12,11 +14,12 @@ export default function TopVerticalAnimeCard(props: Props) {
         <div className=' pr-20 p-5'>
             <CardTitle title='Top' />
             <div className='overflow-x-hidden overflow-y-scroll w-full h-full min-h-screen max-h-screen rounded-md dark:bg-dark-card bg-light-card dark:border-black p-5 flex-row space-y-4 '>
-                {props.animes.map((anime) => {
+                {props.animes.map((anime, index) => {
                     return (
-                        <div className='text-start flex items-start space-x-2 p-2'>
+                        <div key={anime.id || index} className='text-start flex items-start space-x-2 p-2'>
                             <img
                                 src={`${anime.img}`}
+                              alt={anime.title}
                                 className='rounded-md h-[150px]'
                             />
                             <div className='w-full flex-row'>

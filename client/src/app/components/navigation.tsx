@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import Register from '../pages/form/_registerForm';
 
 export default function Navigation() {
     const [searchBarVisibility, setSearchBarVisibility] = useState(false);

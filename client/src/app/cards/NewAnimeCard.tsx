@@ -5,6 +5,8 @@ import AnimeOject from '../interfaces/animeObject';
 
 interface Props {
     animes: Array<AnimeOject>;
+
+
 }
 
 export default function TopAnimeCard(props: Props) {
@@ -12,10 +14,10 @@ export default function TopAnimeCard(props: Props) {
         <div className='ml-28 p-5 '>
             <CardTitle title='Nouveautés' />
             <div className='overflow-x-scroll overflow-y-hidden w-full min-h-fit max-h-fit h-fit rounded-md dark:bg-dark-card bg-light-card p-5 dark:border-black flex space-x-4'>
-                {props.animes.map((anime) => {
+                {props.animes.map((anime, index) => {
                     return (
-                        <div className='text-center flex-row space-y-2 p-5'>
-                            <img src={`${anime.img}`} className='rounded-md' />
+                        <div key={anime.id || index} className='text-center flex-row space-y-2 p-5'>
+                            <img src={`${anime.img}`} alt={anime.title} className='rounded-md' />
                             <p className='font-semibold text-xl text-light'>
                                 {anime.title}
                             </p>

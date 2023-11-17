@@ -1,3 +1,5 @@
+// app/providers.jsx
+
 'use client'
 
 import { ThemeProvider } from 'next-themes'
