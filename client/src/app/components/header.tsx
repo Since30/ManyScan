@@ -1,28 +1,31 @@
-'use client' // Nécéssaire pour pouvoir utiliser onChangeHandler
+'use client'; // Nécéssaire pour pouvoir utiliser onChangeHandler
 
 import { useTheme } from 'next-themes';
-import Toggle from './toggle';
+import Toggle from './ToggleDarkMode';
 import AppLogo from './AppLogo';
 
 export default function Header() {
     const { systemTheme, theme, setTheme } = useTheme();
-    const currentTheme = theme === 'system' ? systemTheme : theme;
+    
 
     return (
-        <header className="bg-white dark:bg-black px-4 py-6 flex justify-between">
+        <header className=' px-20 flex justify-between items-center'>
             <div>&nbsp;</div>
-            <AppLogo/>                
-            <Toggle 
-                value={false} 
-                onChangeHandler= { (value: boolean) => {
-                    if(theme == "dark") { 
-                        setTheme('light')
+            <div className='h-32 w-96'>
+                <AppLogo />
+            </div>
+            <Toggle
+                value={false}
+                onChangeHandler={(value: boolean) => {
+                    if (theme == 'dark') {
+                        setTheme('light');
                     } else {
-                        setTheme("dark");
+                        setTheme('dark');
                     }
-                    console.log(value) // TODO: Sauvegarder ici dans les préférences le choix de l'utilisateur
+                    console.log(value); // TODO: Sauvegarder ici dans les préférences le choix de l'utilisateur
                 }}
-                label="Dark mode"></Toggle> 
+                label='Dark mode'
+            />
         </header>
-    )
+    );
 }

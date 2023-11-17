@@ -1,5 +1,4 @@
-'use client'
-'use client'
+'use client';
 
 interface Props {
     title: string;
@@ -7,7 +6,8 @@ interface Props {
 
 export default function CardTitle(props: Props) {
     return (
-            <span className="font-semibold uppercase text-md text-black dark:text-white opacity-50">{props.title}</span>
-    )
+        <span className='font-semibold uppercase text-md text-dark dark:text-light opacity-80'>
+            {props.title}
+        </span>
+    );
 }
-

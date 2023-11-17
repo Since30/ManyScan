@@ -1,11 +1,13 @@
+
 'use client';
 import React, { useState, useEffect } from 'react';
-import Header from './components/header';
-import Navigation from './components/navigation';
+import Header from './components/Header';
+import Navigation from './components/Navigation';
 import TopAnimeCard from './cards/TopAnimeCard';
 import DiscoverAnimeCard from './cards/DiscoverAnimeCard';
 import NewAnimeCard from './cards/NewAnimeCard';
 import TopVerticalAnimeCard from './cards/TopVerticalAnimeCard';
+
 import { fetchMangaCovers } from './services/MangaTheqApi';
 import AnimeObject from './interfaces/animeObject';
 
@@ -22,7 +24,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="dark:bg-black bg-white">
+    <div className='bg-light dark:bg-dark py-6'>
       <Header />
       <Navigation />
       <div className="lg:flex">

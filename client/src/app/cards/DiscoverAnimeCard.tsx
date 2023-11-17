@@ -1,12 +1,10 @@
 'use client';
 
-import React from 'react';
-import AnimeObject from "../interfaces/animeObject";
-import CardTitle from "./CardTitle";
+import CardTitle from './CardTitle';
+import AnimeOject from '../interfaces/animeObject';
 
 interface Props {
-    anime: AnimeObject;
-    title: string; 
+    anime: AnimeOject;
 }
 
 const DiscoverAnimeCard: React.FC<Props> = ({ anime, title }) => {  
@@ -18,16 +16,17 @@ const DiscoverAnimeCard: React.FC<Props> = ({ anime, title }) => {
     } = anime;
 
     return (
-        <div className="w-full h-full p-5">
-            <CardTitle title= "Découvrir" /> 
-            <div className="w-full min-h-full max-h-full h-full border text-center shadow rounded-sm flex-row space-y-2 dark:bg-black bg-white p-5 dark:border-black">
-                <img src={img} alt={`Couverture de ${animeTitle}`} className="mx-auto rounded-sm"/>
-                <div>
-                    <h2 className="font-bold font-2xl dark:text-white text-black opacity-90">{animeTitle}</h2>
-                    <p className="dark:text-white text-black opacity-70">{synopsis}</p>
-                    <p className="dark:text-white text-black opacity-70">{author}</p>
-                   
-                </div>
+
+        <div className='w-full h-full p-5'>
+            <CardTitle title='Découvrir' />
+            <div className='w-full text-center rounded-md flex-row space-y-2 dark:bg-dark-card bg-light-card p-5 '>
+                <img src={img} alt={`Couverture de ${animeTitle}`} className="mx-auto rounded-sm h-[190px]"/>
+                <p className='font-semibold text-xl text-light'>
+                    {animeTitle}
+                </p>
+                <p className='font-regular text-sm  text-light'>
+                    {author}
+                </p>
             </div>
         </div>
     );
