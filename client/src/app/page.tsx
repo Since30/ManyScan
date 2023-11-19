@@ -8,16 +8,17 @@ import DiscoverAnimeCard from './cards/DiscoverAnimeCard';
 import NewAnimeCard from './cards/NewAnimeCard';
 import TopVerticalAnimeCard from './cards/TopVerticalAnimeCard';
 
-import { fetchMangaCovers } from './services/MangaTheqApi';
-import AnimeObject from './interfaces/animeObject';
+import { fetchMangaCovers, fetchManga } from './services/MangaTheqApi';
+import AnimeObjects from './interfaces/animeObjects';
 
 export default function Home() {
-  const [animes, setAnimes] = useState<AnimeObject[]>([]);
+  const [animes, setAnimes] = useState<AnimeObjects[]>([]);
 
   useEffect(() => {
     const loadData = async () => {
-      const data = await fetchMangaCovers();
-      setAnimes(data || []);
+      const mangaData = await fetchManga(1);
+
+      setAnimes(mangaData || []);
     };
 
     loadData();

@@ -5,11 +5,9 @@ const baseUrl = new URL('https://api.mangadex.org/manga');
 //Récupération de la cover
 const getCover = async (manga) => {
 
-    const coverId = await manga.relationships.find((relationship) => relationship.type === 'cover_art').id;
+    const mangaId = await manga.id;
     const fileName =await manga.relationships.find((relationship) => relationship.type === 'cover_art').attributes.fileName;
-    const coverUrl = new URL(
-        `https://uploads.mangadex.org/covers/${coverId}/${fileName}`
-    );
+    const coverUrl = `https://uploads.mangadex.org/covers/${mangaId}/${fileName}`
     const fetchCover = await fetch(coverUrl);
     const cover = fetchCover.url;
     return await cover;
@@ -86,8 +84,8 @@ module.exports.getAllMangas = async (page = 0) => {
                 updatedAt: manga.attributes.updatedAt,
                 language: manga.attributes.availableTranslatedLanguages,
                 lastChapter: manga.attributes.latestUploadedChapter,
-                coverId: manga.relationships.find((relationship) => relationship.type === 'cover_art').id,
-                coverFileName: manga.relationships.find((relationship) => relationship.type === 'cover_art').attributes.fileName,
+                //coverId: manga.relationships.find((relationship) => relationship.type === 'cover_art').id,
+                //coverFileName: manga.relationships.find((relationship) => relationship.type === 'cover_art').attributes.fileName,
                 cover: coverURL,
                 authorId: manga.relationships.find(
                     (relationship) => relationship.type === 'author'

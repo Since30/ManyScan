@@ -1,10 +1,10 @@
 'use client';
 
 import CardTitle from './CardTitle';
-import AnimeOject from '../interfaces/animeObject';
+import AnimeObjects from '../interfaces/animeObjects';
 
 interface Props {
-    anime: AnimeOject;
+    anime: AnimeObjects;
 }
 
 const DiscoverAnimeCard: React.FC<Props> = ({ anime }) => {
@@ -13,7 +13,7 @@ const DiscoverAnimeCard: React.FC<Props> = ({ anime }) => {
             <CardTitle title='Découvrir' />
             <div className='w-full h-84 text-center rounded-md flex-row space-y-2 dark:bg-dark-card bg-light-card p-5 '>
                 <img
-                    src={anime.img}
+                    src={anime.cover}
                     alt={`Couverture de ${anime.title}`}
                     className='mx-auto rounded-sm min-h-[250px] min-w-[176px] max-h-[250px] max-w-[176px]'
                 />
@@ -23,7 +23,7 @@ const DiscoverAnimeCard: React.FC<Props> = ({ anime }) => {
                             {anime.title ?? 'Titre'}
                         </p>
                         <p className='font-regular text-sm  text-light'>
-                            {anime.author ?? 'Auteur'}
+                            {anime.authorName ?? 'Auteur'}
                         </p>
                     </div>
                     <div className='flex flex-col items-start'>
