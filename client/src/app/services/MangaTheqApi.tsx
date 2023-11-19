@@ -8,6 +8,9 @@ const fetchMangaCovers = async (): Promise<AnimeObject[] | null> => {
     }
     const data = await response.json();
 
+    console.log(data)
+    
+
     if (data && Array.isArray(data.data)) {
       const animeObjects: AnimeObject[] = data.data.map((manga: any) => {
         const mangaId = manga.id;

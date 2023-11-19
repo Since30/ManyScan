@@ -2,18 +2,18 @@ const mangaAPI  = require('../mangas-api')
 
 //module.exports.createMangas = (req, res) => {};
 
-module.exports.allMangas = async (req, res) => {
-    const page = req.query.page;
-    const results = await mangaAPI.getAllMangas(page);
-
-    return res.json(results)
-};
-
 module.exports.oneMangaByTitle = async (req, res) => {
    const searchManga = req.query.title;
    const results = await mangaAPI.searchByTitle(searchManga);
 
    return res.json(results)
+};
+
+module.exports.allMangas = async (req, res) => {
+    const page = req.query.page;
+    const results = await mangaAPI.getAllMangas(page);
+
+    return res.json(results)
 };
 
 /*module.exports.updateMangas = (req, res) => {
