@@ -1,28 +1,32 @@
 'use client';
 
 import CardTitle from './CardTitle';
-import AnimeOject from '../interfaces/animeObject';
+import AnimeObjects from '../interfaces/animeObjects';
 
 interface Props {
-    animes: Array<AnimeOject>;
-
-
+    animes: Array<AnimeObjects>;
 }
 
 export default function TopAnimeCard(props: Props) {
     return (
         <div className='ml-28 p-5 '>
             <CardTitle title='Nouveautés' />
-            <div className='overflow-x-scroll overflow-y-hidden w-full min-h-fit max-h-fit h-fit rounded-md dark:bg-dark-card bg-light-card p-5 dark:border-black flex space-x-4'>
-                {props.animes.map((anime, index) => {
+            <div className='overflow-y-hidden overflow-x-auto rounded-md dark:bg-dark-card bg-light-card p-5 dark:border-black flex flex-row space-x-4'>
+                {props.animes.slice(0, 7).map((anime, index) => {
                     return (
-                        <div key={anime.id || index} className='text-center flex-row space-y-2 p-5'>
-                            <img src={`${anime.img}`} alt={anime.title} className='rounded-md' />
+                        <div
+                            key={anime.id || index}
+                            className='text-center flex-row p-5'>
+                            <img
+                                src={`${anime.cover}`}
+                                alt={anime.title}
+                                className='rounded-md min-h-[210px] min-w-[148px] max-h-[210px] max-w-[148px]'
+                            />
                             <p className='font-semibold text-xl text-light'>
-                                {anime.title}
+                                {anime.title ?? 'Titre'}
                             </p>
                             <p className='font-regular text-sm  text-light'>
-                                {anime.author}
+                                {anime.authorName ?? 'Auteur'}
                             </p>
                         </div>
                     );

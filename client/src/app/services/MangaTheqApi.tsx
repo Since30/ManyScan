@@ -1,6 +1,6 @@
-import AnimeObject from '../interfaces/animeObject';
+import AnimeObjects from '../interfaces/animeObjects';
 
-const fetchMangaCovers = async (): Promise<AnimeObject[] | null> => {
+const fetchMangaCovers = async (): Promise<AnimeObjects[] | null> => {
   try {
     const response = await fetch('https://api.mangadex.org/manga?includes[]=cover_art'); 
     if (!response.ok) {
@@ -9,7 +9,7 @@ const fetchMangaCovers = async (): Promise<AnimeObject[] | null> => {
     const data = await response.json();
 
     if (data && Array.isArray(data.data)) {
-      const animeObjects: AnimeObject[] = data.data.map((manga: any) => {
+      const animeObjects: AnimeObjects[] = data.data.map((manga: any) => {
         const mangaId = manga.id;
         const coverArt = manga.relationships.find((rel: any) => rel.type === 'cover_art');
         const coverFilename = coverArt?.attributes?.fileName;
@@ -41,5 +41,23 @@ const fetchMangaCovers = async (): Promise<AnimeObject[] | null> => {
   }
 };
 
-export { fetchMangaCovers };
+const fetchManga = async (page: number): Promise<AnimeObjects[] | void> => {
+  
+  try {
+    const response = await fetch(`http://localhost:8080/api/mangas?page=${page}`);
+
+    if (!response.ok) {
+      throw new Error(`Erreur HTTP: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    return data;
+
+  } catch (error) {
+    console.error({ error });
+  }
+};
+
+export { fetchMangaCovers, fetchManga };
 

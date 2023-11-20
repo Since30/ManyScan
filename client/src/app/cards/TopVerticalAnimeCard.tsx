@@ -1,11 +1,10 @@
 'use client';
 
-
 import CardTitle from './CardTitle';
-import AnimeOject from '../interfaces/animeObject';
+import AnimeObjects from '../interfaces/animeObjects';
 
 interface Props {
-    animes: AnimeObject[];
+    animes: AnimeObjects[];
   title: string;
 }
 
@@ -18,7 +17,7 @@ export default function TopVerticalAnimeCard(props: Props) {
                     return (
                         <div key={anime.id || index} className='text-start flex items-start space-x-2 p-2'>
                             <img
-                                src={`${anime.img}`}
+                                src={`${anime.cover}`}
                               alt={anime.title}
                                 className='rounded-md h-[150px]'
                             />
@@ -27,7 +26,7 @@ export default function TopVerticalAnimeCard(props: Props) {
                                     {anime.title}
                                 </p>
                                 <p className='font-regular text-sm text-light  align-start'>
-                                    {anime.author}
+                                    {anime.authorName}
                                 </p>
                                 <p className='font-regular text-xs text-light  align-start'>
                                     {anime.type}
