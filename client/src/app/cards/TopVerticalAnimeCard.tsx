@@ -2,10 +2,11 @@
 
 import CardTitle from './CardTitle';
 import AnimeObjects from '../interfaces/animeObjects';
+import Star from '../components/StarRating';
 
 interface Props {
     animes: AnimeObjects[];
-  title: string;
+    title: string;
 }
 
 export default function TopVerticalAnimeCard(props: Props) {
@@ -15,26 +16,39 @@ export default function TopVerticalAnimeCard(props: Props) {
             <div className='overflow-x-hidden overflow-y-scroll w-full h-full min-h-screen max-h-screen rounded-md dark:bg-dark-card bg-light-card dark:border-black p-5 flex-row space-y-4 '>
                 {props.animes.map((anime, index) => {
                     return (
-                        <div key={anime.id || index} className='text-start flex items-start space-x-2 p-2'>
+                        <div
+                            key={anime.id || index}
+                            className='text-start flex items-start space-x-2 p-2 h-44'>
                             <img
                                 src={`${anime.cover}`}
-                              alt={anime.title}
-                                className='rounded-md h-[150px]'
+                                alt={anime.title}
+                                className='rounded-md h-[150px] w-[100px] object-cover object-center'
                             />
-                            <div className='w-full flex-row'>
-                                <p className='font-semibold text-xl text-light align-start'>
-                                    {anime.title}
-                                </p>
-                                <p className='font-regular text-sm text-light  align-start'>
+                            <div className='w-full flex flex-col justify-between h-[150px]'>
+                                <h3 className='font-semibold text-sm text-light line-clamp-3 overflow-hidden overflow-ellipsis'>
+                                    {anime.title ?? 'Titre inconnu'}
+                                </h3>
+                                <p className='font-regular text-xs text-light  align-start'>
                                     {anime.authorName}
                                 </p>
                                 <p className='font-regular text-xs text-light  align-start'>
                                     {anime.type}
                                 </p>
 
-                                <p className='text-sm mt-10'>
-                                    ⭐️ ⭐️ ⭐️ ⭐️ ⭐️
-                                </p>
+                                <div className='flex flex-col items-end'>
+                                    <span className='text-sm text-light'>
+                                        <Star
+                                            rating={
+                                                anime.statistics.rating ?? 0
+                                            }
+                                            animeId={anime.id}
+                                        />
+                                    </span>
+                                    <span className='text-light text-xs'>
+                                        {anime.statistics?.numberOfVotes ?? '0'}{' '}
+                                        votes
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     );

@@ -1,10 +1,18 @@
+type status = 'ongoing' | 'completed' | 'hiatus' | 'cancelled';
+
+type statistics = {
+    rating: number;
+    numberOfVotes: number;
+};
+
 export default interface AnimeObjects {
     id: string;
     title: string;
     description?: string;
     type: string | 'inconnu';
-    status: string;
+    status: status;
     year: number;
+    statistics: statistics;
     createAt: string;
     updatedAt: string;
     language: string;
