@@ -11,7 +11,7 @@ export default function TopAnimeCard(props: Props) {
     return (
         <div className='ml-28 p-5 '>
             <CardTitle title='Nouveautés' />
-            <div className='overflow-y-hidden overflow-x-auto rounded-md dark:bg-dark-card bg-light-card p-5 dark:border-black flex flex-row space-x-4'>
+            <div className=' scrollbar-thin overflow-auto hide-scrollbar  rounded-md dark:bg-dark-card bg-light-card p-5 dark:border-black flex flex-row space-x-4'>
                 {props.animes.slice(0, 7).map((anime, index) => {
                     return (
                         <div

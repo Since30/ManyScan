@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+const plugin = require('tailwindcss/plugin');
 
 
 const config: Config = {
@@ -17,9 +18,31 @@ const config: Config = {
         "text-light": "#FFFFFF",
         "text-dark": "##fffffe"
       },
+    
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(({ addUtilities }: { addUtilities: any }) => {
+      const newUtilities = {
+      '.scrollbar-thin': {
+        'scrollbar-width': 'thin',
+        'scrollbar-color': '#888 #000',
+      },
+      '.scrollbar-thin::-webkit-scrollbar': {
+        width: '10px',
+      },
+      '.scrollbar-thin::-webkit-scrollbar-track': {
+        background: '#000',
+      },
+      '.scrollbar-thin::-webkit-scrollbar-thumb': {
+        background: '#888',
+        '&:hover': {
+          background: '#555',
+        },
+      },
+    };
+    addUtilities(newUtilities, ['responsive', 'hover']);
+  }),],
   darkMode: 'class'
 }
 export default config

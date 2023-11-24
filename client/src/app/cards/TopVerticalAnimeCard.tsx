@@ -12,7 +12,7 @@ export default function TopVerticalAnimeCard(props: Props) {
     return (
         <div className=' pr-20 p-5'>
             <CardTitle title='Top' />
-            <div className='overflow-x-hidden overflow-y-scroll w-full h-full min-h-screen max-h-screen rounded-md dark:bg-dark-card bg-light-card dark:border-black p-5 flex-row space-y-4 '>
+            <div className=' scrollbar-thin overflow-auto hide-scrollbar overflow-x-hidden w-full h-full min-h-screen max-h-screen rounded-md dark:bg-dark-card bg-light-card dark:border-black p-5 flex-row space-y-4 '>
                 {props.animes.map((anime, index) => {
                     return (
                         <div key={anime.id || index} className='text-start flex items-start space-x-2 p-2'>
