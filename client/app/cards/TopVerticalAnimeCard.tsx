@@ -3,6 +3,7 @@
 import CardTitle from './CardTitle';
 import AnimeObjects from '../interfaces/animeObjects';
 import Star from '../components/StarRating';
+import Cover from '@/components/Cover';
 
 interface Props {
     animes: AnimeObjects[];
@@ -19,11 +20,9 @@ export default function TopVerticalAnimeCard(props: Props) {
                         <div
                             key={anime.id || index}
                             className='text-start flex items-start space-x-2 p-2 h-44'>
-                            <img
-                                src={`${anime.cover}`}
-                                alt={anime.title}
-                                className='rounded-md h-[150px] w-[100px] object-cover object-center'
-                            />
+                            <div className='min-w-max min-h-max'>
+                                <Cover anime={anime} width={100} height={150} />
+                            </div>
                             <div className='w-full flex flex-col justify-between h-[150px]'>
                                 <h3 className='font-semibold text-sm text-light line-clamp-3 overflow-hidden overflow-ellipsis'>
                                     {anime.title ?? 'Titre inconnu'}

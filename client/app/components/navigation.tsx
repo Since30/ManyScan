@@ -31,12 +31,12 @@ export default function Navigation() {
             {searchBarVisibility === false ? (
                 <>
                     <a
-                        href='#'
+                        href='/'
                         className='p-2 m-2 text-light text-lg transition'>
                         Accueil
                     </a>
                     <a
-                        href='#'
+                        href='/allmangas'
                         className='p-2 m-2 text-light text-lg transition'>
                         Tous les mangas
                     </a>
