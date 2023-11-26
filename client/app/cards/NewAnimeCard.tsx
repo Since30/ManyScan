@@ -2,26 +2,23 @@
 
 import CardTitle from './CardTitle';
 import AnimeObjects from '../interfaces/animeObjects';
-import Star from '../components/StarRating';
+import StarRating from '../components/StarRating';
+import Cover from '@/components/Cover';
 
 interface Props {
     animes: Array<AnimeObjects>;
 }
 
-export default function TopAnimeCard(props: Props) {
+const TopAnimeCard: React.FC<Props>= ({animes}) => {
     return (
         <div className='ml-28 p-5 '>
             <CardTitle title='Nouveautés' />
             <div className=' scrollbar-thin overflow-auto hide-scrollbar  rounded-md dark:bg-dark-card bg-light-card p-5 dark:border-black flex flex-row space-x-4'>
-                {props.animes.slice(0, 7).map((anime, index) => {
+                {animes.slice(0, 7).map((anime, index) => {
                     return (
                         <div key={anime.id || index}>
                             <div className='flex flex-col items-center text-center w-[190px]'>
-                                <img
-                                    src={`${anime.cover}`}
-                                    alt={anime.title}
-                                    className='rounded-md min-h-[210px] min-w-[148px] max-h-[210px] max-w-[148px]'
-                                />
+                                <Cover anime={anime} width={148} height={210} />
                                 <h3 className='font-semibold text-lg text-light line-clamp-2 overflow-hidden overflow-ellipsis'>
                                     {anime.title ?? 'Titre inconnu'}
                                 </h3>
@@ -31,7 +28,7 @@ export default function TopAnimeCard(props: Props) {
                             </div>
                             <div className='flex flex-col items-center'>
                                 <span className='text-sm text-light'>
-                                    <Star
+                                    <StarRating
                                         rating={anime.statistics.rating}
                                         animeId={anime.id}
                                     />
@@ -48,3 +45,5 @@ export default function TopAnimeCard(props: Props) {
         </div>
     );
 }
+
+export default TopAnimeCard

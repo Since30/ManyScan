@@ -4,7 +4,8 @@ const plugin = require('tailwindcss/plugin');
 
 const config: Config = {
   content: [
-    './app/pages/**/*.{js,ts,jsx,tsx,mdx}',
+
+    '.app/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './app/components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
@@ -29,7 +30,8 @@ const config: Config = {
         'scrollbar-color': '#888 #000',
       },
       '.scrollbar-thin::-webkit-scrollbar': {
-        width: '10px',
+        height: '3px',
+        width: '3px',
       },
       '.scrollbar-thin::-webkit-scrollbar-track': {
         background: '#000',

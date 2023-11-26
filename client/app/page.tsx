@@ -1,4 +1,3 @@
-
 'use client';
 import React, { useState, useEffect } from 'react';
 import Header from './components/header';
@@ -25,7 +24,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className='bg-light dark:bg-dark py-6'>
+    <div className='py-6'>
       <Header />
       <Navigation />
       <div className="lg:flex">
@@ -34,7 +33,7 @@ export default function Home() {
             {animes.length > 0 && (
               <div className="w-full lg:w-3/4">
               
-                <TopAnimeCard anime={animes[0]} />
+                <TopAnimeCard animes={animes[0]} />
               </div>
             )}
             {animes.length > 1 && (
