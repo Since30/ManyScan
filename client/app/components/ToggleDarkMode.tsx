@@ -1,14 +1,8 @@
-'use client' // Nécéssaire pour pouvoir utiliser onChange
+'use client' 
 
-// Source du toggle : https://tw-elements.com/docs/react/forms/switch/
-// https://bobbyhadz.com/blog/typescript-react-onchange-event-type
+
 
 import React from 'react';
-
-// On définit les arguments/props dans une interface
-// value: valeur originale du toggle
-// onChangeHandler: fonction callback. Est appelée lors d'un changement d'état
-// label: String affiché à côté du toggle
 
 interface Props {
     value: boolean;

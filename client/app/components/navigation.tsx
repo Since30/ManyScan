@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
+
 
 export default function Navigation() {
     const [searchBarVisibility, setSearchBarVisibility] = useState(false);
@@ -28,38 +30,25 @@ export default function Navigation() {
                     </svg>
                 </a>
             </div>
-            {searchBarVisibility === false ? (
+            {!searchBarVisibility ? (
                 <>
-                    <a
-                        href='/'
-                        className='p-2 m-2 text-light text-lg transition'>
-                        Accueil
-                    </a>
-                    <a
-                        href='/allmangas'
-                        className='p-2 m-2 text-light text-lg transition'>
-                        Tous les mangas
-                    </a>
-                    <a
-                        href='#'
-                        className='p-2 m-2 text-light text-lg transition'>
-                        Ma collection
-                    </a>
-                    <a
-                        href='#'
-                        className='p-2 m-2 text-light text-lg transition hover:opacity-100'>
-                        <a href='/login'>Se connecter</a>  / <a href='/register'>S'inscrire</a> 
-                    </a>
+                    <Link href='/' className='p-2 m-2 text-light text-lg transition'>Accueil</Link>
+                    <Link href='/allmangas' className='p-2 m-2 text-light text-lg transition'>Tous les mangas</Link>
+                    <Link href='#' className='p-2 m-2 text-light text-lg transition'>Ma collection</Link>
+                    <div className='flex'>
+                        <Link href='/login' className='p-2 m-2 text-light text-lg transition'>Se connecter</Link>
+                        
+                        <Link href='/register' className='p-2 m-2 text-light text-lg transition'>S'inscrire</Link>
+                    </div>
                 </>
             ) : (
-                <>
-                    <input
-                        type='text'
-                        className='w-full border rounded p-2 m-2 text-lightfont-light'
-                        placeholder='Chercher un manga'
-                    />
-                </>
+                <input
+                    type='text'
+                    className='w-full border rounded p-2 m-2 text-light font-light'
+                    placeholder='Chercher un manga'
+                />
             )}
         </nav>
     );
-}
+};
+
