@@ -1,12 +1,12 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { fetchManga } from '../services/MangaTheqApi';
-import AnimeObjects from '@/interfaces/animeObjects';
+import AnimeObjects from '../interfaces/animeObjects';
 import Headers from '../components/header';
 import Navigation from '../components/navigation';
-import StarRating from '@/components/StarRating';
-import Pagination from '@/components/Pagination';
-import Cover from '@/components/Cover';
+import StarRating from '../components/StarRating';
+import Pagination from '../components/Pagination';
+import Cover from '../components/Cover';
 
 const AllMangas = () => {
     const [animes, setAnimes] = useState<AnimeObjects[]>([]);
@@ -33,9 +33,9 @@ const AllMangas = () => {
             <div className='flex flex-wrap justify-center mx-2'>
                 {animes.map((anime) => {
                     return (
-                        <div className='flex flex-col justify-center m-4 items-center w-60 h-96 text-center rounded-md dark:bg-dark-card bg-light-card'> 
+                        <div key={anime.id} className='flex flex-col justify-center m-4 items-center w-60 h-96 text-center rounded-md dark:bg-dark-card bg-light-card'> 
                             <Cover anime={anime} width={176} height={250}/>
-                            <div className='flex justify-between w-[80%] mt-3 pl-2'>
+                            <div  className='flex justify-between w-[80%] mt-3 pl-2'>
                                 <div className='flex flex-col items-start w-[90%]'>
                                     <h3 className='font-semibold text-start text-lg text-light line-clamp-2 overflow-hidden overflow-ellipsis'>
                                         {anime.title ?? 'Titre'}

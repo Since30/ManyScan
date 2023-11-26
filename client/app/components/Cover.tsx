@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import AnimeObjects from '@/interfaces/animeObjects';
+import AnimeObjects from '../interfaces/animeObjects';
 import heartIcon from '../../public/heart.svg';
 
 interface Props {

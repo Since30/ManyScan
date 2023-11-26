@@ -3,7 +3,7 @@
 import CardTitle from './CardTitle';
 import StarRating from '../components/StarRating';
 import AnimeObjects from '../interfaces/animeObjects';
-import Cover from '@/components/Cover';
+import Cover from '../components/Cover';
 interface Props {
     animes: AnimeObjects;
 }
