@@ -6,9 +6,9 @@ import TopAnimeCard from './cards/TopAnimeCard';
 import DiscoverAnimeCard from './cards/DiscoverAnimeCard';
 import NewAnimeCard from './cards/NewAnimeCard';
 import TopVerticalAnimeCard from './cards/TopVerticalAnimeCard';
-
 import { fetchManga } from './services/MangaTheqApi';
 import AnimeObjects from './interfaces/animeObjects';
+import Footer from './components/footer';
 
 export default function Home() {
   const [animes, setAnimes] = useState<AnimeObjects[]>([]);
@@ -52,6 +52,7 @@ export default function Home() {
           <TopVerticalAnimeCard animes={animes} title="Top Vertical" />
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
