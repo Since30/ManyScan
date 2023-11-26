@@ -48,7 +48,7 @@ export default function Navigation() {
                     <a
                         href='#'
                         className='p-2 m-2 text-light text-lg transition hover:opacity-100'>
-                        Se connecter / S'inscrire
+                        <a href='/login'>Se connecter</a>  / <a href='/register'>S'inscrire</a> 
                     </a>
                 </>
             ) : (

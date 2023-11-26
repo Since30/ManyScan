@@ -10,6 +10,7 @@ interface Props {
 
 const TopAnimeCard: React.FC<Props> = ({ animes }) => {
     return (
+        
         <div className='h-full ml-28 p-5'>
             <CardTitle title='Top 5 mangas' />
 
@@ -58,6 +59,7 @@ const TopAnimeCard: React.FC<Props> = ({ animes }) => {
                 </div>
             </div>
         </div>
+        
     );
 };
 
