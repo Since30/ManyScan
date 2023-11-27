@@ -12,6 +12,7 @@ module.exports.register = async (req, res) => {
                 message: "Passwords do not match"
             });
         }
+
         // Check if user exist
         const existingUser = await User.findOne({
             where: {
@@ -24,6 +25,7 @@ module.exports.register = async (req, res) => {
                 message: "Email already in use"
             });
         }
+
         // Create and save User
             const newUser = await User.create({
                username: req.body.username, 
