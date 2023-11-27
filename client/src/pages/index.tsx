@@ -1,28 +1,30 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import Header from './header';
-import Navigation from './navigation';
+import Header from '../components/header';
+import Navigation from '../components/navigation';
 import TopAnimeCard from '../cards/TopAnimeCard';
 import DiscoverAnimeCard from '../cards/DiscoverAnimeCard';
 import NewAnimeCard from '../cards/NewAnimeCard';
 import TopVerticalAnimeCard from '../cards/TopVerticalAnimeCard';
-import { fetchMangaCovers } from '../services/MangaTheqApi';
-import AnimeObject from '../interfaces/animeObject';
+import { fetchManga } from '../services/MangaTheqApi';
+import AnimeObjects from '../interfaces/animeObjects';
+import Footer from '../components/footer';
 
 export default function Home() {
-  const [animes, setAnimes] = useState<AnimeObject[]>([]);
+  const [animes, setAnimes] = useState<AnimeObjects[]>([]);
 
   useEffect(() => {
     const loadData = async () => {
-      const data = await fetchMangaCovers();
-      setAnimes(data || []);
+      const mangaData = await fetchManga(1);
+
+      setAnimes(mangaData || []);
     };
 
     loadData();
   }, []);
 
   return (
-    <div>
+    <div className='py-6'>
       <Header />
       <Navigation />
       <div className="lg:flex">
@@ -30,11 +32,13 @@ export default function Home() {
           <div className="lg:flex">
             {animes.length > 0 && (
               <div className="w-full lg:w-3/4">
-                <TopAnimeCard anime={animes[0]} />
+              
+                <TopAnimeCard animes={animes[0]} />
               </div>
             )}
             {animes.length > 1 && (
               <div className="w-full lg:w-1/4">
+                
                 <DiscoverAnimeCard anime={animes[1]} />
               </div>
             )}
@@ -44,9 +48,11 @@ export default function Home() {
           </div>
         </div>
         <div className="lg:w-1/4">
-          <TopVerticalAnimeCard title='Top ' animes={animes} />
+      
+          <TopVerticalAnimeCard animes={animes} title="Top Vertical" />
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

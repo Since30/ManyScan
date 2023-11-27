@@ -1,75 +1,97 @@
-import { useRouter } from 'next/router';
+'use client';
 import React, { useEffect, useState } from 'react';
-
+import { useRouter } from 'next/router';
 
 interface MangaDetailProps {
     id: string;
     title: string;
-    description: string;
-    author: string;
-    coverUrl: string;
+    description?: string;
+    author?: string;
+    coverUrl?: string;
     status: string;
-    chapters: number;
+    chapters?: number;
 }
 
 interface Relationship {
-  type: string;
-  attributes: {
-    name?: string;
-    fileName?: string;
-  };
+    type: string;
+    attributes?: {
+        name?: string;
+        fileName?: string;
+    };
 }
 
 const MangaDetailPage: React.FC = () => {
     const [manga, setManga] = useState<MangaDetailProps | null>(null);
+    const [error, setError] = useState<string | null>(null);
     const router = useRouter();
-    const { id } = router.query;
 
     useEffect(() => {
-        async function fetchMangaData() {
-            if (typeof id === 'string') {
-                const response = await fetch(`https://api.mangadex.org/manga/${id}`);
-                const data = await response.json();
-                console.log(data);
-                // Transform data here to fit MangaDetailProps
-                const mangaDetails = {
-                  id: data.data.id,
-                  title: data.data.attributes.title.en,
-                  description: data.data.attributes.description.en,
-                  author: data.data.relationships.find((rel: Relationship) => rel.type === 'author')?.attributes.name,
-                  coverUrl: `https://api.mangadex.org/covers/${data.data.id}/${data.data.relationships.find((rel: Relationship) => rel.type === 'cover_art')?.attributes.fileName}`,
-                  status: data.data.attributes.status,
-                  chapters: data.data.attributes.totalChapterCount,
-              };
-                setManga(mangaDetails);
-                console.log(mangaDetails);
-            }
-        }
+        if (router.isReady) {
+            const  id  = router.query.id;
 
-        fetchMangaData();
-    }, [id]);
+            const fetchMangaData = async () => {
+                if (typeof id === 'string') {
+                    try {
+                        const response = await fetch(`https://api.mangadex.org/manga/${id}`);
+                        if (!response.ok) {
+                            throw new Error(`Error fetching manga: ${response.statusText}`);
+                        }
+                        const data = await response.json();
+
+                        const authorRel = data.data.relationships.find((rel: Relationship) => rel.type === 'author');
+                        const coverRel = data.data.relationships.find((rel: Relationship) => rel.type === 'cover_art');
+                        const coverUrl = coverRel && coverRel.attributes && coverRel.attributes.fileName ? `https://uploads.mangadex.org/covers/${data.data.id}/${coverRel.attributes.fileName}` : undefined;
+
+                        const mangaDetails: MangaDetailProps = {
+                            id: data.data.id,
+                            title: data.data.attributes.title.en,
+                            description: data.data.attributes.description.en,
+                            author: authorRel?.attributes?.name,
+                            coverUrl: coverUrl,
+                            status: data.data.attributes.status,
+                            chapters: data.data.attributes.totalChapterCount,
+                        };
+                        setManga(mangaDetails);
+                    } catch (err) {
+                        console.error(err);
+                        setError("Une erreur est survenue lors de la récupération des détails du manga.");
+                    }
+                }
+            };
+
+            fetchMangaData();
+        }
+    }, [router.isReady, router.query]);
+
+    if (error) {
+        return <div>Erreur : {error}</div>;
+    }
 
     if (!manga) {
-        return <div>Loading...</div>;
+        return <div>Chargement...</div>;
     }
 
     return (
         <div className="bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white min-h-screen">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 <button onClick={() => router.back()} className="mb-12 text-sm px-4 py-2 rounded shadow bg-gray-200 dark:bg-gray-600">
-                    Back
+                    Retour
                 </button>
                 
                 <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-8">
                     <div className="md:col-span-1">
-                        <img src={manga.coverUrl} alt={`Cover of ${manga.title}`} className="shadow-lg rounded" />
+                        {manga.coverUrl ? (
+                            <img src={manga.coverUrl} alt={`Couverture de ${manga.title}`} className="shadow-lg rounded" />
+                        ) : (
+                            <p>Pas de couverture disponible.</p>
+                        )}
                     </div>
                     <div className="md:col-span-2 lg:col-span-3">
                         <h1 className="text-3xl font-extrabold mb-6">{manga.title}</h1>
-                        <p>{manga.description}</p>
-                        <p><strong>Author:</strong> {manga.author}</p>
-                        <p><strong>Status:</strong> {manga.status}</p>
-                        <p><strong>Chapters:</strong> {manga.chapters}</p>
+                        <p>{manga.description || 'Description non disponible.'}</p>
+                        <p><strong>Auteur :</strong> {manga.author || 'Non spécifié'}</p>
+                        <p><strong>Status :</strong> {manga.status}</p>
+                        <p><strong>Chapitres :</strong> {manga.chapters ? manga.chapters : 'Non spécifié'}</p>
                     </div>
                 </div>
             </div>
