@@ -41,7 +41,7 @@ const ChapterReaderPage = () => {
   return (
     <div>
       {chapterImages.map((imageUrl, index) => (
-        <img key={index} src={imageUrl} alt={`Page ${index + 1}`} className="w-full" />
+        <img key={index} src={imageUrl} alt={`Page ${index + 1}`} className='' />
       ))}
     </div>
   );
