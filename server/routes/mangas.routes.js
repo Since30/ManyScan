@@ -9,7 +9,7 @@ router.post('/', mangasControllers.createMangas)
 router.put('/:id', mangasControllers.updateMangas)
 router.delete('/', mangasControllers.deleteMangas)
 */
-router.patch('/like-mangas/:id', mangasControllers.likeMangas);
-router.patch('/unlike-mangas/:id', mangasControllers.unlikeMangas);
+router.post('/like-mangas/:id', mangasControllers.likeMangas);
+router.delete('/unlike-mangas/:id', mangasControllers.unlikeMangas);
 
 module.exports = router;

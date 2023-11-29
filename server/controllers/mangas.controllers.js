@@ -53,5 +53,28 @@ module.exports.deleteMangas = (req, res) => {
     });
 };
 */
-module.exports.likeMangas = (req, res) => {};
-module.exports.unlikeMangas = (req, res) => {};
+module.exports.likeMangas = async (req, res) => {
+    const mangaId = req.params.id;
+
+    await db
+        .get('mangas')
+        .find({ id: mangaId })
+        .assign({ isFavorite: true })
+        .write();
+
+    return res.json({ message: 'Manga added to favorites' });
+};
+
+module.exports.unlikeMangas = (req, res) => {
+    const mangaId = req.params.id;
+
+    const manga = db.get('mangas').find({ id: mangaId }).value();
+
+    if (!manga) {
+        return res.status(404).json({ error: 'Manga not found' });
+    }
+
+    db.get('mangas').remove({ id: mangaId }).write();
+
+    return res.json({ message: 'Manga removed from favorites' });
+};

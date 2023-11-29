@@ -59,6 +59,7 @@ module.exports.searchByTitle = async (title) => {
 module.exports.getAllMangas = async (page = 1) => {
     // Construction de l'URL de la requête API
     const params = {
+        'contentRating[]': 'safe',
         'includes[]': ['cover_art', 'author'], // Regrouper les paramètres 'includes' dans un tableau
         limit: 20,
         offset: page * 20,
@@ -77,7 +78,6 @@ module.exports.getAllMangas = async (page = 1) => {
     });
 
     try {
-        // Effectuer la requête GET
         const response = await fetch(baseUrl);
 
         if (!response.ok) {
