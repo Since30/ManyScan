@@ -67,12 +67,12 @@ const MangaDetailPage: React.FC = () => {
               };
               
             const fetchChapters = async () => {
+              const id = router.query.id;
                 if (typeof id === 'string') {
                   try {
-                    // Ajoutez des paramètres de requête selon vos besoins.
-                    // L'exemple suivant récupère les chapitres avec une date de publication dans le passé et sans URL externe.
-                    const response = await fetch(`https://api.mangadex.org/manga/${id}/feed?translatedLanguage[]=fr&translatedLanguage[]=en&order[chapter]=asc`,{
                   
+                    // const response = await fetch(`https://api.mangadex.org/manga/${id}/feed?translatedLanguage[]=fr&translatedLanguage[]=en&order[chapter]=asc`,{
+                      const response = await fetch(`https://api.mangadex.org/manga/${id}/feed?translatedLanguage[]=${selectedLanguage}&order[chapter]=asc`,{
                       headers: {
                         // Si nécessaire, ajoutez des en-têtes ici, par exemple pour l'authentification ou spécifier le type de contenu.
                       },
@@ -85,7 +85,7 @@ const MangaDetailPage: React.FC = () => {
               
                     const chaptersData = await response.json();
                     
-                    // La structure de la réponse de Mangadex place les chapitres dans une propriété 'data'.
+                   
                     const chaptersArray = chaptersData.data;
               
                     if (Array.isArray(chaptersArray) && chaptersArray.length > 0) {
@@ -100,7 +100,7 @@ const MangaDetailPage: React.FC = () => {
                     }
                   } catch (err) {
                     console.error(err);
-                    // Vous pouvez choisir de ne pas définir l'état d'erreur ici si vous ne voulez pas bloquer l'affichage des détails.
+                  
                   }
                 }
               };
@@ -108,7 +108,7 @@ const MangaDetailPage: React.FC = () => {
 
             fetchMangaData();
         }
-    }, [router.isReady, router.query]);
+    }, [router.isReady, router.query, selectedLanguage]);
 
     if (error) {
         return <div>Erreur : {error}</div>;
@@ -124,7 +124,20 @@ const MangaDetailPage: React.FC = () => {
             <button onClick={() => router.back()} className="mb-12 text-sm px-4 py-2 rounded shadow bg-gray-200 dark:bg-gray-600">
               Retour
             </button>
-            
+            <div className="mb-4">
+                    <button
+                        onClick={() => setSelectedLanguage('fr')}
+                        className={`mr-2 px-4 py-2 rounded ${selectedLanguage === 'fr' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+                    >
+                        Français
+                    </button>
+                    <button
+                        onClick={() => setSelectedLanguage('en')}
+                        className={`px-4 py-2 rounded ${selectedLanguage === 'en' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+                    >
+                        Anglais
+                    </button>
+                </div>
             <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-8">
               <div className="md:col-span-1">
                 {manga.coverUrl ? (
