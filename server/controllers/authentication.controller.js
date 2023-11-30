@@ -1,49 +1,48 @@
-const User = require('../models/user.model');
+const User = require('../models/user.model.js');
 const bcrypt = require('bcrypt');
 const JWT = require('jsonwebtoken');
 
 module.exports.register = async (req, res) => {
-    try{
+    try {
         const { username, email, password, confirmPassword } = req.body;
 
         // Check if passwords match
         if (password !== confirmPassword) {
             return res.status(400).json({
-                message: "Passwords do not match"
+                message: 'Passwords do not match',
             });
         }
         // Check if user exist
         const existingUser = await User.findOne({
             where: {
-                email: req.body.email
-            }
+                email: req.body.email,
+            },
         });
 
         if (existingUser) {
             return res.status(400).json({
-                message: "Email already in use"
+                message: 'Email already in use',
             });
         }
         // Create and save User
-            const newUser = await User.create({
-               username: req.body.username, 
-               email: req.body.email, 
-               password: bcrypt.hashSync(req.body.password, 12)  
-            })
-            res.status(200).json({
-                message: "User successfully created",
-                user: newUser
-            })
-        
-    } catch(error){
+        const newUser = await User.create({
+            username: req.body.username,
+            email: req.body.email,
+            password: bcrypt.hashSync(req.body.password, 12),
+        });
+        res.status(200).json({
+            message: 'User successfully created',
+            user: newUser,
+        });
+    } catch (error) {
         res.status(500).json({
-            message: "Server error",
-            error: error
-        })
+            message: 'Server error',
+            error: error,
+        });
     }
 };
 module.exports.signin = async (req, res) => {
-    try{
+    try {
         const { email, password } = req.body;
         const user = await User.findOne({ where: { email } });
 
@@ -58,36 +57,35 @@ module.exports.signin = async (req, res) => {
         }
         const expiresIn = parseInt(process.env.TOKEN_EXPIRATION, 10);
         const token = JWT.sign(
-                { 
-                    userId: user.id, 
-                    email: user.email 
-                }, 
-                process.env.SECRET_TOKEN_KEY, 
-                { expiresIn }
-            );
+            {
+                userId: user.id,
+                email: user.email,
+            },
+            process.env.SECRET_TOKEN_KEY,
+            { expiresIn }
+        );
 
-        return res.status(200).json({ message: 'User authenticated successfully', token });
+        return res
+            .status(200)
+            .json({ message: 'User authenticated successfully', token });
     } catch (error) {
         console.error('Signin error:', error);
         return res.status(500).json({ message: 'Authentication failed' });
     }
-}
+};
 module.exports.logout = async (req, res) => {
     try {
-        const token = req.headers.authorization; 
-    
-            return res.status(200).json({ 
-                message: 'User logged out successfully' ,
-                token: token
-            });
+        const token = req.headers.authorization;
 
+        return res.status(200).json({
+            message: 'User logged out successfully',
+            token: token,
+        });
     } catch (error) {
-        console.error('Logout error:', );
-        return res.status(500).json({ 
+        console.error('Logout error:');
+        return res.status(500).json({
             message: 'Logout failed',
-            error: error
+            error: error,
         });
     }
 };
-
-

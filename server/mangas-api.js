@@ -61,6 +61,7 @@ module.exports.getAllMangas = async (page = 1) => {
     const params = {
         'contentRating[]': 'safe',
         'includes[]': ['cover_art', 'author'], // Regrouper les paramètres 'includes' dans un tableau
+        'availableTranslatedLanguage[]': 'fr',
         limit: 20,
         offset: page * 20,
     };

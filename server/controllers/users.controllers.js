@@ -1,4 +1,4 @@
-const User = require('../models/user.model');
+const User = require('../models/user.model.js');
 const bcrypt = require('bcrypt');
 
 module.exports.getAllUsers = async (req, res) => {
@@ -8,69 +8,69 @@ module.exports.getAllUsers = async (req, res) => {
         if (users) {
             res.status(200).json({
                 message: 'Users retrieved successfully',
-                data: users
+                data: users,
             });
         } else {
             res.status(404).json({
-                message: 'No users found'
+                message: 'No users found',
             });
         }
     } catch (error) {
         res.status(500).json({
             message: 'Error',
-            error: error
+            error: error,
         });
     }
 };
 module.exports.getUser = async (req, res) => {
-    try{
+    try {
         const user_id = req.params.id;
 
         const userConnected = await User.findByPk(user_id);
-        if(userConnected){
+        if (userConnected) {
             res.status(200).json({
-                message: "User data",
-                data: userConnected
-            })
-        } else{
+                message: 'User data',
+                data: userConnected,
+            });
+        } else {
             res.status(404).json({
-            message: "User not found"
-    });
+                message: 'User not found',
+            });
         }
-    } catch(error){
+    } catch (error) {
         res.status(500).json({
-            message: "error",
-            error: error
-        })
+            message: 'error',
+            error: error,
+        });
     }
 };
 module.exports.updateUser = async (req, res) => {
-    try{
-        const userId = req.params.id; 
+    try {
+        const userId = req.params.id;
         const { username, email } = req.body;
 
         const user = await User.findByPk(userId);
 
         if (!user) {
             return res.status(404).json({
-                message: 'User not found'
+                message: 'User not found',
             });
         }
 
-        user.username = username; 
-        user.email = email; 
+        user.username = username;
+        user.email = email;
 
         await user.save();
 
         res.status(200).json({
             message: 'User updated successfully',
-            data: user 
+            data: user,
         });
-    } catch(error){
+    } catch (error) {
         res.status(500).json({
-            message: "error",
-            error: error
-        })
+            message: 'error',
+            error: error,
+        });
     }
 };
 module.exports.editPassword = async (req, res) => {
@@ -81,7 +81,7 @@ module.exports.editPassword = async (req, res) => {
 
         if (!user) {
             return res.status(404).json({
-                message: "User not found."
+                message: 'User not found.',
             });
         }
 
@@ -90,7 +90,7 @@ module.exports.editPassword = async (req, res) => {
 
         if (!isPasswordMatch) {
             return res.status(400).json({
-                message: "Old incorrect password."
+                message: 'Old incorrect password.',
             });
         }
 
@@ -100,23 +100,23 @@ module.exports.editPassword = async (req, res) => {
         await user.save();
 
         res.status(200).json({
-            message: "Password changed successfully."
+            message: 'Password changed successfully.',
         });
     } catch (error) {
         res.status(500).json({
-            message: "Erreur serveur",
-            error: error 
+            message: 'Erreur serveur',
+            error: error,
         });
     }
 };
 module.exports.delelteUser = async (req, res) => {
-    try{
+    try {
         const userId = req.params.id;
         const user = await User.findByPk(userId);
 
         if (!user) {
             return res.status(404).json({
-                message: 'User not found'
+                message: 'User not found',
             });
         }
 
@@ -124,12 +124,12 @@ module.exports.delelteUser = async (req, res) => {
 
         res.status(200).json({
             message: 'User deleted successfully',
-            data: userId 
+            data: userId,
         });
-    } catch(error){
+    } catch (error) {
         res.status(500).json({
-            message: "error",
-            error: error
-        })
+            message: 'error',
+            error: error,
+        });
     }
 };

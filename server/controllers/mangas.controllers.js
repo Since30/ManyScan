@@ -1,4 +1,7 @@
 const mangaAPI  = require('../mangas-api')
+const { PrismaClient } = require('@prisma/client')
+
+const prisma = new PrismaClient()
 
 //module.exports.createMangas = (req, res) => {};
 
@@ -16,53 +19,21 @@ module.exports.allMangas = async (req, res) => {
     return res.json(results)
 };
 
-/*module.exports.updateMangas = (req, res) => {
-    const updateQuery = `
-      UPDATE animes
-      SET img = ?, title = ?, author = ?, type = ?, chapters = ?, status = ?, language = ?, synopsis = ?
-      WHERE id = ?
-    `;
-
-    const values = [
-        req.body.img,
-        req.body.title,
-        req.body.author,
-        req.body.type,
-        req.body.chapters,
-        req.body.status,
-        req.body.language,
-        req.body.synopsis,
-        req.params.id,
-    ];
-
-    db.run(updateQuery, values, function (err) {
-        if (err) {
-            return res.status(500).json({ error: err.message });
-        }
-        res.json({ message: 'Anime mis à jour', changes: this.changes });
-    });
-};
-
-module.exports.deleteMangas = (req, res) => {
-    const deleteQuery = 'DELETE FROM animes WHERE id = ?';
-    db.run(deleteQuery, [req.params.id], function (err) {
-        if (err) {
-            return res.status(500).json({ error: err.message });
-        }
-        res.json({ message: 'Anime supprimé', changes: this.changes });
-    });
-};
-*/
 module.exports.likeMangas = async (req, res) => {
-    const mangaId = req.params.id;
+    const mangaId = req.body.mangaId;
 
-    await db
-        .get('mangas')
-        .find({ id: mangaId })
-        .assign({ isFavorite: true })
-        .write();
+    try {
+        const favoriteManga = await prisma.favoriteRecipes.create({
+            data: {
+                mangaId
+            }
+        });
+        return res.status(201).json(favoriteManga)
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({error: "Oops, something went wrong"})
+    }
 
-    return res.json({ message: 'Manga added to favorites' });
 };
 
 module.exports.unlikeMangas = (req, res) => {
