@@ -6,6 +6,24 @@ const ChapterReaderPage = () => {
   const { chapterId } = router.query;
   const [chapterImages, setChapterImages] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [readingMode, setReadingMode] = useState('horizontal');
+  const [currentPage, setCurrentPage] = useState(0);
+
+  const toggleReadingMode = () => {
+    setReadingMode(readingMode === 'horizontal' ? 'vertical' : 'horizontal');
+  };
+
+  const goToNextPage = () => {
+    if (currentPage < chapterImages.length - 1) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const goToPreviousPage = () => {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
 
   useEffect(() => {
     const fetchChapterImages = async () => {
@@ -39,16 +57,39 @@ const ChapterReaderPage = () => {
   }
 
   return (
-    <div className="flex justify-center">
-  <div className="w-10/12 md:w-7/10">
-    {chapterImages.map((imageUrl, index) => (
-      <img key={index} src={imageUrl} alt={`Page ${index + 1}`} className="w-full" />
-    ))}
-  </div>
-</div>
+    <div className="flex flex-col items-center">
+      <div className="w-10/12 sm:w-8/12 md:w-6/12 lg:w-5/12 xl:w-4/12 relative">
+        <button onClick={toggleReadingMode} className="mb-4 p-2 bg-blue-500 text-white rounded">
+          {readingMode === 'horizontal' ? 'Passer en mode Webtoon' : 'Passer en mode Manga'}
+        </button>
 
+        {readingMode === 'horizontal' ? (
+          <>
+            <div className="relative">
+              <button onClick={goToPreviousPage} disabled={currentPage === 0} className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 hover:bg-gray-300 p-2 rounded">
+                &lt;
+              </button>
+              <img src={chapterImages[currentPage]} alt={`Page ${currentPage + 1}`} className="w-full" />
+              <button onClick={goToNextPage} disabled={currentPage === chapterImages.length - 1} className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 hover:bg-gray-300 p-2 rounded">
+                &gt;
+              </button>
+            </div>
+            <div className="flex justify-center mt-4">
+              <span>Page {currentPage + 1} sur {chapterImages.length}</span>
+            </div>
+          </>
+        ) : (
+          <div>
+            {chapterImages.map((imageUrl, index) => (
+              <img key={index} src={imageUrl} alt={`Page ${index + 1}`} className="w-full" />
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
   );
 };
 
 export default ChapterReaderPage;
+
 
