@@ -1,6 +1,5 @@
 const mangaAPI  = require('../mangas-api')
-
-//module.exports.createMangas = (req, res) => {};
+const favoritesMangas = require('../prisma/favoritesMangas')
 
 module.exports.oneMangaByTitle = async (req, res) => {
    const searchManga = req.query.title;
@@ -16,42 +15,27 @@ module.exports.allMangas = async (req, res) => {
     return res.json(results)
 };
 
-/*module.exports.updateMangas = (req, res) => {
-    const updateQuery = `
-      UPDATE animes
-      SET img = ?, title = ?, author = ?, type = ?, chapters = ?, status = ?, language = ?, synopsis = ?
-      WHERE id = ?
-    `;
+module.exports.addFavoriteMangas = async (req, res) => {
+    const mangaId = req.body.mangaId;
 
-    const values = [
-        req.body.img,
-        req.body.title,
-        req.body.author,
-        req.body.type,
-        req.body.chapters,
-        req.body.status,
-        req.body.language,
-        req.body.synopsis,
-        req.params.id,
-    ];
+    try {
+        const favoriteManga = await favoritesMangas.saveFavoriteManga(mangaId);
+        return res.status(201).json(favoriteManga)
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({error: "Oops, something went wrong"})
+    }
 
-    db.run(updateQuery, values, function (err) {
-        if (err) {
-            return res.status(500).json({ error: err.message });
-        }
-        res.json({ message: 'Anime mis à jour', changes: this.changes });
-    });
 };
 
-module.exports.deleteMangas = (req, res) => {
-    const deleteQuery = 'DELETE FROM animes WHERE id = ?';
-    db.run(deleteQuery, [req.params.id], function (err) {
-        if (err) {
-            return res.status(500).json({ error: err.message });
-        }
-        res.json({ message: 'Anime supprimé', changes: this.changes });
-    });
+module.exports.deleteFavoriteMangas = (req, res) => {
+    const mangaId = req.body.mangaId;
+
+    try {
+        const deletedFavoriteManga = favoritesMangas.deleteFavoriteManga(mangaId);
+        return res.status(200).json(deletedFavoriteManga)
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({error: "Oops, something went wrong"})
+    }
 };
-*/
-module.exports.likeMangas = (req, res) => {};
-module.exports.unlikeMangas = (req, res) => {};

@@ -1,6 +1,7 @@
 const http = require("http");
 const app = require("./index");
 const dotenv = require("dotenv");
+
 dotenv.config({
   path: "./config/.env",
 });

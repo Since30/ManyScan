@@ -125,3 +125,4 @@ module.exports.getAllMangas = async (page = 1) => {
     throw error;
   }
 };
+
