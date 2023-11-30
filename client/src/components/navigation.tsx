@@ -2,24 +2,28 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Toggle from './ToggleDarkMode';
+import { useTheme } from 'next-themes';
 
 
 export default function Navigation() {
+    const { systemTheme, theme, setTheme } = useTheme();
     const [searchBarVisibility, setSearchBarVisibility] = useState(false);
 
     function toggleSearchBar() {
         setSearchBarVisibility(!searchBarVisibility);
     }
 
-    return (
-        <nav className='transition flex justify-between py-4 items-center font-bold bg-light-card dark:bg-dark-card px-20 m-auto'>
+return (
+    <>
+        <nav className='wave-border transition flex justify-between py-4 items-center font-bold  px-20 m-auto'>
             <div>
                 <a
                     href='#'
                     onClick={() => toggleSearchBar()}
                     className='text-light transition'>
                     <svg
-                        className='dark:fill-light fill-light'
+                        className='dark:fill-dark fill-dark'
                         xmlns='http://www.w3.org/2000/svg'
                         x='0px'
                         y='0px'
@@ -32,23 +36,43 @@ export default function Navigation() {
             </div>
             {!searchBarVisibility ? (
                 <>
-                    <Link href='/' className='p-2 m-2 text-light text-lg transition'>Accueil</Link>
-                    <Link href='/allmangas' className='p-2 m-2 text-light text-lg transition'>Tous les mangas</Link>
-                    <Link href='#' className='p-2 m-2 text-light text-lg transition'>Ma collection</Link>
+                    
+                    <Link href='/allmangas' className='p-2 m-2 text-dark text-lg transition'>Tous les mangas</Link>
+                    <Link href='#' className='p-2 m-2 text-dark text-lg transition'>Ma collection</Link>
                     <div className='flex'>
-                        <Link href='/login' className='p-2 m-2 text-light text-lg transition'>Se connecter</Link>
+                        <Link href='/login' className='p-2 m-2 text-dark text-lg transition'>Se connecter</Link>
                         
-                        <Link href='/register' className='p-2 m-2 text-light text-lg transition'>S'inscrire</Link>
+                        <Link href='/register' className='p-2 m-2 text-dark text-lg transition'>S'inscrire</Link>
                     </div>
                 </>
             ) : (
                 <input
                     type='text'
-                    className='w-full border rounded p-2 m-2 text-light font-light'
+                    className='w-full border rounded p-2 m-2 text-dark font-light'
                     placeholder='Chercher un manga'
                 />
+                
             )}
+             <Toggle
+            
+            value={false}
+            onChangeHandler={(value: boolean) => {
+                if (theme == 'dark') {
+                    setTheme('light');
+                } else {
+                    setTheme('dark');
+                }
+                console.log(value);
+            }}
+            label='Dark mode'
+            />
+          
         </nav>
+        
+        </> 
     );
-};
+
+}
+    
+
 

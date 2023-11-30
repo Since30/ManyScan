@@ -2,8 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import { fetchManga } from '../services/MangaTheqApi';
 import AnimeObjects from '../interfaces/animeObjects';
-import Headers from '../components/header';
-import Navigation from '../components/navigation';
 import StarRating from '../components/StarRating';
 import Pagination from '../components/Pagination';
 import Cover from '../components/Cover';
@@ -29,8 +27,8 @@ const AllMangas = () => {
 
     return (
         <div className='py-6'>
-        <Headers />
-        <Navigation />
+       <h1 className='text-3xl font-semibold text-center text-light'>Tout les mangas</h1>
+      
         <div className='flex flex-wrap justify-center mx-2'>
             {animes.map((anime) => (
                 <Link key={anime.id} href={`/animes/${anime.id}`}>

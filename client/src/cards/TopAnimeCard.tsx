@@ -12,7 +12,7 @@ const TopAnimeCard: React.FC<Props> = ({ animes }) => {
     return (
         
         <div className='h-full ml-28 p-5'>
-            <CardTitle title='Top 5 mangas' />
+            <CardTitle title='Top mangas' />
 
             <div className=' flex space-x-6 w-full  h-82 p-5 rounded-md dark:bg-dark-card bg-light-card hover:cursor-pointer border-text-light items-start '>
                 <div className='min-w-max'>
