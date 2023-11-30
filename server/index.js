@@ -15,13 +15,7 @@ const app = express();
 app.use(bodyParser.json());
 
 async function main() {
-    const post = await prisma.post.create({
-        data: {
-            title: 'steve.basse@hotmail.com',
-            content: 'Steve',
-        },
-    });
-    console.log(post);
+
 }
 
 main()

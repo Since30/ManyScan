@@ -1,9 +1,5 @@
 const mangaAPI  = require('../mangas-api')
-const { PrismaClient } = require('@prisma/client')
-
-const prisma = new PrismaClient()
-
-//module.exports.createMangas = (req, res) => {};
+const favoritesMangas = require('../prisma/favoritesMangas')
 
 module.exports.oneMangaByTitle = async (req, res) => {
    const searchManga = req.query.title;
@@ -19,15 +15,11 @@ module.exports.allMangas = async (req, res) => {
     return res.json(results)
 };
 
-module.exports.likeMangas = async (req, res) => {
+module.exports.addFavoriteMangas = async (req, res) => {
     const mangaId = req.body.mangaId;
 
     try {
-        const favoriteManga = await prisma.favoriteRecipes.create({
-            data: {
-                mangaId
-            }
-        });
+        const favoriteManga = await favoritesMangas.saveFavoriteManga(mangaId);
         return res.status(201).json(favoriteManga)
     } catch (error) {
         console.error(error);
@@ -36,16 +28,14 @@ module.exports.likeMangas = async (req, res) => {
 
 };
 
-module.exports.unlikeMangas = (req, res) => {
-    const mangaId = req.params.id;
+module.exports.deleteFavoriteMangas = (req, res) => {
+    const mangaId = req.body.mangaId;
 
-    const manga = db.get('mangas').find({ id: mangaId }).value();
-
-    if (!manga) {
-        return res.status(404).json({ error: 'Manga not found' });
+    try {
+        const deletedFavoriteManga = favoritesMangas.deleteFavoriteManga(mangaId);
+        return res.status(200).json(deletedFavoriteManga)
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({error: "Oops, something went wrong"})
     }
-
-    db.get('mangas').remove({ id: mangaId }).write();
-
-    return res.json({ message: 'Manga removed from favorites' });
 };

@@ -44,7 +44,7 @@ module.exports.searchByTitle = async (title) => {
     baseUrl.search = new URLSearchParams(params).toString();
 
     try {
-        const response = await fetch(url);
+        const response = await fetch(baseUrl);
         const resultsJSON = await response.json();
 
         return resultsJSON;
