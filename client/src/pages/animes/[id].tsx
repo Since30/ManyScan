@@ -24,6 +24,7 @@ const MangaDetailPage: React.FC = () => {
     const [manga, setManga] = useState<MangaDetailProps | null>(null);
     const [chapters, setChapters] = useState<any[]>([]);
     const [error, setError] = useState<string | null>(null);
+    const [selectedLanguage, setSelectedLanguage] = useState('fr')
   
     const router = useRouter();
 
@@ -65,42 +66,13 @@ const MangaDetailPage: React.FC = () => {
                 }
               };
               
-
-            // const fetchMangaData = async () => {
-            //     if (typeof id === 'string') {
-            //         try {
-            //             const response = await fetch(`https://api.mangadex.org/manga/${id}`);
-            //             if (!response.ok) {
-            //                 throw new Error(`Error fetching manga: ${response.statusText}`);
-            //             }
-            //             const data = await response.json();
-
-            //             const authorRel = data.data.relationships.find((rel: Relationship) => rel.type === 'author');
-            //             const coverRel = data.data.relationships.find((rel: Relationship) => rel.type === 'cover_art');
-            //             const coverUrl = coverRel && coverRel.attributes && coverRel.attributes.fileName ? `https://uploads.mangadex.org/covers/${data.data.id}/${coverRel.attributes.fileName}` : undefined;
-
-            //             const mangaDetails: MangaDetailProps = {
-            //                 id: data.data.id,
-            //                 title: data.data.attributes.title.en,
-            //                 description: data.data.attributes.description.en,
-            //                 author: authorRel?.attributes?.name,
-            //                 coverUrl: coverUrl,
-            //                 status: data.data.attributes.status,
-            //                 chapters: data.data.attributes.totalChapterCount,
-            //             };
-            //             setManga(mangaDetails);
-            //         } catch (err) {
-            //             console.error(err);
-            //             setError("Une erreur est survenue lors de la récupération des détails du manga.");
-            //         }
-            //     }
-            // };
             const fetchChapters = async () => {
                 if (typeof id === 'string') {
                   try {
                     // Ajoutez des paramètres de requête selon vos besoins.
                     // L'exemple suivant récupère les chapitres avec une date de publication dans le passé et sans URL externe.
-                    const response = await fetch(`https://api.mangadex.org/manga/${id}/feed?includeFuturePublishAt=0&includeExternalUrl=0&order[chapter]=asc`, {
+                    const response = await fetch(`https://api.mangadex.org/manga/${id}/feed?translatedLanguage[]=fr&translatedLanguage[]=en&order[chapter]=asc`,{
+                  
                       headers: {
                         // Si nécessaire, ajoutez des en-têtes ici, par exemple pour l'authentification ou spécifier le type de contenu.
                       },
@@ -121,6 +93,7 @@ const MangaDetailPage: React.FC = () => {
                         id: chapter.id,
                         title: chapter.attributes.title,
                         chapterNumber: chapter.attributes.chapter,
+                        language: chapter.attributes.translatedLanguage
                       })));
                     } else {
                       setChapters([]);

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 const ChapterReaderPage = () => {
   const router = useRouter();
   const { chapterId } = router.query;
-  const [chapterImages, setChapterImages] = useState<string[]>([]);
+  const [chapterImages, setChapterImages] = useState<{ url: string; language: string }[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [readingMode, setReadingMode] = useState('horizontal');
   const [currentPage, setCurrentPage] = useState(0);
@@ -26,20 +26,28 @@ const ChapterReaderPage = () => {
   };
 
   useEffect(() => {
+    const chapterId ='516f3d88-513d-4820-9aa7-77e818003ee2'
+    
     const fetchChapterImages = async () => {
       if (typeof chapterId === 'string') {
         try {
           const response = await fetch(`https://api.mangadex.org/at-home/server/${chapterId}`);
           const data = await response.json();
+          console.log(data);
 
           if (data.result === 'ok') {
             const baseUrl = data.baseUrl;
             const chapterHash = data.chapter.hash;
-            const pageFilenames = data.chapter.data; // ou data.chapter.dataSaver pour la qualité compressée
+            const pageFilenames = data.chapter.data;
+            const language = data.chapter.translatedLanguage;
 
-            // Déclarez explicitement le type du paramètre 'filename' ici
-            const imageUrls = pageFilenames.map((filename: string) => `${baseUrl}/data/${chapterHash}/${filename}`);
+            const imageUrls = pageFilenames.map((filename: string) => ({
+              url: `${baseUrl}/data/${chapterHash}/${filename}`,
+              language: language || 'Langue inconnue',
+            }));
+            
             setChapterImages(imageUrls);
+        
           }
         } catch (error) {
           console.error('Error fetching chapter images:', error);
@@ -50,6 +58,7 @@ const ChapterReaderPage = () => {
     };
 
     fetchChapterImages();
+   
   }, [chapterId]);
 
   if (isLoading) {
@@ -69,19 +78,22 @@ const ChapterReaderPage = () => {
               <button onClick={goToPreviousPage} disabled={currentPage === 0} className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 hover:bg-gray-300 p-2 rounded">
                 &lt;
               </button>
-              <img src={chapterImages[currentPage]} alt={`Page ${currentPage + 1}`} className="w-full" />
+              <img src={chapterImages[currentPage].url} alt={`Page ${currentPage + 1}`} className="w-full" />
               <button onClick={goToNextPage} disabled={currentPage === chapterImages.length - 1} className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 hover:bg-gray-300 p-2 rounded">
                 &gt;
               </button>
             </div>
             <div className="flex justify-center mt-4">
-              <span>Page {currentPage + 1} sur {chapterImages.length}</span>
+              <span>Page {currentPage + 1} sur {chapterImages.length} - Langue: {chapterImages[currentPage].language}</span>
             </div>
           </>
         ) : (
           <div>
-            {chapterImages.map((imageUrl, index) => (
-              <img key={index} src={imageUrl} alt={`Page ${index + 1}`} className="w-full" />
+            {chapterImages.map((image, index) => (
+              <div key={index} className="text-center">
+                <img src={image.url} alt={`Page ${index + 1}`} className="w-full" />
+                <span className="block mt-1">Langue: {image.language}</span>
+              </div>
             ))}
           </div>
         )}
@@ -91,5 +103,4 @@ const ChapterReaderPage = () => {
 };
 
 export default ChapterReaderPage;
-
 
