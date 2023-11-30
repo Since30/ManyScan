@@ -18,5 +18,53 @@ const fetchManga = async (page: number): Promise<AnimeObjects[] | void> => {
   }
 };
 
-export { fetchManga };
+const addToFavorite = async (mangaId: string): Promise<AnimeObjects[] | void> => {
+    
+    try {
+      const response = await fetch(`http://localhost:8080/api/mangas/like-manga`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ mangaId }),
+      });
+  
+      if (!response.ok) {
+        throw new Error(`Erreur HTTP: ${response.status}`);
+      }
+  
+      const data = await response.json();
+  
+      return data;
+  
+    } catch (error) {
+      console.error({ error });
+    }
+};
+
+const deleteFromFavorite = async (mangaId: string): Promise<AnimeObjects[] | void> => {
+      
+    try {
+      const response = await fetch(`http://localhost:8080/api/mangas/unlike-manga`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ mangaId }),
+      });
+  
+      if (!response.ok) {
+        throw new Error(`Erreur HTTP: ${response.status}`);
+      }
+  
+      const data = await response.json();
+  
+      return data;
+  
+    } catch (error) {
+      console.error({ error });
+    }
+}
+
+export { fetchManga, addToFavorite, deleteFromFavorite };
 
