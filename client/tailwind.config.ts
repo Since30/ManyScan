@@ -32,7 +32,7 @@ const config: Config = {
       const newUtilities = {
       '.scrollbar-thin': {
         'scrollbar-width': 'thin',
-        'scrollbar-color': '#888 #000',
+        'scrollbar-color': '#888 #F7f7f7',
       },
       '.scrollbar-thin::-webkit-scrollbar': {
         height: '3px',
