@@ -10,15 +10,23 @@ module.exports.oneMangaByTitle = async (req, res) => {
 
 module.exports.allMangas = async (req, res) => {
     const page = req.query.page;
-    const results = await mangaAPI.getAllMangas(page);
 
-    return res.json(results)
+    try {
+        const results = await mangaAPI.getAllMangas(page);
+        return res.json(results)
+    } catch (error) {
+        console.error(error);
+    }
+
 };
 
-module.exports.favoriteMangas = async (req, res) => {
+module.exports.getFavoriteMangas = async (req, res) => {
     try {
         const favoriteMangas = await favoritesMangas.getFavoriteMangas();
-        return res.status(200).json(favoriteMangas)
+       // console.log(favoriteMangas)
+        const results = await mangaAPI.getFavorites(favoriteMangas);
+        //console.log(results)
+        return res.status(200).json(results)
     } catch (error) {
         console.error(error);
         return res.status(500).json({error: "Oops, something went wrong"})
