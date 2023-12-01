@@ -71,10 +71,9 @@ const MangaDetailPage: React.FC = () => {
                 if (typeof id === 'string') {
                   try {
                   
-                    // const response = await fetch(`https://api.mangadex.org/manga/${id}/feed?translatedLanguage[]=fr&translatedLanguage[]=en&order[chapter]=asc`,{
+                    
                       const response = await fetch(`https://api.mangadex.org/manga/${id}/feed?translatedLanguage[]=${selectedLanguage}&order[chapter]=asc`,{
                       headers: {
-                        // Si nécessaire, ajoutez des en-têtes ici, par exemple pour l'authentification ou spécifier le type de contenu.
                       },
                     });
               
