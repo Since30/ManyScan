@@ -18,7 +18,6 @@ const Cover: React.FC<Props> = ({ anime, width, height }) => {
 
     return (
         <div className='relative'>
-            
             <img
                 className='mx-auto rounded-sm'
                 src={anime.cover}
@@ -26,7 +25,9 @@ const Cover: React.FC<Props> = ({ anime, width, height }) => {
                 width={width}
                 height={height}
             />
-            <div className='absolute top-2 left-2'><Image  src={heartIcon} alt='like button' width={35} /></div>
+            <div className='absolute top-2 left-2'>
+                <Image onClick={() => handleLike(anime.id)} src={heartIcon} alt='like button' width={35} />
+            </div>
         </div>
     );
 };

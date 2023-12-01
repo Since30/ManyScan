@@ -15,6 +15,16 @@ module.exports.allMangas = async (req, res) => {
     return res.json(results)
 };
 
+module.exports.favoriteMangas = async (req, res) => {
+    try {
+        const favoriteMangas = await favoritesMangas.getFavoriteMangas();
+        return res.status(200).json(favoriteMangas)
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({error: "Oops, something went wrong"})
+    }
+};
+
 module.exports.addFavoriteMangas = async (req, res) => {
     const mangaId = req.body.mangaId;
 
