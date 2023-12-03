@@ -6,16 +6,46 @@ require('dotenv').config({ path: '../config/.env' })
 
 // Function de création de compte
 module.exports.register = async (req, res) => {
-    console.log(req.body)
-    const { username, email, password } = req.body;
+    const { username, email, password, confirmPassword } = req.body;
+
+    // Check if passwords match
+    if (password !== confirmPassword) {
+        return res.status(400).json({
+            message: "Passwords do not match"
+        });
+    }
 
     try {
-        const user = await User.create({ username, email, password });
-        return res.status(201).send({ user: user._id });
+        // Check if user exists
+        const existingUser = await User.findOne({ email });
+
+        if (existingUser) {
+            return res.status(400).json({
+                message: "Email already in use"
+            });
+        }
+
+        // Hash the password
+        const hashedPassword = await bcrypt.hash(password, 12);
+
+        // Create and save User
+        const newUser = await User.create({
+            username,
+            email,
+            password: hashedPassword
+        });
+
+        return res.status(201).json({
+            message: "User successfully created",
+            user: newUser
+        });
     } catch (error) {
-        console.error(error)
-        return res.status(400).send({ error });
-    };
+        console.error(error);
+        return res.status(500).json({
+            message: "Server error",
+            error: error.message // Send the error message for debugging
+        });
+    }
 };
 module.exports.signin = async (req, res) => {
     try {
