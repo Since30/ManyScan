@@ -1,60 +1,57 @@
 const fetch = require('node-fetch');
 
-
-
-
 //Récupération de la cover
 const getCover = async (manga) => {
-    const mangaId = await manga.id;
-    const fileName = await manga.relationships.find(
-        (relationship) => relationship.type === 'cover_art'
-    ).attributes.fileName;
-    const coverUrl = `https://uploads.mangadex.org/covers/${mangaId}/${fileName}`;
-    return coverUrl;
+  const mangaId = await manga.id;
+  const fileName = await manga.relationships.find(
+    (relationship) => relationship.type === "cover_art"
+  ).attributes.fileName;
+  const coverUrl = `https://uploads.mangadex.org/covers/${mangaId}/${fileName}`;
+  return coverUrl;
 };
 
 // Récupération du rating
 const getStatistics = async (manga) => {
-    const mangaId = await manga.id;
-    const fetchStatistics = await fetch(
-        `https://api.mangadex.org/statistics/manga/${mangaId}`
-    );
-    const data = await fetchStatistics.json();
-    const rating = await data.statistics[manga.id].rating.average;
-    const numberOfVotes = await data.statistics[manga.id].rating.distribution;
+  const mangaId = await manga.id;
+  const fetchStatistics = await fetch(
+    `https://api.mangadex.org/statistics/manga/${mangaId}`
+  );
+  const data = await fetchStatistics.json();
+  const rating = await data.statistics[manga.id].rating.average;
+  const numberOfVotes = await data.statistics[manga.id].rating.distribution;
 
-    const totalVotes = Object.values(numberOfVotes).reduce(
-        (sum, value) => sum + value,
-        0
-    );
+    const totalVotes = Object.values(numberOfVotes).reduce((sum, value) => sum + value, 0);
 
     const statistics = {
         rating: rating,
         numberOfVotes: totalVotes,
     };
-    return statistics;
+    return statistics ;
 };
 
 // Retourne un array de 20 mangas max
 module.exports.searchByTitle = async (title) => {
-    if (!title) {
-        throw new Error('Title is not specified');
-    }
-    const params = {
-        title: title.toString(),
-        limit: 20,
-    };
+  const baseUrl = new URL("https://api.mangadex.org/manga");
 
-    baseUrl.search = new URLSearchParams(params).toString();
+  if (!title) {
+    throw new Error("Title is not specified");
+  }
 
-    try {
-        const response = await fetch(baseUrl);
-        const resultsJSON = await response.json();
+  const params = {
+    title: title.toString(),
+    limit: 20,
+  };
 
-        return resultsJSON;
-    } catch (error) {
-        console.error(error);
-    }
+  baseUrl.search = new URLSearchParams(params).toString();
+
+  try {
+    const response = await fetch(url);
+    const resultsJSON = await response.json();
+
+    return resultsJSON;
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 //Retourne un array de 20 mangas
@@ -86,9 +83,9 @@ module.exports.getAllMangas = async (page = 1) => {
     };
     
     addParams(params)
-
-    try {
-        const response = await fetch(baseUrl);
+  try {
+    // Effectuer la requête GET
+    const response = await fetch(baseUrl);
 
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -134,6 +131,7 @@ module.exports.getAllMangas = async (page = 1) => {
         throw error;
     }
 };
+
 
 module.exports.getFavorites = async (favorites) => {
     try {
