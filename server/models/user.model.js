@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const generateRefreshToken = require('../utils/refresh-token');
 const { isEmail } = require('validator');
 
 const userSchema = mongoose.Schema({
@@ -30,6 +31,7 @@ const userSchema = mongoose.Schema({
             enum: ['User', 'Admin', 'Administrateur'], // Les rôles valides
             default: 'User' // Rôle par défaut
           },
+          refreshTokens: [{ type: String }],
     },
 
     {
@@ -46,17 +48,29 @@ userSchema.pre("save", async function(next) {
 userSchema.statics.login = async function(email, password) { 
     const user = await this.findOne({ email });
     
-    if (user) {
-        const isPasswordMatch = await bcrypt.compare(password, user.password); 
-        return isPasswordMatch; 
+    if (!user) {
+        return false; 
     }
-    return false;
+
+    const isPasswordMatch = await bcrypt.compare(password, user.password); 
+    if (!isPasswordMatch) {
+        return false; 
+    }
+
+    // Génération du refresh token et ajout à la liste des refresh tokens
+    const refreshToken = generateRefreshToken(); 
+    user.refreshTokens.push(refreshToken);
+    await user.save();
+
+    return true;
 };
+
 // Function décrypte le password et modifie le password quand l'user est logué
 userSchema.methods.changePassword = async function(newPassword) {
   this.password = newPassword; 
 
     try {
+        this.refreshTokens = [];
         await this.save();
         return true; 
     } catch (error) {

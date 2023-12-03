@@ -1,6 +1,7 @@
 const User = require('../models/user.model.js');
-const bcrypt = require('bcrypt');
 const JWT = require('jsonwebtoken');
+
+const generateRefreshToken = require('../utils/refresh-token.js'); 
 
 require('dotenv').config({ path: '../config/.env' })
 
@@ -44,6 +45,7 @@ module.exports.register = async (req, res) => {
         });
     }
 };
+// Function signin
 module.exports.signin = async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -69,6 +71,9 @@ module.exports.signin = async (req, res) => {
             { expiresIn }
         );
 
+        // Génère Refresh Token
+        const refresh_token = generateRefreshToken(user.id);
+
         return res
             .status(200)
             .json({ message: 'User authenticated successfully', token });
@@ -77,6 +82,7 @@ module.exports.signin = async (req, res) => {
         return res.status(500).json({ message: 'Authentication failed' });
     }
 };
+// Function logout
 module.exports.logout = async (req, res) => {
     try {
         const token = req.headers.authorization;
