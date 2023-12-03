@@ -36,29 +36,34 @@ const userSchema = mongoose.Schema({
         timestamps: true,
     }
 )
-// function crypte le password avant le save
+// function crypte le password avant le save register
 userSchema.pre("save", async function(next) {
     const salt = await bcrypt.genSalt(); 
     this.password = await bcrypt.hash(this.password, salt);
     next();
 });
-
-// Function décrypte le password selon l'utilisateur quand login
+// Function décrypte le password de l'utilisateur quand login
 userSchema.statics.login = async function(email, password) { 
     const user = await this.findOne({ email });
     
     if (user) {
-        const auth = await bcrypt.compare(password, user.password); 
-        if (auth) {
-            console.log('user as', user)
-            console.log('user password as', user.password)
-            return user;
-        }
-        throw Error('Password incorrect') 
+        const isPasswordMatch = await bcrypt.compare(password, user.password); 
+        return isPasswordMatch; 
     }
-    throw Error('email incorrect')
+    return false;
 };
+// Function décrypte le password et modifie le password quand l'user est logué
+userSchema.methods.changePassword = async function(newPassword) {
+  this.password = newPassword; 
 
+    try {
+        await this.save();
+        return true; 
+    } catch (error) {
+        console.error('Error changing password:', error);
+        return false; 
+    }
+};
 
 const User = mongoose.model('user', userSchema)
 

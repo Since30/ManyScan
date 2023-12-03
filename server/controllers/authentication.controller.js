@@ -4,11 +4,11 @@ const JWT = require('jsonwebtoken');
 
 require('dotenv').config({ path: '../config/.env' })
 
+
 // Function de création de compte
 module.exports.register = async (req, res) => {
     const { username, email, password, confirmPassword } = req.body;
 
-    // Check if passwords match
     if (password !== confirmPassword) {
         return res.status(400).json({
             message: "Passwords do not match"
@@ -16,7 +16,6 @@ module.exports.register = async (req, res) => {
     }
 
     try {
-        // Check if user exists
         const existingUser = await User.findOne({ email });
 
         if (existingUser) {
@@ -25,15 +24,13 @@ module.exports.register = async (req, res) => {
             });
         }
 
-        // Hash the password
-        const hashedPassword = await bcrypt.hash(password, 12);
-
-        // Create and save User
-        const newUser = await User.create({
+        const newUser = new User({
             username,
             email,
-            password: hashedPassword
+            password 
         });
+        
+        await newUser.save();
 
         return res.status(201).json({
             message: "User successfully created",
@@ -43,25 +40,26 @@ module.exports.register = async (req, res) => {
         console.error(error);
         return res.status(500).json({
             message: "Server error",
-            error: error.message // Send the error message for debugging
+            error: error.message 
         });
     }
 };
 module.exports.signin = async (req, res) => {
     try {
         const { email, password } = req.body;
-        const user = await User.findOne({ where: { email } });
+        const user = await User.findOne({ email });
 
         if (!user) {
             return res.status(401).json({ message: 'User not found' });
         }
 
-        const passwordMatch = await bcrypt.compare(password, user.password);
+        const isPasswordMatch = await User.login(email, password);
 
-        if (!passwordMatch) {
+        if (!isPasswordMatch) {
             return res.status(401).json({ message: 'Invalid password' });
         }
-        const expiresIn = parseInt(process.env.TOKEN_EXPIRATION, 10);
+
+        const expiresIn = parseInt(process.env.TOKEN_EXPIRATION);
         const token = JWT.sign(
             {
                 userId: user.id,
