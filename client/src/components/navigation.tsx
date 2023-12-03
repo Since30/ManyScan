@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 
 
@@ -34,7 +34,7 @@ export default function Navigation() {
                 <>
                     <Link href='/' className='p-2 m-2 text-light text-lg transition'>Accueil</Link>
                     <Link href='/allmangas' className='p-2 m-2 text-light text-lg transition'>Tous les mangas</Link>
-                    <Link href='#' className='p-2 m-2 text-light text-lg transition'>Ma collection</Link>
+                    <Link href='/collection' className='p-2 m-2 text-light text-lg transition'>Ma collection</Link>
                     <div className='flex'>
                         <Link href='/login' className='p-2 m-2 text-light text-lg transition'>Se connecter</Link>
                         

@@ -1,19 +1,7 @@
 const fetch = require('node-fetch');
 
-const baseUrl = new URL('https://api.mangadex.org/manga');
 
-const addParams = (params) => {
-    // Ajouter les paramètres à l'URL
-    Object.keys(params).forEach((key) => {
-        if (Array.isArray(params[key])) {
-            params[key].forEach((value) =>
-                baseUrl.searchParams.append(key, value)
-            );
-        } else {
-            baseUrl.searchParams.append(key, params[key]);
-        }
-    });
-};
+
 
 //Récupération de la cover
 const getCover = async (manga) => {
@@ -74,6 +62,21 @@ module.exports.searchByTitle = async (title) => {
 
 module.exports.getAllMangas = async (page = 1) => {
 
+    const baseUrl = new URL('https://api.mangadex.org/manga');
+
+    const addParams = (params) => {
+        // Ajouter les paramètres à l'URL
+        Object.keys(params).forEach((key) => {
+            if (Array.isArray(params[key])) {
+                params[key].forEach((value) =>
+                    baseUrl.searchParams.append(key, value)
+                );
+            } else {
+                baseUrl.searchParams.append(key, params[key]);
+            }
+        });
+    };
+    
    const params = {
         'contentRating[]': 'safe',
         'includes[]': ['cover_art', 'author'],
@@ -91,7 +94,6 @@ module.exports.getAllMangas = async (page = 1) => {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-
         // Création d'un tableau d'objets manga
 
         const mangasPromises = data.data.map(async (manga) => {
@@ -133,31 +135,20 @@ module.exports.getAllMangas = async (page = 1) => {
     }
 };
 
-// Retourne les mangas favoris
-
 module.exports.getFavorites = async (favorites) => {
-    const params = {
-        'ids[]': await favorites.map((favorite) => favorite.mangaId),
-        'includes[]': ['cover_art', 'author'],
-        limit: 20,
-        offset: 20,
-    };
-    
-    addParams(params)
-
     try {
-        const response = await fetch(baseUrl);
+        // Transformer chaque favorite manga en une requête de fetch individuelle
+        const favoriteMangasPromises = favorites.map(async (favorite) => {
 
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
+            const response = await fetch(`https://api.mangadex.org/manga/${favorite.mangaId}?includes[]=cover_art&includes[]=author`);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
 
-        console.log(data)
+            const data = await response.json();
+            const manga = data.data;
 
-        // Création d'un tableau d'objets manga
-
-       /* const mangasPromises = data.data.map(async (manga) => {
+            // Construire l'objet manga
             const coverURL = await getCover(manga);
             const statistics = await getStatistics(manga);
 
@@ -170,26 +161,21 @@ module.exports.getFavorites = async (favorites) => {
                 year: manga.attributes.year,
                 createAt: manga.attributes.createdAt,
                 updatedAt: manga.attributes.updatedAt,
-                language:
-                    manga.attributes.availableTranslatedLanguages.join(' '),
+                language: manga.attributes.availableTranslatedLanguages.join(' '),
                 lastChapter: manga.attributes.latestUploadedChapter,
                 statistics: statistics,
-                //coverFileName: manga.relationships.find((relationship) => relationship.type === 'cover_art').attributes.fileName,
                 cover: coverURL,
-                authorId: manga.relationships.find(
-                    (relationship) => relationship.type === 'author'
-                ).id,
-                authorName: manga.relationships.find(
-                    (relationship) => relationship.type === 'author'
-                ).attributes.name,
+                authorId: manga.relationships.find((relationship) => relationship.type === 'author').id,
+                authorName: manga.relationships.find((relationship) => relationship.type === 'author').attributes.name,
             };
+
             return mangaObj;
         });
 
-        // Attendre que toutes les promesses soient résolues
-        const mangas = await Promise.all(mangasPromises);
+        // Attendre que toutes les requêtes individuelles soient résolues
+        const favoriteMangas = await Promise.all(favoriteMangasPromises);
 
-        return mangas;*/
+        return favoriteMangas;
     } catch (error) {
         console.error('Error fetching data:', error);
         throw error;

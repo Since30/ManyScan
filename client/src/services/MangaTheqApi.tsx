@@ -1,9 +1,9 @@
 import AnimeObjects from '../interfaces/animeObjects';
 
 const fetchManga = async (page: number): Promise<AnimeObjects[] | void> => {
-  
+  const url = new URL('http://localhost:8080/api/mangas/');
   try {
-    const response = await fetch(`http://localhost:8080/api/mangas?page=${page}`);
+    const response = await fetch(`${url}?page=${page}`);
 
     if (!response.ok) {
       throw new Error(`Erreur HTTP: ${response.status}`);
@@ -19,17 +19,17 @@ const fetchManga = async (page: number): Promise<AnimeObjects[] | void> => {
 };
 
 const fetchFavoriteManga = async (): Promise<AnimeObjects[] | void> => {
-    
+    const url = new URL('http://localhost:8080/api/mangas/favorites');
     try {
-      const response = await fetch(`http://localhost:8080/api/mangas/favorites`);
-  
+      const response = await fetch(url);
+      console.log('url fetchFavManga : ' + url)
       if (!response.ok) {
-        throw new Error(`Erreur HTTP: ${response.status}`);
+        throw new Error(`Erreur HTTP ffM: ${response.status}`);
       }
   
-      const data = await response.json();
+      const favoritesMangas = await response.json();
   
-      return data;
+      return favoritesMangas;
   
     } catch (error) {
       console.error({ error });

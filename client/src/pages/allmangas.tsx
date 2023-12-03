@@ -26,7 +26,6 @@ const AllMangas = () => {
         loadData();
     }, [currentPage]);
 
-
     return (
         <div className='py-6'>
         <Headers />

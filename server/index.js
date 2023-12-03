@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
-const bodyParser = require('body-parser');
 
+const bodyParser = require('body-parser');
 const mangasRoutes = require('./routes/mangas.routes');
 const usersRoutes = require('./routes/users.routes');
 const authRouter = require('./routes/authentication.router');

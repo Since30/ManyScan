@@ -1,5 +1,3 @@
-const { getFavorites } = require('../mangas-api');
-
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
@@ -8,7 +6,6 @@ module.exports.getFavoriteMangas = async () => {
     const favoriteMangas = await prisma.favoriteManga.findMany();
 
     return favoriteMangas
-    
   } catch (error) {
     console.error('Error getting favorite mangas:', error);
   } finally {

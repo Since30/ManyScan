@@ -23,10 +23,9 @@ module.exports.allMangas = async (req, res) => {
 module.exports.getFavoriteMangas = async (req, res) => {
     try {
         const favoriteMangas = await favoritesMangas.getFavoriteMangas();
-       // console.log(favoriteMangas)
         const results = await mangaAPI.getFavorites(favoriteMangas);
-        //console.log(results)
-        return res.status(200).json(results)
+        
+        return res.status(200).json(results);
     } catch (error) {
         console.error(error);
         return res.status(500).json({error: "Oops, something went wrong"})
