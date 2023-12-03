@@ -2,8 +2,10 @@ const User = require('../models/user.model.js');
 const JWT = require('jsonwebtoken');
 
 const generateRefreshToken = require('../utils/refresh-token.js'); 
+const generateResetToken = require('../utils/forgot-password-token.js');
+const sendEmailReinitPassword  = require('./notification.controller.js');
 
-require('dotenv').config({ path: '../config/.env' })
+require('dotenv').config({ path: '../config/.env' });
 
 
 // Function de création de compte
@@ -97,5 +99,35 @@ module.exports.logout = async (req, res) => {
             message: 'Logout failed',
             error: error,
         });
+    }
+};
+
+
+// Function password reset
+module.exports.forgotPassword = async (req, res) => {
+    try{
+        const email = req.body.email;
+        const user = await User.findOne({ email });
+
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        const resetToken = generateResetToken();
+
+        // Enregistre le token de réinitialisation dans le modèle d'utilisateur
+        user.resetToken = resetToken;
+        user.resetTokenExpiration = Date.now() + 3600000; // Expire dans une heure 
+
+        await user.save();
+
+        // Envoyez l'email de réinitialisation
+        await sendEmailReinitPassword(email, resetToken);
+
+        return res.status(200).json({ message: 'Password reset successful' });
+
+    } catch(error){
+        console.error('Password reset:', error);
+        return res.status(500).json({ message: 'Password reset failed' });
     }
 };

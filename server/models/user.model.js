@@ -64,7 +64,6 @@ userSchema.statics.login = async function(email, password) {
 
     return true;
 };
-
 // Function décrypte le password et modifie le password quand l'user est logué
 userSchema.methods.changePassword = async function(newPassword) {
   this.password = newPassword; 

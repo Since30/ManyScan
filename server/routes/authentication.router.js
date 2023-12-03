@@ -13,4 +13,8 @@ router.post('/signin', validateUserSignIn, authCtrl.signin);
 router.post('/logout', jwtMiddleware, authCtrl.logout);
 
 
+//----- Route mot de passe oublié -----//
+router.post('/forgot-password', authCtrl.forgotPassword);
+
+
 module.exports = router;
