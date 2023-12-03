@@ -2,44 +2,20 @@ const User = require('../models/user.model.js');
 const bcrypt = require('bcrypt');
 const JWT = require('jsonwebtoken');
 
+require('dotenv').config({ path: '../config/.env' })
+
+// Function de création de compte
 module.exports.register = async (req, res) => {
+    console.log(req.body)
+    const { username, email, password } = req.body;
+
     try {
-        const { username, email, password, confirmPassword } = req.body;
-
-        // Check if passwords match
-        if (password !== confirmPassword) {
-            return res.status(400).json({
-                message: 'Passwords do not match',
-            });
-        }
-        // Check if user exist
-        const existingUser = await User.findOne({
-            where: {
-                email: req.body.email,
-            },
-        });
-
-        if (existingUser) {
-            return res.status(400).json({
-                message: 'Email already in use',
-            });
-        }
-        // Create and save User
-        const newUser = await User.create({
-            username: req.body.username,
-            email: req.body.email,
-            password: bcrypt.hashSync(req.body.password, 12),
-        });
-        res.status(200).json({
-            message: 'User successfully created',
-            user: newUser,
-        });
+        const user = await User.create({ username, email, password });
+        return res.status(201).send({ user: user._id });
     } catch (error) {
-        res.status(500).json({
-            message: 'Server error',
-            error: error,
-        });
-    }
+        console.error(error)
+        return res.status(400).send({ error });
+    };
 };
 module.exports.signin = async (req, res) => {
     try {

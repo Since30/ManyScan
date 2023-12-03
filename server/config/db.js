@@ -1,13 +1,17 @@
-const { Sequelize } = require("sequelize");
-const path = require('path');
+const mongoose = require('mongoose');
+require('dotenv').config({ path: './.env' });
+require('./db');
 
-// Spécifiez le chemin complet du fichier SQLite
-const databasePath = path.join(__dirname, './database.sqlite');
+// Informations sensibles
+const LOGIN = process.env.LOGIN
+const PASSWORD = process.env.PASSWORD
+const DB = process.env.DB
+const ACCESSMONGO = process.env.ACCESSMONGO
 
-const sequelize = new Sequelize({
-    dialect: 'sqlite',
-    host: databasePath,
-});
+const uri = `mongodb+srv://${LOGIN}:${PASSWORD}${ACCESSMONGO}/${DB}`;
 
-module.exports = sequelize;
-
+// Methode d'indentification a la base de donnée
+mongoose
+  .connect(uri)
+  .then(() => console.log('Connected to mongoDB'))
+  .catch((err) => console.log('Failed to connect to mongoDb', err));
