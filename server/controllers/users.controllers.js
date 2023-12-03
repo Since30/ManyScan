@@ -3,13 +3,13 @@ const bcrypt = require("bcrypt");
 
 module.exports.getAllUsers = async (req, res) => {
   try {
-    const users = await User.findAll();
+    const users = await User.find({}); // Utilisez User.find({}) pour obtenir tous les utilisateurs
 
-    if (users) {
-      res.status(200).json({
-        message: "Users retrieved successfully",
-        data: users,
-      });
+        if (users && users.length > 0) {
+            res.status(200).json({
+                message: "Users retrieved successfully",
+                data: users,
+            });
     } else {
       res.status(404).json({
         message: "No users found",
@@ -20,13 +20,14 @@ module.exports.getAllUsers = async (req, res) => {
       message: "Error",
       error: error,
     });
+    console.error(error)
   }
 };
 module.exports.getUser = async (req, res) => {
   try {
     const user_id = req.params.id;
 
-    const userConnected = await User.findByPk(user_id);
+    const userConnected = await User.findById(user_id);
     if (userConnected) {
       res.status(200).json({
         message: "User data",
@@ -38,6 +39,7 @@ module.exports.getUser = async (req, res) => {
       });
     }
   } catch (error) {
+    console.error('Error in getUser:', error);
     res.status(500).json({
       message: "error",
       error: error,
@@ -49,7 +51,7 @@ module.exports.updateUser = async (req, res) => {
     const userId = req.params.id;
     const { username, email } = req.body;
 
-    const user = await User.findByPk(userId);
+    const user = await User.findById(userId);
 
     if (!user) {
       return res.status(404).json({
@@ -76,8 +78,9 @@ module.exports.updateUser = async (req, res) => {
 module.exports.editPassword = async (req, res) => {
   try {
     const { password, newPassword } = req.body;
+    const userId = req.params.id;
 
-    const user = await User.findOne({ where: { id: req.params.id } });
+    const user = await User.findById(userId);
 
     if (!user) {
       return res.status(404).json({
@@ -86,7 +89,7 @@ module.exports.editPassword = async (req, res) => {
     }
 
     // Vérifie si l'ancien mot de passe est correct
-    const isPasswordMatch = await bcrypt.compare(password, user.password);
+    const isPasswordMatch = await User.login(user.email, password);
 
     if (!isPasswordMatch) {
       return res.status(400).json({
@@ -94,15 +97,14 @@ module.exports.editPassword = async (req, res) => {
       });
     }
 
-    // Hachez et met à jour le nouveau mot de passe
-    const hashedNewPassword = bcrypt.hashSync(newPassword, 12);
-    user.password = hashedNewPassword;
-    await user.save();
+    // Met à jour le nouveau mot de passe
+    await user.changePassword(newPassword);
 
     res.status(200).json({
       message: "Password changed successfully.",
     });
   } catch (error) {
+    console.error("editPassword error", error)
     res.status(500).json({
       message: "Erreur serveur",
       error: error,
@@ -112,7 +114,7 @@ module.exports.editPassword = async (req, res) => {
 module.exports.delelteUser = async (req, res) => {
   try {
     const userId = req.params.id;
-    const user = await User.findByPk(userId);
+    const user = await User.findById(userId);
 
     if (!user) {
       return res.status(404).json({
@@ -120,7 +122,7 @@ module.exports.delelteUser = async (req, res) => {
       });
     }
 
-    await user.destroy();
+    await user.deleteOne(); 
 
     res.status(200).json({
       message: "User deleted successfully",
