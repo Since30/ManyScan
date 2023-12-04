@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
+import { RxAvatar } from "react-icons/rx";
+import { FaBookOpen } from "react-icons/fa";
+import { FaUsers } from "react-icons/fa";
+import { BiError } from "react-icons/bi";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -10,6 +14,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import InfoCard from '../cards/InfoCard';
 
 ChartJS.register(
   CategoryScale,
@@ -19,6 +24,10 @@ ChartJS.register(
   Tooltip,
   Legend
 );
+
+interface DashboardProps {
+  loggedInUserCount: number;
+}
 
 interface MangaStat {
   mangaName: string;
@@ -50,6 +59,10 @@ const fakeUsers = [
 ];
 export default function Dashboard() {
   const [mangaStats, setMangaStats] = useState<MangaStat[]>([]);
+  const [loggedInUserCount, setLoggedInUserCount] = useState<number>(0);
+  const [BookCount, setBookCount] = useState<number>(840);
+  const [membersCount, setMembersCount] = useState<number>(6);
+  const [issueCount, setIssueCount] = useState<number>(0);
 
   useEffect(() => {
     const fetchMangaStats = async () => {
@@ -85,6 +98,30 @@ export default function Dashboard() {
           <div className="bg-blue-500 text-white p-4 shadow-md">
             <h1 className="text-xl font-semibold">Tableau de Bord</h1>
           </div>
+          <InfoCard 
+  icon={< RxAvatar />}
+  title="Logged In User"
+  value={loggedInUserCount} 
+  className="bg-red-500"
+/>
+<InfoCard 
+  icon={< FaBookOpen />}
+  title="Number of Books"
+  value={BookCount} 
+  className="bg-red-500"
+/>
+<InfoCard
+  icon={< FaUsers />}
+  title="Number of Users"
+  value={membersCount}
+  className="bg-red-500"
+/>
+<InfoCard
+  icon={< BiError />}
+  title="Issues reported"
+  value={issueCount}
+  className="bg-red-500"
+/>
           <div className="p-4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {/* Autres cartes de statistiques */}
@@ -119,9 +156,7 @@ export default function Dashboard() {
             </div>
           </div>
         </main>
-        <footer className="text-center p-4 bg-gray-200 text-gray-600">
-          Tous droits réservés
-        </footer>
+        
       </div>
     </>
   );
