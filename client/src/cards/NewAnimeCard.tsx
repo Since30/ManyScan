@@ -2,14 +2,14 @@
 
 import CardTitle from './CardTitle';
 import AnimeObjects from '../interfaces/animeObjects';
-import StarRating from '../components/StarRating';
+import StarRating from '../components/svg/StarRating';
 import Cover from '../components/Cover';
 
 interface Props {
     animes: Array<AnimeObjects>;
 }
 
-const TopAnimeCard: React.FC<Props>= ({animes}) => {
+const TopAnimeCard: React.FC<Props> = ({ animes }) => {
     return (
         <div className='ml-28 p-5'>
     <CardTitle title='Nouveautés' />
@@ -44,6 +44,6 @@ const TopAnimeCard: React.FC<Props>= ({animes}) => {
 </div>
 
     );
-}
+};
 
-export default TopAnimeCard
+export default TopAnimeCard;
