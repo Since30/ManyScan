@@ -1,7 +1,7 @@
 'use client';
 
 import CardTitle from './CardTitle';
-import StarRating from '../components/StarRating';
+import StarRating from '../components/svg/StarRating';
 import AnimeObjects from '../interfaces/animeObjects';
 import Cover from '../components/Cover';
 interface Props {
@@ -10,7 +10,6 @@ interface Props {
 
 const TopAnimeCard: React.FC<Props> = ({ animes }) => {
     return (
-        
         <div className='h-full ml-28 p-5'>
             <CardTitle title='Top mangas' />
 
@@ -59,7 +58,6 @@ const TopAnimeCard: React.FC<Props> = ({ animes }) => {
                 </div>
             </div>
         </div>
-        
     );
 };
 
