@@ -136,7 +136,7 @@ module.exports.getAllMangas = async (page = 1) => {
 module.exports.getFavorites = async (favorites) => {
     try {
         // Transformer chaque favorite manga en une requête de fetch individuelle
-        const favoriteMangasPromises = favorites.map(async (favorite) => {
+        const favoriteMangasPromises = await favorites.map(async (favorite) => {
 
             const response = await fetch(`https://api.mangadex.org/manga/${favorite.mangaId}?includes[]=cover_art&includes[]=author`);
             if (!response.ok) {
