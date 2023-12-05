@@ -2,7 +2,7 @@
 
 import CardTitle from './CardTitle';
 import AnimeObjects from '../interfaces/animeObjects';
-import Star from '../components/StarRating';
+import Star from '../components/svg/StarRating';
 import Cover from '../components/Cover';
 
 interface Props {
