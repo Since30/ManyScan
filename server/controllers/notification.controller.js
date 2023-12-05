@@ -18,14 +18,15 @@ const sendEmailReinitPassword = async (email, resetToken) => {
     sendSmtpEmail.sender = { email: 'manyScan@email.com', name: 'Many_Scan' };
     sendSmtpEmail.to = [{ email }];
     sendSmtpEmail.subject = 'Réinitialisation de mot de passe';
-    sendSmtpEmail.htmlContent = `
-        <p>Bonjour,</p>
-        <p>Vous avez demandé une réinitialisation de mot de passe. Veuillez cliquer sur le lien ci-dessous pour réinitialiser votre mot de passe :</p>
-        <p><a href="http://manyScan.com/reset-password/${resetToken}">Réinitialiser le mot de passe</a></p>
-        <p>Ce lien expirera dans une heure.</p>
-        <p>Cordialement,</p>
-        <p>Votre équipe</p>
-    `;
+    sendSmtpEmail.templateId = 23;
+    // sendSmtpEmail.htmlContent = `
+    //     <p>Bonjour,</p>
+    //     <p>Vous avez demandé une réinitialisation de mot de passe. Veuillez cliquer sur le lien ci-dessous pour réinitialiser votre mot de passe :</p>
+    //     <p><a href="http://manyScan.com/reset-password/${resetToken}">Réinitialiser le mot de passe</a></p>
+    //     <p>Ce lien expirera dans une heure.</p>
+    //     <p>Cordialement,</p>
+    //     <p>Votre équipe</p>
+    // `;
 
     // Envoyez l'email via l'API SendingBlue
     try {
