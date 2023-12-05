@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { fetchFavoriteManga } from '../services/MangaTheqApi';
 import AnimeObjects from '../interfaces/animeObjects';
 import Headers from '../components/header';
-import Navigation from '../components/navigation';
 import StarRating from '../components/svg/StarRating';
 import Cover from '../components/Cover';
 import Link from 'next/link';
@@ -10,12 +9,14 @@ import Link from 'next/link';
 const Collection = () => {
     const [favoriteAnimes, setFavoriteAnimes] = useState<AnimeObjects[]>([]);
     const [data, setData] = useState([]);
+
     useEffect(() => {
         const loadData = async () => {
-            await fetchFavoriteManga().then((res) => {
-                if (res) setFavoriteAnimes([...res]);
-                else console.log('error');
-            });
+            await fetchFavoriteManga()
+                .then((res) => {
+                    if (res) setFavoriteAnimes(res);
+                })
+                .catch((err) => console.log(err));
             console.log('collection: ' + favoriteAnimes);
         };
 
