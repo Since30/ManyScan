@@ -25,7 +25,6 @@ const Collection = () => {
     return (
         <div className='py-6'>
             <Headers />
-            <Navigation />
             <div className='flex flex-wrap justify-center mx-2'>
                 {favoriteAnimes.map((anime) => (
                     <Link key={anime.id} href={`/animes/${anime.id}`}>
