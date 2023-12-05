@@ -4,6 +4,7 @@ import CardTitle from './CardTitle';
 import AnimeObjects from '../interfaces/animeObjects';
 import StarRating from '../components/svg/StarRating';
 import Cover from '../components/Cover';
+import Link from 'next/link';
 
 interface Props {
     anime: AnimeObjects;
@@ -14,7 +15,9 @@ const DiscoverAnimeCard: React.FC<Props> = ({ anime }) => {
         <div className='w-full h-full p-5'>
     <CardTitle title='Découvrir' />
     <div className='w-full h-84 text-center rounded-md border-2 border-red-500 dark:bg-dark-card bg-white p-5 '>
-        <Cover anime={anime} width={176} height={250} />
+    <Link key={anime.id} href={`/animes/${anime.id}`}>
+        <Cover anime={anime} width={150} height={200} />
+        </Link>
         <div className='flex justify-between w-[90%] mx-auto'>
             <div className='flex flex-col items-start w-[85%]'>
                 <h3 className='font-semibold text-start text-lg text-dark line-clamp-2 overflow-hidden overflow-ellipsis'>

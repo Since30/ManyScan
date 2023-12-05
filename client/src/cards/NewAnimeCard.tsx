@@ -4,6 +4,7 @@ import CardTitle from './CardTitle';
 import AnimeObjects from '../interfaces/animeObjects';
 import StarRating from '../components/svg/StarRating';
 import Cover from '../components/Cover';
+import Link from 'next/link';
 
 interface Props {
     animes: Array<AnimeObjects>;
@@ -18,7 +19,11 @@ const TopAnimeCard: React.FC<Props> = ({ animes }) => {
             return (
                 <div key={anime.id || index} className='w-[190px]'>
                     <div className='flex flex-col items-center text-center'>
-                        <Cover anime={anime} width={148} height={210} />
+                    <Link key={anime.id} href={`/animes/${anime.id}`}>
+                    <div className="w-44 h-64 overflow-hidden">
+                                <Cover anime={anime} width={150} height={200} />
+                            </div>
+                            </Link>
                         <h3 className='font-semibold text-lg text-dark line-clamp-2 overflow-hidden overflow-ellipsis'>
                             {anime.title ?? 'Titre inconnu'}
                         </h3>

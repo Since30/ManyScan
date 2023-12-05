@@ -8,9 +8,13 @@ import Cover from '../components/Cover';
 import Link from 'next/link';
 import Header from '@/components/header';
 
+import { FaRegHeart, FaHeart } from "react-icons/fa";
+import * as mangaApi from '../services/MangaTheqApi';
+
 const AllMangas = () => {
     const [animes, setAnimes] = useState<AnimeObjects[]>([]);
     const [currentPage, setCurrentPage] = useState(1);
+    const [favorites, setFavorites] = useState<Set<string>>(new Set());
 
     const handlePageChange = (pageNumber: number) => {
         setCurrentPage(pageNumber);
@@ -25,6 +29,21 @@ const AllMangas = () => {
         loadData();
     }, [currentPage]);
 
+    const toggleFavorite = async (mangaId: string) => {
+        setFavorites((prevFavorites) => {
+            const newFavorites = new Set(prevFavorites);
+            if (newFavorites.has(mangaId)) {
+                newFavorites.delete(mangaId);
+            } else {
+                newFavorites.add(mangaId);
+            }
+            return newFavorites;
+        });
+
+        // Si vous souhaitez également mettre à jour les favoris côté serveur
+        await mangaApi.addToFavorite(mangaId);
+    };
+
     return (
         <div className='py-6'>
             <Header />
@@ -34,10 +53,14 @@ const AllMangas = () => {
 
             <div className='flex flex-wrap justify-center mx-2'>
                 {animes.map((anime) => (
-                    <Link key={anime.id} href={`/animes/${anime.id}`}>
+                    
                         <div className='m-4 cursor-pointer'>
                             <div className='flex flex-col justify-center items-center w-60 h-96 text-center rounded-md bg-white border-2 border-red-500 shadow-lg'>
+                            <Link key={anime.id} href={`/animes/${anime.id}`}>    
+                            <div className="w-44 h-64 overflow-hidden">
                                 <Cover anime={anime} width={176} height={250} />
+                            </div>
+                            </Link>
                                 <div className='flex justify-between w-[80%] mt-3 pl-2'>
                                     <div className='flex flex-col items-start w-[90%]'>
                                         <h3 className='font-semibold text-start text-lg text-gray-900 line-clamp-2 overflow-hidden overflow-ellipsis'>
@@ -57,11 +80,14 @@ const AllMangas = () => {
                                                 '0'}{' '}
                                             votes
                                         </span>
+                                        <div onClick={() => toggleFavorite(anime.id)}>
+                                        {favorites.has(anime.id) ? <FaHeart /> : <FaRegHeart />}
+                                    </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </Link>
+                    
                 ))}
             </div>
             <Pagination
