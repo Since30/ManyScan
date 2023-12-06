@@ -1,7 +1,6 @@
 import CardTitle from './CardTitle';
 import AnimeObjects from '../../interfaces/animeObjects';
 import StarRating from '../svg/StarRating';
-import Cover from '../Cover';
 import CardsContainer from './CardsContainer';
 import MangaCard from './MangaCard';
 
@@ -11,9 +10,9 @@ interface Props {
 
 const DiscoverAnimeCard: React.FC<Props> = ({ anime }) => {
     return (
-        <div className='w-full h-full'>
+        <div>
             <CardTitle title='Découvrir' />
-            <CardsContainer tailwindClass=''>
+            <CardsContainer tailwindClass='h-80'>
                 <MangaCard
                     anime={anime}
                     size='medium'

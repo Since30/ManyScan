@@ -90,45 +90,14 @@ module.exports.getAllMangas = async (page = 1) => {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
-        const data = await response.json();
-        // Création d'un tableau d'objets manga
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
+
         const data = await response.json();
         // Création d'un tableau d'objets manga
 
         const mangasPromises = data.data.map(async (manga) => {
             const coverURL = await getCover(manga);
             const statistics = await getStatistics(manga);
-        const mangasPromises = data.data.map(async (manga) => {
-            const coverURL = await getCover(manga);
-            const statistics = await getStatistics(manga);
-
-            const mangaObj = {
-                id: manga.id,
-                title: manga.attributes.title.en,
-                description: manga.attributes.description.en,
-                type: manga.attributes.publicationDemographic,
-                status: manga.attributes.status,
-                year: manga.attributes.year,
-                createdAt: manga.attributes.createdAt,
-                updatedAt: manga.attributes.updatedAt,
-                language:
-                    manga.attributes.availableTranslatedLanguages.join(' '),
-                lastChapter: manga.attributes.latestUploadedChapter,
-                statistics: statistics,
-                //coverFileName: manga.relationships.find((relationship) => relationship.type === 'cover_art').attributes.fileName,
-                cover: coverURL,
-                authorId: manga.relationships.find(
-                    (relationship) => relationship.type === 'author'
-                ).id,
-                authorName: manga.relationships.find(
-                    (relationship) => relationship.type === 'author'
-                ).attributes.name,
-            };
-            return mangaObj;
-        });
+            
             const mangaObj = {
                 id: manga.id,
                 title: manga.attributes.title.en,
@@ -154,8 +123,6 @@ module.exports.getAllMangas = async (page = 1) => {
             return mangaObj;
         });
 
-        // Attendre que toutes les promesses soient résolues
-        const mangas = await Promise.all(mangasPromises);
         // Attendre que toutes les promesses soient résolues
         const mangas = await Promise.all(mangasPromises);
 

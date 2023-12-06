@@ -8,7 +8,6 @@ import Cover from '../Cover';
 
 interface Props {
     animes: AnimeObjects[];
-    title: string;
 }
 
 export default function TopVerticalAnimeCard(props: Props) {
