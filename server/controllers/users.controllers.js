@@ -2,6 +2,7 @@ const User = require("../models/user.model");
 const bcrypt = require("bcrypt");
 
 module.exports.getAllUsers = async (req, res) => {
+
   try {
     const users = await User.find({}); // Utilisez User.find({}) pour obtenir tous les utilisateurs
 
@@ -23,6 +24,7 @@ module.exports.getAllUsers = async (req, res) => {
     console.error(error)
   }
 };
+
 module.exports.getUser = async (req, res) => {
   try {
     const user_id = req.params.id;
@@ -46,6 +48,7 @@ module.exports.getUser = async (req, res) => {
     });
   }
 };
+
 module.exports.updateUser = async (req, res) => {
   try {
     const userId = req.params.id;
@@ -75,6 +78,7 @@ module.exports.updateUser = async (req, res) => {
     });
   }
 };
+
 module.exports.editPassword = async (req, res) => {
   try {
     const { password, newPassword } = req.body;

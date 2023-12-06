@@ -74,4 +74,3 @@ const deleteFromFavorite = async (mangaId: string): Promise<AnimeObjects[] | voi
 }
 
 export { fetchManga, addToFavorite, deleteFromFavorite, fetchFavoriteManga };
-

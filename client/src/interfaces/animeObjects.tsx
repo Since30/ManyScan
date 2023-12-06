@@ -13,8 +13,8 @@ export default interface AnimeObjects {
     status: status;
     year: number;
     statistics: statistics;
-    createAt: string;
-    updatedAt: string;
+    createdAt: number;
+    updatedAt: number;
     language: string;
     lastChapter?: string;
     coverId: string;

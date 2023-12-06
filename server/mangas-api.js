@@ -104,7 +104,7 @@ module.exports.getAllMangas = async (page = 1) => {
                 type: manga.attributes.publicationDemographic,
                 status: manga.attributes.status,
                 year: manga.attributes.year,
-                createAt: manga.attributes.createdAt,
+                createdAt: manga.attributes.createdAt,
                 updatedAt: manga.attributes.updatedAt,
                 language:
                     manga.attributes.availableTranslatedLanguages.join(' '),

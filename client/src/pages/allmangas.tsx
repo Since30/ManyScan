@@ -6,7 +6,7 @@ import StarRating from '../components/svg/StarRating';
 import Pagination from '../components/Pagination';
 import Cover from '../components/Cover';
 import Link from 'next/link';
-import Header from '@/components/header';
+import Header from '@/components/Headers';
 
 const AllMangas = () => {
     const [animes, setAnimes] = useState<AnimeObjects[]>([]);
@@ -37,7 +37,7 @@ const AllMangas = () => {
                     <Link key={anime.id} href={`/animes/${anime.id}`}>
                         <div className='m-4 cursor-pointer'>
                             <div className='flex flex-col justify-center items-center w-60 h-96 text-center rounded-md bg-white border-2 border-red-500 shadow-lg'>
-                                <Cover anime={anime} width={176} height={250} />
+                                <Cover anime={anime} size='large' />
                                 <div className='flex justify-between w-[80%] mt-3 pl-2'>
                                     <div className='flex flex-col items-start w-[90%]'>
                                         <h3 className='font-semibold text-start text-lg text-gray-900 line-clamp-2 overflow-hidden overflow-ellipsis'>
