@@ -15,7 +15,7 @@ const TopAnimeCard: React.FC<Props> = ({ anime }) => {
         <div>
             <CardTitle title='Top mangas' />
 
-            <CardsContainer tailwindClass='flex space-x-6 w-full h-82 items-start'>
+            <CardsContainer tailwindClass='flex space-x-6 w-full h-80 items-start'>
                 <div className='min-w-max'>
                     <Cover anime={anime} size='large' />
                 </div>

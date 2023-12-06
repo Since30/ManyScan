@@ -11,20 +11,12 @@ interface Props {
 
 const NewAnimeList: React.FC<Props> = ({ animes }) => {
     return (
-        <div className='ml-28 p-5'>
+        <div className=''>
             <CardTitle title='Nouveautés' />
             <CardsContainer tailwindClass='scrollbar-thin overflow-auto flex flex-row space-x-4'>
-                <ul>
-                    {animes.slice(0, 7).map((anime, index) => (
-                        <li className='list-none'>
-                            <MangaCard
-                                anime={anime}
-                                index={index}
-                                size='small'
-                            />
-                        </li>
-                    ))}
-                </ul>
+                {animes.slice(0, 7).map((anime, index) => (
+                    <MangaCard anime={anime} index={index} size='medium' />
+                ))}
             </CardsContainer>
         </div>
     );

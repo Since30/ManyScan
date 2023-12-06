@@ -22,10 +22,14 @@ export default function Home() {
         loadData();
     }, []);
 
-    const topRatedManga = animes.sort((a, b) => b.statistics.rating - a.statistics.rating);
+    const topRatedManga = animes.sort(
+        (a, b) => b.statistics.rating - a.statistics.rating
+    );
     const randomManga = animes[Math.floor(Math.random() * animes.length)];
     const newManga = animes.sort((a, b) => b.createdAt - a.createdAt);
-    const topRatedMangaVertical = animes.sort((a, b) => b.statistics.rating - a.statistics.rating);
+    const topRatedMangaVertical = animes.sort(
+        (a, b) => b.statistics.rating - a.statistics.rating
+    );
 
     return (
         <div className='py-6 bg-background-primary dark:bg-dark-background-secondary'>
@@ -44,14 +48,13 @@ export default function Home() {
                             </div>
                         )}
                     </div>
-                    <div className='w-full'>
+                    <div className='w-full mt-7'>
                         <NewAnimeCard animes={newManga} />
                     </div>
                 </div>
                 <div className='lg:w-1/4'>
                     <TopVerticalAnimeCard
                         animes={topRatedMangaVertical.slice(0, 10)}
-                        title='Top Vertical'
                     />
                 </div>
             </div>
