@@ -31,7 +31,15 @@ const userSchema = mongoose.Schema({
             enum: ['User', 'Admin', 'Administrateur'], // Les rôles valides
             default: 'User' // Rôle par défaut
           },
-          refreshTokens: [{ type: String }],
+        refreshTokens: [{ type: String }],
+        resetToken: {
+            type: String,
+            default: null 
+        },
+        resetTokenExpiration: {
+            type: Date,
+            default: null 
+        },
     },
 
     {

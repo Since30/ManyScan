@@ -32,6 +32,7 @@ const sendEmailReinitPassword = async (email, resetToken) => {
     try {
         await apiInstance.sendTransacEmail(sendSmtpEmail);
         console.log('Email sent successfully');
+        console.log('reset token', resetToken);
     } catch (error) {
         console.error('Email sending failed:', error);
     }

@@ -4,6 +4,7 @@ const JWT = require('jsonwebtoken');
 const generateRefreshToken = require('../utils/refresh-token.js'); 
 const generateResetToken = require('../utils/forgot-password-token.js');
 const sendEmailReinitPassword  = require('./notification.controller.js');
+const setTokenExpiration = require('../utils/setToken-expiration.js');
 
 require('dotenv').config({ path: '../config/.env' });
 
@@ -103,8 +104,8 @@ module.exports.logout = async (req, res) => {
 };
 
 
-// Function password reset
-module.exports.forgotPassword = async (req, res) => {
+// Function token et envoie un email contenant un lien pour password reset
+module.exports.generateForgotPassword = async (req, res) => {
     try{
         const email = req.body.email;
         const user = await User.findOne({ email });
@@ -114,20 +115,47 @@ module.exports.forgotPassword = async (req, res) => {
         }
 
         const resetToken = generateResetToken();
+        const resetTokenExpiration = setTokenExpiration();
 
-        // Enregistre le token de réinitialisation dans le modèle d'utilisateur
+        // Enregistre le token de réinitialisation dans le modèle User
         user.resetToken = resetToken;
-        user.resetTokenExpiration = Date.now() + 3600000; // Expire dans une heure 
+        user.resetTokenExpiration = resetTokenExpiration;
 
         await user.save();
 
-        // Envoyez l'email de réinitialisation
+        // Envoye l'email de réinitialisation
         await sendEmailReinitPassword(email, resetToken);
 
-        return res.status(200).json({ message: 'Password reset successful' });
+        return res.status(200).json({ message: 'Email reset successful' });
 
     } catch(error){
         console.error('Password reset:', error);
-        return res.status(500).json({ message: 'Password reset failed' });
+        return res.status(500).json({ message: 'Email reset failed' });
+    }
+};
+// Function genere nouveau password
+module.exports.newPassword = async (req, res) => {
+    try{
+        const { email, password, resetToken } = req.body;
+        const userToken = req.headers['reset-token'];;
+        
+        const isUser = await User.findOne({ email });
+
+        if (!isUser) {
+            return res.status(404).json({ message: 'User not found' });
+        };
+        if (isUser.resetToken !== userToken || isUser.resetTokenExpiration < Date.now()) {
+            return res.status(400).json({ message: 'Invalid or expired token' });
+        }
+           
+        isUser.password = password; 
+
+        await isUser.save();
+
+        return res.status(200).json({ message: 'Password updated successfully' });
+
+    } catch (error) {
+        console.error('Error during password change procedure:', error);
+        return res.status(500).json({ message: 'Error during password change procedure' });
     }
 };

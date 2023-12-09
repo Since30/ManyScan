@@ -13,8 +13,10 @@ router.post('/signin', validateUserSignIn, authCtrl.signin);
 router.post('/logout', jwtMiddleware, authCtrl.logout);
 
 
-//----- Route mot de passe oublié -----//
-router.post('/forgot-password', authCtrl.forgotPassword);
+//----- Route mot de passe oublié, genere token de reinitialisation de mot de passe -----//
+router.post('/forgot-password', authCtrl.generateForgotPassword);
+//----- Route mot de passe oublié, reinitialise le nouveau mot de passe -----//
+router.put('/new-password', authCtrl.newPassword);
 
 
 module.exports = router;
