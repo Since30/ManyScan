@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Header from '../components/header';
 import TopAnimeCard from '../cards/TopAnimeCard';
 import DiscoverAnimeCard from '../cards/DiscoverAnimeCard';
@@ -8,8 +8,6 @@ import TopVerticalAnimeCard from '../cards/TopVerticalAnimeCard';
 import { fetchManga } from '../services/MangaTheqApi';
 import AnimeObjects from '../interfaces/animeObjects';
 import Footer from '../components/footer';
-import AllMangas from '@/components/allmangas';
-import Contact from '@/components/contact';
 
 export default function Home() {
   const [animes, setAnimes] = useState<AnimeObjects[]>([]);
@@ -53,10 +51,6 @@ export default function Home() {
           <TopVerticalAnimeCard animes={animes} title="Top Vertical" />
         </div>
       </div>
-      <main>
-        <AllMangas />
-      </main>
-      <Contact />
       <Footer />
     </div>
   );
