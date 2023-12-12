@@ -1,34 +1,38 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 export default function LoginForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
+    const router = useRouter();
 
-        try {
-            const response = await fetch('http://localhost:8080/api/auth/signin', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    email,
-                    password,
-                }),
-            });
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-            if (!response.ok) {
-                throw new Error(`Erreur HTTP ! statut : ${response.status}`);
-            }
+    try {
+        const response = await fetch('http://localhost:8080/api/auth/signin', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email,
+                password,
+            }),
+        });
 
-            const data = await response.json();
-            console.log(data); // Gérez ici les données de réponse
-        } catch (error) {
-            console.error('Erreur lors de la connexion:', error);
+        if (!response.ok) {
+            throw new Error(`Erreur HTTP ! statut : ${response.status}`);
         }
-    };
+
+        // L'utilisateur est authentifié, effectuez la redirection vers la page d'accueil
+        router.push('/'); 
+
+    } catch (error) {
+        console.error('Erreur lors de la connexion:', error);
+    }
+};
 
     return (
         <div className='flex justify-center items-center h-screen bg-gray-100'>
@@ -55,12 +59,14 @@ export default function LoginForm() {
                             Mot de passe
                         </label>
                         <input
-                            type='password'
-                            id='password'
-                            value={password}
-                            className='shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5'
-                            required
-                        />
+    type='password'
+    id='password'
+    value={password} 
+    onChange={(e) => setPassword(e.target.value)}
+    className='shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5'
+    required
+/>
+
                     </div>
               
 
