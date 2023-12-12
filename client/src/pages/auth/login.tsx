@@ -1,8 +1,39 @@
+import { useState } from 'react';
+
 export default function LoginForm() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        try {
+            const response = await fetch('http://localhost:8080/api/auth/signin', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email,
+                    password,
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error(`Erreur HTTP ! statut : ${response.status}`);
+            }
+
+            const data = await response.json();
+            console.log(data); // Gérez ici les données de réponse
+        } catch (error) {
+            console.error('Erreur lors de la connexion:', error);
+        }
+    };
+
     return (
         <div className='flex justify-center items-center h-screen bg-gray-100'>
             <div className='max-w-md w-full bg-white shadow-lg rounded-lg p-8'>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className='mb-6'>
                         <label
                             htmlFor='email'
@@ -10,10 +41,12 @@ export default function LoginForm() {
                             Votre email
                         </label>
                         <input
-                            type='email'
-                            id='email'
-                            className='shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5'
-                        />
+    type='email'
+    id='email'
+    value={email}
+    onChange={(e) => setEmail(e.target.value)}
+    className='shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5'
+/>
                     </div>
                     <div className='mb-6'>
                         <label
@@ -24,6 +57,7 @@ export default function LoginForm() {
                         <input
                             type='password'
                             id='password'
+                            value={password}
                             className='shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5'
                             required
                         />
@@ -55,7 +89,7 @@ export default function LoginForm() {
                             Vous n'avez pas de compte ?
                         </span>
                         <a
-                            href='/register'
+                            href='/auth/register'
                             className='text-sm font-medium text-blue-700 dark:text-blue-400'>
                             S'inscrire
                         </a>
@@ -71,5 +105,8 @@ export default function LoginForm() {
                 </form>
             </div>
         </div>
+
     );
 }
+
+
