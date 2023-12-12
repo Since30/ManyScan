@@ -49,6 +49,25 @@ export default function LoginForm() {
                         className='text-light bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>
                         Connexion
                     </button>
+
+                    <div className='mt-4'>
+                        <span className='text-sm font-medium text-gray-900 dark:text-light'>
+                            Vous n'avez pas de compte ?
+                        </span>
+                        <a
+                            href='/register'
+                            className='text-sm font-medium text-blue-700 dark:text-blue-400'>
+                            S'inscrire
+                        </a>
+                    </div>
+                    
+                    <div className='mt-4'>
+                        <a
+                            href='/auth/forgotPassword'
+                            className='text-sm font-medium text-blue-700 dark:text-blue-400'>
+                            Mot de passe oublié ?
+                        </a>
+                    </div>
                 </form>
             </div>
         </div>

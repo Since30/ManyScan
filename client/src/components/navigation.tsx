@@ -18,7 +18,7 @@ export default function Navigation() {
             <div className='flex items-center justify-between px-3 gap-2 rounded-3xl bg-background-secondary border-4  border-element-secondary'>
                 <Padlock />
                 <div>
-                <Link href='/login' className=''>
+                <Link href='/auth/login' className=''>
                     Connexion
                 </Link>
                 <span className=''> / </span>
