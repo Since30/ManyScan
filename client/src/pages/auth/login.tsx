@@ -1,14 +1,17 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import { useAuth } from './authContext';
 
 export default function LoginForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const { login } = useAuth();
 
     const router = useRouter();
 
 const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+  
 
     try {
         const response = await fetch('http://localhost:8080/api/auth/signin', {
@@ -21,12 +24,21 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                 password,
             }),
         });
+       
 
         if (!response.ok) {
             throw new Error(`Erreur HTTP ! statut : ${response.status}`);
         }
 
-        // L'utilisateur est authentifié, effectuez la redirection vers la page d'accueil
+        const userData = await response.json(); 
+const { username } = userData;
+login({ username });
+
+
+
+
+
+        
         router.push('/'); 
 
     } catch (error) {

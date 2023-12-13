@@ -1,4 +1,5 @@
 'use client';
+import { useEffect } from 'react';
 import Link from 'next/link';
 import Padlock from './svg/Padlock';
 import Heart from './svg/Heart';
@@ -7,6 +8,10 @@ import { useAuth } from '../pages/auth/authContext';
 
 export default function Navigation() {
     const { user, logout } = useAuth();
+    useEffect(() => {
+        console.log("User state in Navigation component:", user);
+    }, [user]);
+    
     return (
         <nav className='flex flew-row justify-between items-center gap-6 text-element-secondary'>
             <Link href='/allmangas' className='flex items-center px-6 gap-1'>
