@@ -1,4 +1,3 @@
-// authContext.tsx
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 type AuthContextType = {
@@ -13,10 +12,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const [user, setUser] = useState<{ username: string } | null>(null);
 
     const login = (userData: { username: string }) => {
+        console.log("Trying to log in with:", userData);
         setUser(userData);
     };
 
     const logout = () => {
+        console.log("Logging out");
         setUser(null);
     };
 
