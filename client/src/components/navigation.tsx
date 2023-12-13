@@ -31,7 +31,7 @@ export default function Navigation() {
                             Connexion
                         </Link>
                         <span> / </span>
-                        <Link href="/register">
+                        <Link href="/auth/register">
                            Inscription
                         </Link>
                     </>

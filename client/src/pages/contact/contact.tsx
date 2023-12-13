@@ -13,13 +13,10 @@ export default function ContactForm() {
                 <h2 className='text-3xl font-bold mb-8 text-gray-900'>VENEZ PRENDRE LE THÉ</h2>
                 <form>
                     <div className='flex mb-4'>
-                        <div className='w-1/2 mr-2'>
-                            <label htmlFor='nom' className='block mb-2 text-sm font-medium text-gray-900'>Nom</label>
-                            <input type='text' id='nom' className='bg-red-600 border border-red-300 text-white text-sm rounded-lg block w-full p-2.5' required />
-                        </div>
+                     
                         <div className='w-1/2'>
-                            <label htmlFor='prenom' className='block mb-2 text-sm font-medium text-gray-900'>Prénom</label>
-                            <input type='text' id='prenom' className='bg-red-600 border border-red-300 text-white text-sm rounded-lg block w-full p-2.5' required />
+                            <label htmlFor='username' className='block mb-2 text-sm font-medium text-gray-900'>Pseudo</label>
+                            <input type='text' id='username' className='bg-red-600 border border-red-300 text-white text-sm rounded-lg block w-full p-2.5' required />
                         </div>
                     </div>
                     <div className='mb-4'>
@@ -31,7 +28,7 @@ export default function ContactForm() {
                         <textarea id='message' rows={4} className='bg-red-600 border border-red-300 text-white text-sm rounded-lg block w-full p-2.5'></textarea>
                     </div>
                     <div className='flex justify-between items-center mb-8'>
-                        <button type='button' className='px-4 py-2 bg-red-600 text-white text-sm rounded-lg'>Télécharger un CV (jpg, pdf)</button>
+                        <button type='button' className='px-4 py-2 bg-red-600 text-white text-sm rounded-lg'>Télécharger une image(jpg, pdf)</button>
                         <button type='reset' className='px-4 py-2 bg-gray-300 text-gray-900 text-sm rounded-lg'>Effacer</button>
                         <button type='submit' className='px-4 py-2 bg-red-600 text-white text-sm rounded-lg'>Envoyer</button>
                     </div>
