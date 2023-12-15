@@ -1,3 +1,6 @@
+require('dotenv').config({ path: '../config/.env' });
+
+
 const SibApiV3Sdk = require('sib-api-v3-sdk');
 let defaultClient = SibApiV3Sdk.ApiClient.instance;
 let apiKey = defaultClient.authentications['api-key'];
@@ -19,14 +22,9 @@ const sendEmailReinitPassword = async (email, resetToken) => {
     sendSmtpEmail.to = [{ email }];
     sendSmtpEmail.subject = 'Réinitialisation de mot de passe';
     sendSmtpEmail.templateId = 23;
-    // sendSmtpEmail.htmlContent = `
-    //     <p>Bonjour,</p>
-    //     <p>Vous avez demandé une réinitialisation de mot de passe. Veuillez cliquer sur le lien ci-dessous pour réinitialiser votre mot de passe :</p>
-    //     <p><a href="http://manyScan.com/reset-password/${resetToken}">Réinitialiser le mot de passe</a></p>
-    //     <p>Ce lien expirera dans une heure.</p>
-    //     <p>Cordialement,</p>
-    //     <p>Votre équipe</p>
-    // `;
+    sendSmtpEmail.params = {
+        "REST_PASSOWRD_LINK": `${process.env.REST_PASSOWRD_LINK}`
+    }
 
     // Envoyez l'email via l'API SendingBlue
     try {
