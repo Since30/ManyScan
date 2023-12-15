@@ -32,12 +32,9 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
-<<<<<<< HEAD
-, "src/hooks/useApi.jsx"  ],
-=======
-, "src/components/MangaStatsGraph.jsx"  ],
->>>>>>> d272a8635f36fc2fb3f37d0481f8b19fc8576248
+    ".next/types/**/*.ts",
+    "src/hooks/useApi.jsx" ,
+    "src/components/MangaStatsGraph.jsx"  ],
   "exclude": [
     "node_modules"
   ]
