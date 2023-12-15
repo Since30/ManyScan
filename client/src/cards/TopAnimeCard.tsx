@@ -1,24 +1,28 @@
 'use client';
 
 import CardTitle from './CardTitle';
-import StarRating from '../components/StarRating';
+import StarRating from '../components/svg/StarRating';
 import AnimeObjects from '../interfaces/animeObjects';
 import Cover from '../components/Cover';
 import Link from 'next/link';
+
+
 interface Props {
     animes: AnimeObjects;
 }
 
 const TopAnimeCard: React.FC<Props> = ({ animes }) => {
+    const anime = animes;
     return (
-        
         <div className='h-full ml-28 p-5'>
             <CardTitle title='Top mangas' />
           
             <div className='flex space-x-6 w-full h-82 p-5 rounded-md bg-white border-2 border-red-500 hover:cursor-pointer items-start'>
+            <Link key={anime.id} href={`/animes/${anime.id}`}>
                 <div className='min-w-max'>
                     <Cover anime={animes} width={210} height={297} />
                 </div>
+                </Link>
                 <div className='flex flex-col content-between justify-between h-80'>
                     <div className='flex justify-between items-center'>
                         <div>
@@ -63,7 +67,6 @@ const TopAnimeCard: React.FC<Props> = ({ animes }) => {
             </div>
             
         </div>
-        
     );
 };
 

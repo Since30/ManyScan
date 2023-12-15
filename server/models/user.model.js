@@ -1,3 +1,4 @@
+
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const generateRefreshToken = require('../utils/refresh-token');
@@ -40,19 +41,18 @@ const userSchema = mongoose.Schema({
             type: Date,
             default: null 
         },
-    },
-
-    {
-        timestamps: true,
-    }
-)
+  {
+    timestamps: true,
+  }
+);
 // function crypte le password avant le save register
-userSchema.pre("save", async function(next) {
-    const salt = await bcrypt.genSalt(); 
-    this.password = await bcrypt.hash(this.password, salt);
-    next();
+userSchema.pre("save", async function (next) {
+  const salt = await bcrypt.genSalt();
+  this.password = await bcrypt.hash(this.password, salt);
+  next();
 });
 // Function décrypte le password de l'utilisateur quand login
+
 userSchema.statics.login = async function(email, password) { 
     const user = await this.findOne({ email });
     
@@ -71,10 +71,12 @@ userSchema.statics.login = async function(email, password) {
     await user.save();
 
     return true;
+
 };
 // Function décrypte le password et modifie le password quand l'user est logué
-userSchema.methods.changePassword = async function(newPassword) {
-  this.password = newPassword; 
+userSchema.methods.changePassword = async function (newPassword) {
+  this.password = newPassword;
+
 
     try {
         this.refreshTokens = [];
@@ -84,8 +86,9 @@ userSchema.methods.changePassword = async function(newPassword) {
         console.error('Error changing password:', error);
         return false; 
     }
+
 };
 
-const User = mongoose.model('user', userSchema)
+const User = mongoose.model("user", userSchema);
 
 module.exports = User;

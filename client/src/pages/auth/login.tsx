@@ -28,6 +28,8 @@ export default function LoginForm() {
                             required
                         />
                     </div>
+              
+
                     <div className='mb-6'>
                         <label htmlFor='terms' className='inline-flex items-center'>
                             <input

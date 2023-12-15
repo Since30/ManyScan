@@ -9,11 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+<<<<<<< HEAD
     "dotenv": "^16.3.1",
+=======
+    "chart.js": "^4.4.0",
+    "@next/font": "^14.0.3",
+>>>>>>> d272a8635f36fc2fb3f37d0481f8b19fc8576248
     "next": "14.0.3",
     "next-themes": "^0.2.1",
     "react": "^18",
-    "react-dom": "^18"
+    "react-chartjs-2": "^5.2.0",
+    "react-dom": "^18",
+    "react-icons": "^4.12.0"
   },
   "devDependencies": {
     "@types/node": "^20",

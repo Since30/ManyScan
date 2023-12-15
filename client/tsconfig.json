@@ -33,7 +33,11 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
+<<<<<<< HEAD
 , "src/hooks/useApi.jsx"  ],
+=======
+, "src/components/MangaStatsGraph.jsx"  ],
+>>>>>>> d272a8635f36fc2fb3f37d0481f8b19fc8576248
   "exclude": [
     "node_modules"
   ]
