@@ -1,4 +1,45 @@
+import { useState,FormEvent } from 'react';
+
 export default function RegisterForm() {
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    if (password !== confirmPassword) {
+      alert('Les mots de passe ne correspondent pas.');
+      return;
+    }
+
+    const userData = {
+      username,
+      email,
+      password,
+      confirmPassword, 
+    };
+
+    try {
+      const response = await fetch('http://localhost:8080/api/auth/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Une erreur est survenue lors de l\'inscription');
+      }
+
+      alert('Inscription réussie');
+      // Gérer la réponse ici, comme la redirection vers une autre page
+    } catch (error: any) {
+      alert(error.message);
+    }
+  };
     return (
         <div className='relative h-screen bg-gray-100'>
         {/* Overlay flou */}
@@ -7,7 +48,7 @@ export default function RegisterForm() {
         {/* Conteneur du formulaire, centré et avec un fond clair */}
         <div className='flex justify-center items-center h-screen'>
           <div className='max-w-md w-full bg-white shadow-lg rounded-lg p-8 z-10 relative'>
-            <form>
+          <form onSubmit={handleSubmit}>
               <div className='mb-6'>
                 <label
                   htmlFor='name'
@@ -18,6 +59,7 @@ export default function RegisterForm() {
                         <input
                             type='text'
                             id='name'
+                            onChange={(e) => setUsername(e.target.value)}
                             className='shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5'
                             required
                         />
@@ -25,12 +67,14 @@ export default function RegisterForm() {
                     <div className='mb-6'>
                         <label
                             htmlFor='email'
+                            
                             className='block mb-2 text-sm font-medium text-gray-900 dark:text-light'>
                             Votre email
                         </label>
                         <input
                             type='email'
                             id='email'
+                            onChange={(e) => setEmail(e.target.value)}
                             className='shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5'
                         />
                     </div>
@@ -43,6 +87,7 @@ export default function RegisterForm() {
                         <input
                             type='password'
                             id='password'
+                            onChange={(e) => setPassword(e.target.value)}
                             className='shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5'
                             required
                         />
@@ -56,6 +101,7 @@ export default function RegisterForm() {
                         <input
                             type='password'
                             id='confirmPassword'
+                            onChange={(e) => setConfirmPassword(e.target.value)}
                             className='shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5'
                             required
                         />

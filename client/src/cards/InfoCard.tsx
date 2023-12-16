@@ -1,6 +1,6 @@
 
 interface InfoCardProps {
-  icon: JSX.Element; // Assurez-vous que l'icône est passée en tant qu'élément JSX
+  icon: JSX.Element; 
   title: string;
   value: number | string;
   className?: string;

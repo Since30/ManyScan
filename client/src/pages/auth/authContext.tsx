@@ -23,11 +23,13 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         }
     }, [token])
 
+
     const login = (userData: { username: string, token: string }) => {
         console.log("Trying to log in with:", userData)
         setUser({ username: userData.username }) // Mettre à jour uniquement le username
         setToken(userData.token) // Mettre à jour le token
     }
+
     const logout = () => {
         console.log("Logging out")
         setUser(null)
