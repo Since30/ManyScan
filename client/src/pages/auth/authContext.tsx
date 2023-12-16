@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState, ReactNode,useEffect } from 
 type AuthContextType = {
     user: { username: string } | null;
     token: string | null; // Ajouter le token ici
-    login: (userData: { username: string, token: string }) => void; // Inclure le token dans le type de userData
+    login: (userData: { username: string, token: string }) => void;
     logout: () => void;
 };
 
@@ -20,12 +20,14 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
             localStorage.setItem('token', token);
         } else {
             localStorage.removeItem('token');
-        }
+        } 
     }, [token]);
+   
 
-    const login = (userData: { username: string , token: string }) => {
+    const login = (userData: { username: string, token: string }) => {
         console.log("Trying to log in with:", userData);
-        setUser(userData);
+        setUser({ username: userData.username }); // Mettre à jour uniquement le username
+        setToken(userData.token); // Mettre à jour le token
     };
 
     const logout = () => {
