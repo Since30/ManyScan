@@ -22,18 +22,18 @@ const MangaCard: React.FC<Props> = ({ anime, index, size, parentDiv, titleDiv, t
                 <h3 className={titleCSS}>
                     {anime.title ?? 'Titre inconnu'}
                 </h3>
-                <p className='font-regular text-xs text-dark'>
+                <p className='font-regular text-xs text-element-primary'>
                     {anime.authorName ?? 'Auteur inconnu'}
                 </p>
             </div>
             <div className={ratingDiv}>
-                <span className='text-sm text-dark'>
+                <span className='text-sm'>
                     <StarRating
                         rating={anime.statistics.rating}
                         animeId={anime.id}
                     />
                 </span>
-                <span className='text-dark text-xs'>
+                <span className='text-xs text-element-primary'>
                     {anime.statistics.numberOfVotes ?? '0'} votes
                 </span>
             </div>
