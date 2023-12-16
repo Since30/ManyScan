@@ -9,43 +9,40 @@ export default function LoginForm() {
 
     const router = useRouter();
 
-const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-  
-
-    try {
-        const response = await fetch('http://localhost:8080/api/auth/signin', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                email,
-                password,
-            }),
-        });
-       
-
-        if (!response.ok) {
-            throw new Error(`Erreur HTTP ! statut : ${response.status}`);
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+    
+        try {
+            const response = await fetch('http://localhost:8080/api/auth/signin', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email,
+                    password,
+                }),
+            });
+    
+            if (!response.ok) {
+                throw new Error(`Erreur HTTP ! statut : ${response.status}`);
+            }
+    
+            const userData = await response.json();
+            console.log('userdata')
+            const { username, token } = userData; // Récupération du username et du token
+    
+            if (token) {
+                login({ username , token }); // Mise à jour de l'état avec le token et le username
+                router.push('/'); // Redirection vers la page d'accueil
+            } else {
+                console.error('Token non reçu');
+            }
+        } catch (error) {
+            console.error('Erreur lors de la connexion:', error);
         }
-
-        const userData = await response.json(); 
-const { username } = userData;
-login({ username });
-
-
-
-
-
-        
-        router.push('/'); 
-
-    } catch (error) {
-        console.error('Erreur lors de la connexion:', error);
-    }
-};
-
+    };
+    
     return (
         <div className='flex justify-center items-center h-screen bg-gray-100'>
             <div className='max-w-md w-full bg-white shadow-lg rounded-lg p-8'>
