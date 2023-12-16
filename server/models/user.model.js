@@ -43,8 +43,10 @@ const userSchema = mongoose.Schema({
 });
 // function crypte le password avant le save register
 userSchema.pre("save", async function (next) {
-  const salt = await bcrypt.genSalt();
-  this.password = await bcrypt.hash(this.password, salt);
+  if (this.isModified("password")) {
+    const salt = await bcrypt.genSalt();
+    this.password = await bcrypt.hash(this.password, salt);
+  }
   next();
 });
 // Function décrypte le password de l'utilisateur quand login
