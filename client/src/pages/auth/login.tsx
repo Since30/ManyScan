@@ -33,7 +33,7 @@ export default function LoginForm() {
             
             const userData = await response.json();
             console.log("Response Data:", userData);
-            
+
             const { username, token } = userData; // Récupération du username et du token
     
             if (token) {
@@ -58,12 +58,12 @@ export default function LoginForm() {
                             Votre email
                         </label>
                         <input
-    type='email'
-    id='email'
-    value={email}
-    onChange={(e) => setEmail(e.target.value)}
-    className='shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5'
-/>
+                            type='email'
+                            id='email'
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            className='shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5'
+                        />
                     </div>
                     <div className='mb-6'>
                         <label
@@ -72,17 +72,14 @@ export default function LoginForm() {
                             Mot de passe
                         </label>
                         <input
-    type='password'
-    id='password'
-    value={password} 
-    onChange={(e) => setPassword(e.target.value)}
-    className='shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5'
-    required
-/>
-
+                            type='password'
+                            id='password'
+                            value={password} 
+                            onChange={(e) => setPassword(e.target.value)}
+                            className='shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5'
+                            required
+                        />
                     </div>
-              
-
                     <div className='mb-6'>
                         <label htmlFor='terms' className='inline-flex items-center'>
                             <input
