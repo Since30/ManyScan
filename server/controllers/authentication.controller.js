@@ -79,7 +79,10 @@ module.exports.signin = async (req, res) => {
 
         return res
             .status(200)
-            .json({ message: 'User authenticated successfully', token });
+            .json({ message: 'User authenticated successfully', 
+            token,
+            username: user.username
+        });
     } catch (error) {
         console.error('Signin error:', error);
         return res.status(500).json({ message: 'Authentication failed' });

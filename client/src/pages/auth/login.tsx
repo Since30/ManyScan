@@ -23,12 +23,17 @@ export default function LoginForm() {
                     password,
                 }),
             });
-    
+            console.log("login form response", response)
+            console.log("Status:", response.status);
+
+            
             if (!response.ok) {
                 throw new Error(`Erreur HTTP ! statut : ${response.status}`);
             }
-    
+            
             const userData = await response.json();
+            console.log("Response Data:", userData);
+            
             const { username, token } = userData; // Récupération du username et du token
     
             if (token) {
