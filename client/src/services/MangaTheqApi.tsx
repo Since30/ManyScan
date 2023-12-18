@@ -1,6 +1,11 @@
 import AnimeObjects from '../interfaces/animeObjects';
 
 const fetchManga = async (page: number, limit: number): Promise<AnimeObjects[] | void> => {
+  if (typeof page === 'undefined' || typeof limit === 'undefined') {
+    console.error("Page or limit is undefined");
+    return;
+  }
+  
   const url = new URL('http://localhost:8080/api/mangas/');
   url.searchParams.append('page', page.toString());
   url.searchParams.append('limit', limit.toString()); 

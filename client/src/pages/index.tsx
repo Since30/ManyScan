@@ -12,9 +12,9 @@ import Footer from '../components/footer';
 export default function Home() {
     const [animes, setAnimes] = useState<AnimeObjects[]>([]);
 
-    useEffect(() => {
-        const loadData = async () => {
-            const mangaData = await fetchManga(1);
+  useEffect(() => {
+    const loadData = async () => {
+      const mangaData = await fetchManga(1,20);
 
             setAnimes(mangaData || []);
         };
