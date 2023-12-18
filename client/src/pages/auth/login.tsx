@@ -30,10 +30,10 @@ export default function LoginForm() {
     
             const userData = await response.json();
             console.log('userdata')
-            const { username, token } = userData; // Récupération du username et du token
+            const { username, token ,id } = userData; // Récupération du username et du token
     
             if (token) {
-                login({ username , token }); // Mise à jour de l'état avec le token et le username
+                login({ username ,id, token }); // Mise à jour de l'état avec le token et le username
                 router.push('/'); // Redirection vers la page d'accueil
             } else {
                 console.error('Token non reçu');

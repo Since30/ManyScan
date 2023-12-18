@@ -27,7 +27,7 @@ export default function Navigation() {
                 <div>
                 {user ? (
                     <>
-                        <span className="">{user.username}</span>
+                        <span className="">{user.username}</span>&nbsp;
                         <button onClick={logout} className="">Déconnexion</button>
                     </>
                 ) : (
