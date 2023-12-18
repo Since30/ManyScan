@@ -1,4 +1,5 @@
 const fetch = require("node-fetch");
+const { saveDataToFile, loadDataFromFile } = require("./fileDatamanager");
 
 //Récupération de la cover
 const getCover = async (manga) => {
@@ -61,43 +62,59 @@ module.exports.searchByTitle = async (title) => {
 //L'offset permet un affichage 20 par 20 en spécifiant un numéro de page dans la requête
 
 module.exports.getAllMangas = async (page = 1) => {
+  const limit = 20; // Définissez le nombre de mangas par page ici
+
+  // Tentative de lecture des données à partir d'un fichier local
+  try {
+    const mangasFromFile = await loadDataFromFile("./data/mangasData.json");
+    const startIndex = (page - 1) * limit; // Calcul de l'index de départ pour la page
+
+    // Si les données sont trouvées dans le fichier, appliquer la pagination ici
+    if (mangasFromFile && mangasFromFile.length > 0) {
+      const paginatedData = mangasFromFile.slice(
+        startIndex,
+        startIndex + limit
+      );
+      return paginatedData; // Retourner les données paginées
+    }
+  } catch (error) {
+    console.error("Error reading from file, fetching from API:", error);
+  }
+
+  // Si la lecture du fichier échoue, aller chercher les données via l'API MangaDex
   const baseUrl = new URL("https://api.mangadex.org/manga");
-
-  const addParams = (params) => {
-    // Ajouter les paramètres à l'URL
-    Object.keys(params).forEach((key) => {
-      if (Array.isArray(params[key])) {
-        params[key].forEach((value) => baseUrl.searchParams.append(key, value));
-      } else {
-        baseUrl.searchParams.append(key, params[key]);
-      }
-    });
-  };
-
+  const offset = (page - 1) * limit; // Calcul de l'offset basé sur la page actuelle
   const params = {
     "contentRating[]": "safe",
     "includes[]": ["cover_art", "author"],
     "availableTranslatedLanguage[]": "fr",
-    limit: 20,
-    offset: page * 20,
+    limit: limit, // Utilisation de la limite définie
+    offset: offset, // Utilisation de l'offset calculé
   };
 
-  addParams(params);
-  try {
-    // Effectuer la requête GET
-    const response = await fetch(baseUrl);
+  // Ajout des paramètres à l'URL
+  Object.keys(params).forEach((key) => {
+    if (Array.isArray(params[key])) {
+      params[key].forEach((value) => baseUrl.searchParams.append(key, value));
+    } else {
+      baseUrl.searchParams.append(key, params[key]);
+    }
+  });
 
+  // Exécution de la requête à l'API
+  try {
+    const response = await fetch(baseUrl);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const data = await response.json();
-    // Création d'un tableau d'objets manga
 
+    // Traitement des données reçues de l'API
     const mangasPromises = data.data.map(async (manga) => {
       const coverURL = await getCover(manga);
       const statistics = await getStatistics(manga);
 
-      const mangaObj = {
+      return {
         id: manga.id,
         title: manga.attributes.title.en,
         description: manga.attributes.description.en,
@@ -109,7 +126,6 @@ module.exports.getAllMangas = async (page = 1) => {
         language: manga.attributes.availableTranslatedLanguages.join(" "),
         lastChapter: manga.attributes.latestUploadedChapter,
         statistics: statistics,
-        //coverFileName: manga.relationships.find((relationship) => relationship.type === 'cover_art').attributes.fileName,
         cover: coverURL,
         authorId: manga.relationships.find(
           (relationship) => relationship.type === "author"
@@ -118,13 +134,13 @@ module.exports.getAllMangas = async (page = 1) => {
           (relationship) => relationship.type === "author"
         ).attributes.name,
       };
-      return mangaObj;
+    });
+    const mangas = await Promise.all(mangasPromises);
+    saveDataToFile(mangas, "./data/mangaData.json").catch((err) => {
+      console.error("Error saving data to file:", err);
     });
 
-    // Attendre que toutes les promesses soient résolues
-    const mangas = await Promise.all(mangasPromises);
-
-    return mangas;
+    return mangas; // Retour des données traitées
   } catch (error) {
     console.error("Error fetching data:", error);
     throw error;
@@ -133,23 +149,20 @@ module.exports.getAllMangas = async (page = 1) => {
 
 module.exports.getFavorites = async (favorites) => {
   try {
-    // Transformer chaque favorite manga en une requête de fetch individuelle
-    const favoriteMangasPromises = await favorites.map(async (favorite) => {
+    const favoriteMangasPromises = favorites.map(async (favorite) => {
       const response = await fetch(
         `https://api.mangadex.org/manga/${favorite.mangaId}?includes[]=cover_art&includes[]=author`
       );
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-
       const data = await response.json();
       const manga = data.data;
 
-      // Construire l'objet manga
       const coverURL = await getCover(manga);
       const statistics = await getStatistics(manga);
 
-      const mangaObj = {
+      return {
         id: manga.id,
         title: manga.attributes.title.en,
         description: manga.attributes.description.en,
@@ -169,14 +182,9 @@ module.exports.getFavorites = async (favorites) => {
           (relationship) => relationship.type === "author"
         ).attributes.name,
       };
-
-      return mangaObj;
     });
 
-    // Attendre que toutes les requêtes individuelles soient résolues
-    const favoriteMangas = await Promise.all(favoriteMangasPromises);
-
-    return favoriteMangas;
+    return await Promise.all(favoriteMangasPromises);
   } catch (error) {
     console.error("Error fetching data:", error);
     throw error;

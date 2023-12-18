@@ -16,13 +16,15 @@ const AllMangas = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [favorites, setFavorites] = useState<Set<string>>(new Set());
 
+    const MANGAS_PER_PAGE = 20;
+
     const handlePageChange = (pageNumber: number) => {
         setCurrentPage(pageNumber);
     };
 
     useEffect(() => {
         const loadData = async () => {
-            const mangaData = await fetchManga(currentPage);
+            const mangaData = await fetchManga(currentPage, MANGAS_PER_PAGE);
             setAnimes(mangaData || []);
         };
 
@@ -53,8 +55,8 @@ const AllMangas = () => {
 
             <div className='flex flex-wrap justify-center mx-2'>
                 {animes.map((anime) => (
-                    
-                        <div className='m-4 cursor-pointer'>
+                     
+                        <div key={anime.id} className='m-4 cursor-pointer'>
                             <div className='flex flex-col justify-center items-center w-60 h-96 text-center rounded-md bg-white border-2 border-red-500 shadow-lg'>
                             <Link key={anime.id} href={`/animes/${anime.id}`}>    
                             <div className="w-44 h-64 overflow-hidden">

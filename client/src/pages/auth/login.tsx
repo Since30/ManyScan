@@ -1,17 +1,17 @@
-import { useState } from 'react';
-import { useRouter } from 'next/router';
-import { useAuth } from './authContext';
+import { useState } from 'react'
+import { useRouter } from 'next/router'
+import { useAuth } from './authContext'
 
 export default function LoginForm() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const { login } = useAuth();
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const { login } = useAuth()
 
-    const router = useRouter();
+    const router = useRouter()
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-    
+        e.preventDefault()
+
         try {
             const response = await fetch('http://localhost:8080/api/auth/signin', {
                 method: 'POST',
@@ -22,33 +22,40 @@ export default function LoginForm() {
                     email,
                     password,
                 }),
-            });
-            console.log("login form response", response)
-            console.log("Status:", response.status);
+            })
 
-            
             if (!response.ok) {
-                throw new Error(`Erreur HTTP ! statut : ${response.status}`);
+                throw new Error(`Erreur HTTP ! statut : ${response.status}`)
             }
-            
-            const userData = await response.json();
-            console.log("Response Data:", userData);
 
-            const { username, token } = userData; // Récupération du username et du token
-    
+            const userData = await response.json()
+            console.log('userdata')
+            const { username, token } = userData // Récupération du username et du token
+
             if (token) {
-                login({ username, token }); // Mise à jour de l'état avec le token et le username
-                router.push('/'); // Redirection vers la page d'accueil
+                login({ username, token }) // Mise à jour de l'état avec le token et le username
+                router.push('/') // Redirection vers la page d'accueil
             } else {
-                console.error('Token non reçu');
+                console.error('Token non reçu')
             }
         } catch (error) {
-            console.error('Erreur lors de la connexion:', error);
+            console.error('Erreur lors de la connexion:', error)
         }
-    };
-    
+    }
+
+    const handleBack = () => {
+        router.push('/') // Redirection vers la page d'accueil
+    }
+
     return (
         <div className='flex justify-center items-center h-screen bg-gray-100'>
+            <div className='absolute top-0 left-0 p-4'>
+                <button
+                    onClick={handleBack}
+                    className='text-sm font-medium text-blue-700 dark:text-blue-400'>
+                    Retour
+                </button>
+            </div>
             <div className='max-w-md w-full bg-white shadow-lg rounded-lg p-8'>
                 <form onSubmit={handleSubmit}>
                     <div className='mb-6'>
@@ -74,12 +81,15 @@ export default function LoginForm() {
                         <input
                             type='password'
                             id='password'
-                            value={password} 
+                            value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             className='shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5'
                             required
                         />
+
                     </div>
+
+
                     <div className='mb-6'>
                         <label htmlFor='terms' className='inline-flex items-center'>
                             <input
@@ -110,7 +120,7 @@ export default function LoginForm() {
                             S'inscrire
                         </a>
                     </div>
-                    
+
                     <div className='mt-4'>
                         <a
                             href='/auth/forgotPassword'
@@ -119,10 +129,9 @@ export default function LoginForm() {
                         </a>
                     </div>
                 </form>
+
             </div>
         </div>
 
-    );
+    )
 }
-
-

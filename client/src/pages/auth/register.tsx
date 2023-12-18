@@ -1,4 +1,5 @@
 import { useState,FormEvent } from 'react';
+import Router from 'next/router';
 
 export default function RegisterForm() {
   const [username, setUsername] = useState('');
@@ -40,10 +41,24 @@ export default function RegisterForm() {
       alert(error.message);
     }
   };
+
+  const handleBack = () => {
+    // Redirection vers la page d'accueil
+    Router.push('/');
+  }
     return (
         <div className='relative h-screen bg-gray-100'>
         {/* Overlay flou */}
-        <div className='absolute inset-0 bg-gray-500 bg-opacity-30 backdrop-blur-md'></div>
+        <div className='absolute inset-0 bg-gray-500 bg-opacity-30 backdrop-blur-md'>
+        <div className='absolute top-0 left-0 p-4'>
+                <button
+                    onClick={handleBack}
+                    className='text-sm font-medium text-blue-700 dark:text-blue-400'>
+                    Retour
+                </button>
+                </div>
+        </div>
+        {/* Bouton de retour */}
     
         {/* Conteneur du formulaire, centré et avec un fond clair */}
         <div className='flex justify-center items-center h-screen'>

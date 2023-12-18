@@ -14,7 +14,7 @@ export default function Home() {
 
   useEffect(() => {
     const loadData = async () => {
-      const mangaData = await fetchManga(1);
+      const mangaData = await fetchManga(1,20);
 
       setAnimes(mangaData || []);
     };

@@ -1,163 +1,164 @@
-const User = require('../models/user.model.js');
-const JWT = require('jsonwebtoken');
+const User = require("../models/user.model.js");
+const JWT = require("jsonwebtoken");
 
-const generateRefreshToken = require('../utils/refresh-token.js'); 
-const generateResetToken = require('../utils/forgot-password-token.js');
-const sendEmailReinitPassword  = require('./notification.controller.js');
-const setTokenExpiration = require('../utils/setToken-expiration.js');
+const generateRefreshToken = require("../utils/refresh-token.js");
+const generateResetToken = require("../utils/forgot-password-token.js");
+const sendEmailReinitPassword = require("./notification.controller.js");
+const setTokenExpiration = require("../utils/setToken-expiration.js");
 
-require('dotenv').config({ path: '../config/.env' });
-
+require("dotenv").config({ path: "../config/.env" });
 
 // Function de création de compte
 module.exports.register = async (req, res) => {
-    const { username, email, password, confirmPassword } = req.body;
+  const { username, email, password, confirmPassword } = req.body;
 
-    if (password !== confirmPassword) {
-        return res.status(400).json({
-            message: "Passwords do not match"
-        });
+  if (password !== confirmPassword) {
+    return res.status(400).json({
+      message: "Passwords do not match",
+    });
+  }
+
+  try {
+    const existingUser = await User.findOne({ email });
+
+    if (existingUser) {
+      return res.status(400).json({
+        message: "Email already in use",
+      });
     }
 
-    try {
-        const existingUser = await User.findOne({ email });
+    const newUser = new User({
+      username,
+      email,
+      password,
+    });
 
-        if (existingUser) {
-            return res.status(400).json({
-                message: "Email already in use"
-            });
-        }
+    await newUser.save();
 
-        const newUser = new User({
-            username,
-            email,
-            password 
-        });
-        
-        await newUser.save();
-
-        return res.status(201).json({
-            message: "User successfully created",
-            user: newUser
-        });
-    } catch (error) {
-        console.error(error);
-        return res.status(500).json({
-            message: "Server error",
-            error: error.message 
-        });
-    }
+    return res.status(201).json({
+      message: "User successfully created",
+      user: newUser,
+    });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({
+      message: "Server error",
+      error: error.message,
+    });
+  }
 };
 // Function signin
 module.exports.signin = async (req, res) => {
-    try {
-        const { email, password } = req.body;
-        const user = await User.findOne({ email });
+  try {
+    const { email, password } = req.body;
+    const user = await User.findOne({ email });
 
-        if (!user) {
-            return res.status(401).json({ message: 'User not found' });
-        }
-
-        const isPasswordMatch = await User.login(email, password);
-
-        if (!isPasswordMatch) {
-            return res.status(401).json({ message: 'Invalid password' });
-        }
-
-        const expiresIn = parseInt(process.env.TOKEN_EXPIRATION);
-        const token = JWT.sign(
-            {
-                userId: user.id,
-                email: user.email,
-            },
-            process.env.SECRET_TOKEN_KEY,
-            { expiresIn }
-        );
-
-        // Génère Refresh Token
-        const refresh_token = generateRefreshToken(user.id);
-
-        return res
-            .status(200)
-            .json({ message: 'User authenticated successfully', token, username: user.username });
-    } catch (error) {
-        console.error('Signin error:', error);
-        return res.status(500).json({ message: 'Authentication failed' });
+    if (!user) {
+      return res.status(401).json({ message: "User not found" });
     }
+
+    const isPasswordMatch = await User.login(email, password);
+
+    if (!isPasswordMatch) {
+      return res.status(401).json({ message: "Invalid password" });
+    }
+
+    const expiresIn = parseInt(process.env.TOKEN_EXPIRATION);
+    const token = JWT.sign(
+      {
+        userId: user.id,
+        email: user.email,
+      },
+      process.env.SECRET_TOKEN_KEY,
+      { expiresIn }
+    );
+
+    // Génère Refresh Token
+    const refresh_token = generateRefreshToken(user.id);
+
+    // Renvoyer le token et le username dans la réponse
+    return res
+        .status(200)
+        .json({ message: 'User authenticated successfully', token, username: user.username });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
 };
+
 // Function logout
 module.exports.logout = async (req, res) => {
-    try {
-        const token = req.headers.authorization;
+  try {
+    const token = req.headers.authorization;
 
-        return res.status(200).json({
-            message: 'User logged out successfully',
-            token: token,
-        });
-    } catch (error) {
-        console.error('Logout error:');
-        return res.status(500).json({
-            message: 'Logout failed',
-            error: error,
-        });
-    }
+    return res.status(200).json({
+      message: "User logged out successfully",
+      token: token,
+    });
+  } catch (error) {
+    console.error("Logout error:");
+    return res.status(500).json({
+      message: "Logout failed",
+      error: error,
+    });
+  }
 };
-
 
 // Function token et envoie un email contenant un lien pour password reset
 module.exports.generateForgotPassword = async (req, res) => {
-    try{
-        const email = req.body.email;
-        const user = await User.findOne({ email });
+  try {
+    const email = req.body.email;
+    const user = await User.findOne({ email });
 
-        if (!user) {
-            return res.status(404).json({ message: 'User not found' });
-        }
-
-        const resetToken = generateResetToken();
-        const resetTokenExpiration = setTokenExpiration();
-
-        // Enregistre le token de réinitialisation dans le modèle User
-        user.resetToken = resetToken;
-        user.resetTokenExpiration = resetTokenExpiration;
-
-        await user.save();
-
-        // Envoye l'email de réinitialisation
-        await sendEmailReinitPassword(email, resetToken);
-
-        return res.status(200).json({ message: 'Email reset successful' });
-
-    } catch(error){
-        console.error('Password reset:', error);
-        return res.status(500).json({ message: 'Email reset failed' });
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
     }
+
+    const resetToken = generateResetToken();
+    const resetTokenExpiration = setTokenExpiration();
+
+    // Enregistre le token de réinitialisation dans le modèle User
+    user.resetToken = resetToken;
+    user.resetTokenExpiration = resetTokenExpiration;
+
+    await user.save();
+
+    // Envoye l'email de réinitialisation
+    await sendEmailReinitPassword(email, resetToken);
+
+    return res.status(200).json({ message: "Email reset successful" });
+  } catch (error) {
+    console.error("Password reset:", error);
+    return res.status(500).json({ message: "Email reset failed" });
+  }
 };
 // Function genere nouveau password
 module.exports.newPassword = async (req, res) => {
     try{
-        const password = req.body;
-        const userToken = req.headers['reset-token'];
-        console.log(userToken)
+        const { email, password, resetToken } = req.body;
+        const userToken = req.headers['reset-token'];;
         
-        // const isUser = await User.findOne({ email });
-        const isUser = await User.findOne({ resetToken: userToken });
+        const isUser = await User.findOne({ email });
 
-        if (!isUser) {
-            return res.status(404).json({ message: 'User not found' });
-        };
-        if (isUser.resetToken !== userToken || isUser.resetTokenExpiration < Date.now()) {
-            return res.status(400).json({ message: 'Invalid or expired token' });
-        }
-           
-        isUser.password = password; 
-
-        await isUser.save();
-
-        return res.status(200).json({ message: 'Password updated successfully' });
-
-    } catch (error) {
-        console.error('Error during password change procedure:', error);
-        return res.status(500).json({ message: 'Error during password change procedure' });
+    if (!isUser) {
+      return res.status(404).json({ message: "User not found" });
     }
+    if (
+      isUser.resetToken !== userToken ||
+      isUser.resetTokenExpiration < Date.now()
+    ) {
+      return res.status(400).json({ message: "Invalid or expired token" });
+    }
+
+    isUser.password = password;
+
+    await isUser.save();
+
+    return res.status(200).json({ message: "Password updated successfully" });
+  } catch (error) {
+    console.error("Error during password change procedure:", error);
+    return res
+      .status(500)
+      .json({ message: "Error during password change procedure" });
+  }
 };
