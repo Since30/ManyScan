@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FormEvent, useState } from 'react'
+import React, { ChangeEvent, FormEvent, useState, useEffect } from 'react'
 
 export default function ConfirmNewPasswordForgotPassword() {
     const [user, setUser] = useState({
@@ -9,6 +9,35 @@ export default function ConfirmNewPasswordForgotPassword() {
     })
     console.log(user)
     const [message, setMessage] = useState('');
+
+    // Récupére l'email associé au token
+    const fetchEmailFromToken = async () => {
+        try {
+            // Récupérez le token de l'URL (à l'aide de React Router par exemple)
+            const params = new URLSearchParams(window.location.search)
+            const resetToken = params.get('token') // Supposons que le token soit dans les paramètres de l'URL
+
+            // Effectuez une requête vers votre endpoint API pour récupérer l'email associé au token
+            const response = await fetch(`http://localhost:8080/api/auth/get-reset-token?token=${resetToken}`)
+            const data = await response.json()
+
+            if (response.ok) {
+                setUser((prevState) => ({
+                    ...prevState,
+                    email: data.email || '', 
+                    resetToken: resetToken || '', 
+                }))
+            }
+        } catch (error) {
+            console.error('Error fetching email from token:', error)
+        }
+    }
+
+    // Déclenche la fonction fetchEmailFromToken 
+    useEffect(() => {
+        fetchEmailFromToken() 
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []); 
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;

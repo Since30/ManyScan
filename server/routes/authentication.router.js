@@ -17,6 +17,8 @@ router.post("/logout", jwtMiddleware, authCtrl.logout);
 
 //----- Route mot de passe oublié, genere token de reinitialisation de mot de passe -----//
 router.post("/forgot-password", authCtrl.generateForgotPassword);
+//----- Route mot de passe oublié, cherche le reset-token associé à l'email -----//
+router.get("/get-reset-token", authCtrl.getResetToken);
 //----- Route mot de passe oublié, reinitialise le nouveau mot de passe -----//
 router.put("/new-password", authCtrl.newPassword);
 

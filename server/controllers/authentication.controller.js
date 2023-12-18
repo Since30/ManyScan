@@ -132,14 +132,33 @@ module.exports.generateForgotPassword = async (req, res) => {
     return res.status(500).json({ message: "Email reset failed" });
   }
 };
+module.exports.getResetToken = async (req, res) => {
+  try {
+    const resetToken = req.query.token;
+
+    // Recherche du token dans la base de données
+    const user = await User.findOne({ resetToken });
+
+    if (!user) {
+      return res.status(404).json({ message: "Token not found" });
+    }
+
+    // Renvoi de l'email associé au token
+    return res.status(200).json({ email: user.email });
+  } catch (error) {
+    console.error('Error fetching email from token:', error);
+    return res.status(500).json({ message: "Error fetching email from token" });
+  }
+}
 // Function genere nouveau password
 module.exports.newPassword = async (req, res) => {
     try{
-        const { email, password, resetToken } = req.body;
+        const { email, password } = req.body;
         const userToken = req.headers['reset-token'];;
         
         const isUser = await User.findOne({ email });
 
+        console.log(isUser.resetTokenExpiration < Date.now())
     if (!isUser) {
       return res.status(404).json({ message: "User not found" });
     }
@@ -149,7 +168,7 @@ module.exports.newPassword = async (req, res) => {
     ) {
       return res.status(400).json({ message: "Invalid or expired token" });
     }
-
+      
     isUser.password = password;
 
     await isUser.save();
