@@ -1,5 +1,6 @@
 const fetch = require("node-fetch");
 const { saveDataToFile, loadDataFromFile } = require("./fileDatamanager");
+const mangaData = require("./data/mangaData.json")
 
 //Récupération de la cover
 const getCover = async (manga) => {
@@ -63,7 +64,7 @@ module.exports.searchByTitle = async (title) => {
 
 module.exports.getAllMangas = async (page = 1) => {
   try {
-    const mangasFromFile = await loadDataFromFile("mangas.json");
+    const mangasFromFile = await loadDataFromFile("./data/mangaData.json");
     if (mangasFromFile && mangasFromFile.length > 0) {
       return mangasFromFile;
     }
