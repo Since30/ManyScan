@@ -42,9 +42,20 @@ export default function LoginForm() {
             console.error('Erreur lors de la connexion:', error);
         }
     };
+
+    const handleBack = () => {
+        router.push('/'); // Redirection vers la page d'accueil
+    };
     
     return (
         <div className='flex justify-center items-center h-screen bg-gray-100'>
+            <div className='absolute top-0 left-0 p-4'>
+                <button
+                    onClick={handleBack}
+                    className='text-sm font-medium text-blue-700 dark:text-blue-400'>
+                    Retour
+                </button>
+            </div>
             <div className='max-w-md w-full bg-white shadow-lg rounded-lg p-8'>
                 <form onSubmit={handleSubmit}>
                     <div className='mb-6'>
@@ -118,6 +129,7 @@ export default function LoginForm() {
                         </a>
                     </div>
                 </form>
+               
             </div>
         </div>
 
