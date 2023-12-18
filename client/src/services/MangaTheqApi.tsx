@@ -1,22 +1,26 @@
 import AnimeObjects from '../interfaces/animeObjects';
 
-const fetchManga = async (page: number): Promise<AnimeObjects[] | void> => {
+const fetchManga = async (page: number, limit: number): Promise<AnimeObjects[] | void> => {
   const url = new URL('http://localhost:8080/api/mangas/');
+  url.searchParams.append('page', page.toString());
+  url.searchParams.append('limit', limit.toString()); 
+
   try {
-    const response = await fetch(`${url}?page=${page}`);
+    const response = await fetch(url.toString());
 
     if (!response.ok) {
       throw new Error(`Erreur HTTP: ${response.status}`);
     }
 
     const data = await response.json();
-
     return data;
 
   } catch (error) {
     console.error({ error });
   }
 };
+
+
 
 const fetchFavoriteManga = async (): Promise<AnimeObjects[] | void> => {
     const url = new URL('http://localhost:8080/api/mangas/favorites');

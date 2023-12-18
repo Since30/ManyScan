@@ -62,23 +62,37 @@ module.exports.searchByTitle = async (title) => {
 //L'offset permet un affichage 20 par 20 en spécifiant un numéro de page dans la requête
 
 module.exports.getAllMangas = async (page = 1) => {
+  const limit = 20; // Définissez le nombre de mangas par page ici
+
+  // Tentative de lecture des données à partir d'un fichier local
   try {
     const mangasFromFile = await loadDataFromFile("./data/mangasData.json");
+    const startIndex = (page - 1) * limit; // Calcul de l'index de départ pour la page
+
+    // Si les données sont trouvées dans le fichier, appliquer la pagination ici
     if (mangasFromFile && mangasFromFile.length > 0) {
-      return mangasFromFile;
+      const paginatedData = mangasFromFile.slice(
+        startIndex,
+        startIndex + limit
+      );
+      return paginatedData; // Retourner les données paginées
     }
   } catch (error) {
     console.error("Error reading from file, fetching from API:", error);
   }
 
+  // Si la lecture du fichier échoue, aller chercher les données via l'API MangaDex
   const baseUrl = new URL("https://api.mangadex.org/manga");
+  const offset = (page - 1) * limit; // Calcul de l'offset basé sur la page actuelle
   const params = {
     "contentRating[]": "safe",
     "includes[]": ["cover_art", "author"],
     "availableTranslatedLanguage[]": "fr",
-    limit: 20,
-    offset: (page - 1) * 20,
+    limit: limit, // Utilisation de la limite définie
+    offset: offset, // Utilisation de l'offset calculé
   };
+
+  // Ajout des paramètres à l'URL
   Object.keys(params).forEach((key) => {
     if (Array.isArray(params[key])) {
       params[key].forEach((value) => baseUrl.searchParams.append(key, value));
@@ -87,12 +101,15 @@ module.exports.getAllMangas = async (page = 1) => {
     }
   });
 
+  // Exécution de la requête à l'API
   try {
     const response = await fetch(baseUrl);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const data = await response.json();
+
+    // Traitement des données reçues de l'API
     const mangasPromises = data.data.map(async (manga) => {
       const coverURL = await getCover(manga);
       const statistics = await getStatistics(manga);
@@ -123,7 +140,7 @@ module.exports.getAllMangas = async (page = 1) => {
       console.error("Error saving data to file:", err);
     });
 
-    return mangas; // Assurez-vous que cette ligne est présente
+    return mangas; // Retour des données traitées
   } catch (error) {
     console.error("Error fetching data:", error);
     throw error;
