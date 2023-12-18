@@ -1,27 +1,72 @@
-import React, { FormEvent, useState } from 'react';
+import React, { ChangeEvent, FormEvent, useState } from 'react'
 
+export default function ConfirmNewPasswordForgotPassword() {
+    const [user, setUser] = useState({
+        email: '',
+        password: '',
+        confirmPassword: '',
+        resetToken: '',
+    })
+    console.log(user)
+    const [message, setMessage] = useState('');
 
-export default function confirmNewPasswordForgotPassword() {
-    const [newPassword, setNewPassword] = useState('');
-    const [confirmNewPassword, setConfirmNewPassword] = useState('');
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setUser({ ...user, [name]: value });
+    }
 
     const handleNewPassword = async (event: FormEvent<HTMLFormElement>) => {
-//TODO
-    //vérifier new password match to confirmPassowrd
-    //call back-end to 'http://localhost:8080/api/auth/new-password'
+        event.preventDefault()
 
-        try{
+        if (user.password !== user.confirmPassword.trim()) {
+            setMessage('Les mots de passe ne correspondent pas')
+            return
+        };
 
-        } catch(error){
+        try {
+            const response = await fetch('http://localhost:8080/api/auth/new-password', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'reset-token': user.resetToken,
+                },
+                body: JSON.stringify({
+                    email: user.email,
+                    password: user.password
+                }),
+            })
 
+            if (response.ok) {
+                setMessage('Mot de passe réinitialisé avec succès')
+            } else {
+                setMessage('Échec de la réinitialisation du mot de passe')
+            }
+        } catch (error) {
+            setMessage('Une erreur s\'est produite lors de la réinitialisation du mot de passe')
         }
-    }
+    };
+
   return (
     <>
     <div className='flex justify-center items-center h-screen bg-gray-100'>
         <div className='max-w-md w-full bg-white shadow-lg rounded-lg p-8'>
-            <form onSubmit={handleNewPassword}>
-                      <div className='mt-3'>
+            <form className="flex flex-col space-y-3" onSubmit={handleNewPassword}>
+                <div className='mt-3'>
+                    <label
+                        htmlFor='email'
+                        className='block text-sm font-medium text-gray-900 dark:text-light'>
+                        Votre email
+                    </label>
+                    <input
+                        type='text'
+                        id='email'
+                        name='email'
+                        onChange={(e) => handleChange(e)}
+                        className='shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5'
+                        required
+                    />
+                </div>
+                <div className='mt-3'>
                     <label
                         htmlFor='newPassword'
                         className='block text-sm font-medium text-gray-900 dark:text-light'>
@@ -29,10 +74,11 @@ export default function confirmNewPasswordForgotPassword() {
                     </label>
                     <input
                         type='password'
-                            id='newPassword'
-                            onChange={(e) => setNewPassword(e.target.value)}
-                            className='shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5'
-                            required
+                        id='newPassword'
+                        name='password'
+                        onChange={(e) => handleChange(e)}
+                        className='shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5'
+                        required
                     />
                 </div>
                 <div className='mt-3'>
@@ -43,18 +89,24 @@ export default function confirmNewPasswordForgotPassword() {
                     </label>
                     <input
                         type='password'
-                            id='confirmNewPassword'
-                            onChange={(e) => setConfirmNewPassword(e.target.value)}
-                            className='shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5'
-                            required
+                        id='confirmNewPassword'
+                        name='confirmPassword'
+                        onChange={(e) => handleChange(e)}
+                        className='shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5'
+                        required
                     />
                 </div>
-                <button
+                <input
                     type='submit'
-                    className='text-light mt-5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>
-                    Réinitialiser votre nouveau mot de passe
-                </button>
+                    className='text-light mt-5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 self-center'
+                    value="Réinitialiser votre nouveau mot de passe"
+                />
             </form>
+            {message && (
+                <div className={`text-center mt-5 text-sm ${message.includes('succès') ? 'text-green-500' : 'text-red-500'}`}>
+                    {message}
+                </div>
+            )}
         </div>
     </div>        
     </>

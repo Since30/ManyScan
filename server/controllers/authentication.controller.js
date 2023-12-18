@@ -79,10 +79,7 @@ module.exports.signin = async (req, res) => {
 
         return res
             .status(200)
-            .json({ message: 'User authenticated successfully', 
-            token,
-            username: user.username
-        });
+            .json({ message: 'User authenticated successfully', token, username: user.username });
     } catch (error) {
         console.error('Signin error:', error);
         return res.status(500).json({ message: 'Authentication failed' });
@@ -139,10 +136,12 @@ module.exports.generateForgotPassword = async (req, res) => {
 // Function genere nouveau password
 module.exports.newPassword = async (req, res) => {
     try{
-        const { email, password, resetToken } = req.body;
-        const userToken = req.headers['reset-token'];;
+        const password = req.body;
+        const userToken = req.headers['reset-token'];
+        console.log(userToken)
         
-        const isUser = await User.findOne({ email });
+        // const isUser = await User.findOne({ email });
+        const isUser = await User.findOne({ resetToken: userToken });
 
         if (!isUser) {
             return res.status(404).json({ message: 'User not found' });

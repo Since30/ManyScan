@@ -23,13 +23,14 @@ const sendEmailReinitPassword = async (email, resetToken) => {
     sendSmtpEmail.subject = 'Réinitialisation de mot de passe';
     sendSmtpEmail.templateId = 23;
     sendSmtpEmail.params = {
-        "REST_PASSOWRD_LINK": `${process.env.REST_PASSOWRD_LINK}`
+        "REST_PASSOWRD_LINK": `${process.env.REST_PASSOWRD_LINK}?token=${resetToken}`
     }
 
     // Envoyez l'email via l'API SendingBlue
     try {
         await apiInstance.sendTransacEmail(sendSmtpEmail);
         console.log('Email sent successfully');
+        console.log('reset token email', email);
         console.log('reset token', resetToken);
     } catch (error) {
         console.error('Email sending failed:', error);
