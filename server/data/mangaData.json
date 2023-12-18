@@ -9,7 +9,7 @@
     "createAt": "2019-06-30T08:13:07+00:00",
     "updatedAt": "2023-07-19T22:06:39+00:00",
     "language": "uk en pt-br fr es-la it hu",
-    "lastChapter": "45bc1396-a05b-4c7b-b01d-d7c39ca3d612",
+    "lastChapter": "b62d6ab8-b6c8-4522-91bb-c1da3c2ed77e",
     "statistics": {
       "rating": 9.3988,
       "numberOfVotes": 2061
@@ -28,14 +28,33 @@
     "createAt": "2023-08-27T02:31:47+00:00",
     "updatedAt": "2023-08-28T09:19:15+00:00",
     "language": "fr en pl",
-    "lastChapter": "da87733a-6c10-4130-9817-81fa793eccac",
+    "lastChapter": "8fdbbafa-df20-4a8b-9a84-82d5477375a2",
     "statistics": {
-      "rating": 8.4947,
-      "numberOfVotes": 95
+      "rating": 8.4792,
+      "numberOfVotes": 96
     },
     "cover": "https://uploads.mangadex.org/covers/dd9689c2-46f0-4e80-9c31-ea27cf48044f/ace01b19-e8c3-4482-83a3-be0f92a339fe.jpg",
     "authorId": "49561b61-aac5-40e1-b559-85b92ed7dfeb",
     "authorName": "Eun Ryeowon"
+  },
+  {
+    "id": "64113fcd-4f8c-41bc-8fa4-18a83076da2e",
+    "title": "The Last Human",
+    "description": "Zuo Tianchen is the last living human in a mutated zombie-infested city. Just when he was sure he'd died, he finds his soul returned to just before that ill-fated day ten years ago. He swears he'll protect the people important to him this time round and reunite with his past lover. Watch his struggles to survive equipped with his memory of the next ten years!",
+    "type": null,
+    "status": "ongoing",
+    "year": 2018,
+    "createAt": "2019-03-16T17:45:29+00:00",
+    "updatedAt": "2023-08-09T05:24:54+00:00",
+    "language": "it en fr ar ru pt-br",
+    "lastChapter": "44f19223-1cbd-47e3-911c-34053d013987",
+    "statistics": {
+      "rating": 7.4139,
+      "numberOfVotes": 1527
+    },
+    "cover": "https://uploads.mangadex.org/covers/64113fcd-4f8c-41bc-8fa4-18a83076da2e/8a8d42b9-86f3-4856-b41f-cbae24199884.jpg",
+    "authorId": "772e720a-6d4d-469a-99de-202ce5a0f722",
+    "authorName": "Amazing Works"
   },
   {
     "id": "77ae6d99-0d2d-4f63-8903-6246cac20897",
@@ -144,8 +163,8 @@
     "language": "it hu pt-br ru en es-la ar fr vi uk he id zh-hk th es de  sr mn ms tr",
     "lastChapter": "39a9bf24-c60a-437d-a318-6f8cc6aceae6",
     "statistics": {
-      "rating": 9.1225,
-      "numberOfVotes": 6809
+      "rating": 9.1226,
+      "numberOfVotes": 6810
     },
     "cover": "https://uploads.mangadex.org/covers/c52b2ce3-7f95-469c-96b0-479524fb7a1a/40dfaef9-0360-4086-b0d2-d655579bf1d0.jpg",
     "authorId": "94be1d47-54d0-42c6-b42b-439605e3793f",
@@ -163,7 +182,7 @@
     "language": "pt-br en fr vi tr es-la ar ru",
     "lastChapter": "6d47dffd-e64e-48ad-bd01-21a461915d66",
     "statistics": {
-      "rating": 8.6533,
+      "rating": 8.6528,
       "numberOfVotes": 1702
     },
     "cover": "https://uploads.mangadex.org/covers/7878c129-a33d-4bf9-b5d2-ff98cbe85bd6/1c7a6e58-e7b8-43d4-a873-75fbb59fb288.jpg",
@@ -239,7 +258,7 @@
     "language": "vi ru fr pt-br id th es-la en pl",
     "lastChapter": "6feb8b6f-e1eb-4ee7-a9f1-0faf647e83f9",
     "statistics": {
-      "rating": 9.3727,
+      "rating": 9.3726,
       "numberOfVotes": 3456
     },
     "cover": "https://uploads.mangadex.org/covers/a4b39b6e-a448-4644-a540-64ceff1d8305/9e4f80cf-1849-4f06-8f39-3be0b93ff50c.jpg",
@@ -259,7 +278,7 @@
     "lastChapter": "70378910-f64e-4e83-a39b-a88f2776dd09",
     "statistics": {
       "rating": 8.988,
-      "numberOfVotes": 5663
+      "numberOfVotes": 5664
     },
     "cover": "https://uploads.mangadex.org/covers/8d163365-15a6-4031-8671-29a11e3b6d69/6967e236-5cb3-4f90-93e2-deafd9988473.jpg",
     "authorId": "83873efa-868d-41e5-b4c1-34e10a58d72f",
@@ -353,30 +372,11 @@
     "language": "ru en fr pt-br",
     "lastChapter": "ebc80290-5ab6-49ca-92f2-e6849702b051",
     "statistics": {
-      "rating": 9.1516,
-      "numberOfVotes": 4736
+      "rating": 9.1506,
+      "numberOfVotes": 4741
     },
     "cover": "https://uploads.mangadex.org/covers/ab42e764-fb01-40f4-b961-751343902e7e/1fbdbb47-f9d6-4968-b0ed-35fad6750a5a.jpg",
     "authorId": "e5dc6b0c-d777-4b1e-9bb0-845ed46becf6",
     "authorName": "Hirukuma"
-  },
-  {
-    "id": "55035e2c-154f-43c5-be27-7f649bb210e6",
-    "title": "The Terminally Ill Young Master of the Baek Clan",
-    "description": "Baek Yigang is a son of the Baek Clan, one of the seven great clans of Zhongyuan. Afflicted with the Taiyin Qi Blockage, he is cursed with a shortened lifespan and the inability to collect internal energy. He had been peacefully spending the rest of his days indoors when he was ambushed by a group of masked people. During the ambush, he lost his servant who was like a sister to him. Chased by the attackers, Baek Yigang escaped through a secret underground path. When he came across a blocked path, he decided he’d at least die fighting and picked up a rusted sword that was stuck in the ground…",
-    "type": null,
-    "status": "ongoing",
-    "year": 2023,
-    "createAt": "2023-09-08T02:49:46+00:00",
-    "updatedAt": "2023-10-24T01:36:54+00:00",
-    "language": "en fr",
-    "lastChapter": "fdd83937-c16f-4dea-b513-f0011c8ddc1e",
-    "statistics": {
-      "rating": 8.0667,
-      "numberOfVotes": 30
-    },
-    "cover": "https://uploads.mangadex.org/covers/55035e2c-154f-43c5-be27-7f649bb210e6/51b586b4-d62c-4cdb-9a94-9dd625106c7d.jpg",
-    "authorId": "860c27c3-dacc-45ac-9c71-d08993df938f",
-    "authorName": "Bido ( 비도)"
   }
 ]

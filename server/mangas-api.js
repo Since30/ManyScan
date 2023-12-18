@@ -63,7 +63,7 @@ module.exports.searchByTitle = async (title) => {
 
 module.exports.getAllMangas = async (page = 1) => {
   try {
-    const mangasFromFile = await loadDataFromFile("mangas.json");
+    const mangasFromFile = await loadDataFromFile("./data/mangasData.json");
     if (mangasFromFile && mangasFromFile.length > 0) {
       return mangasFromFile;
     }
@@ -119,8 +119,11 @@ module.exports.getAllMangas = async (page = 1) => {
       };
     });
     const mangas = await Promise.all(mangasPromises);
-    saveDataToFile(mangas, "data/mangaData.json");
-    return mangas;
+    saveDataToFile(mangas, "./data/mangaData.json").catch((err) => {
+      console.error("Error saving data to file:", err);
+    });
+
+    return mangas; // Assurez-vous que cette ligne est présente
   } catch (error) {
     console.error("Error fetching data:", error);
     throw error;
