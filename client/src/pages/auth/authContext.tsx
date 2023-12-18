@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, ReactNode,useEffect } from 
 
 type AuthContextType = {
     user: { username: string } | null;
-    token: string | null; // Ajouter le token ici
+    token: string | null; 
     login: (userData: { username: string, token: string }) => void;
     logout: () => void;
 };
