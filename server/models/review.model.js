@@ -8,7 +8,7 @@ const reviewSchema = mongoose.Schema({
     maxlength: 100,
   },
   mangaId: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: String,
     ref: "manga",
     required: true,
   },
