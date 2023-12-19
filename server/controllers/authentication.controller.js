@@ -3,8 +3,9 @@ const JWT = require("jsonwebtoken");
 
 const generateRefreshToken = require("../utils/refresh-token.js");
 const generateResetToken = require("../utils/forgot-password-token.js");
-const sendEmailReinitPassword = require("./notification.controller.js");
 const setTokenExpiration = require("../utils/setToken-expiration.js");
+const { sendEmailReinitPassword } = require("./notification.controller.js");
+const { sendEmailSuccessRestPassword } = require("./notification.controller")
 
 require("dotenv").config({ path: "../config/.env" });
 
@@ -73,6 +74,7 @@ module.exports.signin = async (req, res) => {
       { expiresIn }
     );
 
+  //TODO workflow de refresh-token
     // Génère Refresh Token
     const refresh_token = generateRefreshToken(user.id);
 
@@ -154,7 +156,7 @@ module.exports.getResetToken = async (req, res) => {
 module.exports.newPassword = async (req, res) => {
     try{
         const { email, password } = req.body;
-        const userToken = req.headers['reset-token'];;
+        const userToken = req.headers['reset-token'];
         
         const isUser = await User.findOne({ email });
 
@@ -172,6 +174,9 @@ module.exports.newPassword = async (req, res) => {
     isUser.password = password;
 
     await isUser.save();
+
+    // Succes de réinitialisation de mot de passe, envoie une notif à l'email
+    await sendEmailSuccessRestPassword(email);
 
     return res.status(200).json({ message: "Password updated successfully" });
   } catch (error) {

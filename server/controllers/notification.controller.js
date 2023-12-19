@@ -36,5 +36,26 @@ const sendEmailReinitPassword = async (email, resetToken) => {
         console.error('Email sending failed:', error);
     }
 };
+const sendEmailSuccessRestPassword = async (email) => {
+    const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
+    apiInstance.apiKey = apiKey;
+    
+    const sendSmtpEmail = new SendSmtpEmail();
+    sendSmtpEmail.sender = { email: 'manyScan@email.com', name: 'Many_Scan' };
+    sendSmtpEmail.to = [{ email }];
+    sendSmtpEmail.subject = 'Votre nouveau mot de passe';
+    sendSmtpEmail.templateId = 24;
+    sendSmtpEmail.params = {
+        "HOME_API_LINK": `${process.env.HOME_API_LINK}`
+    }
 
-module.exports = sendEmailReinitPassword ;
+    // Envoyez l'email via l'API SendingBlue
+    try {
+        await apiInstance.sendTransacEmail(sendSmtpEmail);
+        console.log('Email sent successfully');
+        console.log('reset token email', email);
+    } catch (error) {
+        console.error('Email sending failed:', error);
+    }
+}
+module.exports = { sendEmailReinitPassword, sendEmailSuccessRestPassword };
