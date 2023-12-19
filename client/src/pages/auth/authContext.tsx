@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, ReactNode,useEffect } from 'react';
 
+
 type AuthContextType = {
     user: { username: string } | null;
     token: string | null; 
@@ -43,3 +44,5 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 };
 
 export const useAuth = () => useContext(AuthContext) as AuthContextType;
+
+export default AuthContext;

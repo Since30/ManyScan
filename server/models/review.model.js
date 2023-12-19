@@ -7,6 +7,11 @@ const reviewSchema = mongoose.Schema({
     trim: true,
     maxlength: 100,
   },
+  mangaId: {
+    type: String,
+    ref: "manga",
+    required: true,
+  },
   content: {
     type: String,
     required: [true, "Veuillez saisir un contenu"],
@@ -20,7 +25,7 @@ const reviewSchema = mongoose.Schema({
     max: 5,
   },
   user: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: String,
     ref: "user",
     required: true,
   },
