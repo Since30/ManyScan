@@ -81,8 +81,7 @@ export default function RegisterForm() {
                     </div>
                     <div className='mb-6'>
                         <label
-                            htmlFor='email'
-                            
+                            htmlFor='email'    
                             className='block mb-2 text-sm font-medium text-gray-900 dark:text-light'>
                             Votre email
                         </label>
@@ -122,20 +121,20 @@ export default function RegisterForm() {
                         />
                     </div>
                     <div className='mb-6'>
-            <label htmlFor='terms' className='inline-flex items-center'>
-              <input
-                type='checkbox'
-                id='terms'
-                value='1'
-                className='form-checkbox'
-                required
-              />
-              <span className='ml-2 text-sm font-medium text-gray-900 dark:text-light'>
-                J'accepte les{' '}
-                <a href='#' className='underline'>
-                  conditions d'utilisation
-                </a>
-              </span>
+                  <label htmlFor='terms' className='inline-flex items-center'>
+                    <input
+                      type='checkbox'
+                      id='terms'
+                      value='1'
+                      className='form-checkbox'
+                      required
+                    />
+                    <span className='ml-2 text-sm font-medium text-gray-900 dark:text-light'>
+                      J'accepte les{' '}
+                      <a href='#' className='underline'>
+                        conditions d'utilisation
+                      </a>
+                    </span>
             </label>
           </div>
           <button

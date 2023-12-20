@@ -3,8 +3,9 @@ const JWT = require("jsonwebtoken");
 
 const generateRefreshToken = require("../utils/refresh-token.js");
 const generateResetToken = require("../utils/forgot-password-token.js");
-const sendEmailReinitPassword = require("./notification.controller.js");
 const setTokenExpiration = require("../utils/setToken-expiration.js");
+const { sendEmailReinitPassword } = require("./notification.controller.js");
+const { sendEmailSuccessRestPassword } = require("./notification.controller")
 
 require("dotenv").config({ path: "../config/.env" });
 
@@ -73,8 +74,14 @@ module.exports.signin = async (req, res) => {
       { expiresIn }
     );
 
+  //TODO workflow de refresh-token
+    // Génère Refresh Token
+    const refresh_token = generateRefreshToken(user.id);
+
     // Renvoyer le token et le username dans la réponse
-    return res.status(200).json({ token, username: user.username });
+    return res
+        .status(200)
+        .json({ message: 'User authenticated successfully', token, username: user.username });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal server error" });
@@ -127,14 +134,33 @@ module.exports.generateForgotPassword = async (req, res) => {
     return res.status(500).json({ message: "Email reset failed" });
   }
 };
+module.exports.getResetToken = async (req, res) => {
+  try {
+    const resetToken = req.query.token;
+
+    // Recherche du token dans la base de données
+    const user = await User.findOne({ resetToken });
+
+    if (!user) {
+      return res.status(404).json({ message: "Token not found" });
+    }
+
+    // Renvoi de l'email associé au token
+    return res.status(200).json({ email: user.email });
+  } catch (error) {
+    console.error('Error fetching email from token:', error);
+    return res.status(500).json({ message: "Error fetching email from token" });
+  }
+}
 // Function genere nouveau password
 module.exports.newPassword = async (req, res) => {
-  try {
-    const { email, password, resetToken } = req.body;
-    const userToken = req.headers["reset-token"];
+    try{
+        const { email, password } = req.body;
+        const userToken = req.headers['reset-token'];
+        
+        const isUser = await User.findOne({ email });
 
-    const isUser = await User.findOne({ email });
-
+        console.log(isUser.resetTokenExpiration < Date.now())
     if (!isUser) {
       return res.status(404).json({ message: "User not found" });
     }
@@ -144,10 +170,13 @@ module.exports.newPassword = async (req, res) => {
     ) {
       return res.status(400).json({ message: "Invalid or expired token" });
     }
-
+      
     isUser.password = password;
 
     await isUser.save();
+
+    // Succes de réinitialisation de mot de passe, envoie une notif à l'email
+    await sendEmailSuccessRestPassword(email);
 
     return res.status(200).json({ message: "Password updated successfully" });
   } catch (error) {
