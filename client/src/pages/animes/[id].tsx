@@ -2,6 +2,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import ReviewsSection from '@/components/ReviewsSection';
 
 interface MangaDetailProps {
     id: string;
@@ -35,6 +36,7 @@ const MangaDetailPage: React.FC = () => {
     const [selectedLanguage, setSelectedLanguage] = useState('fr')
   
     const router = useRouter();
+    const mangaId = router.query.id as string;
 
     const navigateToChapter = (chapterId: string) => {
       router.push({
@@ -193,6 +195,18 @@ const MangaDetailPage: React.FC = () => {
                         </div>
                     </div>
                 )}
+                <div>
+            {/* Affichage des détails du manga */}
+            {manga && (
+                <>
+                    {/* Afficher les détails du manga ici... */}
+
+                    {/* Section des commentaires */}
+                    <ReviewsSection mangaId={manga.id} />
+                </>
+            )}
+        </div>
+
             </div>
         </div>
     );
