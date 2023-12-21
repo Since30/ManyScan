@@ -5,33 +5,51 @@ import StarRating from '../svg/StarRating';
 import AnimeObjects from '../../interfaces/animeObjects';
 import Cover from '../Cover';
 import CardsContainer from './CardsContainer';
+import React from 'react';
 
 interface Props {
     anime: AnimeObjects;
 }
+
+const statusConverter = (status: string) => {
+    switch (status) {
+        case 'ongoing':
+            return 'En cours';
+        break;
+        case 'completed':
+            return 'Terminé';
+        break;
+        case 'hiatus':
+            return 'En pause';
+        break;
+        case 'cancelled':
+            return 'Annulé';
+        default:
+            return 'Inconnu';
+    }
+};
 
 const TopAnimeCard: React.FC<Props> = ({ anime }) => {
     return (
         <div>
             <CardTitle title='Top mangas' />
 
-            <CardsContainer tailwindClass='flex space-x-6 w-full h-80 items-start'>
-                
+            <CardsContainer tailwindClass='flex space-x-6 w-full h-80 items-center justify-center'>
                 <div className='min-w-max'>
-                    <Cover anime={anime} size='large' />
+                    <Cover anime={anime} size='xlarge' />
                 </div>
 
-                <div className='flex flex-col content-between justify-between h-80'>
+                <div className='flex flex-col justify-between h-64'>
                     <div className='flex justify-between items-center'>
                         <div>
-                            <h3 className='font-semibold text-xl text-black max-w-xs line-clamp-2 overflow-hidden overflow-ellipsis'>
+                            <h3 className='text-xl line-clamp-2 overflow-hidden overflow-ellipsis'>
                                 {anime.title ?? 'Titre inconnu'}
                             </h3>
-                            <span className='text-sm text-gray-800'>
+                            <span className='text-sm text-element-primary'>
                                 {anime.authorName ?? 'Auteur'}
                             </span>
                         </div>
-                        <div className='flex flex-col items-center min-w-6'>
+                        <div className='flex items-center'>
                             <span className='text-sm text-gray-800'>
                                 <StarRating
                                     rating={anime.statistics.rating}
@@ -43,20 +61,21 @@ const TopAnimeCard: React.FC<Props> = ({ anime }) => {
                             </span>
                         </div>
                     </div>
-                    <p className='text-gray-800 max-h-32 scrollbar-thin overflow-auto hide-scrollbar'>
+                    <p className='text-element-primary max-h-32 scrollbar-thin overflow-auto hide-scrollbar'>
                         {anime.description ??
-                            "Dans le village de Konoha vit Naruto, un jeune garçon détesté et craint des villageois, du fait qu'il détient en lui Kyuubi (démon renard à neuf queues) d'une incroyable force, qui a tué un grand nombre de personnes. Le ninja le plus puissant de Konoha à l'époque, Minato Namikaze, a réussi à sceller ce démon dans le corps de Naruto. C'est ainsi que douze ans plus tard, Naruto rêve de devenir le plus grand Hokage de Konoha afin que tous le reconnaissent à sa juste valeur. Mais la route pour devenir Hokage est très longue."}
+                            "Aucune description n'est disponible pour ce manga"}
                     </p>
-                    <div className='flex-row lg:flex lg:justify-between uppercase text-sm py-4'>
-                        <span className='block font-semibold text-gray-800'>
+
+                    <div className='flex-row flex justify-between items-start uppercase text-sm text-element-secondary'>
+                        <span className=''>
                             {anime.type ?? 'Manga'}
                         </span>
-                        <span className='block font-semibold text-gray-800'>
-                            {anime.status ?? 'En cours'}
+                        <span className=''>
+                            {statusConverter(anime.status) ?? 'Inconnu'}
                         </span>
 
-                        <span className='block font-semibold text-gray-800'>
-                            {anime.language ?? 'Français'}
+                        <span className=''>
+                            {anime.language.split(' ').slice(0, 3).join(' ') ?? 'Français'}
                         </span>
                     </div>
                 </div>

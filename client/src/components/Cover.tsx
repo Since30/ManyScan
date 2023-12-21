@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import { FaRegHeart } from "react-icons/fa";
 import AnimeObjects from '../interfaces/animeObjects';
 import {
-    fetchFavoriteManga,
     addToFavorite,
     deleteFromFavorite,
-} from '@/services/MangaTheqApi';
+} from '../services/MangaTheqApi';
+import React from 'react';
 
 interface Props {
     anime: AnimeObjects;
@@ -27,14 +27,16 @@ const Cover: React.FC<Props> = ({ anime, size }) => {
 
     const coverSizes: CoverSize = {
         small: 'w-[76px] h-[106px]',
-        medium: 'w-[109px] h-[152px]',
+        medium: 'w-[149px] h-[192px]',
         large: 'w-[160px] h-[223px]',
+        xlarge: 'w-[200px] h-[278px]',
     };
 
     const heartIconSizes: HeartIconSize = {
-        small: 20,
-        medium: 25,
-        large: 35,
+        small: 15,
+        medium: 20,
+        large: 30,
+        xlarge: 35,
     };
 
     const addMangaToFavorite = async (mangaId: string) => {
@@ -47,9 +49,9 @@ const Cover: React.FC<Props> = ({ anime, size }) => {
     };
 
     return (
-        <div className={`relative ${coverSizes[size]}`}>
+        <div className={`relative ${coverSizes[size]} hover:cursor-pointer hover:scale-105 transition duration-300 ease-in-out`}>
             <Image
-                className='mx-auto shadow-img-light dark:shadow-img-dark rounded-md hover:cursor-pointer hover:scale-105 transition duration-300 ease-in-out'
+                className='mx-auto shadow-img-light dark:shadow-img-dark rounded-md '
                 src={anime.cover}
                 alt={`Couverture de ${anime.title}`}
                 fill
@@ -59,7 +61,7 @@ const Cover: React.FC<Props> = ({ anime, size }) => {
                 <FaRegHeart
                     onClick={() => addMangaToFavorite(anime.id)}
                     size={ heartIconSizes[size]}
-                    className='cursor-pointer stroke-background-primary fill-background-primary00'
+                    className='cursor-pointer stroke-background-primary fill-background-primary'
                 />
             </div>
         </div>

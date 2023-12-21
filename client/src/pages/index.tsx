@@ -5,31 +5,19 @@ import TopAnimeCard from '../components/cards/TopMangaCard';
 import DiscoverAnimeCard from '../components/cards/DiscoverMangaCard';
 import NewAnimeCard from '../components/cards/NewMangaCard';
 import TopVerticalAnimeCard from '../components/cards/TopVerticalMangaCard';
-import { fetchFavoriteManga, fetchManga } from '../services/MangaTheqApi';
+import {fetchManga } from '../services/MangaTheqApi';
 import AnimeObjects from '../interfaces/animeObjects';
 import Footer from '../components/footer';
+import React from 'react';
 
 export default function Home() {
     const [animes, setAnimes] = useState<AnimeObjects[]>([]);
-    const [favoriteMangasList, setFavoriteMangasList] = useState<
-        AnimeObjects[]
-    >([]);
 
     useEffect(() => {
         const loadData = async () => {
             const mangaData = await fetchManga(1, 20);
             setAnimes(mangaData || []);
         };
-
-        const fetchFavoriteMangasList = async () => {
-            await fetchFavoriteManga()
-                .then((res) => {
-                    if (res) setFavoriteMangasList(res);
-                    console.log('Les mangas favoris :' + res);
-                })
-                .catch((err) => console.log(err));
-        };
-        fetchFavoriteMangasList();
         loadData();
     }, []);
 
