@@ -1,7 +1,8 @@
-import React, { createContext, useContext, useState, ReactNode,useEffect } from 'react';
+import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react'
 
 
 type AuthContextType = {
+
     user: { username: string; id: string } | null;
     token: string | null;
     login: (userData: { username: string, id: string, token: string }) => void;
@@ -16,15 +17,17 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const [token, setToken] = useState<string | null>(null);
     console.log("AuthContext: user:", user);
 
+
     useEffect(() => {
-       
+
         if (token) {
-            localStorage.setItem('token', token);
+            localStorage.setItem('token', token)
         } else {
-            localStorage.removeItem('token');
-        } 
-    }, [token]);
-   
+            localStorage.removeItem('token')
+        }
+    }, [token])
+
+
 
     const login = (userData: { username: string, id: string, token: string }) => {
         setUser({ username: userData.username, id: userData.id });
@@ -32,18 +35,21 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     };
     
 
+
     const logout = () => {
-        console.log("Logging out");
-        setUser(null);
-    };
+        console.log("Logging out")
+        setUser(null)
+    }
 
     return (
         <AuthContext.Provider value={{ user, token, login, logout }}>
             {children}
         </AuthContext.Provider>
-    );
-};
+    )
+}
+
 
 export const useAuth = () => useContext(AuthContext) as AuthContextType;
 
 export default AuthContext;
+

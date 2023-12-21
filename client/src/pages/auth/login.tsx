@@ -1,17 +1,22 @@
-import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useState } from 'react'
+import { useRouter } from 'next/router'
 import { useAuth } from './authContext';
+import ForgotPasswordModal from "./ForgotPasswordModal";
+
 
 export default function LoginForm() {
+    const { login } = useAuth();
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const { login } = useAuth();
+    const [showModal, setShowModal] = useState(false);
+    const [message, setMessage] = useState('');
 
     const router = useRouter();
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-    
+        e.preventDefault()
+
         try {
             const response = await fetch('http://localhost:8080/api/auth/signin', {
                 method: 'POST',
@@ -22,31 +27,42 @@ export default function LoginForm() {
                     email,
                     password,
                 }),
-            });
-    
+            })
+
             if (!response.ok) {
-                throw new Error(`Erreur HTTP ! statut : ${response.status}`);
+                throw new Error(`Erreur HTTP ! statut : ${response.status}`)
             }
-    
-            const userData = await response.json();
+
+            const userData = await response.json()
             console.log('userdata')
+
             const { username, token ,id } = userData; // Récupération du username et du token
     
             if (token) {
                 login({ username ,id, token }); // Mise à jour de l'état avec le token et le username
                 router.push('/'); // Redirection vers la page d'accueil
+
             } else {
-                console.error('Token non reçu');
+                console.error('Token non reçu')
             }
         } catch (error) {
-            console.error('Erreur lors de la connexion:', error);
+            console.error('Erreur lors de la connexion:', error)
         }
     };
 
     const handleBack = () => {
-        router.push('/'); // Redirection vers la page d'accueil
+        router.push('/') // Redirection vers la page d'accueil
+    };
+
+    const handleForgotPassword = () => {
+        setShowModal(true);
     };
     
+    const closeModal = () => {
+        setShowModal(false)
+        setMessage('')
+    };
+
     return (
         <div className='flex justify-center items-center h-screen bg-gray-100'>
             <div className='absolute top-0 left-0 p-4'>
@@ -65,12 +81,12 @@ export default function LoginForm() {
                             Votre email
                         </label>
                         <input
-    type='email'
-    id='email'
-    value={email}
-    onChange={(e) => setEmail(e.target.value)}
-    className='shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5'
-/>
+                            type='email'
+                            id='email'
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            className='shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5'
+                        />
                     </div>
                     <div className='mb-6'>
                         <label
@@ -79,17 +95,14 @@ export default function LoginForm() {
                             Mot de passe
                         </label>
                         <input
-    type='password'
-    id='password'
-    value={password} 
-    onChange={(e) => setPassword(e.target.value)}
-    className='shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5'
-    required
-/>
-
+                            type='password'
+                            id='password'
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            className='shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5'
+                            required
+                        />
                     </div>
-              
-
                     <div className='mb-6'>
                         <label htmlFor='terms' className='inline-flex items-center'>
                             <input
@@ -109,7 +122,6 @@ export default function LoginForm() {
                         className='text-light bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>
                         Connexion
                     </button>
-
                     <div className='mt-4'>
                         <span className='text-sm font-medium text-gray-900 dark:text-light'>
                             Vous n'avez pas de compte ?
@@ -120,20 +132,23 @@ export default function LoginForm() {
                             S'inscrire
                         </a>
                     </div>
-                    
                     <div className='mt-4'>
                         <a
-                            href='/auth/forgotPassword'
+                            onClick={handleForgotPassword}
                             className='text-sm font-medium text-blue-700 dark:text-blue-400'>
                             Mot de passe oublié ?
                         </a>
+                        {showModal && (
+                            <div className='fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-900 bg-opacity-50'>
+                                <div className='bg-white p-6 rounded-lg'>
+                                    <ForgotPasswordModal closeModal={closeModal} />
+                                </div>
+                                <button onClick={closeModal}>Fermer</button>
+                            </div>
+                        )}
                     </div>
                 </form>
-               
             </div>
         </div>
-
-    );
+    )
 }
-
-
