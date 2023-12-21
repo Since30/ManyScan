@@ -5,7 +5,7 @@ export default function ContactForm() {
         <div className='relative flex h-screen items-center justify-center'>
         {/* Image de gauche pour les écrans medium et plus */}
         <div className='hidden md:block absolute left-0 top-0 bottom-0 z-0' style={{ width: 'calc(50% - 300px)' }}>
-            <img src="/dragon-left.png" alt="Dragon Left" className='h-full w-full object-cover' />
+            <img src="/mailer.png" alt="mailer" className='h-full w-full object-cover' />
         </div>
 
             {/* Conteneur du formulaire avec un z-index plus élevé pour le placer au-dessus des images */}
@@ -36,10 +36,8 @@ export default function ContactForm() {
                 <a href='#' className='inline-block text-red-600 text-sm'>RETOUR À L'ACCUEIL</a>
             </div>
 
-            {/* Image de droite pour les écrans medium et plus */}
-            <div className='hidden md:block absolute right-0 top-0 bottom-0 z-0' style={{ width: 'calc(50% - 300px)' }}>
-                <img src="/dragon-right.png" alt="Dragon Right" className='h-full w-full object-cover' />
-            </div>
+
+          
        
         </div>
     );
