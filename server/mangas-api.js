@@ -1,5 +1,5 @@
 const fetch = require("node-fetch");
-const { saveDataToFile, loadDataFromFile } = require("./fileDatamanager");
+const { saveDataToFile, loadDataFromFile } = require("./fileDataManager");
 
 //Récupération de la cover
 const getCover = async (manga) => {
@@ -62,7 +62,7 @@ module.exports.searchByTitle = async (title) => {
 //L'offset permet un affichage 20 par 20 en spécifiant un numéro de page dans la requête
 
 module.exports.getAllMangas = async (page = 1) => {
-  const limit = 20; // Définissez le nombre de mangas par page ici
+  const limit = 20; // Limite de 20 mangas par page
 
   // Tentative de lecture des données à partir d'un fichier local
   try {

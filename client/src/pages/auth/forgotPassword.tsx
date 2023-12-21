@@ -8,7 +8,7 @@ export default function ForgotPasswordForm() {
         event.preventDefault();
 
         try {
-            const response = await fetch('http://localhost:8080/forgot-password', {
+            const response = await fetch('http://localhost:8080/api/auth/forgot-password', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -15,7 +15,7 @@ const saveDataToFile = (data, mangaData) => {
 const loadDataFromFile = (mangaData) => {
   return new Promise((resolve, reject) => {
     if (!fs.existsSync(mangaData)) {
-      resolve([]); // Retourner un tableau vide si le fichier n'existe pas
+      resolve([]);
     } else {
       fs.readFile(mangaData, "utf8", (err, data) => {
         if (err) {

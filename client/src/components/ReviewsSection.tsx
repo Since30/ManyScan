@@ -5,10 +5,9 @@ interface Comment {
   title: string;
   content: string;
   rating: number;
-  mangaId: string; 
-  username: string;    
-  createdAt?: Date; 
-  
+  mangaId: string;
+  user: string;
+  createdAt?: Date;
 }
 
 interface CommentSectionProps {
@@ -48,9 +47,10 @@ const CommentSection: React.FC<CommentSectionProps> = ({ mangaId }) => {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     if (!auth || !auth.user) {
+      alert('Vous devez être connecté pour poster un commentaire');
       console.error('Erreur: Utilisateur non connecté');
       return;
-  }
+    }
     setLoading(true);
     try {
       const payload = {
@@ -58,7 +58,7 @@ const CommentSection: React.FC<CommentSectionProps> = ({ mangaId }) => {
         content: newCommentContent,
         rating: newCommentRating,
         mangaId: mangaId,
-        user: auth.user.username,
+        user: auth.user.id, // Utilisez l'ObjectId de l'utilisateur ici
       };
   
       const response = await fetch('http://localhost:8080/api/reviews', {
