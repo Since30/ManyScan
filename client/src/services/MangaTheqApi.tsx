@@ -29,8 +29,11 @@ const fetchManga = async (page: number, limit: number): Promise<AnimeObjects[] |
 
 const fetchFavoriteManga = async (): Promise<AnimeObjects[] | void> => {
     const url = new URL('http://localhost:8080/api/mangas/favorites');
+
     try {
       const response = await fetch(url);
+      console.log('the response is:' + response.json());
+
       if (!response.ok) {
         throw new Error(`Erreur HTTP ffM: ${response.status}`);
       }

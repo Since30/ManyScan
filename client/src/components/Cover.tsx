@@ -37,25 +37,6 @@ const Cover: React.FC<Props> = ({ anime, size }) => {
         large: 35,
     };
 
-    const isFavoriteCss = {
-        true: 'fill-background-primary',
-        false: 'fill-none',
-    }
-
-    const isFavorite = favoriteMangasList.some((manga) => manga.id === anime.id);
-
-    useEffect(() => {
-        const fetchFavoriteMangasList = async () => {
-            await fetchFavoriteManga()
-                .then((res) => {
-                    if (res) setFavoriteMangasList(res);
-                })
-                .catch((err) => console.log(err));
-        };
-        fetchFavoriteMangasList();
-        console.log(favoriteMangasList);
-    }, []);
-
     const addMangaToFavorite = async (mangaId: string) => {
         await addToFavorite(mangaId);
         setFavoriteMangasList([...(favoriteMangasList as any), mangaId]);
@@ -72,6 +53,7 @@ const Cover: React.FC<Props> = ({ anime, size }) => {
                 src={anime.cover}
                 alt={`Couverture de ${anime.title}`}
                 fill
+                sizes='(max-width: 640px) 76px, (max-width: 768px) 109px, 160px'
             />
             <div className='absolute bottom-0 p-1 rounded-tr-md rounded-bl-md bg-element-secondary dark:bg-background-primary'>
                 <FaRegHeart

@@ -150,10 +150,12 @@ module.exports.getAllMangas = async (page = 1) => {
 
 module.exports.getFavorites = async (favorites) => {
   try {
+    
     const favoriteMangasPromises = favorites.map(async (favorite) => {
       const response = await fetch(
         `https://api.mangadex.org/manga/${favorite.mangaId}?includes[]=cover_art&includes[]=author`
       );
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
