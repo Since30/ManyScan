@@ -2,18 +2,21 @@ import React, { createContext, useContext, useState, ReactNode, useEffect } from
 
 
 type AuthContextType = {
-    user: { username: string } | null
+
+    user: { username: string; id: string } | null
     token: string | null
-    login: (userData: { username: string, token: string }) => void
+    login: (userData: { username: string, id: string, token: string }) => void
     logout: () => void
 }
+
 
 const AuthContext = createContext<AuthContextType | null>(null)
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-    const [user, setUser] = useState<{ username: string } | null>(null)
+    const [user, setUser] = useState<{ username: string; id: string } | null>(null)
     const [token, setToken] = useState<string | null>(null)
     console.log("AuthContext: user:", user)
+
 
     useEffect(() => {
 
@@ -25,10 +28,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }, [token])
 
 
-    const login = (userData: { username: string, token: string }) => {
-        console.log("Trying to log in with:", userData)
-        setUser({ username: userData.username }) // Mettre à jour uniquement le username
-        setToken(userData.token) // Mettre à jour le token
+
+    const login = (userData: { username: string, id: string, token: string }) => {
+        setUser({ username: userData.username, id: userData.id })
+        setToken(userData.token)
     }
 
     const logout = () => {
@@ -44,7 +47,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 }
 
 
-export const useAuth = () => useContext(AuthContext) as AuthContextType;
+export const useAuth = () => useContext(AuthContext) as AuthContextType
 
-export default AuthContext;
-
+export default AuthContext
