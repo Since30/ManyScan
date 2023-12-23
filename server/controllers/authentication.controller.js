@@ -1,7 +1,7 @@
 const User = require("../models/user.model.js");
 const JWT = require("jsonwebtoken");
 
-const generateRefreshToken = require("../utils/refresh-token.js");
+const generateRefreshToken = require("../config/jwt.refresh-token.js");
 const generateResetToken = require("../utils/forgot-password-token.js");
 const setTokenExpiration = require("../utils/setToken-expiration.js");
 const { sendEmailReinitPassword } = require("./notification.controller.js");

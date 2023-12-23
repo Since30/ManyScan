@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
+const RefreshToken = require('../models/refreshToken.model');
 const bcrypt = require("bcrypt");
-const generateRefreshToken = require("../utils/refresh-token");
 const { isEmail } = require("validator");
+const generateRefreshToken = require("../config/jwt.refresh-token");
 
 const userSchema = mongoose.Schema({
   username: {
@@ -31,7 +32,13 @@ const userSchema = mongoose.Schema({
     enum: ["User", "Admin", "Administrateur"], // Les rôles valides
     default: "User", // Rôle par défaut
   },
-  refreshTokens: [{ type: String }],
+  refreshTokens: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "RefreshToken",
+      collection: "refreshTokens"
+    },
+  ],
   resetToken: {
     type: String,
     default: null,
@@ -63,9 +70,20 @@ userSchema.statics.login = async function (email, password) {
     return false;
   }
 
-  // Génération du refresh token et ajout à la liste des refresh tokens
+  // Génération du refresh token
   const refreshToken = generateRefreshToken();
-  user.refreshTokens.push(refreshToken);
+
+  // Création d'un nouveau document RefreshToken
+  const newRefreshToken = new RefreshToken({
+    token: refreshToken,
+    user: user._id, // Référence à l'user actuel
+  });
+
+  // Sauvegarde du refresh token
+  await newRefreshToken.save();
+
+  // Ajout du nouvel ID de refresh token à l'user
+  user.refreshTokens.push(newRefreshToken._id);
   await user.save();
 
   return true;
