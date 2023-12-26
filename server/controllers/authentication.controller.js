@@ -5,7 +5,8 @@ const generateRefreshToken = require("../config/jwt.refresh-token.js");
 const generateResetToken = require("../utils/forgot-password-token.js");
 const setTokenExpiration = require("../utils/setToken-expiration.js");
 const { sendEmailReinitPassword } = require("./notification.controller.js");
-const { sendEmailSuccessRestPassword } = require("./notification.controller")
+const { sendEmailSuccessRestPassword } = require("./notification.controller");
+const { sendEmailNewUserRegister } = require("./notification.controller");
 
 require("dotenv").config({ path: "../config/.env" });
 
@@ -35,6 +36,8 @@ module.exports.register = async (req, res) => {
     });
 
     await newUser.save();
+
+    await sendEmailNewUserRegister();
 
     return res.status(201).json({
       message: "User successfully created",

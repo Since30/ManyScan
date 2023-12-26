@@ -18,7 +18,7 @@ const sendEmailReinitPassword = async (email, resetToken) => {
 
     // Construisez l'email
     const sendSmtpEmail = new SendSmtpEmail();
-    sendSmtpEmail.sender = { email: 'manyScan@email.com', name: 'Many_Scan' };
+    sendSmtpEmail.sender = { email: 'manyscan.manga@outlook.com', name: 'Many_Scan' };
     sendSmtpEmail.to = [{ email }];
     sendSmtpEmail.subject = 'Réinitialisation de mot de passe';
     sendSmtpEmail.templateId = 23;
@@ -41,7 +41,7 @@ const sendEmailSuccessRestPassword = async (email) => {
     apiInstance.apiKey = apiKey;
     
     const sendSmtpEmail = new SendSmtpEmail();
-    sendSmtpEmail.sender = { email: 'manyScan@email.com', name: 'Many_Scan' };
+    sendSmtpEmail.sender = { email: 'manyscan.manga@outlook.com', name: 'Many_Scan' };
     sendSmtpEmail.to = [{ email }];
     sendSmtpEmail.subject = 'Votre nouveau mot de passe';
     sendSmtpEmail.templateId = 24;
@@ -57,5 +57,27 @@ const sendEmailSuccessRestPassword = async (email) => {
     } catch (error) {
         console.error('Email sending failed:', error);
     }
+};
+const sendEmailNewUserRegister = async () => {
+    console.log('Attempting to send notification email...');
+    const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
+    apiInstance.apiKey = apiKey;
+    
+    const sendSmtpEmail = new SendSmtpEmail();
+    sendSmtpEmail.sender = { email: 'manyscan.manga@outlook.com', name: 'Many_Scan' };
+    sendSmtpEmail.to = [{"email":'manyscan.manga@outlook.com'}];
+    sendSmtpEmail.subject = 'Un nouveau utilisateur s\'est enregisté sur ManyScan';
+    sendSmtpEmail.templateId = 25;
+    sendSmtpEmail.params = {
+        "NEW_USER_REGISTER": `${process.env.HOME_API_LINK}`
+    }
+
+    // Envoyez l'email via l'API SendingBlue
+    try {
+        await apiInstance.sendTransacEmail(sendSmtpEmail);
+        console.log('Email sent successfully');
+    } catch (error) {
+        console.error('Email sending failed:', error);
+    }
 }
-module.exports = { sendEmailReinitPassword, sendEmailSuccessRestPassword };
+module.exports = { sendEmailReinitPassword, sendEmailSuccessRestPassword, sendEmailNewUserRegister };
