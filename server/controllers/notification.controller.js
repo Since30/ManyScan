@@ -58,7 +58,7 @@ const sendEmailSuccessRestPassword = async (email) => {
         console.error('Email sending failed:', error);
     }
 };
-const sendEmailNewUserRegister = async () => {
+const sendEmailNewUserRegister = async (username, email) => {
     console.log('Attempting to send notification email...');
     const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
     apiInstance.apiKey = apiKey;
@@ -69,7 +69,9 @@ const sendEmailNewUserRegister = async () => {
     sendSmtpEmail.subject = 'Un nouveau utilisateur s\'est enregisté sur ManyScan';
     sendSmtpEmail.templateId = 25;
     sendSmtpEmail.params = {
-        "NEW_USER_REGISTER": `${process.env.HOME_API_LINK}`
+        "NEW_USER_REGISTER": `${process.env.HOME_API_LINK}`,
+        "USERNAME": username,
+        "EMAIL": email
     }
 
     // Envoyez l'email via l'API SendingBlue

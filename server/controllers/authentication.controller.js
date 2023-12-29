@@ -37,7 +37,7 @@ module.exports.register = async (req, res) => {
 
     await newUser.save();
 
-    await sendEmailNewUserRegister();
+    await sendEmailNewUserRegister(username, email);
 
     return res.status(201).json({
       message: "User successfully created",
@@ -154,7 +154,7 @@ module.exports.getResetToken = async (req, res) => {
     console.error('Error fetching email from token:', error);
     return res.status(500).json({ message: "Error fetching email from token" });
   }
-}
+};
 // Function genere nouveau password
 module.exports.newPassword = async (req, res) => {
     try{
