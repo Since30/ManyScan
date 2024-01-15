@@ -46,6 +46,7 @@ app.use("/api", reviewRouter);
 app.use("/api", contactRouter);
 
 app.get("/", (req, res) => {
-  res.send("Bienvenue sur Manyscan!");
+  res.send("Bienvenue sur ManyScan!");
 });
+
 module.exports = app;

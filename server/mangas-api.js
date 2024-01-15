@@ -66,7 +66,7 @@ module.exports.getAllMangas = async (page = 1) => {
 
   // Tentative de lecture des données à partir d'un fichier local
   try {
-    const mangasFromFile = await loadDataFromFile("./data/mangasData.json");
+    //const mangasFromFile = await loadDataFromFile("./data/mangasData.json");
     const startIndex = (page - 1) * limit; // Calcul de l'index de départ pour la page
 
     // Si les données sont trouvées dans le fichier, appliquer la pagination ici
@@ -149,10 +149,12 @@ module.exports.getAllMangas = async (page = 1) => {
 
 module.exports.getFavorites = async (favorites) => {
   try {
+    
     const favoriteMangasPromises = favorites.map(async (favorite) => {
       const response = await fetch(
         `https://api.mangadex.org/manga/${favorite.mangaId}?includes[]=cover_art&includes[]=author`
       );
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }

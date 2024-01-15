@@ -24,6 +24,7 @@ const User = require("../models/user.model");
 // };
 
 module.exports.getAllUsers = async (req, res) => {
+
   try {
     // Vérifier si l'utilisateur est un administrateur
     if (req.user.role !== "Admin") {
@@ -77,6 +78,7 @@ module.exports.getUser = async (req, res) => {
     });
   }
 };
+
 module.exports.updateUser = async (req, res) => {
   try {
     const userId = req.params.id;
@@ -106,6 +108,7 @@ module.exports.updateUser = async (req, res) => {
     });
   }
 };
+
 module.exports.editPassword = async (req, res) => {
   try {
     const { password, newPassword } = req.body;

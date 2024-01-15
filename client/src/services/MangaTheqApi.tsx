@@ -27,10 +27,13 @@ const fetchManga = async (page: number, limit: number): Promise<AnimeObjects[] |
 
 
 
-const fetchFavoriteManga = async (): Promise<AnimeObjects[] | void> => {
+/*const fetchFavoriteManga = async (): Promise<AnimeObjects[] | void> => {
     const url = new URL('http://localhost:8080/api/mangas/favorites');
+
     try {
       const response = await fetch(url);
+      console.log('the response is:' + response.json());
+
       if (!response.ok) {
         throw new Error(`Erreur HTTP ffM: ${response.status}`);
       }
@@ -43,7 +46,7 @@ const fetchFavoriteManga = async (): Promise<AnimeObjects[] | void> => {
       console.error({ error });
     }
 };
-
+*/
 const addToFavorite = async (mangaId: string): Promise<AnimeObjects[] | void> => {
     
     try {
@@ -82,5 +85,4 @@ const deleteFromFavorite = async (mangaId: string): Promise<AnimeObjects[] | voi
     }
 }
 
-export { fetchManga, addToFavorite, deleteFromFavorite, fetchFavoriteManga };
-
+export { fetchManga, addToFavorite, deleteFromFavorite, /*fetchFavoriteManga*/ };

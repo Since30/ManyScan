@@ -1,19 +1,31 @@
 [
   {
+    "id": "b5a29e15-c942-4523-830b-60aceb925dcc",
+    "title": "1331",
     "id": "b56ea48a-3dce-4eb0-982c-2d58097d1e58",
     "title": "The Strongest Ever",
     "description": "The ‘Ten Masters’ had kept each other in check and maintained the balance of power and order of the world beyond human limits, until Baek Dohyun showed up with the strongest power ever!",
     "type": null,
     "status": "ongoing",
+    "year": 2022,
+    "createAt": "2022-01-26T17:11:44+00:00",
+    "updatedAt": "2023-08-30T20:31:12+00:00",
+    "language": "en fr",
+    "lastChapter": "5c85850a-9356-46d8-9192-c5093dcb5326",
     "year": null,
     "createAt": "2020-12-10T11:26:03+00:00",
     "updatedAt": "2023-06-28T16:25:01+00:00",
     "language": "en ru fr id",
     "lastChapter": "2d660988-4d07-4fba-9e0b-b26197e6f1bf",
     "statistics": {
+      "rating": 7.5526,
+      "numberOfVotes": 38
       "rating": 6.9862,
       "numberOfVotes": 218
     },
+    "cover": "https://uploads.mangadex.org/covers/b5a29e15-c942-4523-830b-60aceb925dcc/865ecae0-28d4-4967-8dc1-3c5703cd0e55.jpg",
+    "authorId": "8cc3701c-a440-46d4-bbf5-b0fd7551db43",
+    "authorName": "Bora Giraffe (보라기린)"
     "cover": "https://uploads.mangadex.org/covers/b56ea48a-3dce-4eb0-982c-2d58097d1e58/ada2f15a-aefd-4e18-a829-cd70eed86828.jpg",
     "authorId": "9a72e6c1-3562-4fa8-ab80-f045b7737d72",
     "authorName": "황규영"

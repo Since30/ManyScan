@@ -108,7 +108,9 @@ export default function LoginForm() {
                         />
                     </div>
                     <div className='mb-6'>
-                        <label htmlFor='terms' className='inline-flex items-center'>
+                        <label
+                            htmlFor='terms'
+                            className='inline-flex items-center'>
                             <input
                                 type='checkbox'
                                 id='terms'
