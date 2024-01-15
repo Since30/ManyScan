@@ -31,6 +31,10 @@ const userSchema = mongoose.Schema({
     enum: ["User", "Admin", "Administrateur"], // Les rôles valides
     default: "User", // Rôle par défaut
   },
+  isOnline: {
+    type: Boolean,
+    default: false,
+  },
   refreshTokens: [{ type: String }],
   resetToken: {
     type: String,
@@ -63,6 +67,8 @@ userSchema.statics.login = async function (email, password) {
     return false;
   }
 
+  user.setOnlineStatus(true);
+
   // Génération du refresh token et ajout à la liste des refresh tokens
   const refreshToken = generateRefreshToken();
   user.refreshTokens.push(refreshToken);
@@ -80,6 +86,16 @@ userSchema.methods.changePassword = async function (newPassword) {
     return true;
   } catch (error) {
     console.error("Error changing password:", error);
+    return false;
+  }
+};
+
+userSchema.methods.setOnlineStatus = async function (online) {
+  try {
+    await this.updateOne({ $set: { isOnline: online } });
+    return true;
+  } catch (error) {
+    console.error("Error setting online status:", error);
     return false;
   }
 };

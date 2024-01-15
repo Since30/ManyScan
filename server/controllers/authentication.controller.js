@@ -5,7 +5,7 @@ const generateRefreshToken = require("../utils/refresh-token.js");
 const generateResetToken = require("../utils/forgot-password-token.js");
 const setTokenExpiration = require("../utils/setToken-expiration.js");
 const { sendEmailReinitPassword } = require("./notification.controller.js");
-const { sendEmailSuccessRestPassword } = require("./notification.controller")
+const { sendEmailSuccessRestPassword } = require("./notification.controller");
 
 require("dotenv").config({ path: "../config/.env" });
 
@@ -74,14 +74,18 @@ module.exports.signin = async (req, res) => {
       { expiresIn }
     );
 
-  //TODO workflow de refresh-token
     // Génère Refresh Token
     const refresh_token = generateRefreshToken(user.id);
 
     // Renvoyer le token et le username dans la réponse
-    return res
-        .status(200)
-        .json({ message: 'User authenticated successfully', token, username: user.username });
+    const role = user.role || "User";
+    return res.status(200).json({
+      message: "User authenticated successfully",
+      token,
+      username: user.username,
+      role,
+      refresh_token,
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal server error" });
@@ -148,19 +152,19 @@ module.exports.getResetToken = async (req, res) => {
     // Renvoi de l'email associé au token
     return res.status(200).json({ email: user.email });
   } catch (error) {
-    console.error('Error fetching email from token:', error);
+    console.error("Error fetching email from token:", error);
     return res.status(500).json({ message: "Error fetching email from token" });
   }
-}
+};
 // Function genere nouveau password
 module.exports.newPassword = async (req, res) => {
-    try{
-        const { email, password } = req.body;
-        const userToken = req.headers['reset-token'];
-        
-        const isUser = await User.findOne({ email });
+  try {
+    const { email, password } = req.body;
+    const userToken = req.headers["reset-token"];
 
-        console.log(isUser.resetTokenExpiration < Date.now())
+    const isUser = await User.findOne({ email });
+
+    console.log(isUser.resetTokenExpiration < Date.now());
     if (!isUser) {
       return res.status(404).json({ message: "User not found" });
     }
@@ -170,7 +174,7 @@ module.exports.newPassword = async (req, res) => {
     ) {
       return res.status(400).json({ message: "Invalid or expired token" });
     }
-      
+
     isUser.password = password;
 
     await isUser.save();

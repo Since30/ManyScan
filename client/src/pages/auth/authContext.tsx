@@ -1,11 +1,16 @@
 import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react'
 
 
-type AuthContextType = {
+type User = {
+    username: string;
+    id: string;
+    role: string;
+};
 
-    user: { username: string; id: string } | null;
+export type AuthContextType = {
+    user: User | null;
     token: string | null;
-    login: (userData: { username: string, id: string, token: string }) => void;
+    login: (userData: User & { token: string }) => void;
     logout: () => void;
 };
 
@@ -13,9 +18,9 @@ type AuthContextType = {
 const AuthContext = createContext<AuthContextType | null>(null);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-    const [user, setUser] = useState<{ username: string; id: string } | null>(null);
+    const [user, setUser] = useState<User | null>(null);
     const [token, setToken] = useState<string | null>(null);
-    console.log("AuthContext: user:", user);
+
 
 
     useEffect(() => {
@@ -29,8 +34,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
 
 
-    const login = (userData: { username: string, id: string, token: string }) => {
-        setUser({ username: userData.username, id: userData.id });
+    const login = (userData: { username: string, id: string, token: string, role: string }) => {
+        setUser({ username: userData.username, id: userData.id, role: userData.role });
         setToken(userData.token);
     };
     

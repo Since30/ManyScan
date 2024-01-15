@@ -26,6 +26,7 @@ export default function LoginForm() {
                 body: JSON.stringify({
                     email,
                     password,
+                    
                 }),
             })
 
@@ -36,10 +37,11 @@ export default function LoginForm() {
             const userData = await response.json()
             console.log('userdata')
 
-            const { username, token ,id } = userData; // Récupération du username et du token
+            const { username, token , _id} = userData; // Récupération du username et du token
+            const role = userData.role || 'User';
     
             if (token) {
-                login({ username ,id, token }); // Mise à jour de l'état avec le token et le username
+                login({ username , id:_id , token, role  }); // Mise à jour de l'état avec le token et le username
                 router.push('/'); // Redirection vers la page d'accueil
 
             } else {

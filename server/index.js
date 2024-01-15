@@ -25,6 +25,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 //----- Headers & autorizations -----//
+const corsOptions = {
+  origin: `http://localhost:3000,`,
+  credentials: true,
+  allowedHeaders: ["sessionId", "Content-Type"],
+  exposedHeaders: ["sessionId"],
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  preflightContinue: false,
+};
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

@@ -58,7 +58,7 @@ const CommentSection: React.FC<CommentSectionProps> = ({ mangaId }) => {
         content: newCommentContent,
         rating: newCommentRating,
         mangaId: mangaId,
-        user: auth.user.id, // Utilisez l'ObjectId de l'utilisateur ici
+        user: auth.user.id, 
       };
   
       const response = await fetch('http://localhost:8080/api/reviews', {

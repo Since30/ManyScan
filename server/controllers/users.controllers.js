@@ -1,27 +1,58 @@
 const User = require("../models/user.model");
 
+// module.exports.getAllUsers = async (req, res) => {
+//   try {
+//     const users = await User.find({});
+
+//         if (users && users.length > 0) {
+//             res.status(200).json({
+//                 message: "Users retrieved successfully",
+//                 data: users,
+//             });
+//     } else {
+//       res.status(404).json({
+//         message: "No users found",
+//       });
+//     }
+//   } catch (error) {
+//     res.status(500).json({
+//       message: "Error",
+//       error: error,
+//     });
+//     console.error(error)
+//   }
+// };
+
 module.exports.getAllUsers = async (req, res) => {
   try {
-    const users = await User.find({});
+    // Vérifier si l'utilisateur est un administrateur
+    if (req.user.role !== "Admin") {
+      return res.status(403).json({
+        message: "Accès refusé",
+      });
+    }
 
-        if (users && users.length > 0) {
-            res.status(200).json({
-                message: "Users retrieved successfully",
-                data: users,
-            });
+    const users = await User.find({}, "username isOnline"); // Sélectionner uniquement les champs requis
+
+    if (users && users.length > 0) {
+      res.status(200).json({
+        message: "Utilisateurs récupérés avec succès",
+        data: users,
+      });
     } else {
       res.status(404).json({
-        message: "No users found",
+        message: "Aucun utilisateur trouvé",
       });
     }
   } catch (error) {
+    console.error(error);
     res.status(500).json({
-      message: "Error",
+      message: "Erreur serveur",
       error: error,
     });
-    console.error(error)
   }
 };
+
 module.exports.getUser = async (req, res) => {
   try {
     const user_id = req.params.id;
@@ -38,7 +69,7 @@ module.exports.getUser = async (req, res) => {
       });
     }
   } catch (error) {
-    console.error('Error in getUser:', error);
+    console.error("Error in getUser:", error);
     res.status(500).json({
       message: "error",
       error: error,
@@ -103,7 +134,7 @@ module.exports.editPassword = async (req, res) => {
       message: "Password changed successfully.",
     });
   } catch (error) {
-    console.error("editPassword error", error)
+    console.error("editPassword error", error);
     res.status(500).json({
       message: "Erreur serveur",
       error: error,
@@ -121,7 +152,7 @@ module.exports.delelteUser = async (req, res) => {
       });
     }
 
-    await user.deleteOne(); 
+    await user.deleteOne();
 
     res.status(200).json({
       message: "User deleted successfully",
