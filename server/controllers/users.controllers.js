@@ -31,13 +31,14 @@ module.exports.getAllUsers = async (req, res) => {
         message: "Accès refusé",
       });
     }
-
     const users = await User.find({}, "username isOnline"); // Sélectionner uniquement les champs requis
 
     if (users && users.length > 0) {
       res.status(200).json({
         message: "Utilisateurs récupérés avec succès",
         data: users,
+        token,
+        role: req.user.role,
       });
     } else {
       res.status(404).json({

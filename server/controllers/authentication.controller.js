@@ -77,10 +77,14 @@ module.exports.signin = async (req, res) => {
     // Génère Refresh Token
     const refresh_token = generateRefreshToken(user.id);
 
+    console.log("ID de l'utilisateur :", user.id); // Ajout d'un console.log
+    console.log("Token généré :", token); // Ajout d'un console.log
+
     // Renvoyer le token et le username dans la réponse
     const role = user.role || "User";
     return res.status(200).json({
       message: "User authenticated successfully",
+      id: user.id,
       token,
       username: user.username,
       role,

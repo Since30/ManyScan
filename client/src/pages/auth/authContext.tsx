@@ -24,13 +24,23 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
 
     useEffect(() => {
-
-        if (token) {
-            localStorage.setItem('token', token)
-        } else {
-            localStorage.removeItem('token')
+        // Vérifiez si le token est présent dans localStorage au démarrage de l'application
+        const storedToken = localStorage.getItem('token');
+        const storedUserId = localStorage.getItem('userId'); // Optionnel : récupérez également l'ID de l'utilisateur
+        if (storedToken) {
+            setToken(storedToken);
+            setUser({ username: 'since30', id: storedUserId || '', role: 'Admin' }); // Modifiez avec les données appropriées
         }
-    }, [token])
+    }, []);
+
+    useEffect(() => {
+        // Lorsque le token change, stockez-le ou supprimez-le du localStorage
+        if (token) {
+            localStorage.setItem('token', token);
+        } else {
+            localStorage.removeItem('token');
+        }
+    }, [token]);
 
 
 

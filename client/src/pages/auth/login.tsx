@@ -35,13 +35,15 @@ export default function LoginForm() {
             }
 
             const userData = await response.json()
-            console.log('userdata')
 
-            const { username, token , _id} = userData; // Récupération du username et du token
+            const { username, token , id} = userData; // Récupération du username et du token
             const role = userData.role || 'User';
     
             if (token) {
-                login({ username , id:_id , token, role  }); // Mise à jour de l'état avec le token et le username
+                localStorage.setItem('token', token);
+                localStorage.setItem('userId', id); 
+              
+                login({ username ,token, role ,id}); // Mise à jour de l'état avec le token et le username
                 router.push('/'); // Redirection vers la page d'accueil
 
             } else {

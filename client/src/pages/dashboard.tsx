@@ -17,6 +17,8 @@ import {
 import { Bar } from 'react-chartjs-2';
 import InfoCard from '../cards/InfoCard';
 import { ReviewCard } from '../cards/ReviewCard';
+import { useAuth } from '../pages/auth/authContext';
+
 
 
 ChartJS.register(
@@ -27,6 +29,15 @@ ChartJS.register(
   Tooltip,
   Legend
 );
+
+interface User {
+  _id: string;
+  username: string;
+  email: string;
+  role: string;
+  isOnline: boolean;
+  createdAt: string;
+}
 
 interface DashboardProps {
   loggedInUserCount: number;
@@ -65,17 +76,34 @@ export default function Dashboard() {
   const [activeTab, setActiveTab] = useState('home');
   const [messages, setMessages] = useState<Message[]>([]);
   const [reviews, setReviews] = useState<Review[]>([]);
+  const [users, setUsers] = useState<User[]>([]);
+
+  const { token } = useAuth();
 
 
-  const fakeUsers = [
-    { id: 1, name: "Alex Martin", joinedDate: "2023-03-01" },
-    { id: 2, name: "Sara Linton", joinedDate: "2023-03-05" },
-    { id: 3, name: "John Doe", joinedDate: "2023-03-10" },
-    { id: 4, name: "Jane Smith", joinedDate: "2023-03-15" },
-    { id: 5, name: "Kevin Brown", joinedDate: "2023-03-20" }
-  ];
-
-
+  
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await fetch('http://localhost:8080/api/users/get-users', {
+          headers: {
+            Authorization: `Bearer ${token}`, 
+          },
+        });
+  
+        if (!response.ok) {
+          throw new Error(`Erreur HTTP ! statut : ${response.status}`);
+        }
+  
+        const data = await response.json();
+        setUsers(data); // Mettez à jour la variable users avec les données obtenues
+      } catch (error) {
+        console.error("Erreur lors de la récupération des utilisateurs:", error);
+      }
+    };
+  
+    fetchUsers();
+  }, []);
 
   useEffect(() => {
          const fetchMangaStats = async () => {
@@ -139,7 +167,7 @@ export default function Dashboard() {
         }
       }, [activeTab]);
       
-
+  
 
   return (
     <>
@@ -209,13 +237,13 @@ export default function Dashboard() {
                 </tr>
               </thead>
               <tbody>
-                {fakeUsers.map((user, index) => (
-                  <tr key={user.id} className={`${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}`}>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{user.name}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{user.joinedDate}</td>
-                  </tr>
-                ))}
-              </tbody>
+  {Array.isArray(users) && users.map((user) => (
+    <tr key={user._id}>
+      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{user.username}</td>
+      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{user.createdAt || 'N/A'}</td>
+    </tr>
+  ))}
+</tbody>
             </table>
           </div>
         </section>
