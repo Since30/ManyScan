@@ -17,7 +17,7 @@ export default function TopVerticalAnimeCard(props: Props) {
             <CardsContainer tailwindClass='scrollbar-thin overflow-auto overflow-x-hidden  min-h-screen max-h-screen flex flex-col space-y-4'>
                 {props.animes.map((anime) => {
                     return (
-                        <MangaCard anime={anime} size='small' parentDiv='flex gap-5' ratingDiv='w-32' titleDiv='w-32' />
+                        <MangaCard anime={anime} key={anime.id} size='small' parentDiv='flex gap-5' ratingDiv='w-32' titleDiv='w-32' />
                     );
                 })}
             </CardsContainer>

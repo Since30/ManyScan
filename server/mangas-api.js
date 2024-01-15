@@ -1,6 +1,5 @@
 const fetch = require("node-fetch");
 const { saveDataToFile, loadDataFromFile } = require("./fileDatamanager");
-const mangaData = require("./data/mangaData.json")
 
 //Récupération de la cover
 const getCover = async (manga) => {
@@ -67,7 +66,7 @@ module.exports.getAllMangas = async (page = 1) => {
 
   // Tentative de lecture des données à partir d'un fichier local
   try {
-    const mangasFromFile = await loadDataFromFile("./data/mangasData.json");
+    //const mangasFromFile = await loadDataFromFile("./data/mangasData.json");
     const startIndex = (page - 1) * limit; // Calcul de l'index de départ pour la page
 
     // Si les données sont trouvées dans le fichier, appliquer la pagination ici
