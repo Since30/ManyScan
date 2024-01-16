@@ -12,7 +12,7 @@ const TailwindWrapper: React.FC<TailwindWrapperProps> = ({
     return (
         <div
             className={`bg-background-secondary dark:bg-dark-background-secondary text-element-secondary dark:text-dark-element-primary border-3 
-            border-element-secondary dark:border-dark-element-secondary shadow-light dark:shadow-dark rounded-lg p-2 ${tailwindClass}`}>
+            border-element-secondary dark:border-dark-element-secondary shadow-light dark:shadow-dark rounded-lg ${tailwindClass}`}>
             {children}
         </div>
     );

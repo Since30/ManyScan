@@ -6,22 +6,23 @@ import AnimeObjects from '../../interfaces/animeObjects';
 import Cover from '../Cover';
 import CardsContainer from './CardsContainer';
 import React from 'react';
+import Link from 'next/link';
 
 interface Props {
-    anime: AnimeObjects;
+    manga: AnimeObjects;
 }
 
 const statusConverter = (status: string) => {
     switch (status) {
         case 'ongoing':
             return 'En cours';
-        break;
+            break;
         case 'completed':
             return 'Terminé';
-        break;
+            break;
         case 'hiatus':
             return 'En pause';
-        break;
+            break;
         case 'cancelled':
             return 'Annulé';
         default:
@@ -29,53 +30,53 @@ const statusConverter = (status: string) => {
     }
 };
 
-const TopAnimeCard: React.FC<Props> = ({ anime }) => {
+const TopAnimeCard: React.FC<Props> = ({ manga }) => {
     return (
         <div>
             <CardTitle title='Top mangas' />
 
             <CardsContainer tailwindClass='flex space-x-6 w-full h-80 items-center justify-center'>
                 <div className='min-w-max'>
-                    <Cover anime={anime} size='xlarge' />
+    
+                    <Cover manga={manga} size='xlarge' />
                 </div>
 
                 <div className='flex flex-col justify-between h-64'>
                     <div className='flex justify-between items-center'>
                         <div>
                             <h3 className='text-xl line-clamp-2 overflow-hidden overflow-ellipsis'>
-                                {anime.title ?? 'Titre inconnu'}
+                                {manga.title ?? 'Titre inconnu'}
                             </h3>
                             <span className='text-sm text-element-primary'>
-                                {anime.authorName ?? 'Auteur'}
+                                {manga.authorName ?? 'Auteur'}
                             </span>
                         </div>
                         <div className='flex items-center'>
                             <span className='text-sm text-gray-800'>
                                 <StarRating
-                                    rating={anime.statistics.rating}
-                                    animeId={anime.id}
+                                    rating={manga.statistics.rating}
+                                    mangaId={manga.id}
                                 />
                             </span>
                             <span className='text-sm text-gray-800'>
-                                {anime.statistics.numberOfVotes ?? '0'} votes
+                                {manga.statistics.numberOfVotes ?? '0'} votes
                             </span>
                         </div>
                     </div>
                     <p className='text-element-primary max-h-32 scrollbar-thin overflow-auto hide-scrollbar'>
-                        {anime.description ??
+                        {manga.description ??
                             "Aucune description n'est disponible pour ce manga"}
                     </p>
 
                     <div className='flex-row flex justify-between items-start uppercase text-sm text-element-secondary'>
+                        <span className=''>{manga.type ?? 'Manga'}</span>
                         <span className=''>
-                            {anime.type ?? 'Manga'}
-                        </span>
-                        <span className=''>
-                            {statusConverter(anime.status) ?? 'Inconnu'}
+                            {statusConverter(manga.status) ?? 'Inconnu'}
                         </span>
 
                         <span className=''>
-                            {anime.language.split(' ').slice(0, 3).join(' ') ?? 'Français'}
+                            {manga.language.split(' ').slice(0, 3).join(' ') ??
+                                'Français'}
                         </span>
                     </div>
                 </div>

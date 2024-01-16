@@ -3,11 +3,11 @@
 import React from 'react';
 import CardTitle from './CardTitle';
 import CardsContainer from './CardsContainer';
-import AnimeObjects from '../../interfaces/animeObjects';
+import AnimeObjects from '../../interfaces/mangaObjects';
 import MangaCard from './MangaCard';
 
 interface Props {
-    animes: AnimeObjects[];
+    mangas: AnimeObjects[];
 }
 
 export default function TopVerticalAnimeCard(props: Props) {
@@ -15,9 +15,16 @@ export default function TopVerticalAnimeCard(props: Props) {
         <div>
             <CardTitle title='Top' />
             <CardsContainer tailwindClass='scrollbar-thin overflow-auto overflow-x-hidden  min-h-screen max-h-screen flex flex-col space-y-4'>
-                {props.animes.map((anime) => {
+                {props.mangas.map((manga) => {
                     return (
-                        <MangaCard anime={anime} key={anime.id} size='small' parentDiv='flex gap-5' ratingDiv='w-32' titleDiv='w-32' />
+                        <MangaCard
+                            manga={manga}
+                            key={manga.id}
+                            size='small'
+                            parentDiv='flex gap-5'
+                            ratingDiv='w-32'
+                            titleDiv='w-32'
+                        />
                     );
                 })}
             </CardsContainer>

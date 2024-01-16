@@ -5,16 +5,16 @@ import MangaCard from './MangaCard';
 import React from 'react';
 
 interface Props {
-    anime: AnimeObjects;
+    manga: AnimeObjects;
 }
 
-const DiscoverAnimeCard: React.FC<Props> = ({ anime }) => {
+const DiscoverAnimeCard: React.FC<Props> = ({ manga }) => {
     return (
         <div>
             <CardTitle title='Découvrir' />
             <CardsContainer tailwindClass='h-80 flex items-center justify-center'>
                 <MangaCard
-                    anime={anime}
+                    manga={manga}
                     size='medium'
                     parentDiv='flex flex-col items-center text-center'
                     childDiv='flex flex-col items-center'

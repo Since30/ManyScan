@@ -1,15 +1,13 @@
 import { useState } from 'react';
 import Image from 'next/image';
-import { FaRegHeart } from "react-icons/fa";
-import AnimeObjects from '../interfaces/animeObjects';
-import {
-    addToFavorite,
-    deleteFromFavorite,
-} from '../services/MangaTheqApi';
+import { FaRegHeart } from 'react-icons/fa';
+import AnimeObjects, { MangaObjects } from '../interfaces/animeObjects';
+import { addToFavorite, deleteFromFavorite } from '../services/MangaTheqApi';
 import React from 'react';
+import Link from 'next/link';
 
 interface Props {
-    anime: AnimeObjects;
+    manga: MangaObjects;
     size: string;
 }
 interface CoverSize {
@@ -20,7 +18,7 @@ interface HeartIconSize {
     [key: string]: number;
 }
 
-const Cover: React.FC<Props> = ({ anime, size }) => {
+const Cover: React.FC<Props> = ({ manga, size }) => {
     const [favoriteMangasList, setFavoriteMangasList] = useState<
         AnimeObjects[]
     >([]);
@@ -49,21 +47,24 @@ const Cover: React.FC<Props> = ({ anime, size }) => {
     };
 
     return (
-        <div className={`relative ${coverSizes[size]} hover:cursor-pointer hover:scale-105 transition duration-300 ease-in-out`}>
-            <Image
-                className='mx-auto shadow-img-light dark:shadow-img-dark rounded-md '
-                src={anime.cover}
-                alt={`Couverture de ${anime.title}`}
-                fill
-                sizes='(max-width: 640px) 76px, (max-width: 768px) 109px, 160px'
-            />
-            <div className='absolute bottom-0 p-1 rounded-tr-md rounded-bl-md bg-element-secondary dark:bg-background-primary'>
-                <FaRegHeart
-                    onClick={() => addMangaToFavorite(anime.id)}
-                    size={ heartIconSizes[size]}
-                    className='cursor-pointer stroke-background-primary fill-background-primary'
+        <div
+            className={`relative ${coverSizes[size]} hover:cursor-pointer hover:scale-105 transition duration-300 ease-in-out`}>
+            <Link key={manga.id} href={`/manga/${manga.id}`}>
+                <Image
+                    className='mx-auto shadow-img-light dark:shadow-img-dark rounded-md '
+                    src={manga.cover}
+                    alt={`Couverture de ${manga.title}`}
+                    fill
+                    sizes='(max-width: 640px) 76px, (max-width: 768px) 109px, 160px'
                 />
-            </div>
+                <div className='absolute bottom-0 p-1 rounded-tr-md rounded-bl-md bg-element-secondary dark:bg-background-primary'>
+                    <FaRegHeart
+                        onClick={() => addMangaToFavorite(manga.id)}
+                        size={heartIconSizes[size]}
+                        className='cursor-pointer stroke-background-primary fill-background-primary'
+                    />
+                </div>
+            </Link>
         </div>
     );
 };
