@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-color: #F4F2EE;
-  margin: 0 3rem;
-}
-
 a {
   cursor: pointer;
 }

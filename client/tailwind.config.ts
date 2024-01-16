@@ -12,25 +12,38 @@ const config: Config = {
             colors: {
                 element: {
                     primary: '#5C1720',
-                    secondary: '#AA2C36'
+                    secondary: '#AA2C36',
                 },
                 background: {
                     primary: '#F4F2EE',
-                    secondary: '#FFFFFF'
+                    secondary: '#FFFFFF',
                 },
                 'dark-element': {
-                  primary: '#F4F2EE',
-                  secondary: '#FFFFFF'
-              },
-              'dark-background': {
-                  primary: '#040711',
-                  secondary: '#283042'
-              }
+                    primary: '#F4F2EE',
+                    secondary: '#FFFFFF',
+                },
+                'dark-background': {
+                    primary: '#040711',
+                    secondary: '#283042',
+                },
+            },
+            boxShadow: {
+                light: '5px 5px 0 0 rgb(170, 44, 54)',
+                dark: '5px 5px 0 0 #F4F2EE',
+                'img-light': '0px 0px 10px 0px #5C1720',
+                'img-dark': '0px 0px 10px 0px rgba(244, 242, 238, 0.20)',
+            },
+            borderWidth: {
+                '3': '3px',
+            },
+            borderRadius: {
+                lg: '0.65rem',
             },
         },
         fontFamily: {
-            'sans': ['var(--font-arial-black)',],
-          }
+            sans: ['var(--font-arial-black)'],
+        },
+
     },
     plugins: [
         plugin(({ addUtilities }: { addUtilities: any }) => {

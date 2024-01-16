@@ -1,18 +1,18 @@
 
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
-import { RxAvatar } from "react-icons/rx";
-import { FaBookOpen } from "react-icons/fa";
-import { FaUsers } from "react-icons/fa";
-import { BiError } from "react-icons/bi";
+import { RxAvatar } from 'react-icons/rx';
+import { FaBookOpen } from 'react-icons/fa';
+import { FaUsers } from 'react-icons/fa';
+import { BiError } from 'react-icons/bi';
 import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import InfoCard from '../cards/InfoCard';
@@ -22,12 +22,12 @@ import { useAuth } from '../pages/auth/authContext';
 
 
 ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend
 );
 
 interface User {
@@ -40,12 +40,12 @@ interface User {
 }
 
 interface DashboardProps {
-  loggedInUserCount: number;
+    loggedInUserCount: number;
 }
 
 interface MangaStat {
-  mangaName: string;
-  commentCount: number;
+    mangaName: string;
+    commentCount: number;
 }
 
 const MangaStatsGraph = ({ data }: { data: MangaStat[] }) => {
@@ -64,7 +64,7 @@ const MangaStatsGraph = ({ data }: { data: MangaStat[] }) => {
 
  
 
-  return <Bar data={chartData} />;
+    return <Bar data={chartData} />;
 };
 
 export default function Dashboard() {
