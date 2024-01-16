@@ -2,16 +2,19 @@ import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { useAuth } from './authContext';
 import ForgotPasswordModal from "./ForgotPasswordModal";
+import { setCookie } from 'cookies-next';
+
 
 
 export default function LoginForm() {
     const { login } = useAuth();
-
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showModal, setShowModal] = useState(false);
     const [message, setMessage] = useState('');
+  
 
+ 
     const router = useRouter();
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -40,11 +43,15 @@ export default function LoginForm() {
             const role = userData.role || 'User';
     
             if (token) {
-                localStorage.setItem('token', token);
-                localStorage.setItem('userId', id); 
+                // localStorage.setItem('token', token);
+                // localStorage.setItem('userId', id);
+                const expirationDate = new Date();
+expirationDate.setDate(expirationDate.getDate() + 1);
+                setCookie('token', token, { expires: expirationDate });
+                setCookie('userId', id, { expires: expirationDate });
               
                 login({ username ,token, role ,id}); // Mise à jour de l'état avec le token et le username
-                router.push('/'); // Redirection vers la page d'accueil
+                router.push('/');
 
             } else {
                 console.error('Token non reçu')
@@ -55,7 +62,7 @@ export default function LoginForm() {
     };
 
     const handleBack = () => {
-        router.push('/') // Redirection vers la page d'accueil
+        router.push('/') 
     };
 
     const handleForgotPassword = () => {

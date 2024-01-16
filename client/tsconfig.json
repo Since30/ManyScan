@@ -34,7 +34,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/hooks/useApi.jsx" ,
-    "src/components/MangaStatsGraph.jsx"  ],
+    "src/components/MangaStatsGraph.jsx", "src/slices/authApi.jsx", "src/slices/authContext.jsx", "src/slices/authSlice.jsx", "src/slices/store.jsx"  ],
   "exclude": [
     "node_modules"
   ]

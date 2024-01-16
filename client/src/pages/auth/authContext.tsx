@@ -1,4 +1,6 @@
 import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react'
+import { setCookie, getCookie, deleteCookie } from 'cookies-next';
+import exp from 'constants';
 
 
 type User = {
@@ -21,20 +23,30 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const [user, setUser] = useState<User | null>(null);
     const [token, setToken] = useState<string | null>(null);
 
-
+    const login = (userData: { username: string, id: string, token: string, role: string }) => {
+        setUser({ username: userData.username, id: userData.id, role: userData.role });
+        setToken( userData.token); 
+        const expirationDate = new Date();
+expirationDate.setDate(expirationDate.getDate() + 1);
+        setCookie('username', userData.username, { expires: expirationDate });
+        setCookie('userId', userData.id, { expires: expirationDate });
+        setCookie('token', userData.token, { expires: expirationDate });
+        setCookie('role', userData.role, { expires: expirationDate });
+    };
+    
 
     useEffect(() => {
-        // Vérifiez si le token est présent dans localStorage au démarrage de l'application
-        const storedToken = localStorage.getItem('token');
-        const storedUserId = localStorage.getItem('userId'); // Optionnel : récupérez également l'ID de l'utilisateur
+        const storedToken = getCookie('token') || ''; 
+        const storedUserName =  getCookie('username') || '';
+        const storedUserId =  getCookie('userId') || '';
         if (storedToken) {
             setToken(storedToken);
-            setUser({ username: 'since30', id: storedUserId || '', role: 'Admin' }); // Modifiez avec les données appropriées
+            setUser({ username: storedUserName, id: storedUserId || '', role: '' });
         }
     }, []);
+      
 
     useEffect(() => {
-        // Lorsque le token change, stockez-le ou supprimez-le du localStorage
         if (token) {
             localStorage.setItem('token', token);
         } else {
@@ -44,16 +56,15 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
 
 
-    const login = (userData: { username: string, id: string, token: string, role: string }) => {
-        setUser({ username: userData.username, id: userData.id, role: userData.role });
-        setToken(userData.token);
-    };
+    
     
 
 
     const logout = () => {
-        console.log("Logging out")
-        setUser(null)
+        console.log("Logging out");
+        setUser(null);
+        deleteCookie('token'); 
+        deleteCookie('userId');
     }
 
     return (

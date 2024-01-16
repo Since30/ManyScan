@@ -1,155 +1,40 @@
 [
   {
-    "id": "b56ea48a-3dce-4eb0-982c-2d58097d1e58",
-    "title": "The Strongest Ever",
-    "description": "The ‘Ten Masters’ had kept each other in check and maintained the balance of power and order of the world beyond human limits, until Baek Dohyun showed up with the strongest power ever!",
-    "type": null,
+    "id": "418791c0-35cf-4f87-936b-acd9cddf0989",
+    "title": "The Fragrant Flower Blooms With Dignity",
+    "description": "In a certain place, there are two neighboring high schools. Chidori High School, a bottom-feeder boys' school where idiots gather, and Kikyo Girls' School, a well-established girls' school. Rintaro Tsumugi, a strong and quiet second year student at Chidori High School, meets Kaoruko Waguri, a girl who comes as a customer while helping out at his family's cake shop. Rintaro feels comfortable spending time with Kaoruko, but she is a student at Kikyo Girls, a neighboring school that thoroughly dislikes Chidori High. This is the story of two people who are so close and yet so far apart.\n___\n- [Official Twitter (JA)](https://twitter.com/kaoruhana_mp)",
+    "type": "shounen",
     "status": "ongoing",
-    "year": null,
-    "createAt": "2020-12-10T11:26:03+00:00",
-    "updatedAt": "2023-06-28T16:25:01+00:00",
-    "language": "en ru fr id",
-    "lastChapter": "2d660988-4d07-4fba-9e0b-b26197e6f1bf",
+    "year": 2021,
+    "createAt": "2021-11-10T17:30:57+00:00",
+    "updatedAt": "2023-12-27T11:44:18+00:00",
+    "language": "pt-br en fr vi id es-la ar",
+    "lastChapter": "49fde09e-32d4-4aa9-889e-d45b703d2ccd",
     "statistics": {
-      "rating": 6.9862,
+      "rating": 9.3561,
+      "numberOfVotes": 7919
+    },
+    "cover": "https://uploads.mangadex.org/covers/418791c0-35cf-4f87-936b-acd9cddf0989/6ff086ca-2e3d-4811-abd2-d77bf5dfdb71.jpg",
+    "authorId": "3d3ec54f-2eb7-4fb7-b2eb-0372c9f1b92e",
+    "authorName": "Mikami Saka"
+  },
+  {
+    "id": "9eb78304-0436-484d-9a79-a925b45e2731",
+    "title": "Wind Breaker",
+    "type": "shounen",
+    "status": "ongoing",
+    "year": 2021,
+    "createAt": "2021-01-26T14:15:30+00:00",
+    "updatedAt": "2023-12-19T20:22:27+00:00",
+    "language": "ru fr en pt-br vi es-la fa",
+    "lastChapter": "ff372f57-d39e-49a9-944c-80476163c5e0",
+    "statistics": {
+      "rating": 8.7294,
       "numberOfVotes": 218
     },
-    "cover": "https://uploads.mangadex.org/covers/b56ea48a-3dce-4eb0-982c-2d58097d1e58/ada2f15a-aefd-4e18-a829-cd70eed86828.jpg",
-    "authorId": "9a72e6c1-3562-4fa8-ab80-f045b7737d72",
-    "authorName": "황규영"
-  },
-  {
-    "id": "cb77e4a6-3921-43b9-9d64-7d78cd3205ce",
-    "title": "Jigokuraku",
-    "description": "Gabimaru the Empty, a former ninja assassin feared as a heartless husk of a man, spends his days \non death row wondering when an executioner skilled enough to so much as harm him will arrive, \nas he thinks nothing of seeing an end to his meaningless existence… Or so he thought. \nThen the lady executioner, Asaemon the Beheader, rekindles his hope with an astounding proposition. \nIf he ever wishes to see his beloved wife again, he must embark under the auspices of the shogunate \non a perilous voyage to the mysterious mystic island said to house the elixir of immortality. \nShould he be the one among many rival death-row fiends and scoundrels to find the elixir, he'll earn a full exoneration, \nand, more importantly, a chance at an ordinary married life with the light of his life: \nthe woman who made the world seem not so ugly. \nWhat awaits them is a journey like no other!",
-    "type": "shounen",
-    "status": "completed",
-    "year": 2018,
-    "createAt": "2019-03-12T21:24:49+00:00",
-    "updatedAt": "2023-10-28T13:49:56+00:00",
-    "language": "fr zh-hk it ru vi fa tr uk de pt-br cs es en es-la th",
-    "lastChapter": "58381efd-c596-4879-a9e6-a31b5856a54c",
-    "statistics": {
-      "rating": 8.9075,
-      "numberOfVotes": 2638
-    },
-    "cover": "https://uploads.mangadex.org/covers/cb77e4a6-3921-43b9-9d64-7d78cd3205ce/c6eded90-7e15-4e3b-8f50-f415f02c32a2.jpg",
-    "authorId": "801b900b-c364-450a-923a-76aba1bf010f",
-    "authorName": "Kaku Yuuji"
-  },
-  {
-    "id": "b73371d4-02dd-4db0-b448-d9afa3d698f1",
-    "title": "Ao Ashi",
-    "description": "Aoi Ashito is a third year middle school student from Ehime. Behind his raw game hides his immense talent \nbut Ashito suffers a huge setback because of his overly straightforward personality. \nOne day the youth team manager of J1 club Tokyo City Esperion, Fukuda Tetsuya, appears in front of him. \nFukuda sees his limitless potential and invites him to take part in his team's tryouts in Tokyo. \nThe story of the boy who will revolutionize football in Japan rapidly begins to unfold.  \n  \n---\n- **Won the 65th Shogakukan Manga Award for General Manga in 2019**",
-    "type": "seinen",
-    "status": "ongoing",
-    "year": 2015,
-    "createAt": "2018-11-26T11:57:23+00:00",
-    "updatedAt": "2023-08-29T16:49:25+00:00",
-    "language": "en pt-br es-la fr id ru ar it fa es",
-    "lastChapter": "2f37cc38-e3c3-4776-a69b-ac81b690b717",
-    "statistics": {
-      "rating": 9.5198,
-      "numberOfVotes": 3024
-    },
-    "cover": "https://uploads.mangadex.org/covers/b73371d4-02dd-4db0-b448-d9afa3d698f1/2b9c663c-8994-46a8-b967-22aa7d570c1c.jpg",
-    "authorId": "c60b8feb-97fd-4340-866c-58e825d9b3d4",
-    "authorName": "Kobayashi Yuugo"
-  },
-  {
-    "id": "46c44d71-f114-4776-a0de-b4179d65c0e6",
-    "title": "The Villainess Is Shy in Receiving Affection",
-    "description": "My wicked mother brought a girl one day, the Duke's lost daughter, Loretta - the heroine of a novel called *The Duke's Four Children*. And I am Melody, the villainess in said novel who was punished alongside my mother for harassing the Duke's precious little girl. I didn’t want to die like that, so I decided to treat her well. I fed Loretta, put her to sleep, and played with her. And then her response was…?\n\n\"I hope Melody marries Loretta!\"\n\nThrough her endless affection, I ended up coming back with her to the Duke's mansion, where she said \"I'll stick close to Melody!\"\n\nHas there ever been anyone who is such a 'fool for Melody?!' Why am I being loved when I've only been kind to be able to live peacefully…!\n\n---\nWhen Melody discovers she's a villainess in someone else's story, being a slave dealer's daughter only adds to her guilty conscience. After her mother kidnaps Loretta, Duke Baldwin's long-lost child, Melody tries to comfort the scared little girl and forms a sisterly bond with her. So when the duke finds them, he takes both of them home because now they're inseparable! As the rest of House Baldwin becomes enamored with Melody's warm heart, will she ever learn that she deserves to be loved too?\n\n---\n**Original Webtoon:** [Daum](https://webtoon.kakao.com/content/%EC%95%85%EC%97%AD-%EC%86%8C%EB%85%80%EB%8A%94-%EC%82%AC%EB%9E%91%EB%B0%9B%EA%B8%B0%EA%B0%80-%EB%B6%80%EB%81%84%EB%9F%AC%EC%9B%8C%EC%9A%94/3321), [KakaoPage](https://page.kakao.com/content/61192421)",
-    "type": "shoujo",
-    "status": "ongoing",
-    "year": 2023,
-    "createAt": "2023-02-21T17:55:46+00:00",
-    "updatedAt": "2023-12-30T19:19:59+00:00",
-    "language": "en fr pl vi",
-    "lastChapter": "dfacd069-c8d7-4b9a-8a0c-c4b81b4b1c5c",
-    "statistics": {
-      "rating": 8.4672,
-      "numberOfVotes": 411
-    },
-    "cover": "https://uploads.mangadex.org/covers/46c44d71-f114-4776-a0de-b4179d65c0e6/0718a0f8-eea4-4631-bfe7-1063938e6f5f.png",
-    "authorId": "3547f525-f6f2-4e1f-a2f2-7623cd154cd5",
-    "authorName": "Gyeonga (양지인)"
-  },
-  {
-    "id": "92d3e351-4802-4e74-bbc4-e771a977b572",
-    "title": "Taming Grace",
-    "description": "Andrew is the only daughter of the famous Grace family. She also has an incurable disease. Due to her family's high status in society, Andrew grew up with no friends save for her maid, Herta, whom she has become intensely infatuated with. Little does she know, her family is responsible for ruining Herta's life. Can Andrew break the hierarchy and be with her? Or will Herta end her suffering first…",
-    "type": null,
-    "status": "completed",
-    "year": null,
-    "createAt": "2020-05-15T19:43:26+00:00",
-    "updatedAt": "2023-03-11T10:32:52+00:00",
-    "language": "pl es-la fr uk tr",
-    "lastChapter": "ca1d443d-3ff1-417c-8694-6e4f96d639eb",
-    "statistics": {
-      "rating": 8.9481,
-      "numberOfVotes": 270
-    },
-    "cover": "https://uploads.mangadex.org/covers/92d3e351-4802-4e74-bbc4-e771a977b572/ffc2982d-fd3c-4630-a9f6-159d41d88d94.jpg",
-    "authorId": "fadf9be3-4f62-4716-919c-32b2761cb19f",
-    "authorName": "Seo Rim"
-  },
-  {
-    "id": "64113fcd-4f8c-41bc-8fa4-18a83076da2e",
-    "title": "The Last Human",
-    "description": "Zuo Tianchen is the last living human in a mutated zombie-infested city. Just when he was sure he'd died, he finds his soul returned to just before that ill-fated day ten years ago. He swears he'll protect the people important to him this time round and reunite with his past lover. Watch his struggles to survive equipped with his memory of the next ten years!",
-    "type": null,
-    "status": "ongoing",
-    "year": 2018,
-    "createAt": "2019-03-16T17:45:29+00:00",
-    "updatedAt": "2023-08-09T05:24:54+00:00",
-    "language": "it en fr ar ru pt-br",
-    "lastChapter": "ada72c16-722b-4d9c-9ea9-b9151046bc8d",
-    "statistics": {
-      "rating": 7.4036,
-      "numberOfVotes": 1536
-    },
-    "cover": "https://uploads.mangadex.org/covers/64113fcd-4f8c-41bc-8fa4-18a83076da2e/8a8d42b9-86f3-4856-b41f-cbae24199884.jpg",
-    "authorId": "772e720a-6d4d-469a-99de-202ce5a0f722",
-    "authorName": "Amazing Works"
-  },
-  {
-    "id": "39960d43-b8dd-4fdc-b6b7-ab9ad82cce90",
-    "title": "The SSS-Rank Hunter's Lucky Draw",
-    "description": "“The Change” brought dungeons filled with monsters into the world, altering reality forever. Pro-gamer Jin Jungdo, whose lifelong dream was to be a hero like the Mana Users who fight in these dungeons, is crushed when he discovers his own abilities are useless. Just then, the “real universe” gives him a set of skills that allow him to draw information from the future and heroes from the past! Now all that’s left is for him to barrel through this game of luck and become the strongest hunter ever!",
-    "type": null,
-    "status": "ongoing",
-    "year": 2021,
-    "createAt": "2021-10-26T08:55:38+00:00",
-    "updatedAt": "2023-08-01T11:01:17+00:00",
-    "language": "fr en",
-    "lastChapter": "794e3fe0-4d9a-4fd3-86bb-036940016655",
-    "statistics": {
-      "rating": 7.24,
-      "numberOfVotes": 50
-    },
-    "cover": "https://uploads.mangadex.org/covers/39960d43-b8dd-4fdc-b6b7-ab9ad82cce90/eef3e520-f0b3-4e1b-93a4-4cace79891bc.jpg",
-    "authorId": "38fe301e-65e2-4f3b-9c7f-abf1d98953ad",
-    "authorName": "Shampion (삼편잡가)"
-  },
-  {
-    "id": "b04582e8-d98b-4f6e-b605-c300f3a5e3bd",
-    "title": "Sanda",
-    "description": "In the year 2080, the world is like it is now, yet different. Government-arranged marriages, elaborate plastic surgery, and medical science are at the forefront of Japanese society.\n\nSanda Kazushige is a middle-school student who hasn't quite matured, despite being in the thralls of puberty. Put into a life-threatening situation by his classmate Fuyumura, Sanda discovers his uncanny ability to turn into a burly (and more grown) Santa Claus, and is thrown into a world of chaos to save his fellow students in only ways Santa Claus can do, while trying to solve the mysteries of the school he attends and the truth to where his supposedly-dead classmate Ono went.",
-    "type": "shounen",
-    "status": "ongoing",
-    "year": 2021,
-    "createAt": "2021-09-02T02:28:19+00:00",
-    "updatedAt": "2023-12-27T02:26:06+00:00",
-    "language": "fr en es-la pt-br",
-    "lastChapter": "94a498b7-d113-4887-bc06-04323f1e8381",
-    "statistics": {
-      "rating": 7.996,
-      "numberOfVotes": 247
-    },
-    "cover": "https://uploads.mangadex.org/covers/b04582e8-d98b-4f6e-b605-c300f3a5e3bd/86da287d-13af-4a4b-ae5b-2f1807237c15.png",
-    "authorId": "de3c8aa9-7cd4-4e4c-92ae-bb435e4f6ef3",
-    "authorName": "Itagaki Paru"
+    "cover": "https://uploads.mangadex.org/covers/9eb78304-0436-484d-9a79-a925b45e2731/02d8f705-4f7f-48be-9c5c-0288e9faec90.jpg",
+    "authorId": "50b1e6de-a9ae-41f5-986c-f2e08632470f",
+    "authorName": "Nii Satoru"
   },
   {
     "id": "de9e3b62-eac5-4c0a-917d-ffccad694381",
@@ -161,33 +46,52 @@
     "createAt": "2020-03-22T17:37:27+00:00",
     "updatedAt": "2024-01-05T12:36:29+00:00",
     "language": "de pt-br ru en uk id it es-la fr th tr vi",
-    "lastChapter": "fd29e582-8324-4387-b040-fcb34a991b9a",
+    "lastChapter": "c3b89223-2fca-4a13-a084-91879d50aa5b",
     "statistics": {
-      "rating": 8.6646,
-      "numberOfVotes": 6199
+      "rating": 8.6634,
+      "numberOfVotes": 6209
     },
     "cover": "https://uploads.mangadex.org/covers/de9e3b62-eac5-4c0a-917d-ffccad694381/9e1fdcf5-6c82-409c-a04b-0b3169cdea54.jpg",
     "authorId": "0181adcd-83bc-4e0f-9fd0-e2b0caa4685c",
     "authorName": "Niichi"
   },
   {
-    "id": "43848429-00b1-4215-bb0c-31973fe705cf",
-    "title": "Absolute Master of the Senate",
-    "description": "“What a dogshit life… honestly.”\n\nThough he had become a disciple of the Heavenly Demon amidst the strife-filled Demonic Sect,\nYeon So-Woon gets betrayed by his disciple-brother and comes to meet his end.\n\nHowever…\nWhen he woke up, he’s back to the time when he was a kid, before he got dragged into the Demonic Sect?!\n\nLoath to repeat his hellish life in the Demonic Sect, Yeon So-Woon begins to plan for his new life.\n\n\"I’ll enact revenge on the Demonic Sect,\nBecome an elder of the Murim Union,\nAnd thus, live a prosperous and respected life.\"",
-    "type": null,
+    "id": "46c44d71-f114-4776-a0de-b4179d65c0e6",
+    "title": "The Villainess Is Shy in Receiving Affection",
+    "description": "My wicked mother brought a girl one day, the Duke's lost daughter, Loretta - the heroine of a novel called *The Duke's Four Children*. And I am Melody, the villainess in said novel who was punished alongside my mother for harassing the Duke's precious little girl. I didn’t want to die like that, so I decided to treat her well. I fed Loretta, put her to sleep, and played with her. And then her response was…?\n\n\"I hope Melody marries Loretta!\"\n\nThrough her endless affection, I ended up coming back with her to the Duke's mansion, where she said \"I'll stick close to Melody!\"\n\nHas there ever been anyone who is such a 'fool for Melody?!' Why am I being loved when I've only been kind to be able to live peacefully…!\n\n---\nWhen Melody discovers she's a villainess in someone else's story, being a slave dealer's daughter only adds to her guilty conscience. After her mother kidnaps Loretta, Duke Baldwin's long-lost child, Melody tries to comfort the scared little girl and forms a sisterly bond with her. So when the duke finds them, he takes both of them home because now they're inseparable! As the rest of House Baldwin becomes enamored with Melody's warm heart, will she ever learn that she deserves to be loved too?\n\n---\n**Original Webtoon:** [Daum](https://webtoon.kakao.com/content/%EC%95%85%EC%97%AD-%EC%86%8C%EB%85%80%EB%8A%94-%EC%82%AC%EB%9E%91%EB%B0%9B%EA%B8%B0%EA%B0%80-%EB%B6%80%EB%81%84%EB%9F%AC%EC%9B%8C%EC%9A%94/3321), [KakaoPage](https://page.kakao.com/content/61192421)",
+    "type": "shoujo",
     "status": "ongoing",
     "year": 2023,
-    "createAt": "2023-02-11T16:17:55+00:00",
-    "updatedAt": "2023-11-12T01:11:54+00:00",
-    "language": "en fr",
-    "lastChapter": "833855e4-30a9-41ce-83fd-4686fb9ea6a6",
+    "createAt": "2023-02-21T17:55:46+00:00",
+    "updatedAt": "2023-12-30T19:19:59+00:00",
+    "language": "en fr pl vi",
+    "lastChapter": "f160118b-95fd-4532-809d-019de3fc5867",
     "statistics": {
-      "rating": 8.51,
-      "numberOfVotes": 100
+      "rating": 8.4724,
+      "numberOfVotes": 417
     },
-    "cover": "https://uploads.mangadex.org/covers/43848429-00b1-4215-bb0c-31973fe705cf/46d4a21f-cd9f-4b0b-9033-e41daa033944.jpg",
-    "authorId": "7a63421f-ceba-42cc-84ed-9c293c954ec4",
-    "authorName": "be Ingijagga"
+    "cover": "https://uploads.mangadex.org/covers/46c44d71-f114-4776-a0de-b4179d65c0e6/0718a0f8-eea4-4631-bfe7-1063938e6f5f.png",
+    "authorId": "3547f525-f6f2-4e1f-a2f2-7623cd154cd5",
+    "authorName": "Gyeonga (양지인)"
+  },
+  {
+    "id": "9c21fbcd-e22e-4e6d-8258-7d580df9fc45",
+    "title": "Lycoris Recoil",
+    "description": "Takina Inoue, a high school girl working as a member of an all-female taskforce of assassins and spies known as \"Lycoris\" dispatched to eliminate criminals and terrorists in Tokyo, is sanctioned by her superiors at the DA agency for disobeying orders in order to save a colleague. She is transferred to work with the elite Lycoris agent Chisato Nishikigi at one of the agency's branches, which operates under the cover of a cafe, called \"LycoReco\".",
+    "type": "shounen",
+    "status": "ongoing",
+    "year": 2022,
+    "createAt": "2022-09-03T23:33:22+00:00",
+    "updatedAt": "2023-10-28T19:43:28+00:00",
+    "language": "pt-br en it vi fr es-la ru pl tr",
+    "lastChapter": "78e59da9-1f0a-4cd6-a39e-a2d1f32e828a",
+    "statistics": {
+      "rating": 9.2624,
+      "numberOfVotes": 404
+    },
+    "cover": "https://uploads.mangadex.org/covers/9c21fbcd-e22e-4e6d-8258-7d580df9fc45/13aef945-2fcb-4a8b-b73b-788174d82c23.jpg",
+    "authorId": "3e568eca-804a-4102-be3a-72af85feff7a",
+    "authorName": "Spider Lily"
   },
   {
     "id": "c727d921-4294-455b-9bcc-2f0c7d29cd9a",
@@ -199,7 +103,7 @@
     "createAt": "2018-04-21T10:39:08+00:00",
     "updatedAt": "2023-11-07T20:06:07+00:00",
     "language": "vi en fr it pt-br tr",
-    "lastChapter": "37714a15-29c7-49e4-9d80-fc84e008ba07",
+    "lastChapter": "1d23cfd4-9157-46cd-ba35-82c53bec312d",
     "statistics": {
       "rating": 8.9512,
       "numberOfVotes": 82
@@ -209,174 +113,269 @@
     "authorName": "Morita Masanori"
   },
   {
-    "id": "913f10b8-be4e-4195-a1cd-c52aa8d6a728",
-    "title": "Sakura, Saku",
-    "description": "Saku, who knows she doesn’t stand out much, is looking for a boy named Sakura who helped her before. It might be fate that she meets Haruki Sakura again after entering high school...?!",
-    "type": "shoujo",
-    "status": "completed",
-    "year": 2021,
-    "createAt": "2021-01-24T14:46:01+00:00",
-    "updatedAt": "2023-12-21T18:21:26+00:00",
-    "language": "en fr ru pt-br id it",
-    "lastChapter": "02a1627e-7ecd-4535-93a1-77c21d5d56b8",
-    "statistics": {
-      "rating": 8.4331,
-      "numberOfVotes": 127
-    },
-    "cover": "https://uploads.mangadex.org/covers/913f10b8-be4e-4195-a1cd-c52aa8d6a728/efb4542c-aa71-4a09-9774-c84b01319340.jpg",
-    "authorId": "5d6e7f0b-cdff-4dd3-a450-fb8838e977b6",
-    "authorName": "Sakisaka Io"
-  },
-  {
-    "id": "ad004a13-f46a-4392-b786-97a6cab09fc2",
-    "title": "My Wife Is Actually the Empress?",
-    "description": "With my wife's breathtaking beauty, not even the newly enthroned empress can match her! With my wife's marvelous culinary skills, not even the empress's royal chefs can match her! My wife loves me and cares about me very very much, and I wouldn't trade her for even the empress! Wait, what? My wife is the empress?!",
-    "type": null,
+    "id": "5f848c5e-337f-4f5c-86b5-8e4b76842f8e",
+    "title": "The Heavenly Demon Destroys the Lich King's Murim",
+    "description": "An unknown voice disturbed me while I was levitating during my cultivation to reach the transcendent demonic state.\n\nMy concentration had been broken, and I fell into an unconscious, overloaded state. When I awoke a month later, the Lich King had already taken control of the Murim.\n\nAfter the battle that ended with the destruction of the Heavenly Demon Cult, I awoke a hundred and forty years later in a Murim where magic and martial arts coexisted.\n\n---\n- [Original Webtoon <Webtoon kakao>](https://webtoon.kakao.com/content/%EC%B2%9C%EB%A7%88-%EB%A6%AC%EC%B9%98%EC%99%95%EC%9D%98-%EB%AC%B4%EB%A6%BC%EC%9D%84-%EB%B6%80%EC%88%98%EB%8B%A4/2583)",
+    "type": "shounen",
     "status": "ongoing",
     "year": 2021,
-    "createAt": "2021-03-06T19:38:40+00:00",
-    "updatedAt": "2023-12-25T05:25:14+00:00",
-    "language": "pt-br fr en pl",
-    "lastChapter": "c146456c-f33d-4204-9aeb-bef14ed4a76c",
+    "createAt": "2021-10-12T02:41:37+00:00",
+    "updatedAt": "2022-12-15T01:18:10+00:00",
+    "language": "en fr",
+    "lastChapter": "de2bb70e-25e0-471f-8413-248d082eed64",
     "statistics": {
-      "rating": 8.2423,
-      "numberOfVotes": 392
+      "rating": 7.8636,
+      "numberOfVotes": 66
     },
-    "cover": "https://uploads.mangadex.org/covers/ad004a13-f46a-4392-b786-97a6cab09fc2/28cd180e-e519-4a12-a367-28336c8cb0a5.jpg",
-    "authorId": "7e579cbc-2507-4fba-b3d6-af1867d883e5",
-    "authorName": "Ciweimao"
+    "cover": "https://uploads.mangadex.org/covers/5f848c5e-337f-4f5c-86b5-8e4b76842f8e/dfb8c4f6-a865-4696-862a-d73b9d22eea2.png",
+    "authorId": "96c9e930-4226-4fb2-beaf-cac86639d7c4",
+    "authorName": "Hyung Geun Cho (조형근)"
   },
   {
-    "id": "e2959879-a314-4aef-99b1-5677513c653f",
-    "title": "Rebirth",
-    "description": "What would you do if you are given a second chance to turn back time and relive your past?   \nWould you do what you did back then for fear of the butterfly effect?   \nOr would you take a different course of action and let the future speaks for itself?  \n\n**Links:**  \n- [Author's Twitter](https://twitter.com/69michichi)  \n- [Author's Patreon](https://www.patreon.com/69erocento)",
-    "type": null,
+    "id": "1180743d-8e38-4c00-b767-c53169fadc6a",
+    "title": "Tensura Nikki: Tensei Shitara Slime Datta Ken",
+    "description": "This Spinoff Manga has content based on Volumes 3,4 and 5 of the Light Novel.\n\n\"Dear diary… I got reincarnated as a slime.\"\n\nEven in another world, lives aren't always on the line. There's plenty of work to be done, from feeding the community and forging the items the community needs; as well as plenty of play ...and hijinks throughout! Join Rimuru and friends as they kick back and enjoy their daily lives.",
+    "type": "shounen",
     "status": "ongoing",
-    "year": null,
-    "createAt": "2019-07-19T20:16:24+00:00",
-    "updatedAt": "2023-08-18T07:12:23+00:00",
-    "language": "ru fr",
-    "lastChapter": "fb836592-d372-476f-b613-bb881c35e9f5",
+    "year": 2018,
+    "createAt": "2019-08-19T16:36:45+00:00",
+    "updatedAt": "2023-12-31T14:30:19+00:00",
+    "language": "ru id en es-la pt-br it fr",
+    "lastChapter": "7b58218d-a5ca-4975-b9ce-51c8057f4ece",
     "statistics": {
-      "rating": 7.6563,
-      "numberOfVotes": 32
+      "rating": 8.56,
+      "numberOfVotes": 925
     },
-    "cover": "https://uploads.mangadex.org/covers/e2959879-a314-4aef-99b1-5677513c653f/9487aad4-c56f-4a7f-8350-6c85306a9d15.jpg",
-    "authorId": "fbedee30-3b67-435c-91f7-84b9e729430b",
-    "authorName": "69michi"
+    "cover": "https://uploads.mangadex.org/covers/1180743d-8e38-4c00-b767-c53169fadc6a/4e76c85a-5fb6-4dfb-b840-da7c6f915658.jpg",
+    "authorId": "dbf8af05-7173-49f3-bf60-f4ea3f586486",
+    "authorName": "Fuse"
   },
   {
-    "id": "3eaabe03-d2bd-43f3-af71-bd1db4ab564a",
-    "title": "Serial Killer Isekai ni Oritatsu",
-    "description": "A murderer who cannot stop the urge to kill people, even though he wants to stop, receives the death sentence he wants.\nHis joy is short-lived, as he is reincarnated in another world. The mission entrusted to him by the goddess is to kill 12 reincarnated people using his murderous impulses.\nNot all reincarnated people are saints!",
-    "type": "seinen",
-    "status": "ongoing",
-    "year": 2022,
-    "createAt": "2023-02-02T18:04:41+00:00",
-    "updatedAt": "2023-07-28T01:33:08+00:00",
-    "language": "es-la fr en vi pt-br ar",
-    "lastChapter": "02cab664-2043-4151-9e06-5329bab0776b",
-    "statistics": {
-      "rating": 8.4896,
-      "numberOfVotes": 2510
-    },
-    "cover": "https://uploads.mangadex.org/covers/3eaabe03-d2bd-43f3-af71-bd1db4ab564a/5dc8729a-2b2e-447e-99aa-5df92d66a2c1.jpg",
-    "authorId": "0e0d703b-10e3-4eeb-936e-6f1ab75ed32a",
-    "authorName": "Hitotsubu Ichigo"
-  },
-  {
-    "id": "db90d832-59a6-4f1a-97cc-84226bdd5d12",
-    "title": "Uma Musume Pretty Derby: Uma Musumeshi",
-    "description": "\"In their daily lives, as well as their special moments, Uma Musume enjoy eating \"tasty dishes\"♪\"?",
+    "id": "8a1a79e4-7f90-450d-854c-0c780179f47f",
+    "title": "The Martial God who Regressed Back to Level 2",
+    "description": "[NO. 4212: 'Humanity' has failed the Demotion Match.]\n[NO. 4212: ‘Humanity’ has been deemed useless. Beginning deletion.]\n\nAs Earth was being erased after their final game ended in failure, Martial Saint Sung JiHan managed to resist deletion and saw messages pop up in front of him.\n\n[To think someone would be able to resist being erased.]\n[Let's give him an opportunity to re-challenge.]\n[Player 'Sung JiHan' is returning to the time of initial entry in The League.]\n\nWhen he woke back up, he had regressed back in time. Given a second chance, he swore to himself to stop the fall of Korea and humanity and take flawless vengeance against those that ruined things in his original timeline.\n\nFollow the journey of Korea's Martial Saint, Sung JiHan, as he struggles to prevent a future of destruction and ascends as the Martial God!",
     "type": null,
     "status": "ongoing",
     "year": 2023,
-    "createAt": "2023-03-02T06:27:03+00:00",
-    "updatedAt": "2023-11-10T07:25:34+00:00",
-    "language": "en vi fr",
-    "lastChapter": "08a5f6e3-0326-43a7-80f0-115a37ed3c6a",
+    "createAt": "2023-07-31T17:30:11+00:00",
+    "updatedAt": "2023-11-01T01:45:47+00:00",
+    "language": "en pt-br fr",
+    "lastChapter": "e83de764-bdd3-4cee-a94b-0e792b330719",
     "statistics": {
-      "rating": 8.6,
-      "numberOfVotes": 20
+      "rating": 8.7074,
+      "numberOfVotes": 188
     },
-    "cover": "https://uploads.mangadex.org/covers/db90d832-59a6-4f1a-97cc-84226bdd5d12/a6f07522-81fe-4ea3-8511-88dc863f0f71.jpg",
-    "authorId": "dab79c52-5435-46bf-a86a-d4fd08bc28b6",
-    "authorName": "Cygames"
+    "cover": "https://uploads.mangadex.org/covers/8a1a79e4-7f90-450d-854c-0c780179f47f/f840c369-0109-41de-90d3-11ca7bd8a870.png",
+    "authorId": "432b86e9-8256-4a55-9ec0-77f722b9104b",
+    "authorName": "Yeombi (염비)"
   },
   {
-    "id": "944f8f69-9a9c-4678-9e0d-c8202de70cb3",
-    "title": "Kyuujitsu no Warumono-san",
-    "description": "There exists an evil organisation that intends to invade planet Earth.  \n  \nThe man called \"General\" fights everyday against the Earth's Defence Force, the \"Rangers!\"  \n  \nHowever, today is his day off.\n\nOfficial English Release - [Comikey](https://comikey.com/comics/mr-villains-day-off-manga/231/), [MangaUp](https://global.manga-up.com/manga/2)",
-    "type": "shoujo",
-    "status": "ongoing",
-    "year": 2018,
-    "createAt": "2019-10-07T06:47:29+00:00",
-    "updatedAt": "2024-01-13T15:51:21+00:00",
-    "language": "en ru fr pt-br id",
-    "lastChapter": "979d775f-351b-4b1c-940a-caf8cd940226",
-    "statistics": {
-      "rating": 9.1605,
-      "numberOfVotes": 2424
-    },
-    "cover": "https://uploads.mangadex.org/covers/944f8f69-9a9c-4678-9e0d-c8202de70cb3/455640aa-b9d1-4b8b-8f05-3a2246041165.png",
-    "authorId": "93628d94-f228-4426-a774-3eedcfd78414",
-    "authorName": "Morikawa Yuu"
-  },
-  {
-    "id": "d3de0128-f60b-4fd2-acc6-fa4735659a34",
-    "title": "Reality Quest",
-    "description": "Due to the school bully's threat to get him game items, Ha Do-wan, the unlucky game shuttle, died after playing games all night long for a week. The moment he died, he got respawned to the classroom one week before he died... Everything is the same as that day. The only thing that has changed is the floating in front of him! What? Use the skills of the games I've played so far to beat the bully?!?!",
+    "id": "700223c7-f5e3-42ef-8577-42392b349f8a",
+    "title": "The 31st Piece Turns the Tables",
+    "description": "Ever since he was young, Kang Seol had strange dreams every night. In his dreams, he was an adult wearing a mask and strange clothing in a peculiar world.\n\n'Alright, it's time to roll the dice.'\n\nThe game in his dreams, 'The World of Eternity', in which he created and controlled character pieces on the table, was his refuge and his passion... maybe even his entire world. He enjoyed rolling the dice with the strangers in his dreams. He was happy...\n\n“How dare this insect not know its place and sneak into the heavens?\"\n\n...until he became a piece on the tables himself.",
     "type": null,
     "status": "ongoing",
-    "year": 2021,
-    "createAt": "2021-11-02T01:23:43+00:00",
-    "updatedAt": "2023-05-28T20:30:29+00:00",
-    "language": "ru en pt-br fr",
-    "lastChapter": "eb3c155c-7bfd-4e8b-a048-1ceb90504914",
+    "year": 2023,
+    "createAt": "2023-07-14T22:08:30+00:00",
+    "updatedAt": "2023-12-24T15:38:36+00:00",
+    "language": "en fr ru",
+    "lastChapter": "d9c62292-3eff-4737-9bc3-3c70f1c57c46",
     "statistics": {
-      "rating": 8.4458,
-      "numberOfVotes": 323
+      "rating": 8.6875,
+      "numberOfVotes": 96
     },
-    "cover": "https://uploads.mangadex.org/covers/d3de0128-f60b-4fd2-acc6-fa4735659a34/63eaa70f-d8c8-4ead-8214-7a4d3f4a903c.png",
-    "authorId": "50d0fe8f-8110-4fbf-a954-b589280bc021",
-    "authorName": "Lee Joo-woon"
+    "cover": "https://uploads.mangadex.org/covers/700223c7-f5e3-42ef-8577-42392b349f8a/9184aedc-79c2-48b1-8fa6-ae81e5059d84.jpg",
+    "authorId": "230a3a31-d605-4a75-8dc6-9e8b556f1075",
+    "authorName": "Mojji Wang (왕모찌)"
   },
   {
-    "id": "79469364-39c5-4f70-8af8-f5e1c9894aa7",
-    "title": "The Lone Necromancer",
-    "description": "Seongwu is a former special forces soldier who has returned to college after completing his national service. His ordinary life as a student is shattered during class one day when he and his fellow students are faced with a mysterious prompt asking them to “select a role.” Seongwu chooses the necromancer, a rare ability that grants him the power to control the undead. With the campus and outside world seemingly on the brink of collapse, Seongwu must use his newfound powers to battle fearsome monsters and help save his fellow students. But will they make it out alive?\n\n---\n\n- [Official Simplified Chinese Translation](https://www.dongmanmanhua.cn/BOY/silingfashiwanglingzhipeizhe/list?title_no=1981)\n\n- [Official Indonesian Translation](https://www.webtoons.com/id/fantasy/lone-necromancer/list?title_no=3619)\n\n- [Official French Translation](https://www.webtoons.com/fr/fantasy/the-lone-necromancer/list?title_no=4063)",
+    "id": "c6db0d4c-a0e0-401a-8503-3c84ce30e346",
+    "title": "Is This Hero for Real?",
+    "description": "There has never been a hero like this before!\nIs he a hero or an actual demon?\n\nKang Hansoo was summoned to this world with his classmates.\nHis classmates were amazed by this brand new world and the magic in it, but the only thing Hansoo wanted to do was quickly return home.\n\n“Why would I give up my warm, comfortable house to have an adventure in this world…?\n\nEven the goddess that summoned me said that if I wasn’t willing to, there was nothing she could do to force me and promised to return me to my original world.\nShe did teleport me, but…\n\nWhen I opened my eyes, I was still in this world!\nAll of my friends were gone, and the only thing around me was monsters!!\n\nA goddess tricked me…?\nHow do I get back home now…?\nMore than that, how do I survive here…?!“",
+    "type": null,
+    "status": "completed",
+    "year": 2022,
+    "createAt": "2022-02-23T20:43:02+00:00",
+    "updatedAt": "2023-12-19T21:20:47+00:00",
+    "language": "uk en pt-br ru fr",
+    "lastChapter": "8618f259-7701-49d4-b52a-008709363ad8",
+    "statistics": {
+      "rating": 7.9646,
+      "numberOfVotes": 594
+    },
+    "cover": "https://uploads.mangadex.org/covers/c6db0d4c-a0e0-401a-8503-3c84ce30e346/e2955514-a8f7-4afd-8abc-e091fc8b39cb.jpg",
+    "authorId": "08a6a25d-fce3-427d-8abf-4355717783b5",
+    "authorName": "Farnar (파르나르)"
+  },
+  {
+    "id": "15f687c2-f3ae-4291-864e-45d0979b13db",
+    "title": "Insanely Talented Player",
+    "description": "[By Red-Ice Studios, creators of the series  ‘Solo Leveling and Omniscient Reader’s Viewpoint’]\n\nIt’s been six years since the game to decide the fate of the world had started. Hero-King Kang Yoo-Sung, the strongest player who hasn’t dropped from the top ranker’s position once, greets the new season, too.\n\n“I… was finished a long fucking time ago. I’m just doing it for the money.”\n\n[Taunt Level has drastically increased!]\n\n[The Elder of Jesters expresses satisfaction with the actions of the contractor!]",
     "type": null,
     "status": "ongoing",
-    "year": 2021,
-    "createAt": "2021-10-12T02:49:20+00:00",
-    "updatedAt": "2024-01-02T02:47:01+00:00",
-    "language": "en pl fr fa",
-    "lastChapter": "cb03c12d-8bcf-481c-8ca4-16093a6d5a53",
+    "year": null,
+    "createAt": "2023-09-11T13:04:37+00:00",
+    "updatedAt": "2023-11-26T03:02:35+00:00",
+    "language": "en ar fr",
+    "lastChapter": "dfb4f65b-25d4-4518-ab4f-d803df0ff4e3",
     "statistics": {
-      "rating": 8.4111,
-      "numberOfVotes": 360
+      "rating": 7.3519,
+      "numberOfVotes": 54
     },
-    "cover": "https://uploads.mangadex.org/covers/79469364-39c5-4f70-8af8-f5e1c9894aa7/e9956dfd-5372-4c6d-87ec-d36c19ff5bb7.jpg",
-    "authorId": "66e2d910-e9a0-4f06-9766-02b70c552d03",
-    "authorName": "JJJ (지점장)"
+    "cover": "https://uploads.mangadex.org/covers/15f687c2-f3ae-4291-864e-45d0979b13db/d69a2e64-97b9-4e88-8acc-efd68b6394d6.jpg",
+    "authorId": "801f09ce-d2c7-4b02-a8e4-1eb3a6b30e1b",
+    "authorName": "H. Loma"
   },
   {
-    "id": "6cc77b74-4c4a-4a58-9ae1-682471d50840",
-    "title": "Fukakai na Boku no Subete o",
-    "description": "High school student Tetsu Iwaoka notices that his classmate Mogumo is always alone at school. Wanting to give Mogumo a chance to make some friends, Tetsu invites Mogumo to work at his family’s maid cafe. Although Mogumo is initially enthusiastic, there is just one problem: this is a cross-dressing boys cafe, but Mogumo is adamant about being neither a boy nor a girl.",
+    "id": "be40e32e-7aea-4e22-a4a2-773530540990",
+    "title": "A Dance of Swords in the Night",
+    "description": "The Mystic Lunar Dance Troupe took in Jin Sohan as an orphan, and he spent his childhood with them. But one day, one of the four great demons, the Venom Demon, discovered that he was special and kidnapped him. After all kinds of tests, he decided to raise him as his disciple. Ten years later, Jin Sohan tried to look for traces of the Mystic Lunar Dance Troupe, but the Sword Dance Troupe had already been destroyed at the hands of the Unorthodox Faction that’s now ruling over his hometown.\n\n---\nKidnapped as a child to be trained in the art of poison, Sohan Jin returns to his hometown in search of the group of New Moon Sword Dancers who raised him. However, upon his return, Sohan discovers the sword dancers have been defeated by a nefarious sect that now rules the area, with some members having been abducted. What would have been a heartwarming reunion transforms into a quest for revenge as Sohan begins his search for the remaining sword dancers, and he’s willing to poison anyone who gets in his way.\n\n---\n**Original Novel:** [Chapters](https://series.naver.com/novel/detail.series?productNo=5612093), [Volumes](https://series.naver.com/novel/detail.series?productNo=5612161)\n\n**Original Webtoon:** [Naver Series](https://series.naver.com/comic/detail.series?productNo=8530460), [Naver Webtoon](https://comic.naver.com/webtoon/list?titleId=795542)\n\n**Official Translations:**\n* [English](https://www.webtoons.com/en/action/a-dance-of-swords-in-the-night/list?title_no=4596)\n* [Chinese (Simplified) / 汉语](https://www.dongmanmanhua.cn/ANCIENTCHINESE/zuijianyexing/list?title_no=2219)\n* [Japanese / 日本語](https://manga.line.me/product/periodic?id=Z0002659)",
+    "type": null,
+    "status": "ongoing",
+    "year": 2022,
+    "createAt": "2022-06-07T19:50:49+00:00",
+    "updatedAt": "2023-07-29T12:00:33+00:00",
+    "language": "en fr pt-br id",
+    "lastChapter": "4f799377-bd9e-4c33-ad6c-8b2e39b8421f",
+    "statistics": {
+      "rating": 8.25,
+      "numberOfVotes": 88
+    },
+    "cover": "https://uploads.mangadex.org/covers/be40e32e-7aea-4e22-a4a2-773530540990/8c247499-9bfe-42b2-bde6-c3d28e4ad25c.jpg",
+    "authorId": "609dd074-1e2a-4f81-9a73-c7a217329d94",
+    "authorName": "Yu Jin Sung (유진성)"
+  },
+  {
+    "id": "6ab38ce9-e668-49b1-a89f-bb294e58809a",
+    "title": "The Creator is on Hiatus",
+    "description": "My name is Yu Il-shin, and I'm a shitty, third-rate novelist.\nMy name might be \"Only God\" in Korean, but don't actually pray to me. It's just a name.\n\nThis one random day, I finally get my wish of awakening... but my ability is kind of strange.\n\nI'm able to connect to a small world through my smartphone, where the weak ants there worship me as god!",
+    "type": null,
+    "status": "ongoing",
+    "year": null,
+    "createAt": "2022-10-19T21:41:00+00:00",
+    "updatedAt": "2023-03-27T06:50:14+00:00",
+    "language": "en pt-br fr",
+    "lastChapter": "2b294d4e-b319-42b1-a70a-3894106f6d19",
+    "statistics": {
+      "rating": 7.9908,
+      "numberOfVotes": 217
+    },
+    "cover": "https://uploads.mangadex.org/covers/6ab38ce9-e668-49b1-a89f-bb294e58809a/51823fca-3eed-4d6d-a972-c773839ba614.jpg",
+    "authorId": "0a1bc14e-6264-48ae-981e-997095048615",
+    "authorName": "canine"
+  },
+  {
+    "id": "2390f58d-1afe-4049-8506-ccdedb9a5864",
+    "title": "Black Angel",
+    "description": "A series of murders happen within the same neighbourhood - all with a common thread: a sweet corrupt whisper in the ear tempting the daily victims…",
     "type": "shounen",
     "status": "completed",
     "year": 2018,
-    "createAt": "2019-07-24T08:58:34+00:00",
-    "updatedAt": "2023-07-18T01:01:48+00:00",
-    "language": "pt-br fr en es-la id",
-    "lastChapter": "e3069601-4bd5-40fa-91d0-2d10ffa6c650",
+    "createAt": "2020-10-07T17:09:14+00:00",
+    "updatedAt": "2023-07-19T20:06:43+00:00",
+    "language": "fr pt-br en",
+    "lastChapter": "e54ae13c-f476-49cc-b9c5-8021907a6353",
     "statistics": {
-      "rating": 8.563,
-      "numberOfVotes": 2625
+      "rating": 7.1515,
+      "numberOfVotes": 33
     },
-    "cover": "https://uploads.mangadex.org/covers/6cc77b74-4c4a-4a58-9ae1-682471d50840/1bf2fee4-bfda-47ae-b3b1-514a102362a1.jpg",
-    "authorId": "43977fb8-9a95-4982-a4c3-cee3b95f0bad",
-    "authorName": "Konayama Kata"
+    "cover": "https://uploads.mangadex.org/covers/2390f58d-1afe-4049-8506-ccdedb9a5864/7419761d-9dff-4886-8dd6-8719b17db947.png",
+    "authorId": "e8f3f826-56c8-4888-a584-2dd30b733e43",
+    "authorName": "Meen"
+  },
+  {
+    "id": "1887bb79-d747-4f35-9f9d-0c08e477f138",
+    "title": "I Have a Dragon in My Body",
+    "description": "Introducing a generation of Celestial Masters and returning to high school, he was surprised to find that he had a dragon in his body… When you are still very weak and face bullying, will you fight desperately or obey? In the previous life, he obeyed, but in this life… The romantic emperor rushed across the city, turning his hands over the clouds, and there was only one mind in mind: I am the king, and where is he?!",
+    "type": null,
+    "status": "ongoing",
+    "year": null,
+    "createAt": "2020-04-03T21:25:58+00:00",
+    "updatedAt": "2022-04-06T17:59:21+00:00",
+    "language": "en fr pl pt-br it ar",
+    "lastChapter": "a1472bea-bb76-4298-aa54-07d9ffec0dd2",
+    "statistics": {
+      "rating": 6.6875,
+      "numberOfVotes": 384
+    },
+    "cover": "https://uploads.mangadex.org/covers/1887bb79-d747-4f35-9f9d-0c08e477f138/77f53445-a1a3-473f-913f-f980afeafbbb.jpg",
+    "authorId": "a8546f48-49c6-4d53-b90e-de4d5ce8b1c9",
+    "authorName": "Island Project (岛上project)"
+  },
+  {
+    "id": "8d12bb9f-dd9a-45ab-b6d7-fa26e52c91b5",
+    "title": "The Divine Twilight's Return",
+    "description": "After being put on trial, the deity once known as The Divine Twilight is offered a job by Thanatos, king of the underworld! Now, the fallen deity is back on Earth as his former self, Lee Changsun, and is tasked with sealing those trying to invade from beyond. With the promise of a fresh start, Changsun is gathering the gear and skills needed to get the job done, but he's feeling some watchful eyes on him...\n\nWill this Divine Twilight see a new day, or is the sun setting on his second chance?",
+    "type": null,
+    "status": "ongoing",
+    "year": 2021,
+    "createAt": "2021-11-29T15:58:39+00:00",
+    "updatedAt": "2023-10-30T21:18:02+00:00",
+    "language": "fr en id",
+    "lastChapter": "2b95eeb1-4afb-48c0-9904-9f18feb4f6e5",
+    "statistics": {
+      "rating": 8.3174,
+      "numberOfVotes": 230
+    },
+    "cover": "https://uploads.mangadex.org/covers/8d12bb9f-dd9a-45ab-b6d7-fa26e52c91b5/1b488aa2-fe7c-4afb-aaf9-bf8c5daf8c17.png",
+    "authorId": "37a14c4c-b00b-4065-b1f8-7fe4767a068f",
+    "authorName": "플렉시마인드"
+  },
+  {
+    "id": "4413d794-e0da-4a6e-b61a-afd5758914e6",
+    "title": "Hanninmae no Koibito",
+    "description": "One day, when I was making school supplies in the art room, a very scary-looking girl was staring at me...!? Crafts girl vs. art boy romantic comedy!!",
+    "type": null,
+    "status": "ongoing",
+    "year": 2023,
+    "createAt": "2023-04-30T17:45:34+00:00",
+    "updatedAt": "2024-01-04T01:55:50+00:00",
+    "language": "th es-la en fr vi pt-br it id bg",
+    "lastChapter": "1afee0d9-c909-4874-8eab-88287e69c849",
+    "statistics": {
+      "rating": 9.0845,
+      "numberOfVotes": 757
+    },
+    "cover": "https://uploads.mangadex.org/covers/4413d794-e0da-4a6e-b61a-afd5758914e6/7188e434-cc6e-43bb-9469-3cc7b7c60dfe.jpg",
+    "authorId": "3ffb7a8b-3b85-430a-ae7e-3c27e91861fd",
+    "authorName": "Kawada Daichi"
+  },
+  {
+    "id": "af1fab0c-9b26-45e4-b08e-0e1dea8f47b5",
+    "title": "Relife Player",
+    "description": "Noh Eunha.\nAfter losing his family and closing off his heart, he just wanted to kill the monsters he loathed.\n\nI regressed before my life came to an end in the deepest part of the <Abyss Dungeon> that was impossible for mankind to raid.\n\nSince I’ve been reborn as a baby, let’s make this life different.\nI will do anything for the sake of my happiness.\n\nI’ll kill in order to live, and I’ll do my best to survive.\nEven if I have to walk a thorny road by myself without anyone acknowledging me.\n\nThis life, I will definitely—",
+    "type": null,
+    "status": "ongoing",
+    "year": 2022,
+    "createAt": "2022-12-29T09:55:12+00:00",
+    "updatedAt": "2023-12-29T12:25:00+00:00",
+    "language": "pt-br en fr it",
+    "lastChapter": "ca1bf499-ffd8-46fa-9f1f-25edafbef72f",
+    "statistics": {
+      "rating": 7.9158,
+      "numberOfVotes": 285
+    },
+    "cover": "https://uploads.mangadex.org/covers/af1fab0c-9b26-45e4-b08e-0e1dea8f47b5/699e1049-7cb4-4f32-b73d-23d8c52e45d0.png",
+    "authorId": "08364e84-3fcd-4191-ad7e-543c09b02f7f",
+    "authorName": "O-Jun Kwon"
+  },
+  {
+    "id": "b82b27ba-3072-4f5b-9f47-44947af099ff",
+    "title": "Buddy Go!",
+    "description": "Shizuku Ishiai, a 2nd year middle school student, loves dancing, but is bad at expressing herself, so she crossdresses and posts videos of her dances on the popular website \"Smile Douga,\" under the alias \"Ai.\" And she had declared the \"dancing prince,\" Hayate, her rival. But, after a few unexpected events, and her attempts to best him, she's somehow thrown into an idol unit with him; furthermore, a MALE one?!",
+    "type": "shoujo",
+    "status": "completed",
+    "year": 2014,
+    "createAt": "2018-12-21T11:24:14+00:00",
+    "updatedAt": "2023-11-29T23:03:29+00:00",
+    "language": "fr tr en",
+    "lastChapter": "cdeb7b48-126c-44dd-b703-cc438795c5be",
+    "statistics": {
+      "rating": 8.5315,
+      "numberOfVotes": 111
+    },
+    "cover": "https://uploads.mangadex.org/covers/b82b27ba-3072-4f5b-9f47-44947af099ff/061ee894-a56a-4e9a-badb-22145864726c.jpg",
+    "authorId": "2a0cc76d-7405-4286-9021-47f4603856d7",
+    "authorName": "Kurosaki Minori"
   }
 ]

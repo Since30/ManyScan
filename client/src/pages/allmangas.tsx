@@ -55,7 +55,6 @@ const AllMangas = () => {
 
             <div className='flex flex-wrap justify-center mx-2'>
                 {animes.map((anime) => (
-                     
                         <div key={anime.id} className='m-4 cursor-pointer'>
                             <div className='flex flex-col justify-center items-center w-60 h-96 text-center rounded-md bg-white border-2 border-red-500 shadow-lg'>
                             <Link key={anime.id} href={`/animes/${anime.id}`}>    
