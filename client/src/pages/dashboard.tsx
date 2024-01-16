@@ -18,6 +18,8 @@ import { Bar } from 'react-chartjs-2';
 import InfoCard from '../cards/InfoCard';
 import { ReviewCard } from '../cards/ReviewCard';
 import { useAuth } from '../pages/auth/authContext';
+import { getCookie } from 'cookies-next';
+import { get } from 'http';
 
 
 
@@ -33,14 +35,14 @@ ChartJS.register(
 interface User {
   _id: string;
   username: string;
-  email: string;
   role: string;
   isOnline: boolean;
-  createdAt: string;
+  
 }
 
-interface DashboardProps {
-  loggedInUserCount: number;
+interface UsersResponse {
+  data: User[];
+  // Ajoutez d'autres propriétés de la réponse ici si nécessaire
 }
 
 interface MangaStat {
@@ -76,10 +78,10 @@ export default function Dashboard() {
   const [activeTab, setActiveTab] = useState('home');
   const [messages, setMessages] = useState<Message[]>([]);
   const [reviews, setReviews] = useState<Review[]>([]);
-  const [users, setUsers] = useState<User[]>([]);
+  const [users, setUsers] = useState<UsersResponse>({ data: [] });
 
-  const { token } = useAuth();
-
+  const  token  = getCookie('token') || '';
+  const role = getCookie('role') || 'User';
 
   
   useEffect(() => {
@@ -87,7 +89,8 @@ export default function Dashboard() {
       try {
         const response = await fetch('http://localhost:8080/api/users/get-users', {
           headers: {
-            Authorization: `Bearer ${token}`, 
+            Authorization: `Bearer ${token}`,
+            Role: role,
           },
         });
   
@@ -96,6 +99,7 @@ export default function Dashboard() {
         }
   
         const data = await response.json();
+        console.log("Données reçues :", data);
         setUsers(data); // Mettez à jour la variable users avec les données obtenues
       } catch (error) {
         console.error("Erreur lors de la récupération des utilisateurs:", error);
@@ -227,22 +231,26 @@ export default function Dashboard() {
               </section>
               
               <section className="bg-white p-4 rounded-lg shadow flex-1">
-          <h2 className="font-semibold text-xl mb-3">Nouveaux Membres</h2>
+          <h2 className="font-semibold text-xl mb-3">Historique de connexion </h2>
           <div className="overflow-x-auto">
             <table className="min-w-full bg-white">
               <thead className="border-b">
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nom</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date d'inscription</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Hors ligne/En Ligne</th>
                 </tr>
               </thead>
               <tbody>
-  {Array.isArray(users) && users.map((user) => (
-    <tr key={user._id}>
-      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{user.username}</td>
-      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{user.createdAt || 'N/A'}</td>
-    </tr>
-  ))}
+              {Array.isArray(users.data) ? (
+    users.data.map((user) => (
+      <tr key={user._id}>
+        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{user.username}</td>
+        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{user.isOnline ? 'En ligne' : 'Hors ligne'}</td>
+      </tr>
+    ))
+  ) : (
+    <tr><td>Pas d'utilisateurs à afficher</td></tr>
+  )}
 </tbody>
             </table>
           </div>

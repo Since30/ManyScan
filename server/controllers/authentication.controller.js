@@ -73,6 +73,7 @@ module.exports.signin = async (req, res) => {
       {
         userId: user.id,
         email: user.email,
+        role: user.role || "User",
       },
       process.env.SECRET_TOKEN_KEY,
       { expiresIn }

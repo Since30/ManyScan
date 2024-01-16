@@ -39,9 +39,10 @@ expirationDate.setDate(expirationDate.getDate() + 1);
         const storedToken = getCookie('token') || ''; 
         const storedUserName =  getCookie('username') || '';
         const storedUserId =  getCookie('userId') || '';
+        const storedUserRole =  getCookie('role') || '';
         if (storedToken) {
             setToken(storedToken);
-            setUser({ username: storedUserName, id: storedUserId || '', role: '' });
+            setUser({ username: storedUserName, id: storedUserId || '', role: storedUserRole});
         }
     }, []);
       
@@ -65,6 +66,8 @@ expirationDate.setDate(expirationDate.getDate() + 1);
         setUser(null);
         deleteCookie('token'); 
         deleteCookie('userId');
+        deleteCookie('username');
+        deleteCookie('role');
     }
 
     return (

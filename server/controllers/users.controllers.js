@@ -25,38 +25,27 @@ const User = require("../models/user.model");
 
 module.exports.getAllUsers = async (req, res) => {
   try {
-    // Vérifier si l'utilisateur est un administrateur
     if (req.user.role !== "Admin") {
-      return res.status(403).json({
-        message: "Accès refusé",
-      });
+      return res.status(403).json({ message: "Accès refusé" });
     }
+
     const users = await User.find(
       { _id: { $ne: req.user.id } },
       "_id username isOnline"
-    ); // Sélectionner uniquement les champs requis
+    );
 
-    if (users && users.length > 0) {
-      res.status(200).json({
-        message: "Utilisateurs récupérés avec succès",
-        data: users,
-        token,
-        role: req.user.role,
-      });
+    if (users.length > 0) {
+      res
+        .status(200)
+        .json({ message: "Utilisateurs récupérés avec succès", data: users });
     } else {
-      res.status(404).json({
-        message: "Aucun utilisateur trouvé",
-      });
+      res.status(404).json({ message: "Aucun utilisateur trouvé" });
     }
   } catch (error) {
     console.error(error);
-    res.status(500).json({
-      message: "Erreur serveur",
-      error: error,
-    });
+    res.status(500).json({ message: "Erreur serveur", error: error });
   }
 };
-
 module.exports.getUser = async (req, res) => {
   try {
     const user_id = req.params.id;
