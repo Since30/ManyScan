@@ -133,6 +133,7 @@ module.exports.getFavorites = async (favorites) => {
   try {
     
     const favoriteMangasPromises = favorites.map(async (favorite) => {
+     
       const response = await fetch(
         `https://api.mangadex.org/manga/${favorite.mangaId}?includes[]=cover_art&includes[]=author`
       );
@@ -140,10 +141,10 @@ module.exports.getFavorites = async (favorites) => {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
+
       const data = await response.json();
-      const dataArray = data.data;
-      console.log('DataArray: ' + dataArray)
-      const mangasPromises = dataArray.map(async (manga) => {
+      const manga = data.data; 
+
         const coverURL = await getCover(manga);
         const statistics = await getStatistics(manga);
   
@@ -168,9 +169,6 @@ module.exports.getFavorites = async (favorites) => {
           ).attributes.name,
         };
       });
-      //console.log('MangasPromises: ' + mangasPromises.map((manga) => manga.id));
-    });
-   // console.log('FavMangaPromise: ' + favoriteMangasPromises.map((manga) => manga.id));
     return await Promise.all(favoriteMangasPromises);
   } catch (error) {
     console.error("Error fetching data:", error);

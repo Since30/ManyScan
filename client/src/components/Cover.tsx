@@ -57,14 +57,14 @@ const Cover: React.FC<Props> = ({ manga, size }) => {
                     fill
                     sizes='(max-width: 640px) 76px, (max-width: 768px) 109px, 160px'
                 />
-                <div className='absolute bottom-0 p-1 rounded-tr-md rounded-bl-md bg-element-secondary dark:bg-background-primary'>
-                    <FaRegHeart
-                        onClick={() => addMangaToFavorite(manga.id)}
-                        size={heartIconSizes[size]}
-                        className='cursor-pointer stroke-background-primary fill-background-primary'
-                    />
-                </div>
             </Link>
+            <div className='absolute bottom-0 p-1 rounded-tr-md rounded-bl-md bg-element-secondary dark:bg-background-primary'>
+                <FaRegHeart
+                    onClick={() => addMangaToFavorite(manga.id)}
+                    size={heartIconSizes[size]}
+                    className='cursor-pointer stroke-background-primary fill-background-primary'
+                />
+            </div>
         </div>
     );
 };

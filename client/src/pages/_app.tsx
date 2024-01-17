@@ -3,6 +3,7 @@ import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
 import { AuthProvider } from '../pages/auth/authContext';
 
+
 const ArialBlack = localFonts({
     src: '../../public/fonts/ArialBlack.ttf',
     display: 'swap',

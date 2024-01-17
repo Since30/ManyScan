@@ -35,7 +35,7 @@ const fetchFavoriteManga = async (): Promise<AnimeObjects[] | void> => {
       const response = await fetch(url);
 
       if (!response.ok) {
-        throw new Error(`Erreur HTTP ffM: ${response.status}`);
+        throw new Error(`Erreur HTTP: ${response.status}`);
       }
   
       const favoritesMangas = await response.json();

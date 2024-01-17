@@ -1,13 +1,13 @@
 'use client';
 import { useState, useEffect } from 'react';
-import Header from '../components/Header';
+import Header from '../components/Headers';
 import TopAnimeCard from '../components/cards/TopMangaCard';
 import DiscoverAnimeCard from '../components/cards/DiscoverMangaCard';
 import NewAnimeCard from '../components/cards/NewMangaCard';
 import TopVerticalAnimeCard from '../components/cards/TopVerticalMangaCard';
 import { fetchManga } from '../services/MangaTheqApi';
 import AnimeObjects from '../interfaces/animeObjects';
-import Footer from '../components/Footer';
+import Footer from '../components/Footers';
 import React from 'react';
 
 export default function Home() {

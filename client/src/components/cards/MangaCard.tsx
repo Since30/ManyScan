@@ -12,6 +12,8 @@ interface Props {
     titleDiv?: string;
     titleCSS?: string;
     ratingDiv: string;
+    isFavorite?: boolean;
+    toggleFavorite?: (mangaId: string) => void;
 }
 
 const MangaCard: React.FC<Props> = ({

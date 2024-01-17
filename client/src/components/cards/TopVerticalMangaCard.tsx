@@ -3,7 +3,7 @@
 import React from 'react';
 import CardTitle from './CardTitle';
 import CardsContainer from './CardsContainer';
-import AnimeObjects from '../../interfaces/mangaObjects';
+import AnimeObjects from '../../interfaces/animeObjects';
 import MangaCard from './MangaCard';
 
 interface Props {

@@ -15,8 +15,8 @@ import {
     Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import InfoCard from '../cards/InfoCard';
-import { ReviewCard } from '../cards/ReviewCard';
+import InfoCard from '../components/cards/InfoCard';
+import { ReviewCard } from '../components/cards/ReviewCard';
 import { useAuth } from '../pages/auth/authContext';
 
 

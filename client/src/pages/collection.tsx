@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { fetchFavoriteManga } from '../services/MangaTheqApi';
 import AnimeObjects from '../interfaces/animeObjects';
-import Headers from '../components/Header';
-import StarRating from '../components/svg/StarRating';
-import Cover from '../components/Cover';
-import Link from 'next/link';
-import { FaRegHeart, FaHeart } from 'react-icons/fa';
+import Headers from '../components/Headers';
 import * as mangaApi from '../services/MangaTheqApi';
+import MangaCard from '@/components/cards/MangaCard';
+import CardsContainer from '@/components/cards/CardsContainer';
+import CardTitle from '@/components/cards/CardTitle';
 
 const Collection = () => {
     const [favoriteAnimes, setFavoriteAnimes] = useState<AnimeObjects[]>([]);
@@ -18,7 +17,6 @@ const Collection = () => {
                 const res = await fetchFavoriteManga();
                 if (res) {
                     setFavoriteAnimes(res);
-                    // Mettre à jour les favoris à partir de la réponse, si nécessaire
                 }
             } catch (err) {
                 console.log(err);
@@ -44,46 +42,56 @@ const Collection = () => {
     };
 
     return (
-        <div className='py-6'>
+        <div className='py-6 bg-background-primary'>
             <Headers />
-            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mx-2'>
-                {favoriteAnimes.map((manga) => (
-                    <Link key={manga.id} href={`/mangas/${manga.id}`}>
-                        <div className='flex flex-col justify-center m-4 items-center w-60 h-96 text-center rounded-md dark:bg-dark-card bg-light-card hover:cursor-pointer'>
-                            <Cover manga={manga} size='large' />
-                            <div className='flex justify-between w-[80%] mt-3 pl-2'>
-                                <div className='flex flex-col items-start w-[90%]'>
-                                    <h3 className='font-semibold text-start text-lg text-light line-clamp-2 overflow-hidden overflow-ellipsis'>
-                                        {manga.title ?? 'Titre'}
-                                    </h3>
-                                    <p className='font-regular text-xs text-light text-start'>
-                                        {manga.authorName ?? 'Auteur'}
-                                    </p>
+            <div className='flex m-16 gap-5'>
+                <div className='w-1/3 h-60'>
+                    <CardTitle title='Profil' />
+                    <CardsContainer tailwindClass='flex flex-col p-2 items-center'>
+                        <div className='flex gap-5 items-center'>
+                            <div className='bg-element-primary rounded-full w-40 h-40'></div>
+                            <div className='flex flex-col gap-10'>
+                                <div>Pseudo</div>
+                                <div>
+                                    <p>Mes favoris</p>
+                                    <p> ❤️ 23 likes</p>
                                 </div>
-                                <div className='flex flex-col items-center'>
-                                    <span className='text-sm text-light'>
-                                        <StarRating
-                                            rating={manga.statistics.rating}
-                                            mangaId={manga.id}
-                                        />
-                                        {manga.statistics.numberOfVotes ?? '0'}{' '}
-                                        votes
-                                    </span>
-                                    <div
-                                        onClick={() =>
-                                            toggleFavorite(manga.id)
-                                        }>
-                                        {favorites.has(manga.id) ? (
-                                            <FaHeart />
-                                        ) : (
-                                            <FaRegHeart />
-                                        )}
-                                    </div>
+                                <div>
+                                    <p>Mes lectures en cours</p>
+                                    <p> 📖 23 mangas</p>
                                 </div>
                             </div>
                         </div>
-                    </Link>
-                ))}
+                        <div className='items-center h-6'>Décorations</div>
+                    </CardsContainer>
+                </div>
+                <div className='w-2/3'>
+                    <CardTitle title='Favoris' />
+                    <CardsContainer tailwindClass='scrollbar-thin overflow-auto flex flex-row space-x-10 h-auto p-5 gap-4'>
+                        <div className='flex flex-row justify-center'>
+                            {favoriteAnimes.map((manga) => (
+                                <MangaCard
+                                    key={manga.id}
+                                    manga={manga}
+                                    isFavorite={favorites.has(manga.id)}
+                                    toggleFavorite={toggleFavorite}
+                                    size='small'
+                                    parentDiv='flex flex-col justify-center items-center w-40 h-auto text-center'
+                                    childDiv='flex flex-col w-[80%] mt-3  items-center'
+                                    titleDiv='flex flex-col items-center w-[90%] text-xs '
+                                    titleCSS='text-center line-clamp-2 overflow-hidden overflow-ellipsis'
+                                    ratingDiv='flex-row'
+                                />
+                            ))}
+                        </div>
+                    </CardsContainer>
+                </div>
+            </div>
+            <div className='mx-16 gap-5'>
+                <CardTitle title='Lecture en cours' />
+                <CardsContainer tailwindClass=''>
+                    <div>Lecture en cours ici</div>
+                </CardsContainer>
             </div>
         </div>
     );
