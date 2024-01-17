@@ -16,13 +16,10 @@ const statusConverter = (status: string) => {
     switch (status) {
         case 'ongoing':
             return 'En cours';
-            break;
         case 'completed':
             return 'Terminé';
-            break;
         case 'hiatus':
             return 'En pause';
-            break;
         case 'cancelled':
             return 'Annulé';
         default:
@@ -37,7 +34,6 @@ const TopAnimeCard: React.FC<Props> = ({ manga }) => {
 
             <CardsContainer tailwindClass='flex space-x-6 w-full h-80 items-center justify-center'>
                 <div className='min-w-max'>
-    
                     <Cover manga={manga} size='xlarge' />
                 </div>
 

@@ -1,4 +1,3 @@
-
 'use client';
 import Link from 'next/link';
 import Padlock from './svg/Padlock';
@@ -19,16 +18,13 @@ export default function Navigation() {
             <div className='flex items-center justify-between px-3 gap-2 rounded-3xl bg-background-secondary border-4  border-element-secondary'>
                 <Padlock />
                 <div>
-                <Link href='/auth/login' className=''>
-                    Connexion
-                </Link>
-                <span className=''> / </span>
-                <Link href='/auth/register' className=''>
-                    Inscription
-                </Link>
+                    <Link href='/auth' className=''>
+                        Connexion
+                        <span className=''> / </span>
+                        Inscription
+                    </Link>
                 </div>
             </div>
-            
         </nav>
     );
 }

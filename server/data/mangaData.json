@@ -1,43 +1,5 @@
 [
   {
-    "id": "a25e46ec-30f7-4db6-89df-cacbc1d9a900",
-    "title": "Horimiya",
-    "description": "Kyoko Hori is your average teenage girl… who has a side she wants no one else to ever discover. Then there's her classmate Izumi Miyamura, your average glasses-wearing boy — who's also a totally different person outside of school. When the two unexpectedly meet, they discover each other's secrets, and a friendship is born.",
-    "type": "shounen",
-    "status": "completed",
-    "year": 2011,
-    "createAt": "2018-06-06T02:38:58+00:00",
-    "updatedAt": "2023-11-08T13:48:35+00:00",
-    "language": "hu id es en pt-br vi ru fr tr es-la ar",
-    "lastChapter": "1cb21916-f0d1-4461-befa-2ff6436d266e",
-    "statistics": {
-      "rating": 9.2001,
-      "numberOfVotes": 12317
-    },
-    "cover": "https://uploads.mangadex.org/covers/a25e46ec-30f7-4db6-89df-cacbc1d9a900/a6838b90-fa2b-4228-9650-3adab0961747.jpg",
-    "authorId": "eb58f6da-4c13-47ef-a064-c7793db2ca57",
-    "authorName": "Hero"
-  },
-  {
-    "id": "b04582e8-d98b-4f6e-b605-c300f3a5e3bd",
-    "title": "Sanda",
-    "description": "In the year 2080, the world is like it is now, yet different. Government-arranged marriages, elaborate plastic surgery, and medical science are at the forefront of Japanese society.\n\nSanda Kazushige is a middle-school student who hasn't quite matured, despite being in the thralls of puberty. Put into a life-threatening situation by his classmate Fuyumura, Sanda discovers his uncanny ability to turn into a burly (and more grown) Santa Claus, and is thrown into a world of chaos to save his fellow students in only ways Santa Claus can do, while trying to solve the mysteries of the school he attends and the truth to where his supposedly-dead classmate Ono went.",
-    "type": "shounen",
-    "status": "ongoing",
-    "year": 2021,
-    "createAt": "2021-09-02T02:28:19+00:00",
-    "updatedAt": "2023-12-27T02:26:06+00:00",
-    "language": "fr en es-la pt-br",
-    "lastChapter": "71e32b27-fd47-4210-9ea4-ea1e0ea3abad",
-    "statistics": {
-      "rating": 7.9919,
-      "numberOfVotes": 247
-    },
-    "cover": "https://uploads.mangadex.org/covers/b04582e8-d98b-4f6e-b605-c300f3a5e3bd/86da287d-13af-4a4b-ae5b-2f1807237c15.png",
-    "authorId": "de3c8aa9-7cd4-4e4c-92ae-bb435e4f6ef3",
-    "authorName": "Itagaki Paru"
-  },
-  {
     "id": "b7e673cb-3890-484e-b4cc-05a467dc324a",
     "title": "Kawaii Kanojo-chan",
     "description": "A cute girl came knocking at the protagonist's door, but for what reason may it be.",
@@ -47,336 +9,374 @@
     "createAt": "2022-01-21T15:28:00+00:00",
     "updatedAt": "2024-01-04T16:40:25+00:00",
     "language": "pl ru fr en id pt-br es-la vi it cs",
-    "lastChapter": "1e8d2204-a3ac-4fb9-80e6-5725c1ab5993",
+    "lastChapter": "906d2666-d6e9-41ae-8d75-43cdfabd2d00",
     "statistics": {
-      "rating": 8.5523,
-      "numberOfVotes": 1664
+      "rating": 8.5494,
+      "numberOfVotes": 1680
     },
     "cover": "https://uploads.mangadex.org/covers/b7e673cb-3890-484e-b4cc-05a467dc324a/01032802-9d78-4c39-8c7c-2c229f9b1093.jpg",
     "authorId": "56da8344-44ad-4463-93bb-0499f6c96344",
     "authorName": "Semimaru"
   },
   {
-    "id": "11801062-d961-460a-b2b5-f0a477f45b66",
-    "title": "Yuan Zun",
-    "description": "A teenager holds a pen, while a dragon dances; Chaos surrounds the world, lighting the sky. In this world, will the python swallow the dragon, or will the saint dragon rise?!!\n\n\n---\n\n**Links:**\n- [Alternative Raw (KuaiKan)](https://www.kuaikanmanhua.com/web/topic/1745)\n- [Alternative Raw (Zymk)](https://www.zymk.cn/1966)\n- [Alternative Raw (Mkzhan)](https://www.mkzhan.com/212234)\n- [Alternative Raw (Bilibili)](https://manga.bilibili.com/detail/mc24485)\n- [Official Korean (Kakao)](https://page.kakao.com/home?seriesId=52141727)\n- [Official Korean (Lezhin)](https://www.lezhin.com/ko/comic/wonzon)\n- [Official Korean (MrBlue)](https://www.mrblue.com/comic/C000048409)\n- [Official Korean (Battlecomics)](http://www.battlecomics.co.kr/webtoons/1112)\n- [Alternative Official English (BiliBili)](https://www.bilibilicomics.com/detail/mc448)",
-    "type": null,
-    "status": "ongoing",
-    "year": 2017,
-    "createAt": "2019-03-11T00:33:38+00:00",
-    "updatedAt": "2022-06-11T17:01:19+00:00",
-    "language": "en pt-br es-la hu it fr",
-    "lastChapter": "7b720c26-23bb-44df-bc69-c0178301a0b9",
-    "statistics": {
-      "rating": 7.8863,
-      "numberOfVotes": 422
-    },
-    "cover": "https://uploads.mangadex.org/covers/11801062-d961-460a-b2b5-f0a477f45b66/288bb3b6-6b3f-4103-a3a7-45ac2d0fc86c.png",
-    "authorId": "4bc569e9-4a25-4a02-9182-492fc181bc92",
-    "authorName": "Tian Can Tu Dou"
-  },
-  {
-    "id": "9c21fbcd-e22e-4e6d-8258-7d580df9fc45",
-    "title": "Lycoris Recoil",
-    "description": "Takina Inoue, a high school girl working as a member of an all-female taskforce of assassins and spies known as \"Lycoris\" dispatched to eliminate criminals and terrorists in Tokyo, is sanctioned by her superiors at the DA agency for disobeying orders in order to save a colleague. She is transferred to work with the elite Lycoris agent Chisato Nishikigi at one of the agency's branches, which operates under the cover of a cafe, called \"LycoReco\".",
-    "type": "shounen",
-    "status": "ongoing",
-    "year": 2022,
-    "createAt": "2022-09-03T23:33:22+00:00",
-    "updatedAt": "2023-10-28T19:43:28+00:00",
-    "language": "pt-br en it vi fr es-la ru pl tr",
-    "lastChapter": "faa4c929-e4d5-4a4f-b6ae-5f1cecf1bb46",
-    "statistics": {
-      "rating": 9.2642,
-      "numberOfVotes": 405
-    },
-    "cover": "https://uploads.mangadex.org/covers/9c21fbcd-e22e-4e6d-8258-7d580df9fc45/13aef945-2fcb-4a8b-b73b-788174d82c23.jpg",
-    "authorId": "3e568eca-804a-4102-be3a-72af85feff7a",
-    "authorName": "Spider Lily"
-  },
-  {
-    "id": "3e36f4b5-37f3-4413-8aa4-67dd80275972",
-    "title": "Zashisu",
-    "description": "One day, junior high school teacher Yamauchi Umi sees a news report about a murder case. The murderer is Suzuki Yumi, a classmate from junior high school.\r\n\r\nA few days later, Yamauchi's girlfriend, Tamahuri Yagisawa, a rookie editor of literary books, finds a work that closely resembles the murder in a novel that was unsuccessful in a public contest. The author's name is Haruto Saeki. Soon, just like in the novel, an invitation to a class reunion arrives for an old friend...\r\n\r\nThe first suspense horror volume by Masanori Morita!",
-    "type": "seinen",
-    "status": "ongoing",
-    "year": 2022,
-    "createAt": "2023-01-14T11:11:57+00:00",
-    "updatedAt": "2024-01-17T09:04:41+00:00",
-    "language": "vi en fr",
-    "lastChapter": "5e9828f7-56b8-4bae-a8d2-c7ba6cd55c71",
-    "statistics": {
-      "rating": 8.4,
-      "numberOfVotes": 10
-    },
-    "cover": "https://uploads.mangadex.org/covers/3e36f4b5-37f3-4413-8aa4-67dd80275972/a85c69d6-697d-4b92-b4e5-12ec732e54c4.jpg",
-    "authorId": "d21d9b2b-27b4-44bc-9a6d-493bf98ed42c",
-    "authorName": "Morita Masanori"
-  },
-  {
-    "id": "34019331-7377-4e2c-837e-f6e1ab2b5ef7",
-    "title": "The Seven Deadly Sins: Four Knights of the Apocalypse",
-    "description": "Percival, a kind boy, lives with his grandfather in a remote place called \"God's Finger\". However, the world will not allow him to live in peace. An encounter with a mysterious knight changes their fate, and a shocking secret is revealed. The boy sets out on an endless journey. Whether you know \"The Seven Deadly Sins\" or not, you can still enjoy it! The world's most awaited adventure fantasy!",
-    "type": "shounen",
+    "id": "03cdf755-df46-4dc0-94dc-7816e099cd01",
+    "title": "Asmodian's Contract",
+    "description": "The demon lord's daughter Yurisina was living a normal demon's life when she was summoned by a human who was about to die. Not just any human, but the Pedin kingdom's first princess Marianne. As Yurisina lives on in her body instead, Marianne requests that Yurisina takes revenge on the person who poisoned her.\n\n---\n**Original Webtoon:** [Daum](https://webtoon.kakao.com/content/%EB%A7%88%EC%A1%B1%EC%9D%98-%EA%B3%84%EC%95%BD/2437), [Kakaopage](https://page.kakao.com/home?seriesId=55954307)\n\n**Official Translations:**\n* English: [COPIN](https://copincomics.com/toon/185), [BiliBili Comics](https://www.bilibilicomics.com/detail/mc666), [Pocket Comics](https://www.pocketcomics.com/comic/7748), [Tappytoon](https://www.tappytoon.com/comics/the-demonic-contract)\n*All English platforms are using the Copin translation.*\n* [Chinese (Simplified) / 汉语](https://www.kuaikanmanhua.com/web/topic/9945/)\n* [French / Français](https://delitoon.com/webtoon/contrat-demoniaque)\n* [Indonesian / Bahasa Indonesia](https://kakaopage.co.id/content/Perjanjian-Bangsa-Iblis/3448)",
+    "type": "shoujo",
     "status": "ongoing",
     "year": 2021,
-    "createAt": "2021-02-03T02:43:33+00:00",
-    "updatedAt": "2023-12-27T08:41:49+00:00",
-    "language": "id ru pt-br pl fr en tr es-la ar es mn it vi",
-    "lastChapter": "3b31998f-a540-47b6-9cc6-4b713f45d6a6",
+    "createAt": "2021-01-15T03:20:08+00:00",
+    "updatedAt": "2022-06-24T21:29:48+00:00",
+    "language": "tr id pt-br ru en fr",
+    "lastChapter": "71e03086-2000-4afe-82f2-011ddf7ef0d3",
     "statistics": {
-      "rating": 8.2693,
-      "numberOfVotes": 505
+      "rating": 8.2295,
+      "numberOfVotes": 353
     },
-    "cover": "https://uploads.mangadex.org/covers/34019331-7377-4e2c-837e-f6e1ab2b5ef7/10fd5ad5-1e89-4f5e-980f-13304d466c8f.jpg",
-    "authorId": "5b0372bb-28f9-4840-894b-a217d774c4f2",
-    "authorName": "Suzuki Nakaba"
+    "cover": "https://uploads.mangadex.org/covers/03cdf755-df46-4dc0-94dc-7816e099cd01/42912744-2e02-4990-ab81-aff4abc554d2.jpg",
+    "authorId": "07a4713a-838f-49ed-bad3-134f66e76b3e",
+    "authorName": "Kim Yoon-Kyung"
   },
   {
-    "id": "7e544761-7d3d-4fce-8137-719814d7d138",
-    "title": "Eleceed",
-    "description": "Jiwoo is a kind-hearted young man who harnesses the lightning quick reflexes of a cat to secretly make the world a better place – one saved little child or foster pet at a time. Kayden is a secret agent on the run, who finds himself stuck in the body of a …um… decidedly fat old fluffy cat. Together, armed with Jiwoo’s super powers and Kayden’s uber-smarts, they’re out to fight those forces who would let evil rule this world. That is, if they can stand each other long enough to get the job done.\n\n---\n- [Official Simplified Chinese Translation](https://www.dongmanmanhua.cn/FANTASY/juexingbachanshiguan/list?title_no=1313)\n- [Official Spanish <Es> Translation](https://www.webtoons.com/es/action/eleceed/list?title_no=2642)\n- [Official Indonesian Translation](https://www.webtoons.com/id/fantasy/eleceed/list?title_no=2034)\n- [Official Japanese Translation](https://manga.line.me/product/periodic?id=Z0000883)\n- [Official French Translation](https://www.webtoons.com/fr/fantasy/eleceed/list?title_no=2861)\n- [Official Thai Translation](https://www.webtoons.com/th/fantasy/eleceed/list?title_no=3523)",
+    "id": "79dff01d-d7c7-415d-bb30-55af681cbce0",
+    "title": "Watashi ni Tenshi ga Maiorita!",
+    "description": "The four-panel comedy manga's story centers on Miyako Hoshino, a shy college student and otaku. Miyako's younger sister Hinata, who is a fifth grader, has a classmate and friend named Hana. When they meet, Miyako falls for Hana at first sight.",
+    "type": null,
+    "status": "ongoing",
+    "year": 2016,
+    "createAt": "2019-06-16T10:11:44+00:00",
+    "updatedAt": "2023-12-19T22:10:06+00:00",
+    "language": "pt-br en es-la pl ru tr fr zh",
+    "lastChapter": "65ecde33-d9af-4dd4-aae2-d4619266283f",
+    "statistics": {
+      "rating": 8.1357,
+      "numberOfVotes": 899
+    },
+    "cover": "https://uploads.mangadex.org/covers/79dff01d-d7c7-415d-bb30-55af681cbce0/0a26773a-cc5b-48ad-99b8-80f0e82983f4.jpg",
+    "authorId": "3ce7a736-3966-4af8-a310-4abfb5c0f5c3",
+    "authorName": "Mukunoki Nanatsu"
+  },
+  {
+    "id": "55d5c1dd-8df4-4b30-bcc1-452caeab829d",
+    "title": "The Overpowered Newbie",
+    "description": "JaeJu (which means “skill” in Korean) grew up without parents in an orphanage skillfully, just like his name suggests. One day, he heard that the orphanage was having a hard time and would have to close in 3 years. While trying to raise money for the orphanage, JaeJu got an alert on his phone. On it, he saw a video of himself climbing the tower as a BJ (broadcasting jockey aka streamer). Seven years ago, a tower suddenly appeared and randomly took people into it. If you successfully complete the tower and become an “Awakened”, it’s only a matter of time before you get rich!",
+    "type": null,
+    "status": "ongoing",
+    "year": 2022,
+    "createAt": "2022-06-17T19:24:23+00:00",
+    "updatedAt": "2023-12-29T12:20:09+00:00",
+    "language": "pl pt-br fr",
+    "lastChapter": "d4014af5-1720-4cc9-b869-e3b1d91751c1",
+    "statistics": {
+      "rating": 8.5769,
+      "numberOfVotes": 104
+    },
+    "cover": "https://uploads.mangadex.org/covers/55d5c1dd-8df4-4b30-bcc1-452caeab829d/1c022caa-c1ea-47b0-b30c-cc91875b076c.jpg",
+    "authorId": "86a5ab93-ffa5-45dd-b13a-3b428f8c11db",
+    "authorName": "Shin Jung-min (신정민)"
+  },
+  {
+    "id": "259dfd8a-f06a-4825-8fa6-a2dcd7274230",
+    "title": "Yofukashi no Uta",
+    "description": "Unable to sleep or find true satisfaction in his daily life, Yamori Kou begins wandering the night streets. He encounters a strange girl who offers to help soothe his insomnia by sleeping beside him, but it is not merely a one-way exchange…\n\n---\n- **Won the 68th Shogakukan Manga Award for Shonen in 2023, which it shared alongside Blue Orchestra**",
+    "type": "shounen",
+    "status": "ongoing",
+    "year": 2019,
+    "createAt": "2020-02-23T05:44:50+00:00",
+    "updatedAt": "2024-01-10T01:35:42+00:00",
+    "language": "en fr pt-br ru es-la tr uk it id pl sv my es",
+    "lastChapter": "cb25ff5c-6007-44fe-8856-c934f2333663",
+    "statistics": {
+      "rating": 9.1565,
+      "numberOfVotes": 8903
+    },
+    "cover": "https://uploads.mangadex.org/covers/259dfd8a-f06a-4825-8fa6-a2dcd7274230/bd573ff3-2cf0-4ed2-968d-da046d26f3b2.jpg",
+    "authorId": "7222d0d5-836c-4bf3-9174-72bceade8c87",
+    "authorName": "Kotoyama"
+  },
+  {
+    "id": "077a3fed-1634-424f-be7a-9a96b7f07b78",
+    "title": "Kingdom",
+    "description": "Millions of years have passed since the times of legends, when the worlds of man and gods were still the same. In these times it was the desires of man that moved the world. It is the era of the 500 year war: The warring states period. Kingdom is the story of a young boy named Shin who grew into a great general and all the trials and bloodshed that lead him there.  \n\n---\n  \n- **Won the Osamu Tezuka Cultural Grand Prize in 2013**\n- **Earned a Guinness World Record on December 12, 2012 for Manga written by the most people. -Note- The record was due to its \"Social Kingdom\" campaign in which fans and other artists were given the task of redrawing the entire 26th volume.**\n\nAs of June 2022, Kingdom has over 90 million copies in circulation, making it one of the currently best-selling manga series of all time. \n\nParution: Weekly Young Jump\n\n---\n\n**Officially Translated:**  \n- In French by [Meian](https://www.meian-editions.fr/meian/licence/kingdom/1131)  \n- In Italian by [J-pop](https://j-pop.it/it/fumetti/manga/kingdom.html)",
+    "type": "seinen",
+    "status": "ongoing",
+    "year": 2006,
+    "createAt": "2018-01-31T06:11:34+00:00",
+    "updatedAt": "2023-12-31T14:33:27+00:00",
+    "language": "en it vi ar ru es pt-br pl tr ro id es-la fr de",
+    "lastChapter": "2c858815-0c1b-4c74-9d75-e90f4c6b6d49",
+    "statistics": {
+      "rating": 9.3609,
+      "numberOfVotes": 5354
+    },
+    "cover": "https://uploads.mangadex.org/covers/077a3fed-1634-424f-be7a-9a96b7f07b78/856d8bf3-180b-4d61-aa37-d2a5412da68f.jpg",
+    "authorId": "6637c726-8d02-456f-b837-65e1b190d0af",
+    "authorName": "Hara Yasuhisa"
+  },
+  {
+    "id": "7226ef70-592f-42b5-a3ff-8b91af15d97f",
+    "title": "Song of the Sky Walkers (Long Strip)",
+    "description": "In the midst of an auspicious sign from the heavens, the emperor’s family gave birth to a special pair of twins—a male born with a forehead mole the colour of cinnabar, and a female born with six fingers. However, this brother and sister pair is cruelly separated by fate! One is taken eastward to celestial Penglai, to embark on the long road of cultivation. The other is abandoned in the reeds, to travel alongside an old swordsman through the mortal realm… As fate advances, how will the two fight destiny? Will they be able to reunite?\n\n---\n\n**Note:** This is the **long strip** version of [Song of the Sky Pacers](https://mangadex.org/title/a7120845-476e-4f54-9a95-f92cbd592176)",
     "type": null,
     "status": "ongoing",
     "year": 2018,
-    "createAt": "2019-08-16T05:14:19+00:00",
-    "updatedAt": "2022-08-11T22:48:06+00:00",
-    "language": "ru tr pt-br en pl fr",
-    "lastChapter": "37c8ac40-87da-4ce7-ba26-f9aa267f662e",
+    "createAt": "2020-01-07T20:20:11+00:00",
+    "updatedAt": "2023-09-05T22:07:10+00:00",
+    "language": "en id fr",
+    "lastChapter": "b018f9fc-31ec-4dd1-bb59-5e06d32192ea",
     "statistics": {
-      "rating": 9.3323,
-      "numberOfVotes": 1682
+      "rating": 8.8736,
+      "numberOfVotes": 870
     },
-    "cover": "https://uploads.mangadex.org/covers/7e544761-7d3d-4fce-8137-719814d7d138/52cf193d-6862-43e8-9de4-1025c0e6e297.jpg",
-    "authorId": "2c315c92-1e35-46e5-9bf3-7b7b83c59800",
-    "authorName": "Son Jae-Ho"
+    "cover": "https://uploads.mangadex.org/covers/7226ef70-592f-42b5-a3ff-8b91af15d97f/c81eb27d-a974-4ca2-9c49-62459b1652b9.png",
+    "authorId": "a7c879ec-b762-4731-b4d5-d1e6c72169ac",
+    "authorName": "Xia Da (夏达)"
   },
   {
-    "id": "a3850522-6640-4743-9fbc-acc725714459",
-    "title": "Star Dream Idol Project",
-    "description": "The shining lights, the magnificent stage! Friendships created through singing, making a future through dancing, the girls embark on their journey towards their dreams! One who has lost status due to a scandal is hiding a plot behind her back. A pair of bosom friends, separated by fate. A girl who tries to exonerate her mother sets off on her journey for a talent competition. When the stage turns into an empty battlefield, she uses her voice to chase after her dreams.",
+    "id": "3080a5e2-abc1-4682-92f5-7429428bc198",
+    "title": "PIGPEN",
+    "description": "The protagonist finds himself adrift on an uninhabited island, where a mysterious family appears before him.  \n\n---\nFrom the author of [Bastard](https://www.webtoons.com/en/thriller/bastard/list?title_no=485) and [Sweet Home](https://www.webtoons.com/en/thriller/sweethome/list?title_no=1285)  \n\n  \n- [Unofficial Subreddit](https://www.reddit.com/r/PigpenManhwa/)  \n- [Official Indonesian Translation](https://www.webtoons.com/id/horror/pigpen/list?title_no=1751&page=1)",
     "type": null,
     "status": "completed",
-    "year": 2015,
-    "createAt": "2019-02-15T01:54:50+00:00",
-    "updatedAt": "2023-12-24T18:19:02+00:00",
-    "language": "es fr en",
-    "lastChapter": "9b4491d0-7a87-4ad7-bbb8-148f8a62f553",
+    "year": 2019,
+    "createAt": "2019-12-18T14:20:25+00:00",
+    "updatedAt": "2023-08-25T11:37:03+00:00",
+    "language": "it en id pt-br uk tr ru fr",
+    "lastChapter": "1d4bb76a-0a8f-447a-b4ee-8d5612bcc7c3",
     "statistics": {
-      "rating": 8.5484,
-      "numberOfVotes": 31
+      "rating": 8.4636,
+      "numberOfVotes": 371
     },
-    "cover": "https://uploads.mangadex.org/covers/a3850522-6640-4743-9fbc-acc725714459/747bdb66-0633-45ef-896b-12efeb4e8599.jpg",
-    "authorId": "8b12b86a-8d51-4a8b-9d28-9be65645982f",
-    "authorName": "White Bear"
+    "cover": "https://uploads.mangadex.org/covers/3080a5e2-abc1-4682-92f5-7429428bc198/9d9fa54b-4cff-4d5f-93de-a7390a571aae.png",
+    "authorId": "69a21c21-4ebd-4d34-89d7-b996b0c93011",
+    "authorName": "Carnby Kim"
   },
   {
-    "id": "7f30dfc3-0b80-4dcc-a3b9-0cd746fac005",
-    "title": "Detective Conan",
-    "description": "Shinichi Kudo is a high school detective who sometimes works with the police to solve cases. During an investigation, he is attacked by members of a crime syndicate known as the Black Organization. They force him to ingest an experimental poison, but instead of killing him, the poison transforms him into a child. Adopting the pseudonym Conan Edogawa and keeping his true identity a secret, Kudo lives with his childhood friend Ran and her father Kogoro, who is a private detective.",
-    "type": "shounen",
-    "status": "ongoing",
-    "year": 1994,
-    "createAt": "2018-01-21T06:05:49+00:00",
-    "updatedAt": "2023-11-03T17:12:42+00:00",
-    "language": "id en pl pt-br it ru es-la es vi ca ar tr fr mn bg uk",
-    "lastChapter": "867e76aa-05c3-4b61-b0fe-248a25237747",
-    "statistics": {
-      "rating": 9.309,
-      "numberOfVotes": 1767
-    },
-    "cover": "https://uploads.mangadex.org/covers/7f30dfc3-0b80-4dcc-a3b9-0cd746fac005/a12426b3-c93e-4441-b53e-09671758d014.jpg",
-    "authorId": "102cd249-43fe-4d90-92fd-f620f68b2bc0",
-    "authorName": "Gosho Aoyama"
-  },
-  {
-    "id": "b11e84d2-b7cf-4f5e-8b48-e271d41d27fc",
-    "title": "Just Go Out Already, It's Getting Frustrating",
-    "description": "Haruaki has been observing two of his friends, Yuki and Toshi, who clearly have feelings for each other denying their relationship. More so, he keeps getting pulled into their shenanigans and it really gets on his nerves.\n\n---\n\n**Note:** Previously, it was a webcomic posted on Twitter, but later the author further developed the story to be sold on COMITIA140.",
+    "id": "ba466d89-3878-4a58-8f17-2e13fca33fc3",
+    "title": "Hiru to Yoru no Oishii Jikan",
+    "description": "\"Today's dinner is omurice!\"  \n\"Don't need it.\"  \nA story of the cohabitation between a skilled high school chef and a middle aged novelist. After his father's move abroad, Asaoka Mahiru began living with one of his father's acquaintances, the indifferent novelist Kitagawa Yoruko. Despite being close to other guys, she walks around without a bra and refuses to eat Mahiru's meals. His attempts at getting her to eat result in…?!",
     "type": null,
     "status": "completed",
-    "year": 2021,
-    "createAt": "2021-10-10T14:41:48+00:00",
-    "updatedAt": "2023-10-30T21:38:24+00:00",
-    "language": "ru fr en pt-br vi es-la",
-    "lastChapter": "f7d0d1d0-c70f-4181-80a4-e931c25bd274",
+    "year": 2018,
+    "createAt": "2019-06-24T16:04:36+00:00",
+    "updatedAt": "2023-09-13T13:17:46+00:00",
+    "language": "en pt-br fr ru it",
+    "lastChapter": "afbe6a32-98ad-400d-ad0f-cb80648789e2",
     "statistics": {
-      "rating": 8.2511,
-      "numberOfVotes": 235
+      "rating": 8.4299,
+      "numberOfVotes": 1456
     },
-    "cover": "https://uploads.mangadex.org/covers/b11e84d2-b7cf-4f5e-8b48-e271d41d27fc/a320602a-2514-4c74-a5f3-f71a1e4ec168.jpg",
-    "authorId": "17caee31-8437-47a8-aca3-c655064d42e9",
-    "authorName": "Attsun"
+    "cover": "https://uploads.mangadex.org/covers/ba466d89-3878-4a58-8f17-2e13fca33fc3/27a1a3a7-d873-4519-86e5-8419f05447b8.jpg",
+    "authorId": "93628d94-f228-4426-a774-3eedcfd78414",
+    "authorName": "Morikawa Yuu"
   },
   {
-    "id": "c9926df8-a200-40ba-8c05-0f5b375180c9",
-    "title": "Sayonara Eri",
-    "description": "With his mother dying, Yuta attempts to capture her last days on his phone. After her death, Yuta heads to the roof of the hospital to commit suicide, but a meeting with a strange girl leads him on the path to making a movie.",
-    "type": "shounen",
-    "status": "completed",
-    "year": 2022,
-    "createAt": "2022-04-10T06:34:29+00:00",
-    "updatedAt": "2023-07-26T18:26:53+00:00",
-    "language": "uk pl ru pt-br fr hi el ar id bg es-la",
-    "lastChapter": "e3b3b642-40d0-48da-80fe-8e521358e463",
-    "statistics": {
-      "rating": 9.3122,
-      "numberOfVotes": 2377
-    },
-    "cover": "https://uploads.mangadex.org/covers/c9926df8-a200-40ba-8c05-0f5b375180c9/75ab6313-cfff-4b88-9056-32f1f6690495.jpg",
-    "authorId": "f85a5b93-3c87-4c61-9032-07ceacbb9e64",
-    "authorName": "Fujimoto Tatsuki"
-  },
-  {
-    "id": "13d5ac2b-e606-4f81-81f6-198de2af8536",
-    "title": "PPPPPP",
-    "description": "Gakuon Otogami was a genius pianist whose name is among the greatest in the annals of the music world. He had seven children who also all became genius pianists. All seven except for the one named Lucky that is. This is the miraculous story of a regular kid taking on godly talent!",
-    "type": "shounen",
-    "status": "completed",
-    "year": 2021,
-    "createAt": "2021-10-10T11:55:44+00:00",
-    "updatedAt": "2023-04-20T12:00:28+00:00",
-    "language": "fr es-la en pt-br",
-    "lastChapter": "33b23aca-981c-4c3f-a24f-1a821f9458cb",
-    "statistics": {
-      "rating": 7.7548,
-      "numberOfVotes": 155
-    },
-    "cover": "https://uploads.mangadex.org/covers/13d5ac2b-e606-4f81-81f6-198de2af8536/8210932d-9439-4ebc-afb1-70e94ed4c33e.jpg",
-    "authorId": "d7f5de82-7e73-4f76-ae07-c750d196a573",
-    "authorName": "MAPOLLO 3-go"
-  },
-  {
-    "id": "1caae7cb-9e28-48c4-96a2-9a24ead822ff",
-    "title": "Peach Boy Riverside",
-    "description": "Sarutorine Aldike, or Sari, is a bright, cheerful princess who wants to go on an adventure because she is bored of her tiny little castle in the countryside. One day, a hoard of vicious demons known as “Oni” come knocking on her doorstep, threatening the lives of everyone in the Kingdom. Thankfully, they are saved by a lone traveler named Kibitsu Mikoto who slays these monsters with a mysterious “Peach Eye”. Shocked by the dangers of the outside world, Sari decides to set off on a journey of her own. Little did she know that she will set in motion a chain of events that will come to determine the fate of this magical world.  \n  \nRemake version of Cool Kyoushinsha’s popular webcomic of the same name.",
+    "id": "e182b09f-09ab-4201-8f37-0ced6822eb39",
+    "title": "WataMote: No Matter How I Look at It, It's You Guys' Fault I'm Not Popular!",
+    "description": "Kuroki Tomoko is a super popular, high school girl, who has had 50 years of dating experience, and 100 boys… in the Otome game world. In the real world, she is a 15 year old loner, who has all of the qualities of a \"mojo.\" However, when school isn't going as she expected, and she isn't as popular as she had thought she was, she takes a look at herself in the mirror for the first time in a few years, and has some shocking revelations…",
     "type": "shounen",
     "status": "ongoing",
-    "year": 2015,
-    "createAt": "2019-07-10T20:27:04+00:00",
-    "updatedAt": "2023-09-25T18:00:10+00:00",
-    "language": "pt-br es-la en ru fr",
-    "lastChapter": "e1a624f8-d5ff-4102-a614-154e5c034c5c",
+    "year": 2011,
+    "createAt": "2018-02-08T19:59:21+00:00",
+    "updatedAt": "2023-12-07T00:28:59+00:00",
+    "language": "en pt-br zh pl fr es-la it es",
+    "lastChapter": "83af26f3-4835-4c83-896e-b16b5ded7774",
     "statistics": {
-      "rating": 7.7744,
-      "numberOfVotes": 523
+      "rating": 9.0833,
+      "numberOfVotes": 2400
     },
-    "cover": "https://uploads.mangadex.org/covers/1caae7cb-9e28-48c4-96a2-9a24ead822ff/722e6e98-9f6c-49f8-9293-e36c9d749624.jpg",
-    "authorId": "9df2ffe2-1b7f-4619-93e1-c97aa0f1c0d0",
-    "authorName": "Cool-kyou Shinja"
+    "cover": "https://uploads.mangadex.org/covers/e182b09f-09ab-4201-8f37-0ced6822eb39/cd9ad878-4da1-4ea1-b55f-9687efe0c2bf.jpg",
+    "authorId": "649ba6b6-1120-4acd-9eee-c89b188764ee",
+    "authorName": "Tanigawa Nico"
   },
   {
-    "id": "38777055-6792-401d-a7c2-98dc49d21641",
-    "title": "Oushitsu Kyoushi Haine",
-    "description": "Accepting the post of Royal Tutor at the court of the king of Grannzreich, Heine Wittgenstein is a little professor with a big job ahead! Each of the kingdom's four princes has a rather distinct personality. Does their diminutive new instructor have what it takes to lay down some learning? It's a comedy of educational proportions!",
-    "type": "shounen",
-    "status": "completed",
-    "year": 2013,
-    "createAt": "2018-09-23T12:55:37+00:00",
-    "updatedAt": "2022-05-22T19:02:04+00:00",
-    "language": "es-la ru en fr it",
-    "lastChapter": "5da2f01e-201f-4f27-8819-b710f3e678f7",
-    "statistics": {
-      "rating": 8.1154,
-      "numberOfVotes": 78
-    },
-    "cover": "https://uploads.mangadex.org/covers/38777055-6792-401d-a7c2-98dc49d21641/12ecf925-23eb-419f-9693-716fdbe65bc6.jpg",
-    "authorId": "8dcecac6-c67e-4fd9-928a-3461f24b3742",
-    "authorName": "Akai Higasa"
-  },
-  {
-    "id": "047b49ae-7390-44e5-8a4d-5324c928e351",
-    "title": "Nanbaka",
-    "description": "Welcome to Nanba, the world's largest, most impenetrable prison. Locked away in cell block 13 are four inmates - Juugo, Uno, Rock, and Nico - who provide more than enough trouble for prison guard Sugoroku Hajime to deal with. Between attempted breakouts, gambling and general misbehaviour, these four believe that just because they're in prison doesn't mean they can't have fun.  \n  \nBut it isn't all a barrel of laughs, because our protagonist Juugo is hiding a dark past which may soon come to destroy their idyllic prison life…",
-    "type": "shounen",
-    "status": "completed",
-    "year": 2013,
-    "createAt": "2019-01-31T03:37:02+00:00",
-    "updatedAt": "2023-05-10T03:38:38+00:00",
-    "language": "es-la en fr pt-br es hu pl",
-    "lastChapter": "c5b9c683-5ca8-4768-937b-bea13617c2bf",
-    "statistics": {
-      "rating": 8.5574,
-      "numberOfVotes": 244
-    },
-    "cover": "https://uploads.mangadex.org/covers/047b49ae-7390-44e5-8a4d-5324c928e351/812d5b0f-1e0b-4c94-9890-9604839ba2d5.jpg",
-    "authorId": "4daa3f7e-4f4c-40e6-b6a2-06263249c1e5",
-    "authorName": "Futamata Shou"
-  },
-  {
-    "id": "2bbb5a19-b25f-46fa-b5d3-0ead0f8572fe",
-    "title": "Major 2nd",
-    "description": "A sequel to the successful baseball manga MAJOR by the same author. The series follows Gorou's son Daigo.",
-    "type": "shounen",
-    "status": "ongoing",
-    "year": null,
-    "createAt": "2018-10-25T07:25:43+00:00",
-    "updatedAt": "2023-06-17T00:59:28+00:00",
-    "language": "es ru en pt-br fr",
-    "lastChapter": "95c421aa-d1d1-432c-841b-ba292e35c314",
-    "statistics": {
-      "rating": 8.1386,
-      "numberOfVotes": 101
-    },
-    "cover": "https://uploads.mangadex.org/covers/2bbb5a19-b25f-46fa-b5d3-0ead0f8572fe/4490898b-8676-410c-ab6e-6fe5613d14ee.jpg",
-    "authorId": "dc3324c3-136a-4f94-8ddc-6be611ca9f26",
-    "authorName": "Mitsuda Takuya"
-  },
-  {
-    "id": "192aa767-2479-42c1-9780-8d65a2efd36a",
-    "title": "Gachiakuta",
-    "description": "A slum where criminals' descendants live... People beyond the border look down and discriminate them as \"tribal people.\" Ludo, an orphan boy, lives in the slum with his foster parent, Legt, and makes a living using his extraordinary physical abilities. However, one day, he was accused for a crime he didn't commit., and is thrown into the \"abyss\" which even the slum people fear.\n\n---\nLiving in the slums of a wealthy town, Rudo and his foster father Legto try to coexist with the rest of the town's residents, but Rudo despises the wastefulness of the upper class. Ignoring the warnings from those around him, Rudo regularly rummages through the town's garbage in search of anything useful or valuable to save from the \"Abyss\"—a massive hole where anything considered trash is dumped, including people. Rudo's biological father was one such person, having been thrown into the Abyss after he was accused of murder.\n\nOne day, after running into a mysterious figure on the way home, Rudo returns to find Legto's dying body on the floor. He is immediately found at the scene by the authorities and is charged with murder. No one believes his claims of innocence, and he is thrown into the Abyss. Instead of dying, however, he finds himself in a strange, foul-smelling place surrounded by monsters made out of trash.\n\nWhen Rudo is attacked by said monsters, he is saved by a man named Engine, who reveals himself to be a \"janitor\"—someone who uses special weapons called \"jinkis\" to combat these creatures. In order to get his revenge on the one who killed Legto, Rudo reluctantly becomes a janitor to fight his way back up and out of the Abyss.\n\n---\n**Links:**\n- Alternative Official English - [K MANGA](https://kmanga.kodansha.com/title/10010/episode/325146) (U.S. Only)",
-    "type": "shounen",
-    "status": "ongoing",
-    "year": 2022,
-    "createAt": "2022-02-15T16:47:55+00:00",
-    "updatedAt": "2023-12-05T20:15:34+00:00",
-    "language": "pt-br fr en ru vi id es-la fa es hi",
-    "lastChapter": "8b82aa7a-dacc-425e-ae57-1f7417252ca2",
-    "statistics": {
-      "rating": 8.9379,
-      "numberOfVotes": 2673
-    },
-    "cover": "https://uploads.mangadex.org/covers/192aa767-2479-42c1-9780-8d65a2efd36a/04cafdd8-57b3-4892-a9a6-c1bb33b11335.jpg",
-    "authorId": "16e9e22c-160d-4370-a4f5-7c203c2ed9c6",
-    "authorName": "Urana Kei"
-  },
-  {
-    "id": "56901ae8-aece-4983-96c3-94751c96a8bb",
-    "title": "Bocchi the Rock! Gaiden: Hiroi Kikuri no Fukazake Nikki",
-    "description": "Kikuri Hiroi (25 years old). She is a \"genius bassist\" who leads the indie band \"SICK HACK\", and she loves alcohol. She often gets drunk and breaks the equipment of the live house, so she seems to be short of money. She lives in a 52-year-old apartment without a bath, and sometimes borrows showers from her friends and acquaintances. She is regularly attacked by anxiety about her future, which she counters with a \"happiness spiral\" with the help of alcohol. What is her daily life like...?!",
-    "type": "seinen",
+    "id": "be2efc56-1669-4e42-9f27-3bd232bca8ea",
+    "title": "Ningen ni Koisuru Shinigami-chan",
+    "description": "_\"You can see me again?\"_\n\nOne day \"Human\" was overworked from his black company and about to die... and saw a Grim Reaper! But even though her job is to collect souls, \"Grim-chan\" instead takes care of \"Human\" so he doesn't die....?",
+    "type": null,
     "status": "ongoing",
     "year": 2023,
-    "createAt": "2023-06-09T18:21:20+00:00",
-    "updatedAt": "2024-01-01T11:29:50+00:00",
-    "language": "pt-br es-la ru en vi fr",
-    "lastChapter": "0185d71e-62d2-4566-adf9-960f3afde69d",
+    "createAt": "2023-05-30T22:12:03+00:00",
+    "updatedAt": "2023-11-14T17:26:11+00:00",
+    "language": "en fr id th pt-br pl ru vi tr",
+    "lastChapter": "e574a477-b712-4dd9-9b17-9f49e01e002e",
     "statistics": {
-      "rating": 9.447,
-      "numberOfVotes": 443
+      "rating": 8.5971,
+      "numberOfVotes": 1221
     },
-    "cover": "https://uploads.mangadex.org/covers/56901ae8-aece-4983-96c3-94751c96a8bb/ce7be9eb-e2bb-4193-8c0e-3cb4a25f991c.jpg",
-    "authorId": "e878caa1-b648-49fd-983c-e9d7f7231258",
-    "authorName": "Kumichou"
+    "cover": "https://uploads.mangadex.org/covers/be2efc56-1669-4e42-9f27-3bd232bca8ea/81ebe544-0b20-4306-b7ba-0200ade0b527.jpg",
+    "authorId": "54afc776-70e6-482c-a24f-8e592ba30ce5",
+    "authorName": "Mito"
   },
   {
-    "id": "ab7e979e-0b5f-43d9-bb9b-9dbff5994b77",
-    "title": "Ochibi-san",
-    "description": "\"I can help you laugh, but I can't take away the tears you've shed.\" In Mametsubu-cho, a town somewhere in the ancient Japanese city of Kamakura, Ochibi-san lives a relaxed, easy life. With his friend Nazeni the dog, Jack the naughty kitten, and Pankui the hungry dog, Ochibi-san's year in Mametsubu-cho is filled with encounters and new discoveries! Flower-viewing in spring, swimming in summer, collecting leaves in fall, and eating yummy food in winter.",
-    "type": "seinen",
-    "status": "completed",
-    "year": 2008,
-    "createAt": "2019-06-15T18:53:34+00:00",
-    "updatedAt": "2023-07-18T16:55:54+00:00",
-    "language": "en fr",
-    "lastChapter": "8e91ffe8-1acd-4533-bc28-76a3149851a3",
+    "id": "f43aab98-8bfe-4275-97cc-9a7b7635eb80",
+    "title": "Rikei ga Koi ni Ochita no de Shoumei shitemita",
+    "description": "Yukimura Shinya and Himuro Ayame are two scientists that want to find out if love can be solved by a scientific theory. These two scientists also have feelings for each other and want to be able to solve their true feelings through similar theoretical facts. With this perfect opportunity, these scientists will attempt to solve the theory of the love they express for each other.",
+    "type": null,
+    "status": "ongoing",
+    "year": 2016,
+    "createAt": "2019-01-05T22:53:34+00:00",
+    "updatedAt": "2023-12-27T20:55:37+00:00",
+    "language": "en es-la ru pt-br es fr",
+    "lastChapter": "d40b1bdc-3ffb-4c85-a45d-9096b588e2c9",
     "statistics": {
-      "rating": 8.6,
-      "numberOfVotes": 5
+      "rating": 8.4735,
+      "numberOfVotes": 906
     },
-    "cover": "https://uploads.mangadex.org/covers/ab7e979e-0b5f-43d9-bb9b-9dbff5994b77/9556c8c7-5355-4087-8995-9a3898b4a408.jpg",
-    "authorId": "89146f4a-25f9-41a4-bf5b-4015aaed5ad4",
-    "authorName": "Anno Moyoco"
+    "cover": "https://uploads.mangadex.org/covers/f43aab98-8bfe-4275-97cc-9a7b7635eb80/15470273-911b-4fdc-95c2-a93a33e29daf.jpg",
+    "authorId": "ab3269ab-8ac1-439f-b87e-a9870ef6d0a9",
+    "authorName": "Yamamoto Alfred"
+  },
+  {
+    "id": "c52b2ce3-7f95-469c-96b0-479524fb7a1a",
+    "title": "Jujutsu Kaisen",
+    "description": "Yuuji is a genius at track and field. But he has zero interest running around in circles, he's happy as a clam in the Occult Research Club. Although he's only in the club for kicks, things get serious when a real spirit shows up at school! Life's about to get really strange in Sugisawa Town #3 High School!",
+    "type": "shounen",
+    "status": "ongoing",
+    "year": 2018,
+    "createAt": "2019-06-17T23:08:00+00:00",
+    "updatedAt": "2023-12-16T09:31:09+00:00",
+    "language": "it hu pt-br ru en es-la ar fr vi uk he th id zh-hk es de  sr mn ms tr cs",
+    "lastChapter": "f88237e7-a126-48b5-a212-fd280104f27d",
+    "statistics": {
+      "rating": 9.1548,
+      "numberOfVotes": 7488
+    },
+    "cover": "https://uploads.mangadex.org/covers/c52b2ce3-7f95-469c-96b0-479524fb7a1a/40dfaef9-0360-4086-b0d2-d655579bf1d0.jpg",
+    "authorId": "94be1d47-54d0-42c6-b42b-439605e3793f",
+    "authorName": "Akutami Gege"
+  },
+  {
+    "id": "cb5e512c-b0c4-45b3-8de9-bec98f38285d",
+    "title": "I Raised My Fiancé with Money",
+    "description": "Overflowing wealth, exceptional looks.\nIllya Blodin's life was perfect.\n\nUntil she witnessed her fiancé's affair, that is.\n\n\"I changed everything, my taste, my hobbies, I accommodated his every wish... But I won't live like a pushover any longer. I'll get a perfect break up!\"\n\nFor the perfect break up, she finds a new fiancé, Karhan Evantheon.\nShe tried to shield herself with Karhan's fearsome reputation, but...\n\n\"I found this flower on the battlefield, and I really wanted Illya to see it.\"\n\nTurns out, he was a cute puppy?! Will this engagement be okay?",
+    "type": null,
+    "status": "ongoing",
+    "year": 2023,
+    "createAt": "2023-12-31T19:01:02+00:00",
+    "updatedAt": "2023-12-31T19:01:09+00:00",
+    "language": "en fr pl",
+    "lastChapter": "8df90b59-97ec-4781-af59-6d491ae4c658",
+    "statistics": {
+      "rating": 8.6892,
+      "numberOfVotes": 74
+    },
+    "cover": "https://uploads.mangadex.org/covers/cb5e512c-b0c4-45b3-8de9-bec98f38285d/9e20b846-53ce-46b3-80de-f273b6a24f9e.jpg",
+    "authorId": "f6c45f4b-43bd-4281-8eda-4f54759ec012",
+    "authorName": "Yeonseo-na"
+  },
+  {
+    "id": "64e4a2fa-98ed-40f6-a51b-368648e27970",
+    "title": "Living with the Emperor",
+    "description": "Heartache, competition, and the behind the scenes battles of the imperial harem; an ancient story based upon revenge.  \n  \nFrench : Être en compagnie de l'empereur équivaut à vivre avec un tigre.  \nUn jour, Ling Su'er a sauvé le prince héritier qui s'était évanoui à la suite d'une blessure grave en pleine forêt.   \nComme elle avait besoin l'aide du prince héritier sur une autre question, Ling Su'er était prête à le protéger des autres princes.   \nMais tout n'est pas si paisible. Entre les combats dans le harem, la vengeance et les luttes pour le trône, Ling Su'er peut-elle rester innocente ?   \nVictime de traitrise et de préjudice, Ling Su'er regrettera-t-elle d'avoir sauvé le prince héritier ?",
+    "type": "shoujo",
+    "status": "ongoing",
+    "year": null,
+    "createAt": "2019-12-05T17:07:06+00:00",
+    "updatedAt": "2021-05-25T15:43:11+00:00",
+    "language": "fr en es-la",
+    "lastChapter": "6a7070f1-1a8a-4ce9-8a87-4ee4d70a073f",
+    "statistics": {
+      "rating": 7.5,
+      "numberOfVotes": 30
+    },
+    "cover": "https://uploads.mangadex.org/covers/64e4a2fa-98ed-40f6-a51b-368648e27970/0b81ec72-c53b-4260-a7b8-d43d76a4e943.jpg",
+    "authorId": "924b92c4-e39d-4665-935e-ab28ec1fc35f",
+    "authorName": "Douzimiaomiao"
+  },
+  {
+    "id": "251afc21-8932-464b-906f-eeb976a14e55",
+    "title": "Strange and Mysterious Daily Tales!",
+    "description": "It was suppose to be just a normal commuter train, but then they notice that all the other passengers have disappeared, and there are only four JKs left...! Although they have never met each other before, they get off the train at the next station, and start thinking about how to make their way home...?\n\nThis is the rumored supernatural train station...?\nLost and unable to return home!\nThe strange daily life of the four JKs begins...!",
+    "type": null,
+    "status": "ongoing",
+    "year": 2023,
+    "createAt": "2023-09-27T04:54:44+00:00",
+    "updatedAt": "2023-10-03T19:21:10+00:00",
+    "language": "fr en",
+    "lastChapter": "a2667479-3d3b-466d-b248-fd987deaa88a",
+    "statistics": {
+      "rating": 8.439,
+      "numberOfVotes": 41
+    },
+    "cover": "https://uploads.mangadex.org/covers/251afc21-8932-464b-906f-eeb976a14e55/f0a740af-ac19-4763-aec3-4983ced68a0a.jpg",
+    "authorId": "b6f81788-92f5-4c60-88a2-3b40354c6b40",
+    "authorName": "Taruharu"
+  },
+  {
+    "id": "be40e32e-7aea-4e22-a4a2-773530540990",
+    "title": "A Dance of Swords in the Night",
+    "description": "The Mystic Lunar Dance Troupe took in Jin Sohan as an orphan, and he spent his childhood with them. But one day, one of the four great demons, the Venom Demon, discovered that he was special and kidnapped him. After all kinds of tests, he decided to raise him as his disciple. Ten years later, Jin Sohan tried to look for traces of the Mystic Lunar Dance Troupe, but the Sword Dance Troupe had already been destroyed at the hands of the Unorthodox Faction that’s now ruling over his hometown.\n\n---\nKidnapped as a child to be trained in the art of poison, Sohan Jin returns to his hometown in search of the group of New Moon Sword Dancers who raised him. However, upon his return, Sohan discovers the sword dancers have been defeated by a nefarious sect that now rules the area, with some members having been abducted. What would have been a heartwarming reunion transforms into a quest for revenge as Sohan begins his search for the remaining sword dancers, and he’s willing to poison anyone who gets in his way.\n\n---\n**Original Novel:** [Chapters](https://series.naver.com/novel/detail.series?productNo=5612093), [Volumes](https://series.naver.com/novel/detail.series?productNo=5612161)\n\n**Original Webtoon:** [Naver Series](https://series.naver.com/comic/detail.series?productNo=8530460), [Naver Webtoon](https://comic.naver.com/webtoon/list?titleId=795542)\n\n**Official Translations:**\n* [English](https://www.webtoons.com/en/action/a-dance-of-swords-in-the-night/list?title_no=4596)\n* [Chinese (Simplified) / 汉语](https://www.dongmanmanhua.cn/ANCIENTCHINESE/zuijianyexing/list?title_no=2219)\n* [Japanese / 日本語](https://manga.line.me/product/periodic?id=Z0002659)",
+    "type": null,
+    "status": "ongoing",
+    "year": 2022,
+    "createAt": "2022-06-07T19:50:49+00:00",
+    "updatedAt": "2023-07-29T12:00:33+00:00",
+    "language": "en fr pt-br id",
+    "lastChapter": "6bb59219-9cba-43ea-a7bc-c26651be6eca",
+    "statistics": {
+      "rating": 8.25,
+      "numberOfVotes": 88
+    },
+    "cover": "https://uploads.mangadex.org/covers/be40e32e-7aea-4e22-a4a2-773530540990/8c247499-9bfe-42b2-bde6-c3d28e4ad25c.jpg",
+    "authorId": "609dd074-1e2a-4f81-9a73-c7a217329d94",
+    "authorName": "Yu Jin Sung (유진성)"
+  },
+  {
+    "id": "f89ed57a-e4c0-48f5-b664-8ef88aa87fd9",
+    "title": "I Shall Master This Family",
+    "description": "I've reincarnated as Firentia Lombardy, the illegitimate daughter of the wealthiest and most influential family in the Empire. I thought I was all set to have a comfortable and luxurious life… but it wasn't long before my beloved father died, my relatives kicked me out, and our family went bankrupt!!\n\nTo add insult to injury, I was hit by a carriage one day when I drank (a bit too much) booze to drown my sorrows… but my despair was only temporary. When I opened my eyes, I found that I'd traveled back in time to when I was 7 years old!\n\nI was surprised to see my father again in the flesh. But as if that wasn't already shocking enough, the 2nd prince, our family's once sworn enemy, was now following me around like a dog!\n\nNow that I've been given a second chance at life, I'll take things into my own hands and claim both the 2nd prince and my family for myself!\n\n---\n**Links:**\n* Alternative Official English - [Tapas](https://tapas.io/series/i-shall-master-this-family/info)",
+    "type": null,
+    "status": "ongoing",
+    "year": 2021,
+    "createAt": "2020-12-24T08:55:47+00:00",
+    "updatedAt": "2023-12-25T20:35:37+00:00",
+    "language": "pl en fr pt-br uk cs id ru vi",
+    "lastChapter": "60232b4a-52dd-4e02-98d9-f966088ace9a",
+    "statistics": {
+      "rating": 9.3267,
+      "numberOfVotes": 3939
+    },
+    "cover": "https://uploads.mangadex.org/covers/f89ed57a-e4c0-48f5-b664-8ef88aa87fd9/8deb6809-72af-4b3a-83ec-9ada79cd0fa7.jpg",
+    "authorId": "1c157033-eb0a-494e-95bc-6bf98ca466ca",
+    "authorName": "Ant Studio"
+  },
+  {
+    "id": "296cbc31-af1a-4b5b-a34b-fee2b4cad542",
+    "title": "【Oshi no Ko】",
+    "description": "The story begins with a beautiful girl, her perfectly fake smile, and the people who love her selfishly for it.  \n  \nWhat transpires behind the scenes of the glittering showbiz industry? How far would you go for the sake of your beloved idol? What would you do if you found out reincarnation was real? The star of the show is Aquamarine Hoshino and the stage is but a mere facade. Will he manage to reach the climax before the world of glamour swallows him whole?",
+    "type": "seinen",
+    "status": "ongoing",
+    "year": 2020,
+    "createAt": "2020-06-09T11:47:02+00:00",
+    "updatedAt": "2023-12-27T06:28:10+00:00",
+    "language": "fr en fa pt-br ru vi id es-la el it ar uk tr cs th",
+    "lastChapter": "3417f2ee-8794-4854-bfbe-ea9b991ac48d",
+    "statistics": {
+      "rating": 9.2971,
+      "numberOfVotes": 8849
+    },
+    "cover": "https://uploads.mangadex.org/covers/296cbc31-af1a-4b5b-a34b-fee2b4cad542/8564d11b-1e50-4c60-91be-ea5ccb924996.jpg",
+    "authorId": "23141aa2-5074-4daf-882b-658b2c2e649b",
+    "authorName": "Akasaka Aka"
+  },
+  {
+    "id": "4809bb6c-1af2-41c5-9291-983027602d7f",
+    "title": "SHY",
+    "description": "In the middle of the 21st century, the world was on the brink of World War III. But superheroes from across the globe appeared and helped bring an era of peace. With the crisis averted, the Heroes returned to their home countries where they now help with domestic matters. This is the story about the young Japanese heroine named \"Shy\"…",
+    "type": "shounen",
+    "status": "ongoing",
+    "year": 2019,
+    "createAt": "2020-02-10T15:54:45+00:00",
+    "updatedAt": "2023-12-05T18:30:29+00:00",
+    "language": "ru fr pt-br es-la en id th tr it vi",
+    "lastChapter": "42476bb3-604d-44c8-a2f1-ca8537893909",
+    "statistics": {
+      "rating": 8.4144,
+      "numberOfVotes": 1554
+    },
+    "cover": "https://uploads.mangadex.org/covers/4809bb6c-1af2-41c5-9291-983027602d7f/26dd1c38-eb96-4bcc-a727-50bc1a780d1e.jpg",
+    "authorId": "42b5c05d-9645-43a7-a24c-abe877bb808a",
+    "authorName": "Miki Bukimi"
   }
 ]
