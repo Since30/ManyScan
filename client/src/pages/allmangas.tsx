@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { fetchManga } from '../services/MangaTheqApi';
-import AnimeObjects from '../interfaces/animeObjects';
+import MangaObjects from '../interfaces/mangaObjects';
 import StarRating from '../components/svg/StarRating';
 import Pagination from '../components/Pagination';
 import Cover from '../components/Cover';
@@ -12,7 +12,7 @@ import { FaRegHeart, FaHeart } from "react-icons/fa";
 import * as mangaApi from '../services/MangaTheqApi';
 
 const AllMangas = () => {
-    const [animes, setAnimes] = useState<AnimeObjects[]>([]);
+    const [mangas, setMangas] = useState<MangaObjects[]>([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [favorites, setFavorites] = useState<Set<string>>(new Set());
 
@@ -25,7 +25,7 @@ const AllMangas = () => {
     useEffect(() => {
         const loadData = async () => {
             const mangaData = await fetchManga(currentPage, MANGAS_PER_PAGE);
-            setAnimes(mangaData || []);
+            setMangas(mangaData || []);
         };
 
         loadData();
@@ -54,35 +54,35 @@ const AllMangas = () => {
             </h1>
 
             <div className='flex flex-wrap justify-center mx-2'>
-                {animes.map((anime) => (
-                        <div key={anime.id} className='m-4 cursor-pointer'>
+                {mangas.map((manga) => (
+                        <div key={manga.id} className='m-4 cursor-pointer'>
                             <div className='flex flex-col justify-center items-center w-60 h-96 text-center rounded-md bg-white border-2 border-red-500 shadow-lg'>
-                            <Link key={anime.id} href={`/animes/${anime.id}`}>    
+                            <Link key={manga.id} href={`/mangas/${manga.id}`}>    
                             <div className="w-44 h-64 overflow-hidden">
-                                <Cover anime={anime} width={176} height={250} />
+                                <Cover manga={manga} width={176} height={250} />
                             </div>
                             </Link>
                                 <div className='flex justify-between w-[80%] mt-3 pl-2'>
                                     <div className='flex flex-col items-start w-[90%]'>
                                         <h3 className='font-semibold text-start text-lg text-gray-900 line-clamp-2 overflow-hidden overflow-ellipsis'>
-                                            {anime.title ?? 'Titre'}
+                                            {manga.title ?? 'Titre'}
                                         </h3>
                                         <p className='font-regular text-xs text-gray-900 text-start'>
-                                            {anime.authorName ?? 'Auteur'}
+                                            {manga.authorName ?? 'Auteur'}
                                         </p>
                                     </div>
                                     <div className='flex flex-col items-center'>
                                         <span className='text-sm text-gray-900'>
                                             <StarRating
-                                                rating={anime.statistics.rating}
-                                                animeId={anime.id}
+                                                rating={manga.statistics.rating}
+                                                mangaId={manga.id}
                                             />
-                                            {anime.statistics.numberOfVotes ??
+                                            {manga.statistics.numberOfVotes ??
                                                 '0'}{' '}
                                             votes
                                         </span>
-                                        <div onClick={() => toggleFavorite(anime.id)}>
-                                        {favorites.has(anime.id) ? <FaHeart /> : <FaRegHeart />}
+                                        <div onClick={() => toggleFavorite(manga.id)}>
+                                        {favorites.has(manga.id) ? <FaHeart /> : <FaRegHeart />}
                                     </div>
                                     </div>
                                 </div>

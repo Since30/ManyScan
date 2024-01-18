@@ -5,7 +5,7 @@ type statistics = {
     numberOfVotes: number;
 };
 
-export default interface AnimeObjects {
+export default interface MangaObjects {
     id: string;
     title: string;
     description?: string;

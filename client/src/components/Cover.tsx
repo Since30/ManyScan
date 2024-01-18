@@ -1,13 +1,14 @@
 
-import AnimeObjects from '../interfaces/animeObjects';
+import MangaObjects from '../interfaces/mangaObjects';
 
 interface Props {
-    anime: AnimeObjects;
+    manga: MangaObjects;
     width: number;
     height: number;
+   
 }
 
-const Cover: React.FC<Props> = ({ anime, width, height }) => {
+const Cover: React.FC<Props> = ({ manga, width, height,  }) => {
 
    
 
@@ -15,10 +16,11 @@ const Cover: React.FC<Props> = ({ anime, width, height }) => {
         <div className='relative'>
             <img
                 className='mx-auto rounded-sm'
-                src={anime.cover}
-                alt={`Couverture de ${anime.title}`}
+                src={manga.cover}
+                alt={`Couverture de ${manga.title}`}
                 width={width}
                 height={height}
+                
             />
        
         </div>

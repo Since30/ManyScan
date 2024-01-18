@@ -196,12 +196,9 @@ const MangaDetailPage: React.FC = () => {
                     </div>
                 )}
                 <div>
-            {/* Affichage des détails du manga */}
+           
             {manga && (
                 <>
-                    {/* Afficher les détails du manga ici... */}
-
-                    {/* Section des commentaires */}
                     <ReviewsSection mangaId={manga.id} />
                 </>
             )}

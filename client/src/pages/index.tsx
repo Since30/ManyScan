@@ -1,22 +1,22 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Header from '../components/header';
-import TopAnimeCard from '../cards/TopAnimeCard';
-import DiscoverAnimeCard from '../cards/DiscoverAnimeCard';
-import NewAnimeCard from '../cards/NewAnimeCard';
-import TopVerticalAnimeCard from '../cards/TopVerticalAnimeCard';
+import TopMangaCard from '../cards/TopMangaCard';
+import DiscoverMangaCard from '../cards/DiscoverMangaCard';
+import NewMangaCard from '../cards/NewMangaCard';
+import TopVerticalMangaCard from '../cards/TopVerticalMangaCard';
 import { fetchManga } from '../services/MangaTheqApi';
-import AnimeObjects from '../interfaces/animeObjects';
+import MangaObjects from '../interfaces/mangaObjects';
 import Footer from '../components/footer';
 
 export default function Home() {
-  const [animes, setAnimes] = useState<AnimeObjects[]>([]);
+  const [mangas, setMangas] = useState<MangaObjects[]>([]);
 
   useEffect(() => {
     const loadData = async () => {
       const mangaData = await fetchManga(1,20);
 
-      setAnimes(mangaData || []);
+      setMangas(mangaData || []);
     };
 
     loadData();
@@ -29,26 +29,26 @@ export default function Home() {
       <div className="lg:flex">
         <div className="lg:w-3/4">
           <div className="lg:flex">
-            {animes.length > 0 && (
+            {mangas.length > 0 && (
               <div className="w-full lg:w-3/4 mt-12">
               
-                <TopAnimeCard animes={animes[0]} />
+                <TopMangaCard mangas={mangas[0]} />
               </div>
             )}
-            {animes.length > 1 && (
+            {mangas.length > 1 && (
               <div className="w-full lg:w-1/4 mt-12">
                 
-                <DiscoverAnimeCard anime={animes[1]} />
+                <DiscoverMangaCard mangas={mangas[1]} />
               </div>
             )}
           </div>
           <div className="w-full">
-            <NewAnimeCard animes={animes} />
+            <NewMangaCard mangas={mangas} />
           </div>
         </div>
         <div className="lg:w-1/4 mt-12">
       
-          <TopVerticalAnimeCard animes={animes} title="Top Vertical" />
+          <TopVerticalMangaCard mangas={mangas} title="Top Vertical" />
         </div>
       </div>
       <Footer />
