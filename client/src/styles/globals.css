@@ -33,3 +33,13 @@ a {
   width: 80%;
   max-width: 500px;
 }
+
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  margin-left: 10px;
+  border-radius: 9999px;
+  background-color: red;
+  color: white;
+  font-size: 0.8rem;
+}

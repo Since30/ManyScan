@@ -24,6 +24,11 @@ const contactSchema = mongoose.Schema({
     trim: true,
   },
 
+  read: {
+    type: Boolean,
+    default: false,
+  },
+
   createdAt: {
     type: Date,
     default: Date.now, // Enregistre la date de soumission du formulaire
