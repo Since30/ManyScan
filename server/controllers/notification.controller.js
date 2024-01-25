@@ -58,6 +58,28 @@ const sendEmailSuccessRestPassword = async (email) => {
         console.error('Email sending failed:', error);
     }
 };
+const sendEmailNewReviewFromMangaId = async () => {
+    console.log('Attempting to send notification email...');
+    const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
+    apiInstance.apiKey = apiKey;
+    
+    const sendSmtpEmail = new SendSmtpEmail();
+    sendSmtpEmail.sender = { email: 'manyscan.manga@outlook.com', name: 'Many_Scan' };
+    sendSmtpEmail.to = [{"email":'thexav01@outlook.fr'}];
+    sendSmtpEmail.subject = 'Un nouveau utilisateur s\'est enregisté sur ManyScan';
+    sendSmtpEmail.templateId = 26;
+    sendSmtpEmail.params = {
+        "NEW_USER_REGISTER": `${process.env.HOME_API_LINK}`
+    }
+
+    // Envoyez l'email via l'API SendingBlue
+    try {
+        await apiInstance.sendTransacEmail(sendSmtpEmail);
+        console.log('Email sent successfully');
+    } catch (error) {
+        console.error('Email sending failed:', error);
+    }
+};
 const sendEmailNewUserRegister = async (username, email) => {
     console.log('Attempting to send notification email...');
     const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
@@ -81,5 +103,5 @@ const sendEmailNewUserRegister = async (username, email) => {
     } catch (error) {
         console.error('Email sending failed:', error);
     }
-}
+};
 module.exports = { sendEmailReinitPassword, sendEmailSuccessRestPassword, sendEmailNewUserRegister };
